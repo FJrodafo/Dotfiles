@@ -1,0 +1,38 @@
+Insert the pendrive into the laptop
+Start up the laptop and select
+{
+Arch Linux install medium (x86_64, BIOS)
+}
+
+
+#root@archiso
+{
+iwctl --passphrase PASS1234 station wlan0 connect ROUTER
+pacman -Sy archinstall
+archinstall
+}
+
+
+Set Up
+{
+sudo pacman -Syu
+sudo pacman -S neofetch
+sudo pacman -S cmatrix
+sudo pacman -S code
+sudo pacman -S git
+git clone https://aur.archlinux.org/jdk.git
+cd jdk
+makepkg -si
+}
+
+
+Programs
+{
+neofetch
+cmatrix
+code
+git --version
+java --version
+javac --version
+python --version
+}

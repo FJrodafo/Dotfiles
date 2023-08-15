@@ -1,0 +1,45 @@
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+
+# Git branch
+parse_git_branch() {
+    # git rev-parse --abbrev-ref HEAD 2> /dev/null
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+
+# User
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;34m\]\w\[\033[00m\]]\[\033[01;33m\]$(parse_git_branch)\[\033[00m\]\n╰─╴\[\033[01;33m\]\$\[\033[00m\] '
+else
+    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\w]$(parse_git_branch)\n╰─╴\$ '
+fi
+
+
+# Root
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}╭╴\[\033[01;37m\]\u\[\033[00m\]@\h[\[\033[01;34m\]\w\[\033[00m\]]\[\033[01;33m\]$(parse_git_branch)\[\033[00m\]\n╰─╴\[\033[01;33m\]\$\[\033[00m\] '
+else
+    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\w]$(parse_git_branch)\n╰─╴\$ '
+fi
+
+
+# Custom Commands
+alias cl='clear && neofetch'
+alias backup='cd $HOME && ./.Backup.sh'
+
+alias ijavajavac='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts && ./Install_java_and_javac.sh'
+alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
+alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
+
+alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+
+alias yamato='cd $HOME/Documents/Git_Repos/YamatoBOT && node deploy-commands.js && node index.js'
+alias inodenpm='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts && ./Install_node_and_npm.sh'
+export PATH=$PATH:/home/fjrodafo/nodejs/bin
+
+alias neofetch='neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
+neofetch
