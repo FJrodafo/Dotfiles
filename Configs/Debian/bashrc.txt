@@ -31,6 +31,8 @@ fi
 alias cl='clear && neofetch'
 alias backup='cd $HOME && ./.Backup.sh'
 
+alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
+
 alias ijavajavac='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts && ./Install_java_and_javac.sh'
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
