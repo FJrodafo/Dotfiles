@@ -28,7 +28,7 @@ fi
 
 
 # Custom Commands
-alias cl='clear && neofetch'
+alias cl='clear && neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
 alias backup='cd $HOME && ./.Backup.sh'
 
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
