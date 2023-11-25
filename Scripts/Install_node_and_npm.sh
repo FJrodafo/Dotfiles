@@ -6,7 +6,6 @@
 if node --version && npm --version; then
     clear && neofetch --ascii /home/fjrodafo/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt
     echo "You currently have Nodejs installed!"
-    node --version && npm --version
 else
     clear && cd ~/Downloads
     # Check the version!
