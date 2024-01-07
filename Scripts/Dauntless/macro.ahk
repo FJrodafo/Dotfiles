@@ -6,7 +6,8 @@ SendMode Input
 
 toggle := false
 dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
-soundFilePath := "C:\Users\Franchu\Downloads\ding.wav"
+soundFilePath1 := "C:\Users\Franchu\Downloads\ding.wav"
+soundFilePath2 := "C:\Users\Franchu\Downloads\Bamboo.mp3"
 keyToSend := "0"  ; Make sure this is the correct key
 
 ; Close the script when the game closes
@@ -17,7 +18,9 @@ F5::
     toggle := !toggle
 
     if (toggle) {
-        SoundPlay, %soundFilePath%
+        SoundPlay, %soundFilePath1%
+    } else {
+        SoundPlay, %soundFilePath2%
     }
 
     while (toggle) {
