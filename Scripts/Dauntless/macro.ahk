@@ -8,7 +8,7 @@ toggle := false
 dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
 soundFilePath1 := "C:\Users\Franchu\Downloads\ding.wav"
 soundFilePath2 := "C:\Users\Franchu\Downloads\Bamboo.mp3"
-keyToSend := "0"  ; Make sure this is the correct key
+keyToSend := "m"  ; Make sure this is the correct key
 
 ; Close the script when the game closes
 WinWaitClose, % "ahk_id " WinExist(dauntlessExe)
