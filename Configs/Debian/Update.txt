@@ -9,7 +9,6 @@ sudo apt install cbonsai -y
 sudo apt install cmatrix -y
 sudo apt install gimp -y
 sudo apt install git -y
-sudo apt install kdenlive -y
 sudo apt install libreoffice -y
 sudo apt install neofetch -y
 sudo apt install vlc -y
