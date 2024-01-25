@@ -9,6 +9,8 @@ dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
 soundFilePath1 := "C:\Users\Franchu\Downloads\ding.wav"
 soundFilePath2 := "C:\Users\Franchu\Downloads\Bamboo.mp3"
 keyToSend := "m"  ; Make sure this is the correct key
+emotekey := "b"
+jumpkey := "f"
 
 ; Close the script when the game closes
 WinWaitClose, % "ahk_id " WinExist(dauntlessExe)
@@ -30,5 +32,14 @@ F5::
     }
 return
 
+F6::
+    ControlSend,, {%emotekey% Down}, Dauntless
+    Sleep, 400
+    ControlSend,, {%emotekey% Up}, Dauntless
+    Sleep, 2000
+    ControlSend,, {%jumpkey% Down}, Dauntless
+    ControlSend,, {%jumpkey% Up}, Dauntless
+return
+
 !r::Reload  ; Alt + R to reload the script
-~F6::ExitApp  ; F6 to exit the script
+~F7::ExitApp  ; F6 to exit the script
