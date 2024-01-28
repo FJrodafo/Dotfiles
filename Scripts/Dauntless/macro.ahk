@@ -8,7 +8,7 @@ toggle := false
 dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
 soundFilePath1 := "C:\Users\Franchu\Downloads\ding.wav"
 soundFilePath2 := "C:\Users\Franchu\Downloads\Bamboo.mp3"
-keyToSend := "m"  ; Make sure this is the correct key
+keyToSend := "F1"  ; Make sure this is the correct key
 emotekey := "b"
 jumpkey := "f"
 
@@ -16,7 +16,7 @@ jumpkey := "f"
 WinWaitClose, % "ahk_id " WinExist(dauntlessExe)
 ExitApp
 
-F5::
+F2::
     toggle := !toggle
 
     if (toggle) {
@@ -32,7 +32,7 @@ F5::
     }
 return
 
-F6::
+F3::
     ControlSend,, {%emotekey% Down}, Dauntless
     Sleep, 400
     ControlSend,, {%emotekey% Up}, Dauntless
@@ -42,4 +42,4 @@ F6::
 return
 
 !r::Reload  ; Alt + R to reload the script
-~F7::ExitApp  ; F6 to exit the script
+~F4::ExitApp  ; F4 to exit the script
