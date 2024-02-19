@@ -6,9 +6,10 @@ SendMode Input
 
 toggle := false
 dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
-soundFilePath1 := "C:\Users\Franchu\Downloads\ding.wav"
-soundFilePath2 := "C:\Users\Franchu\Downloads\Bamboo.mp3"
-keyToSend := "F1"  ; Make sure this is the correct key
+soundFilePath1 := "C:\Users\Franchu\Downloads\Macro\ding.wav"
+soundFilePath2 := "C:\Users\Franchu\Downloads\Macro\Bamboo.mp3"
+keyToSend := "ins"  ; Make sure this is the correct key
+inventorykey := "i"
 emotekey := "b"
 jumpkey := "f"
 
@@ -16,7 +17,7 @@ jumpkey := "f"
 WinWaitClose, % "ahk_id " WinExist(dauntlessExe)
 ExitApp
 
-F2::
+F1::
     toggle := !toggle
 
     if (toggle) {
@@ -32,13 +33,23 @@ F2::
     }
 return
 
+F2::
+    ControlSend,, {%inventorykey%}, Dauntless
+    Sleep, 320
+    Click 1140, 870
+    Sleep, 320
+    Click 780, 870
+    Sleep, 320
+    ControlSend,, {%inventorykey%}, Dauntless
+    Sleep, 320
+return
+
 F3::
     ControlSend,, {%emotekey% Down}, Dauntless
     Sleep, 400
     ControlSend,, {%emotekey% Up}, Dauntless
     Sleep, 2000
-    ControlSend,, {%jumpkey% Down}, Dauntless
-    ControlSend,, {%jumpkey% Up}, Dauntless
+    ControlSend,, {%jumpkey%}, Dauntless
 return
 
 !r::Reload  ; Alt + R to reload the script
