@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the folder containing the .png files (relative to the script)
-folder="./folder_with_images"
+folder="./path/folder_with_images"
 
 # Output JSON file name
 json_file="files.json"
