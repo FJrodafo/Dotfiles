@@ -33,14 +33,14 @@ alias backup='cd $HOME && ./.Backup.sh'
 
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
 
-alias ijavajavac='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts && ./Install_java_and_javac.sh'
+alias ijavajavac='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts/Installers && ./install_java_and_javac.sh'
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
 
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 
 alias discordbot='cd $HOME/Documents/Git_Repos/DiscordBOT/App/src && node deploy-commands.js && node index.js'
-alias inodenpm='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts && ./Install_node_and_npm.sh'
+alias inodenpm='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts/Installers && ./install_node_and_npm.sh'
 export PATH=$PATH:/home/fjrodafo/nodejs/bin
 
 alias neofetch='neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
