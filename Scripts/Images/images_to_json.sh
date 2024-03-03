@@ -19,7 +19,7 @@ for image_file in "$folder"/*.{jpg,jpeg,png}; do
 done
 
 # Use find to get all .jpg, .jpeg, and .png files in the folder and its subfolders
-# find "$folder" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | while read -r image_file; do
+# find "$folder" -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) | while read -r image_file; do
 #     # Get only the file name (without the path)
 #     file_name=$(basename "$image_file")
 # 
