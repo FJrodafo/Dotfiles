@@ -15,7 +15,7 @@ for image_file in "$folder"/*.{jpg,jpeg,png}; do
     file_name=$(basename "$image_file")
 
     # Add the file name to the JSON file
-    echo "  \"$file_name\"," >> $json_file
+    echo "  \"$file_name\"," >> "$json_file"
 done
 
 # Use find to get all .jpg, .jpeg, and .png files in the folder and its subfolders
