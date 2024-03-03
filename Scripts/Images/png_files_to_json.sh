@@ -10,22 +10,22 @@ json_file="./path/to/folder_with_images.json"
 echo "[" > $json_file
 
 # Iterate over the .png files in the folder
-# for png_file in "$folder"/*.png; do
-#     # Get only the file name (without the path)
-#     file_name=$(basename "$png_file")
-# 
-#     # Add the file name to the JSON file
-#     echo "  \"$file_name\"," >> $json_file
-# done
-
-# Use find to get all .png files in the folder and its subfolders
-find "$folder" -type f -name "*.png" | while read -r png_file; do
+for png_file in "$folder"/*.png; do
     # Get only the file name (without the path)
     file_name=$(basename "$png_file")
 
     # Add the file name to the JSON file
-    echo "  \"$file_name\"," >> "$json_file"
+    echo "  \"$file_name\"," >> $json_file
 done
+
+# Use find to get all .png files in the folder and its subfolders
+# find "$folder" -type f -name "*.png" | while read -r png_file; do
+#     # Get only the file name (without the path)
+#     file_name=$(basename "$png_file")
+# 
+#     # Add the file name to the JSON file
+#     echo "  \"$file_name\"," >> "$json_file"
+# done
 
 # Remove the last comma from the JSON file
 sed -i '$ s/,$//' $json_file
