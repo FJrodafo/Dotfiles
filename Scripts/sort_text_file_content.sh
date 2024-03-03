@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Input/Output file path with its extension
-input="./path/file.txt"
-output="./path/file_sorted.txt"
+input="./path/to/file.txt"
+output="./path/to/file_sorted.txt"
 
 # Check if the file exists
 if [ ! -e "$input" ]; then

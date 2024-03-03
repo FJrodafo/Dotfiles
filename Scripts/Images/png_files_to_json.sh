@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Path to the folder containing the .png files
-folder="./path/folder_with_images"
+folder="./path/to/folder_with_images"
 
 # Output JSON file path
-json_file="./path/folder_with_images.json"
+json_file="./path/to/folder_with_images.json"
 
 # Create the header of the JSON file
 echo "[" > $json_file

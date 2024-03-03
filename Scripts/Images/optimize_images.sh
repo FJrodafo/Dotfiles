@@ -36,5 +36,5 @@ function optimize_path () {
 }
 
 echo "Optimizing images..."
-optimize_path ./path/folder_with_images
+optimize_path ./path/to/folder_with_images
 echo "...done"
