@@ -28,24 +28,17 @@ fi
 
 
 # Custom Commands
-alias cl='clear && neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
 alias backup='cd $HOME && ./.Backup.sh'
-
-alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-
-alias ijavajavac='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts/Installers && ./install_java_and_javac.sh'
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
-alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
-
-alias xampp='sudo /opt/lampp/manager-linux-x64.run'
-
+alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
+alias cl='clear && neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
+alias discordbot='cd $HOME/Documents/Git_Repos/DiscordBOT/App/src && npm start'
 alias eclipse='cd $HOME/eclipse && ./eclipse'
-
-alias patapon='cd $HOME/Documents/Games/PSP/Patapon/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
-
-alias discordbot='cd $HOME/Documents/Git_Repos/DiscordBOT/App/src && node deploy-commands.js && node index.js'
+alias ijavajavac='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts/Installers && ./install_java_and_javac.sh'
 alias inodenpm='cd $HOME/Documents/Git_Repos/Dotfiles/Scripts/Installers && ./install_node_and_npm.sh'
-export PATH=$PATH:/home/fjrodafo/nodejs/bin
-
 alias neofetch='neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
+alias patapon='cd $HOME/Documents/Games/PSP/Patapon/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
+alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
+alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+export PATH=$PATH:/home/fjrodafo/nodejs/bin
 neofetch
