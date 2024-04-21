@@ -10,6 +10,12 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+# Git version push
+function git_version_push() {
+    read -p "Enter the version number: " git_version_number
+    git add -A && git commit -m "v$git_version_number" && git push github && git push gitlab && git push bitbucket
+}
+
 
 # User prompt
 if [ "$color_prompt" = yes ]; then
@@ -32,6 +38,7 @@ alias backup='cd $HOME && ./.Backup.sh'
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
 alias cl='clear && neofetch --ascii $HOME/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
+alias comgit='git_version_push'
 alias changelog='$HOME/Documents/Git_Repos/Dotfiles/Scripts/create_git_changelog.sh'
 alias discordbot='cd $HOME/Documents/Git_Repos/DiscordBOT/App/src && npm start'
 alias eclipse='cd $HOME/eclipse && ./eclipse'

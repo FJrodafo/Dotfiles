@@ -16,10 +16,10 @@ CHANGELOG="$DIR/CHANGELOG.md"
 echo '```' > "$CHANGELOG"
 
 # Run git log and save the output to file
-git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n%n' --decorate >> "$CHANGELOG"
+git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n' --decorate >> "$CHANGELOG"
 
 # Add YAML closure to the end of the file
 echo '```' >> "$CHANGELOG"
 
 # Show confirmation message
-echo "Changelog generado en $CHANGELOG"
+echo "Changelog generated in $CHANGELOG"
