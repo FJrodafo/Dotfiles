@@ -13,10 +13,10 @@ DIR=$(pwd)
 CHANGELOG="$DIR/CHANGELOG.md"
 
 # Save YAML header to file
-echo '```yaml' > "$CHANGELOG"
+echo '```' > "$CHANGELOG"
 
 # Run git log and save the output to file
-git log --graph --pretty=format:'Commit:  %h%nText:    %s%nAuthor:  %an%nDate:    %cD%n%n' --decorate >> "$CHANGELOG"
+git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n%n' --decorate >> "$CHANGELOG"
 
 # Add YAML closure to the end of the file
 echo '```' >> "$CHANGELOG"
