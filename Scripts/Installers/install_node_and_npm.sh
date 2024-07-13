@@ -4,7 +4,7 @@
 # Add the following command to the .bashrc file: export PATH=$PATH:/home/fjrodafo/nodejs/bin
 
 if node --version && npm --version; then
-    clear && neofetch --ascii /home/fjrodafo/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt
+    clear && neofetch --ascii /home/fjrodafo/Documents/Repos/Dotfiles/Configs/Neofetch/Ascii.txt
     echo "You currently have Nodejs installed!"
 else
     clear && cd ~/Downloads
@@ -12,6 +12,6 @@ else
     tar -xf node-v18.17.1-linux-x64.tar.xz
     # Check the version!
     mv node-v18.17.1-linux-x64 ~/nodejs
-    clear && neofetch --ascii /home/fjrodafo/Documents/Git_Repos/Dotfiles/Configs/Neofetch/Ascii.txt
+    clear && neofetch --ascii /home/fjrodafo/Documents/Repos/Dotfiles/Configs/Neofetch/Ascii.txt
     echo "Nodejs has been successfully installed!"
 fi
