@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Path to the folder containing the image files
-folder="./path/to/folder_with_images"
+folder="./path/to/folder"
 
 # Output JSON file path
-json_file="./path/to/folder_with_images.json"
+output="./path/to/file.json"
 
 # Create the header of the JSON file
-echo "[" > $json_file
+echo "[" > $output
 
 # Iterate over the .jpg, .jpeg, and .png files in the folder
 for image_file in "$folder"/*.{jpg,jpeg,png}; do
@@ -15,7 +15,7 @@ for image_file in "$folder"/*.{jpg,jpeg,png}; do
     file_name=$(basename "$image_file")
 
     # Add the file name to the JSON file
-    echo "  \"$file_name\"," >> "$json_file"
+    echo "  \"$file_name\"," >> "$output"
 done
 
 # Use find to get all .jpg, .jpeg, and .png files in the folder and its subfolders
@@ -24,13 +24,13 @@ done
 #     file_name=$(basename "$image_file")
 # 
 #     # Add the file name to the JSON file
-#     echo "  \"$file_name\"," >> "$json_file"
+#     echo "  \"$file_name\"," >> "$output"
 # done
 
 # Remove the last comma from the JSON file
-sed -i '$ s/,$//' $json_file
+sed -i '$ s/,$//' $output
 
 # Close the JSON file
-echo "]" >> $json_file
+echo "]" >> $output
 
-echo "Generated JSON file: $json_file"
+echo "Generated JSON file: $output"

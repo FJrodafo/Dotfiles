@@ -33,29 +33,36 @@ else
 fi
 
 
-# Custom Commands
+# Script
 alias backup='$HOME/.Backup.sh'
-alias basex='$HOME/Documents/Repos/Dotfiles/Scripts/Java/basex.sh'
-alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-alias cl='clear && neofetch --ascii $HOME/Documents/Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
 alias changelog='$HOME/Documents/Repos/Dotfiles/Scripts/Git/changelog.sh'
-alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App/src && npm start'
-alias discordsample='cd $HOME/Documents/Repos/DiscordAPP/App/sample && npm start'
-alias discordluffy='cd $HOME/Documents/Repos/DiscordAPP/App/luffy && npm start'
-alias discordbonney='cd $HOME/Documents/Repos/DiscordAPP/App/bonney && npm start'
 alias dockerupmysqlphpmyadmin='$HOME/Documents/Repos/Dotfiles/Scripts/Docker/mysql-phpmyadmin/up.sh'
 alias dockerdownmysqlphpmyadmin='$HOME/Documents/Repos/Dotfiles/Scripts/Docker/mysql-phpmyadmin/down.sh'
 alias dockeruporacle='$HOME/Documents/Repos/Dotfiles/Scripts/Docker/oracle/up.sh'
 alias dockerdownoracle='$HOME/Documents/Repos/Dotfiles/Scripts/Docker/oracle/down.sh'
-alias eclipse='$HOME/eclipse/eclipse'
-alias hunsterverse='cd $HOME/Documents/Games/PSP/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
 alias ijavajavac='$HOME/Documents/Repos/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Repos/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
+alias loading='$HOME/Documents/Repos/Dotfiles/Scripts/Miscellaneous/spinner.sh'
+# Custom
+alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
+alias cl='clear && neofetch --ascii $HOME/Documents/Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
 alias multipush='multipush'
 alias neofetch='neofetch --ascii $HOME/Documents/Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
 alias npkill='npx npkill -s size'
-alias saxon='$HOME/Documents/Repos/Dotfiles/Scripts/Java/saxon.sh'
+# Discord
+alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App/src && npm start'
+alias discordsample='cd $HOME/Documents/Repos/DiscordAPP/App/sample && npm start'
+alias discordluffy='cd $HOME/Documents/Repos/DiscordAPP/App/luffy && npm start'
+alias discordbonney='cd $HOME/Documents/Repos/DiscordAPP/App/bonney && npm start'
+# App
+alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
-export PATH=$PATH:/home/fjrodafo/nodejs/bin
+# Java
+alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
+alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
+# VPN
+alias hunsterverse='cd $HOME/Documents/Games/PSP/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
+# Export
+export PATH=$PATH:$HOME/nodejs/bin
 neofetch

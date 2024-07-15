@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source folder path
-source_folder="./path/to/folder_with_images"
+source_folder="./path/to/folder"
 
 # Destination folder path
 destination_folder="./path/to/folder"

@@ -2,7 +2,7 @@
 
 # Input/Output file path with its extension
 input="./path/to/file.txt"
-output="./path/to/file_sorted.txt"
+output="./path/to/sorted_file.txt"
 
 # Check if the file exists
 if [ ! -e "$input" ]; then
