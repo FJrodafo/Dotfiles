@@ -49,15 +49,13 @@ alias cl='clear && neofetch --ascii $HOME/Documents/Repos/Dotfiles/Configs/Neofe
 alias multipush='multipush'
 alias neofetch='neofetch --ascii $HOME/Documents/Repos/Dotfiles/Configs/Neofetch/Ascii.txt'
 alias npkill='npx npkill -s size'
-# Discord
-alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App/src && npm start'
-alias discordsample='cd $HOME/Documents/Repos/DiscordAPP/App/sample && npm start'
-alias discordluffy='cd $HOME/Documents/Repos/DiscordAPP/App/luffy && npm start'
-alias discordbonney='cd $HOME/Documents/Repos/DiscordAPP/App/bonney && npm start'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+# Discord
+alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App/src && npm start'
+alias discordsample='cd $HOME/Documents/Repos/DiscordAPP/App/sample && npm start'
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
