@@ -56,6 +56,8 @@ alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 # Discord
 alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App && npm start'
 alias discordsample='cd $HOME/Documents/Repos/DiscordAPP/App && npm run sample'
+alias discordshrikeapp='cd $HOME/Documents/Repos/ShrikeAPP/App && npm start'
+alias discordshrikecanary='cd $HOME/Documents/Repos/ShrikeAPP/App && npm run canary'
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
