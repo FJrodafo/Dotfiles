@@ -54,6 +54,8 @@ alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 # Discord
+alias discordcrps='cd $HOME/Documents/Repos/DiscordCRPS/App && npm start'
+alias discordcrpscanary='cd $HOME/Documents/Repos/DiscordCRPS/App && npm run canary'
 alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App && npm start'
 alias discordappcanary='cd $HOME/Documents/Repos/DiscordAPP/App && npm run canary'
 alias discordappshrike='cd $HOME/Documents/Repos/ShrikeAPP/App && npm start'
