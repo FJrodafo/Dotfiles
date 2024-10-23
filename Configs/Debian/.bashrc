@@ -58,8 +58,6 @@ alias discordcrps='cd $HOME/Documents/Repos/DiscordCRPS/App && npm start'
 alias discordcrpscanary='cd $HOME/Documents/Repos/DiscordCRPS/App && npm run canary'
 alias discordapp='cd $HOME/Documents/Repos/DiscordAPP/App && npm start'
 alias discordappcanary='cd $HOME/Documents/Repos/DiscordAPP/App && npm run canary'
-alias discordappshrike='cd $HOME/Documents/Repos/ShrikeAPP/App && npm start'
-alias discordappshrikecanary='cd $HOME/Documents/Repos/ShrikeAPP/App && npm run canary'
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
