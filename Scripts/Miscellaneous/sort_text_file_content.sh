@@ -20,4 +20,5 @@ file_extension="${input##*.}"
 # Sort the file and save the result to a new file
 sort "$input" > "$output"
 
+# Optional confirmation message
 echo "The file $filename has been sorted alphabetically, and the result has been saved to $output."
