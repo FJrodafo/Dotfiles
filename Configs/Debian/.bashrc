@@ -45,9 +45,9 @@ alias inodenpm='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/insta
 alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spinner.sh'
 # Custom
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-alias cl='clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Neofetch/Ascii.txt'
+alias cl='clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Rice/neofetch/Ascii.txt'
 alias multipush='multipush'
-alias neofetch='neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Neofetch/Ascii.txt'
+alias neofetch='neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Rice/neofetch/Ascii.txt'
 alias npkill='npx npkill -s size'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
