@@ -1,8 +1,9 @@
 #! /bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x picom > /dev/null || picom --experimental-backend &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV # V VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -18,6 +19,5 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # AutoStart
-picom & # Compositor
 feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
 $HOME/.config/polybar/launch.sh

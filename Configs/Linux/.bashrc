@@ -1,6 +1,6 @@
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color|xterm-kitty) color_prompt=yes;;
 esac
 
 
@@ -44,10 +44,12 @@ alias ijavajavac='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/ins
 alias inodenpm='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spinner.sh'
 # Custom
+alias audiovisualizer='cava'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-alias cl='clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Rice/neofetch/Ascii.txt'
+alias cl='clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Linux/neofetch/Ascii.txt'
+alias matrix='cmatrix'
 alias multipush='multipush'
-alias neofetch='neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Rice/neofetch/Ascii.txt'
+alias neofetch='neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Linux/neofetch/Ascii.txt'
 alias npkill='npx npkill -s size'
 # App
 alias eclipse='$HOME/eclipse/eclipse'

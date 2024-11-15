@@ -1,1 +1,0 @@
-iwctl --passphrase PASS1234 station wlan0 connect ROUTER
