@@ -1,7 +1,6 @@
 #! /bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-pgrep -x picom > /dev/null || picom --experimental-backend &
 
 bspc monitor -d I II III IV # V VI VII VIII IX X
 
@@ -18,5 +17,5 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-# AutoStart
+# Auto-Start Programs:
 feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper

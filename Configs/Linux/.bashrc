@@ -10,7 +10,7 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-# Git version push
+# Multiple push to git repositories
 function multipush() {
     read -p "Enter the version number (just the number): " version_number
     git add -A && git commit -m "v$version_number" && git push github && git push gitlab && git push bitbucket
@@ -46,10 +46,11 @@ alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spi
 # Custom
 alias audiovisualizer='cava'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-alias cl='clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Linux/neofetch/Ascii.txt'
+alias cl='clear && neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
+alias interactiveprocessviewer='htop'
 alias matrix='cmatrix'
 alias multipush='multipush'
-alias neofetch='neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Linux/neofetch/Ascii.txt'
+alias neofetch='neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
 alias npkill='npx npkill -s size'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
