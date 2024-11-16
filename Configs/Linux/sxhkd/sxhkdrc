@@ -30,10 +30,10 @@ super + {q,r}
 super + {_,shift + }w
 	bspc node -{c,k}
 
-# focus the node in the given direction
+# focus or send the node to the given direction
 super + {_,shift + }{Left,Up,Down,Right}
 	bspc node -{f,s} {west,north,south,east}
 
-# focus or send to the given desktop
+# focus or send the node to the given desktop
 super + {_,shift + }{1-4}
 	bspc {desktop -f,node -d} '^{1-4}'
