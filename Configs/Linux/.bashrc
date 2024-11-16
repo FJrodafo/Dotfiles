@@ -47,11 +47,13 @@ alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spi
 alias audiovisualizer='cava'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
 alias cl='clear && neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
+alias fileexplorer='ranger'
 alias interactiveprocessviewer='htop'
 alias matrix='cmatrix'
 alias multipush='multipush'
 alias neofetch='neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
 alias npkill='npx npkill -s size'
+alias texteditor='vim'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
