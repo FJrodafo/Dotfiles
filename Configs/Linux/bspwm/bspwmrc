@@ -20,4 +20,3 @@ bspc rule -a Screenkey manage=off
 
 # AutoStart
 feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
-$HOME/.config/polybar/launch.sh
