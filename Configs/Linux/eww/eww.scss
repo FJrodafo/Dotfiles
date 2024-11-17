@@ -12,6 +12,7 @@ $surface-red: #f87070;
   font-family: "Hack Nerd Font";
   background-repeat: no-repeat;
   background-size: contain;
+  background: rgba(0, 0, 0, 0.8);
   padding: 5em;
   color: rgba($surface-fg, 0.8);
 }
@@ -38,15 +39,15 @@ $surface-red: #f87070;
   button {
     padding: 0.4em;
     border-radius: 0.1em;
-    background-color: rgba($surface-darkgrey, 0.3);
+    background-color: rgb($surface-darkgrey);
 
     &:hover {
       transition: 200ms linear background-color, border-radius;
-      background-color: rgba($surface-lightgrey, 0.6);
+      background-color: rgb($surface-lightgrey);
     }
 
     &:first-child {
-      color: rgba($surface-red, 0.8);
+      color: rgb($surface-red);
     }
   }
 }
