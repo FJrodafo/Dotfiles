@@ -17,8 +17,8 @@ $surface-red: #f87070;
   color: rgba($surface-fg, 0.8);
 }
 
-.net-box,
 .bat-box,
+.net-box,
 .tm-box {
   label {
     font-size: 2em;
@@ -39,15 +39,15 @@ $surface-red: #f87070;
   button {
     padding: 0.4em;
     border-radius: 0.1em;
-    background-color: rgb($surface-darkgrey);
+    background-color: rgba($surface-darkgrey, 1);
 
     &:hover {
       transition: 200ms linear background-color, border-radius;
-      background-color: rgb($surface-lightgrey);
+      background-color: rgba($surface-lightgrey, 1);
     }
 
     &:first-child {
-      color: rgb($surface-red);
+      color: rgba($surface-red, 1);
     }
   }
 }
@@ -69,5 +69,3 @@ $surface-red: #f87070;
   padding-bottom: 0.5em;
   font-family: "Hack Nerd Font";
 }
-
-// vim:ft=scss

@@ -11,13 +11,13 @@
 (defpoll net :interval "100s" :initial `N/A` `nmcli -t -f SIGNAL,ACTIVE device wifi \ | awk -F':' '{if($2=="yes")print$1}'`)
 
 (defwidget powermenu_layout []
-  (box :class "layout-box" :space-evenly false :orientation "vertical" ;; :style "background-image: url('./wallpaper')"
+  (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
       (_battery
-        :battery {EWW_BATTERY.BAT0.capacity}
         :status {EWW_BATTERY.BAT0.status}
-        :charge "󰂄" :zero "󰂎" :one "󱊡" :two "󱊢" :three "󱊣"
+        :capacity {EWW_BATTERY.BAT0.capacity}
+        :charge "󰂄" :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣" :home "󰚥"
       )
       (_network :strength net :offline "󰣽" :slow "󰣴" :okay "󰣶" :good "󰣸" :excellent "󰣺")
       (label :text "|" :class "sep")
@@ -38,23 +38,26 @@
   )
 )
 
-(defwidget _battery [battery status charge zero one two three]
+(defwidget _battery [status capacity charge one two three four home]
   (box :class "bat-box" :space-evenly false :spacing 8
-    (label :text {status == 'Charging' ? charge :
-      battery < 20 ? zero :
-      battery < 40 ? one :
-      battery < 60 ? two : three}
-    )
+    (label :text {
+      status == 'Charging' ? charge :
+      capacity == "" ? home :
+      capacity < 20 ? one :
+      capacity < 40 ? two :
+      capacity < 60 ? three : four
+    })
   )
 )
 
 (defwidget _network [strength offline slow okay good excellent]
   (box :class "net-box" :space-evenly false :spacing 8
-    (label :text {strength == "" ? offline :
+    (label :text {
+      strength == "" ? offline :
       strength < 20 ? slow :
       strength < 40 ? okay :
-      strength < 60 ? good : excellent}
-    )
+      strength < 60 ? good : excellent
+    })
   )
 )
 
@@ -67,8 +70,8 @@
 )
 
 (defwidget _sundial []
-  (label :class "sundial-lbl" :halign "end" :hexpand true
-    :text {time.hour >= 2 && time.hour <= 4 ? "Early Morning" :
+  (label :class "sundial-lbl" :halign "end" :hexpand true :text {
+    time.hour >= 2 && time.hour <= 4 ? "Early Morning" :
     time.hour <= 5 ? "Dawn" :
     time.hour >= 6 && (time.hour <= 8 && time.min <= 59) ? "Morning" :
     time.hour >= 9 && (time.hour <= 11 && time.min <= 59) ? "Late Morning" :
@@ -78,8 +81,6 @@
     (time.hour >= 17 && time.min <= 1) || (time.hour <= 18 && time.min <= 20) ? "Early Evening" :
     time.hour >= 18 && time.hour <= 19 ? "Dusk" :
     time.hour > 19 && time.hour <= 21 ? "Late Evening" :
-    time.hour > 21 ? "Night" : "Midnight"}
-  )
+    time.hour > 21 ? "Night" : "Midnight"
+  })
 )
-
-;; vim:ft=yuck

@@ -15,4 +15,5 @@ bspc config gapless_monocle      true
 bspc rule -a Screenkey manage=off
 
 # Auto-Start Programs:
-feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
+feh --bg-fill --randomize ~/Pictures/Wallpapers/* & # Wallpaper
+eww daemon

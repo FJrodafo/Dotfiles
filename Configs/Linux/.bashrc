@@ -68,6 +68,8 @@ alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
 # VPN
 alias hunsterverse='cd $HOME/Documents/Games/Servers/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
-# Export
+# Export PATH
 export PATH=$PATH:$HOME/nodejs/bin
+export PATH=$PATH:$HOME/.cargo/env
+export PATH=$PATH:$HOME/eww/target/release
 neofetch

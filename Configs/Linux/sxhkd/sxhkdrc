@@ -11,8 +11,8 @@ super + Return
 	kitty
 
 # program launcher
-super + @space
-	rofi -show drun
+super + {_,shift + }@space
+	{rofi -show drun,~/eww/target/release/eww open --toggle powermenu}
 
 # make sxhkd reload its configuration files:
 super + Escape
