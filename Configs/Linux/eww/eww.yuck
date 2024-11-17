@@ -32,8 +32,8 @@
         (label :text "${time.hour}:${time.min}")
       )
       (_buttons
-        :shutdown "poweroff" :reboot "reboot" :logout "loginctl kill-session self"
-        :shutdown_icon "󰐥" :reboot_icon "󰑥" :logout_icon "󱅞"
+        :shutdown "poweroff" :reboot "reboot" :suspend "systemctl suspend" :logout "loginctl kill-session self"
+        :shutdown_icon "󰐥" :reboot_icon "󰑥" :suspend_icon "󰽧" :logout_icon "󱅞"
       )
     )
   )
@@ -62,10 +62,11 @@
   )
 )
 
-(defwidget _buttons [shutdown shutdown_icon reboot reboot_icon logout logout_icon]
+(defwidget _buttons [shutdown shutdown_icon reboot reboot_icon suspend suspend_icon logout logout_icon]
   (box :class "btns-box" :spacing 5 :vexpand true :hexpand true :valign "end" :halign "end" :space-evenly false
     (button :onclick shutdown shutdown_icon)
     (button :onclick reboot reboot_icon)
+    (button :onclick suspend suspend_icon)
     (button :onclick logout logout_icon)
   )
 )
