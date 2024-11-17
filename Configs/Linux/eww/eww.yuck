@@ -28,11 +28,12 @@
     )
     (box :space-evenly false :hexpand true :vexpand true
       (box :spacing 15 :class "tm-box" :space-evenly false :valign "end" :halign "start"
+        (label :text "󰣉")
         (label :text "${time.hour}:${time.min}")
       )
       (_buttons
         :shutdown "poweroff" :reboot "reboot" :logout "loginctl kill-session self"
-        :shutdown_icon "󰐥" :reboot_icon "󰑓" :logout_icon "󰀄"
+        :shutdown_icon "󰐥" :reboot_icon "󰑥" :logout_icon "󱅞"
       )
     )
   )
@@ -43,9 +44,9 @@
     (label :text {
       status == 'Charging' ? charge :
       capacity == "" ? home :
-      capacity < 20 ? one :
-      capacity < 40 ? two :
-      capacity < 60 ? three : four
+      capacity < 25 ? one :
+      capacity < 50 ? two :
+      capacity < 75 ? three : four
     })
   )
 )
@@ -54,9 +55,9 @@
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
       strength == "" ? offline :
-      strength < 20 ? slow :
-      strength < 40 ? okay :
-      strength < 60 ? good : excellent
+      strength < 25 ? slow :
+      strength < 50 ? okay :
+      strength < 75 ? good : excellent
     })
   )
 )
