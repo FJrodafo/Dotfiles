@@ -9,8 +9,8 @@
 
 (defpoll battery_capacity :interval "10s" :initial "N/A" "cat /sys/class/power_supply/BAT0/capacity")
 (defpoll battery_status :interval "10s" :initial "N/A" "cat /sys/class/power_supply/BAT0/status")
-(defpoll net :interval "100s" :initial "N/A" `$(nmcli -t -f SIGNAL device wifi | awk -F':' '{print $1}'))
-(defpoll time :interval "5s" :initial "00:00" `$(date +'{"hour":"%H","min":"%M"}'))
+(defpoll net :interval "100s" :initial "N/A" `nmcli -t -f SIGNAL device wifi | awk -F':' '{print $1}'`)
+(defpoll time :interval "5s" :initial "00:00" `date +'{"hour":"%H","min":"%M"}'`)
 
 (defwidget powermenu_layout []
   (box :class "layout-box" :space-evenly false :orientation "vertical"
@@ -52,7 +52,7 @@
 (defwidget _network [strength offline slow okay good excellent]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
-      strength == "N/A" ? offline :
+      strength == "" ? offline :
       strength < 25 ? slow :
       strength < 50 ? okay :
       strength < 75 ? good : excellent
