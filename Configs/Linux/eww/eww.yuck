@@ -1,5 +1,5 @@
 (defwindow powermenu
-  ;; monitor 0 ;; wayland users may need this
+  ;; monitor 0 ;; Wayland users may need this
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
@@ -17,7 +17,7 @@
       (_battery
         :status {EWW_BATTERY.BAT0.status}
         :capacity {EWW_BATTERY.BAT0.capacity}
-        :charge "󰂄" :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣" :home "󰚥"
+        :charge "󰂄" :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣"
       )
       (_network :strength net :offline "󰣽" :slow "󰣴" :okay "󰣶" :good "󰣸" :excellent "󰣺")
       (label :text "|" :class "sep")
@@ -39,11 +39,10 @@
   )
 )
 
-(defwidget _battery [status capacity charge one two three four home]
+(defwidget _battery [status capacity charge one two three four]
   (box :class "bat-box" :space-evenly false :spacing 8
     (label :text {
       status == 'Charging' ? charge :
-      capacity == "" ? home :
       capacity < 25 ? one :
       capacity < 50 ? two :
       capacity < 75 ? three : four
@@ -54,7 +53,7 @@
 (defwidget _network [strength offline slow okay good excellent]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
-      strength == "" ? offline :
+      strength == "N/A" ? offline :
       strength < 25 ? slow :
       strength < 50 ? okay :
       strength < 75 ? good : excellent
@@ -73,16 +72,18 @@
 
 (defwidget _sundial []
   (label :class "sundial-lbl" :halign "end" :hexpand true :text {
-    time.hour >= 2 && time.hour <= 4 ? "Early Morning" :
-    time.hour <= 5 ? "Dawn" :
-    time.hour >= 6 && (time.hour <= 8 && time.min <= 59) ? "Morning" :
-    time.hour >= 9 && (time.hour <= 11 && time.min <= 59) ? "Late Morning" :
-    time.hour == 12 && time.min <= 29 ? "Midday" :
-    time.hour >= 12 && time.hour <= 16 ? "Afternoon" :
-    time.hour > 16 && time.hour <= 17 ? "Late Afternoon" :
-    (time.hour >= 17 && time.min <= 1) || (time.hour <= 18 && time.min <= 20) ? "Early Evening" :
-    time.hour >= 18 && time.hour <= 19 ? "Dusk" :
-    time.hour > 19 && time.hour <= 21 ? "Late Evening" :
-    time.hour > 21 ? "Night" : "Midnight"
+    (time.hour == 4 && time.min >= 0 || (time.hour == 5 && time.min <= 30)) ? "Early Morning" :
+    (time.hour == 6 && time.min >= 30 || (time.hour == 7 && time.min <= 30)) ? "Dawn" :
+    (time.hour == 7 && time.min >= 30 || (time.hour == 10 && time.min <= 0)) ? "Morning" :
+    (time.hour == 10 && time.min >= 0 || (time.hour == 12 && time.min <= 0)) ? "Late Morning" :
+    (time.hour == 12 && time.min >= 0 || (time.hour == 13 && time.min <= 0)) ? "Midday" :
+    (time.hour == 13 && time.min >= 0 || (time.hour == 16 && time.min <= 0)) ? "Afternoon" :
+    (time.hour == 16 && time.min >= 0 || (time.hour == 18 && time.min <= 30)) ? "Late Afternoon" :
+    (time.hour == 18 && time.min >= 30 || (time.hour == 19 && time.min <= 30)) ? "Dusk" :
+    (time.hour == 19 && time.min >= 30 || (time.hour == 21 && time.min <= 0)) ? "Evening" :
+    (time.hour == 21 && time.min >= 0 || (time.hour == 0 && time.min <= 0)) ? "Night" :
+    (time.hour == 0 && time.min >= 0 || (time.hour == 1 && time.min <= 0)) ? "Midnight" :
+    (time.hour == 1 && time.min >= 0 || (time.hour == 4 && time.min <= 0)) ? "Night" :
+    "Unknown Time"
   })
 )

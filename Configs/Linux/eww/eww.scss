@@ -12,9 +12,9 @@ $surface-red: #f87070;
   font-family: "Hack Nerd Font";
   background-repeat: no-repeat;
   background-size: contain;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.75);
   padding: 5em;
-  color: rgba($surface-fg, 0.9);
+  color: rgba($surface-fg, 1);
 }
 
 .bat-box,
@@ -37,8 +37,11 @@ $surface-red: #f87070;
   font-size: 2.5em;
 
   button {
-    padding: 0.4em;
-    border-radius: 0.1em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    border-radius: 0.2em;
     background-color: rgba($surface-darkgrey, 1);
 
     &:hover {
@@ -54,9 +57,6 @@ $surface-red: #f87070;
 
 .sep {
   font-size: 1em;
-  padding-top: 0.15em;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
   font-family: "Hack Nerd Font";
   font-weight: 400;
 }
