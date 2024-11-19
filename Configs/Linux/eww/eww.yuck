@@ -7,16 +7,19 @@
   (powermenu_layout)
 )
 
-(defpoll battery_capacity :interval "10s" :initial "N/A" "cat /sys/class/power_supply/BAT0/capacity")
-(defpoll battery_status :interval "10s" :initial "N/A" "cat /sys/class/power_supply/BAT0/status")
-(defpoll net :interval "100s" :initial "N/A" `nmcli -t -f SIGNAL device wifi | awk -F':' '{print $1}'`)
-(defpoll time :interval "5s" :initial "00:00" `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
+(defpoll battery_capacity :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
+(defpoll net :interval "100s"
+  :initial 0
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+  | awk -F':' '{if($2=="yes")print$1}'`)
+(defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 (defwidget powermenu_layout []
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      (_battery :capacity battery_capacity :status battery_status :home "󰚥" :charge "󰂄" :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
+      (_battery :status battery_status :charge "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
       (_network :strength net :offline "󰣽" :slow "󰣴" :okay "󰣶" :good "󰣸" :excellent "󰣺")
       (label :text "|" :class "sep")
       (button
@@ -37,14 +40,13 @@
   )
 )
 
-(defwidget _battery [capacity status home charge one two three four]
+(defwidget _battery [capacity status charge one two three four]
   (box :class "bat-box" :space-evenly false :spacing 8
     (label :text {
-      capacity == "N/A" || status == "N/A" ? home :
       status == 'Charging' ? charge :
-      capacity < 25 ? one :
-      capacity < 50 ? two :
-      capacity < 75 ? three : four
+      capacity < 26 ? one :
+      capacity < 51 ? two :
+      capacity < 76 ? three : four
     })
   )
 )
@@ -53,9 +55,9 @@
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
       strength == "" ? offline :
-      strength < 25 ? slow :
-      strength < 50 ? okay :
-      strength < 75 ? good : excellent
+      strength < 26 ? slow :
+      strength < 51 ? okay :
+      strength < 76 ? good : excellent
     })
   )
 )
