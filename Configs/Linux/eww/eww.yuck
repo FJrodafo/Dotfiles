@@ -7,23 +7,25 @@
   (powermenu_layout)
 )
 
+(defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+
 (defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
 (defpoll battery_capacity :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
-(defpoll net :interval "100s"
-  :initial 0
+
+(deflisten net :initial ""
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
-  | awk -F':' '{if($2=="yes")print$1}'`)
-(defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+  | awk -F':' '{if($2=="yes")print$1}'`
+)
 
 (defwidget powermenu_layout []
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      (_battery :status battery_status :charge "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
+      (_battery :status battery_status :charing "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
       (_network :strength net :offline "󰣽" :slow "󰣴" :okay "󰣶" :good "󰣸" :excellent "󰣺")
       (label :text "|" :class "sep")
       (button
-        :onclick "~/eww/target/release/eww open --toggle powermenu"
+        :onclick "~/eww/target/release/eww close powermenu"
         :class "close-btn" ""
       )
     )
@@ -40,10 +42,27 @@
   )
 )
 
-(defwidget _battery [capacity status charge one two three four]
+(defwidget _sundial []
+  (label :class "sundial-lbl" :halign "end" :hexpand true :text {
+    ((time.hour >= 0) && (time.hour < 1)) ? "Midnight" :
+    ((time.hour >= 1) && (time.hour < 4)) ? "Night" :
+    ((time.hour >= 4) && (time.hour < 6 && time.min < 30)) ? "Early Morning" :
+    ((time.hour >= 6 && time.min >= 30) && (time.hour < 7 && time.min < 30)) ? "Dawn" :
+    ((time.hour >= 7 && time.min >= 30) && (time.hour < 10)) ? "Morning" :
+    ((time.hour >= 10) && (time.hour < 12)) ? "Late Morning" :
+    ((time.hour >= 12) && (time.hour < 13)) ? "Midday" :
+    ((time.hour >= 13) && (time.hour < 16)) ? "Afternoon" :
+    ((time.hour >= 16) && (time.hour < 18 && time.min < 30)) ? "Late Afternoon" :
+    ((time.hour >= 18 && time.min >= 30) && (time.hour < 19 && time.min < 30)) ? "Dusk" :
+    ((time.hour >= 19 && time.min >= 30) && (time.hour < 21)) ? "Evening" :
+    (time.hour >= 21) ? "Night" : "Unknown Time"
+  })
+)
+
+(defwidget _battery [status charing capacity one two three four]
   (box :class "bat-box" :space-evenly false :spacing 8
     (label :text {
-      status == 'Charging' ? charge :
+      status == 'Charging' ? charing :
       capacity < 26 ? one :
       capacity < 51 ? two :
       capacity < 76 ? three : four
@@ -69,21 +88,4 @@
     (button :onclick suspend suspend_icon)
     (button :onclick logout logout_icon)
   )
-)
-
-(defwidget _sundial []
-  (label :class "sundial-lbl" :halign "end" :hexpand true :text {
-    ((time.hour >= 0) && (time.hour < 1)) ? "Midnight" :
-    ((time.hour >= 1) && (time.hour < 4)) ? "Night" :
-    ((time.hour >= 4) && (time.hour < 6 && time.min < 30)) ? "Early Morning" :
-    ((time.hour >= 6 && time.min >= 30) && (time.hour < 7 && time.min < 30)) ? "Dawn" :
-    ((time.hour >= 7 && time.min >= 30) && (time.hour < 10)) ? "Morning" :
-    ((time.hour >= 10) && (time.hour < 12)) ? "Late Morning" :
-    ((time.hour >= 12) && (time.hour < 13)) ? "Midday" :
-    ((time.hour >= 13) && (time.hour < 16)) ? "Afternoon" :
-    ((time.hour >= 16) && (time.hour < 18 && time.min < 30)) ? "Late Afternoon" :
-    ((time.hour >= 18 && time.min >= 30) && (time.hour < 19 && time.min < 30)) ? "Dusk" :
-    ((time.hour >= 19 && time.min >= 30) && (time.hour < 21)) ? "Evening" :
-    (time.hour >= 21) ? "Night" : "Unknown Time"
-  })
 )
