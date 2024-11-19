@@ -9,14 +9,20 @@
 
 (defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
-(deflisten wifi-net :initial ""
-  `nmcli -t -f SIGNAL,ACTIVE device wifi \
-  | awk -F':' '{if($2=="yes")print$1}'`
-)
-(deflisten ethernet-net :initial ""
+(deflisten ethernet :initial ""
   `nmcli -t -f DEVICE,STATE device \
   | grep -E 'eth|en' \
   | awk -F':' '{if($2=="connected") print "connected"; else print "disconnected"}'`
+)
+
+(deflisten wifi :initial ""
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+  | awk -F':' '{if($2=="yes")print$1}'`
+)
+
+(deflisten bluetooth :initial ""
+  `service bluetooth status \
+  | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
 )
 
 (defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
@@ -26,8 +32,9 @@
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      (_wifi-network :wifi-strength wifi-net :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺")
-      (_ethernet-network :wired ethernet-net :wired-disconnected "󰈂" :wired-connected "󰈁")
+      (_ethernet-network :wired ethernet :wired-disconnected "󰈂" :wired-connected "󰈁")
+      (_wifi-network :wifi-strength wifi :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺")
+      (_bluetooth-connection :connection bluetooth :bluetooth-disconnected "󰂲" :bluetooth-connected "󰂯")
       (_battery :status battery_status :charging "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
       (label :text "|" :class "sep")
       (button
@@ -65,6 +72,15 @@
   })
 )
 
+(defwidget _ethernet-network [wired wired-disconnected wired-connected]
+  (box :class "net-box" :space-evenly false :spacing 8
+    (label :text {
+      (wired == "disconnected") ? wired-disconnected :
+      (wired == "connected") ? wired-connected : wired-connected
+    })
+  )
+)
+
 (defwidget _wifi-network [wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
@@ -76,11 +92,11 @@
   )
 )
 
-(defwidget _ethernet-network [wired wired-disconnected wired-connected]
-  (box :class "net-box" :space-evenly false :spacing 8
+(defwidget _bluetooth-connection [connection bluetooth-disconnected bluetooth-connected]
+  (box :class "blu-box" :space-evenly false :spacing 8
     (label :text {
-      (wired == "disconnected") ? wired-disconnected :
-      (wired == "connected") ? wired-connected : wired-connected
+      (connection == "disconnected") ? bluetooth-disconnected :
+      (connection == "connected") ? bluetooth-connected : bluetooth-connected
     })
   )
 )

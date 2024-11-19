@@ -58,6 +58,10 @@ alias texteditor='vim'
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+# Bluetooth
+alias bluetoothup='sudo systemctl start bluetooth'
+alias bluetoothdown='sudo systemctl stop bluetooth'
+alias bluetoothcheck='service bluetooth status'
 # Discord
 alias discordcrps='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm start'
 alias discordcrpscanary='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm run canary'
