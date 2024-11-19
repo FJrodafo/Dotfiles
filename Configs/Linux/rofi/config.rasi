@@ -11,11 +11,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg: #151515;
-    bg-alt: #232323;
+    bg: #20252b;
+    bg-alt: #3d464e;
 
-    fg: #FFFFFF;
-    fg-alt: #424242;
+    char: #949494;
+    char-selected: #FFFFFF;
 
     background-color: @bg;
 
@@ -32,11 +32,11 @@ window {
 
 element {
     padding: 12;
-    text-color: @fg-alt;
+    text-color: @char;
 }
 
 element selected {
-    text-color: @fg;
+    text-color: @char-selected;
 }
 
 element-text {
@@ -52,7 +52,7 @@ element-icon {
 entry {
     background-color: @bg-alt;
     padding: 12;
-    text-color: @fg;
+    text-color: @char-selected;
 }
 
 inputbar {
@@ -74,5 +74,5 @@ prompt {
     background-color: @bg-alt;
     enabled: true;
     padding: 12 0 0 12;
-    text-color: @fg;
+    text-color: @char-selected;
 }

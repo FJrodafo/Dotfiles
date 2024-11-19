@@ -1,8 +1,7 @@
-$surface-darkgrey: #20252b;
-$surface-fg: #949494;
-$surface-lightgrey: #3d464e;
-$surface-grey: #2b3238;
-$surface-red: #f87070;
+$char: #949494;
+$char-red: #f87070;
+$btn-bg: #20252b;
+$btn-hover: #3d464e;
 
 * {
   all: unset;
@@ -14,7 +13,7 @@ $surface-red: #f87070;
   background-size: contain;
   background: rgba(0, 0, 0, 0.75);
   padding: 5em;
-  color: rgba($surface-fg, 1);
+  color: rgba($char, 1);
 }
 
 .bat-box,
@@ -29,7 +28,7 @@ $surface-red: #f87070;
   font-size: 2em;
 
   &:hover {
-    color: $surface-red;
+    color: $char-red;
   }
 }
 
@@ -42,15 +41,15 @@ $surface-red: #f87070;
     padding-left: 0.6em;
     padding-right: 0.6em;
     border-radius: 0.2em;
-    background-color: rgba($surface-darkgrey, 1);
+    background-color: rgba($btn-bg, 1);
 
     &:hover {
       transition: 200ms linear background-color, border-radius;
-      background-color: rgba($surface-lightgrey, 1);
+      background-color: rgba($btn-hover, 1);
     }
 
     &:first-child {
-      color: rgba($surface-red, 1);
+      color: rgba($char-red, 1);
     }
   }
 }
