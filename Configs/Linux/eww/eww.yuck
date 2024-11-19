@@ -9,18 +9,18 @@
 
 (defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
-(deflisten ethernet :initial ""
+(deflisten ethernet_status :initial ""
   `nmcli -t -f DEVICE,STATE device \
   | grep -E 'eth|en' \
   | awk -F':' '{if($2=="connected") print "connected"; else print "disconnected"}'`
 )
 
-(deflisten wifi :initial ""
+(deflisten wifi_status :initial ""
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
   | awk -F':' '{if($2=="yes")print$1}'`
 )
 
-(deflisten bluetooth :initial ""
+(deflisten bluetooth_status :initial ""
   `service bluetooth status \
   | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
 )
@@ -32,10 +32,11 @@
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      (_ethernet-network :wired ethernet :wired-disconnected "󰈂" :wired-connected "󰈁")
-      (_wifi-network :wifi-strength wifi :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺")
-      (_bluetooth-connection :connection bluetooth :bluetooth-disconnected "󰂲" :bluetooth-connected "󰂯")
-      (_battery :status battery_status :charging "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
+      (_wired-network :ethernet-cable ethernet_status :ethernet-disconnected "󰈂" :ethernet-connected "󰈁")
+      ;; (_wireless-network :wifi-strength wifi_status :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺")
+      (_wireless-network :wifi-strength wifi_status :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨")
+      (_bluetooth-network :bluetooth-connection bluetooth_status :bluetooth-disconnected "󰂲" :bluetooth-connected "󰂯")
+      (_battery :status battery_status :charging "󰂄" :no-battery "󱉞" :capacity battery_capacity :empty "󰂎" :low "󱊡" :medium "󱊢" :high "󱊣")
       (label :text "|" :class "sep")
       (button
         :onclick "~/eww/target/release/eww close powermenu"
@@ -59,29 +60,29 @@
   (label :class "sundial-lbl" :halign "end" :hexpand true :text {
     ((time.hour >= 0) && (time.hour < 1)) ? "Midnight" :
     ((time.hour >= 1) && (time.hour < 4)) ? "Night" :
-    ((time.hour >= 4) && (time.hour < 6 && time.min < 30)) ? "Early Morning" :
-    ((time.hour >= 6 && time.min >= 30) && (time.hour < 7 && time.min < 30)) ? "Dawn" :
+    ((time.hour >= 4) && (time.hour <= 6 && time.min < 30)) ? "Early Morning" :
+    ((time.hour >= 6 && time.min >= 30) && (time.hour <= 7 && time.min < 30)) ? "Dawn" :
     ((time.hour >= 7 && time.min >= 30) && (time.hour < 10)) ? "Morning" :
     ((time.hour >= 10) && (time.hour < 12)) ? "Late Morning" :
     ((time.hour >= 12) && (time.hour < 13)) ? "Midday" :
     ((time.hour >= 13) && (time.hour < 16)) ? "Afternoon" :
-    ((time.hour >= 16) && (time.hour < 18 && time.min < 30)) ? "Late Afternoon" :
-    ((time.hour >= 18 && time.min >= 30) && (time.hour < 19 && time.min < 30)) ? "Dusk" :
+    ((time.hour >= 16) && (time.hour <= 18 && time.min < 30)) ? "Late Afternoon" :
+    ((time.hour >= 18 && time.min >= 30) && (time.hour <= 19 && time.min < 30)) ? "Dusk" :
     ((time.hour >= 19 && time.min >= 30) && (time.hour < 21)) ? "Evening" :
     (time.hour >= 21) ? "Night" : "Unknown Time"
   })
 )
 
-(defwidget _ethernet-network [wired wired-disconnected wired-connected]
+(defwidget _wired-network [ethernet-cable ethernet-disconnected ethernet-connected]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
-      (wired == "disconnected") ? wired-disconnected :
-      (wired == "connected") ? wired-connected : wired-connected
+      (ethernet-cable == "disconnected") ? ethernet-disconnected :
+      (ethernet-cable == "connected") ? ethernet-connected : ethernet-connected
     })
   )
 )
 
-(defwidget _wifi-network [wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
+(defwidget _wireless-network [wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
       (wifi-strength == "") ? wifi-offline :
@@ -92,22 +93,23 @@
   )
 )
 
-(defwidget _bluetooth-connection [connection bluetooth-disconnected bluetooth-connected]
+(defwidget _bluetooth-network [bluetooth-connection bluetooth-disconnected bluetooth-connected]
   (box :class "blu-box" :space-evenly false :spacing 8
     (label :text {
-      (connection == "disconnected") ? bluetooth-disconnected :
-      (connection == "connected") ? bluetooth-connected : bluetooth-connected
+      (bluetooth-connection == "disconnected") ? bluetooth-disconnected :
+      (bluetooth-connection == "connected") ? bluetooth-connected : bluetooth-connected
     })
   )
 )
 
-(defwidget _battery [status charging capacity one two three four]
+(defwidget _battery [status charging no-battery capacity empty low medium high]
   (box :class "bat-box" :space-evenly false :spacing 8
     (label :text {
+      (status == 0 && capacity == 0) ? no-battery :
       (status == 'Charging') ? charging :
-      (capacity < 26) ? one :
-      (capacity < 51) ? two :
-      (capacity < 76) ? three : four
+      (capacity < 26) ? empty :
+      (capacity < 51) ? low :
+      (capacity < 76) ? medium : high
     })
   )
 )

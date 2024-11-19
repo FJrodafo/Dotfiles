@@ -8,7 +8,7 @@ $btn-hover: #3d464e;
 }
 
 .layout-box {
-  font-family: "Hack Nerd Font Mono";
+  font-family: "Hack Nerd Font";
   background-repeat: no-repeat;
   background-size: contain;
   background: rgba(0, 0, 0, 0.75);
@@ -16,9 +16,9 @@ $btn-hover: #3d464e;
   color: rgba($char, 1);
 }
 
-.bat-box,
-.blu-box,
 .net-box,
+.blu-box,
+.bat-box,
 .tm-box {
   label {
     font-size: 2em;
@@ -57,7 +57,7 @@ $btn-hover: #3d464e;
 
 .sep {
   font-size: 1em;
-  font-family: "Hack Nerd Font Mono";
+  font-family: "Hack Nerd Font";
   font-weight: 400;
 }
 
@@ -67,5 +67,5 @@ $btn-hover: #3d464e;
   border-radius: 0.2em;
   padding: 0.4em;
   padding-bottom: 0.5em;
-  font-family: "Hack Nerd Font Mono";
+  font-family: "Hack Nerd Font";
 }
