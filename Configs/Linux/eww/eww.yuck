@@ -12,17 +12,25 @@
 (defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
 (defpoll battery_capacity :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
 
-(deflisten net :initial ""
+(deflisten wifi-net :initial ""
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
   | awk -F':' '{if($2=="yes")print$1}'`
+)
+(deflisten ethernet-net :initial ""
+  `nmcli -t -f DEVICE,STATE device \
+  | grep -E 'eth|en' \
+  | awk -F':' '{if($2=="connected") print "connected"; else print "disconnected"}'`
 )
 
 (defwidget powermenu_layout []
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      (_battery :status battery_status :charing "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
-      (_network :strength net :offline "󰣽" :slow "󰣴" :okay "󰣶" :good "󰣸" :excellent "󰣺")
+      (_battery :status battery_status :charging "󰂄" :capacity battery_capacity :one "󰂎" :two "󱊡" :three "󱊢" :four "󱊣")
+      (_network
+        :wired ethernet-net :wired-disconnected "󰈂" :wired-connected "󰈁"
+        :wifi-strength wifi-net :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺"
+      )
       (label :text "|" :class "sep")
       (button
         :onclick "~/eww/target/release/eww close powermenu"
@@ -59,24 +67,26 @@
   })
 )
 
-(defwidget _battery [status charing capacity one two three four]
+(defwidget _battery [status charging capacity one two three four]
   (box :class "bat-box" :space-evenly false :spacing 8
     (label :text {
-      status == 'Charging' ? charing :
-      capacity < 26 ? one :
-      capacity < 51 ? two :
-      capacity < 76 ? three : four
+      (status == 'Charging') ? charging :
+      (capacity < 26) ? one :
+      (capacity < 51) ? two :
+      (capacity < 76) ? three : four
     })
   )
 )
 
-(defwidget _network [strength offline slow okay good excellent]
+(defwidget _network [wired wired-disconnected wired-connected wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
-      strength == "" ? offline :
-      strength < 26 ? slow :
-      strength < 51 ? okay :
-      strength < 76 ? good : excellent
+      (wired == "disconnected" && wifi-strength == "") ? wired-disconnected :
+      (wired == "connected") ? wired-connected :
+      (wifi-strength == "") ? wifi-offline :
+      (wifi-strength < 26) ? wifi-slow :
+      (wifi-strength < 51) ? wifi-okay :
+      (wifi-strength < 76) ? wifi-good : wifi-excellent
     })
   )
 )
