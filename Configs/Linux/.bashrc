@@ -146,13 +146,11 @@ alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spi
 alias audiovisualizer='cava'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
 alias cl='clear && neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
-alias fileexplorer='ranger'
 alias interactiveprocessviewer='htop'
-alias matrix='cmatrix'
+alias matrix='cmatrix -a'
 alias multipush='multipush'
 alias neofetch='neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
-alias npkill='npx npkill -s size'
-alias texteditor='vim'
+alias neofetchdefault='neofetch --config $HOME/.config/neofetch/default.conf'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
@@ -169,6 +167,8 @@ alias discordappcanary='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm 
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
+# Node
+alias npkill='npx npkill -s size'
 # VPN
 alias hunsterverse='cd $HOME/Documents/Games/Servers/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
 # Export PATH
