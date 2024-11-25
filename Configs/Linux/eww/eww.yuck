@@ -9,21 +9,24 @@
 
 (defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
-(deflisten ethernet_status :initial ""
-  `nmcli -t -f DEVICE,STATE device \
-  | grep -E 'eth|en' \
-  | awk -F':' '{if($2=="connected") print "connected"; else print "disconnected"}'`
-)
+;; (deflisten ethernet_status :initial ""
+  ;;   `nmcli -t -f DEVICE,STATE device \
+  ;;   | grep -E 'eth|en' \
+  ;;   | awk -F':' '{if($2=="connected") print "connected"; else print "disconnected"}'`
+;; )
 
 (deflisten wifi_status :initial ""
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
   | awk -F':' '{if($2=="yes")print$1}'`
 )
 
-(deflisten bluetooth_status :initial ""
-  `service bluetooth status \
-  | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
-)
+;; (deflisten bluetooth_status :initial ""
+  ;;   `systemctl status bluetooth \
+  ;;   | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
+;; )
+;; (deflisten bluetooth_status :initial ""
+  ;;   `lsusb | grep -q "0a12:0001" && echo "connected" || echo "disconnected"`
+;; )
 
 (defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
 (defpoll battery_capacity :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
@@ -32,11 +35,11 @@
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      (_wired-network :ethernet-cable ethernet_status :ethernet-disconnected "󰈂" :ethernet-connected "󰈁")
+      ;; (_wired-network :ethernet-cable ethernet_status :ethernet-disconnected "󰈂" :ethernet-connected "󰈁")
       ;; (_wireless-network :wifi-strength wifi_status :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺")
       (_wireless-network :wifi-strength wifi_status :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨")
-      (_bluetooth-network :bluetooth-connection bluetooth_status :bluetooth-disconnected "󰂲" :bluetooth-connected "󰂯")
-      (_battery :status battery_status :charging "󰂄" :no-battery "󱉞" :capacity battery_capacity :empty "󰂎" :low "󱊡" :medium "󱊢" :high "󱊣")
+      ;; (_bluetooth-network :bluetooth-connection bluetooth_status :bluetooth-disconnected "󰂲" :bluetooth-connected "󰂯")
+      (_battery :status battery_status :charging "󰂄" :no-battery "󱉞" :capacity battery_capacity :empty "󰂎" :bat10 "󰁺" :bat20 "󰁻" :bat30 "󰁼" :bat40 "󰁽" :bat50 "󰁾" :bat60 "󰁿" :bat70 "󰂀" :bat80 "󰂁" :bat90 "󰂂" :bat100 "󰁹")
       (label :text "|" :class "sep")
       (button
         :onclick "~/eww/target/release/eww close powermenu"
@@ -73,14 +76,14 @@
   })
 )
 
-(defwidget _wired-network [ethernet-cable ethernet-disconnected ethernet-connected]
-  (box :class "net-box" :space-evenly false :spacing 8
-    (label :text {
-      (ethernet-cable == "disconnected") ? ethernet-disconnected :
-      (ethernet-cable == "connected") ? ethernet-connected : ethernet-connected
-    })
-  )
-)
+;; (defwidget _wired-network [ethernet-cable ethernet-disconnected ethernet-connected]
+  ;;   (box :class "net-box" :space-evenly false :spacing 8
+    ;;     (label :text {
+      ;;       (ethernet-cable == "disconnected") ? ethernet-disconnected :
+      ;;       (ethernet-cable == "connected") ? ethernet-connected : ethernet-connected
+    ;;     })
+  ;;   )
+;; )
 
 (defwidget _wireless-network [wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
   (box :class "net-box" :space-evenly false :spacing 8
@@ -93,23 +96,30 @@
   )
 )
 
-(defwidget _bluetooth-network [bluetooth-connection bluetooth-disconnected bluetooth-connected]
-  (box :class "blu-box" :space-evenly false :spacing 8
-    (label :text {
-      (bluetooth-connection == "disconnected") ? bluetooth-disconnected :
-      (bluetooth-connection == "connected") ? bluetooth-connected : bluetooth-connected
-    })
-  )
-)
+;; (defwidget _bluetooth-network [bluetooth-connection bluetooth-disconnected bluetooth-connected]
+  ;;   (box :class "blu-box" :space-evenly false :spacing 8
+    ;;     (label :text {
+      ;;       (bluetooth-connection == "disconnected") ? bluetooth-disconnected :
+      ;;       (bluetooth-connection == "connected") ? bluetooth-connected : bluetooth-connected
+    ;;     })
+  ;;   )
+;; )
 
-(defwidget _battery [status charging no-battery capacity empty low medium high]
+(defwidget _battery [status charging no-battery capacity empty bat10 bat20 bat30 bat40 bat50 bat60 bat70 bat80 bat90 bat100]
   (box :class "bat-box" :space-evenly false :spacing 8
     (label :text {
       (status == 0 && capacity == 0) ? no-battery :
       (status == 'Charging') ? charging :
-      (capacity < 26) ? empty :
-      (capacity < 51) ? low :
-      (capacity < 76) ? medium : high
+      (capacity < 6) ? empty :
+      (capacity < 11) ? 10 :
+      (capacity < 21) ? 20 :
+      (capacity < 31) ? 30 :
+      (capacity < 41) ? 40 :
+      (capacity < 51) ? 50 :
+      (capacity < 61) ? 60 :
+      (capacity < 71) ? 70 :
+      (capacity < 81) ? 80 :
+      (capacity < 91) ? 90 : 100
     })
   )
 )

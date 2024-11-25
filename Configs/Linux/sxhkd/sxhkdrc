@@ -26,6 +26,10 @@ super + Return
 super + {_,shift + }@space
 	{rofi -show drun,~/eww/target/release/eww open --toggle powermenu}
 
+# emoji launcher
+super + ctrl + @space
+	rofi -show emoji
+
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
