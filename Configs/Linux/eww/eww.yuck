@@ -20,10 +20,12 @@
   | awk -F':' '{if($2=="yes")print$1}'`
 )
 
+;; Bluetooth Service
 ;; (deflisten bluetooth_status :initial ""
-  ;;   `systemctl status bluetooth \
-  ;;   | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
+  ;;   `systemctl status bluetooth | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
 ;; )
+
+;; Bluetooth Antenna
 ;; (deflisten bluetooth_status :initial ""
   ;;   `lsusb | grep -q "0a12:0001" && echo "connected" || echo "disconnected"`
 ;; )
@@ -52,7 +54,7 @@
         (label :text "${time.hour}:${time.min}")
       )
       (_buttons
-        :shutdown "poweroff" :reboot "reboot" :suspend "systemctl suspend" :logout "loginctl kill-session self"
+        :shutdown "systemctl poweroff" :reboot "systemctl reboot" :suspend "systemctl suspend" :logout "loginctl kill-session self"
         :shutdown_icon "󰐥" :reboot_icon "󰑥" :suspend_icon "󰤄" :logout_icon "󱅞"
       )
     )
@@ -110,10 +112,10 @@
     (label :text {
       (status == 0 && capacity == 0) ? no-battery :
       (status == 'Charging') ? charging :
-      (capacity < 6) ? empty :
-      (capacity < 11) ? 10 :
-      (capacity < 21) ? 20 :
-      (capacity < 31) ? 30 :
+      (capacity < 9) ? empty :
+      (capacity < 17) ? 10 :
+      (capacity < 25) ? 20 :
+      (capacity < 33) ? 30 :
       (capacity < 41) ? 40 :
       (capacity < 51) ? 50 :
       (capacity < 61) ? 60 :
