@@ -20,13 +20,10 @@
   | awk -F':' '{if($2=="yes")print$1}'`
 )
 
-;; Bluetooth Service
 ;; (deflisten bluetooth_status :initial ""
+  ;;   Bluetooth Service
   ;;   `systemctl status bluetooth | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
-;; )
-
-;; Bluetooth Antenna
-;; (deflisten bluetooth_status :initial ""
+  ;;   Bluetooth Antenna
   ;;   `lsusb | grep -q "0a12:0001" && echo "connected" || echo "disconnected"`
 ;; )
 
@@ -113,15 +110,15 @@
       (status == 0 && capacity == 0) ? no-battery :
       (status == 'Charging') ? charging :
       (capacity < 9) ? empty :
-      (capacity < 17) ? 10 :
-      (capacity < 25) ? 20 :
-      (capacity < 33) ? 30 :
-      (capacity < 41) ? 40 :
-      (capacity < 51) ? 50 :
-      (capacity < 61) ? 60 :
-      (capacity < 71) ? 70 :
-      (capacity < 81) ? 80 :
-      (capacity < 91) ? 90 : 100
+      (capacity < 17) ? bat10 :
+      (capacity < 25) ? bat20 :
+      (capacity < 33) ? bat30 :
+      (capacity < 41) ? bat40 :
+      (capacity < 51) ? bat50 :
+      (capacity < 61) ? bat60 :
+      (capacity < 71) ? bat70 :
+      (capacity < 81) ? bat80 :
+      (capacity < 91) ? bat90 : bat100
     })
   )
 )

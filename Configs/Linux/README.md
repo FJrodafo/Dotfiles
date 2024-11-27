@@ -3,15 +3,18 @@
 1. [Distro](#distro)
 2. [Sudo](#sudo)
 3. [Packages](#packages)
-4. [TTY Config](#tty-config)
-5. [Drivers NVIDIA](#drivers-nvidia)
-6. [Avoid Screen Tearing NVIDIA](#avoid-screen-tearing-nvidia)
+4. [TTY Configuration](#tty-configuration)
+5. [NVIDIA Drivers](#nvidia-drivers)
+6. [Avoid Screen Tearing](#avoid-screen-tearing)
 7. [Desktop](#desktop)
-8. [Fonts](#fonts)
-9. [Rofi Emoji Selector](#rofi-emoji-selector)
-10. [EWW](#eww)
-11. [Audio](#audio)
-12. [startx Intel Laptop](#startx-intel-laptop)
+8. [Audio](#audio)
+9. [Mobile Detection](#mobile-detection)
+10. [Fonts](#fonts)
+11. [Rofi Emoji Selector](#rofi-emoji-selector)
+12. [EWW](#eww)
+13. [startx Intel Laptop](#startx-intel-laptop)
+14. [Laptop Touchpad](#laptop-touchpad)
+15. [Wifi](#wifi)
 
 ## Distro
 
@@ -22,7 +25,6 @@
 ```sh
 su
 apt update
-apt upgrade -y
 apt install login passwd sudo systemd-sysv
 echo $PATH
 export PATH=$PATH:/usr/sbin
@@ -37,10 +39,13 @@ systemctl reboot
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install login passwd sudo network-manager bluez systemd-sysv build-essential pkg-config libglvnd-dev openssh-client neofetch xorg xinit nano curl git bspwm sxhkd picom feh maim kitty rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool fonts-noto-color-emoji firefox-esr vlc thunar mtp-tools gvfs gvfs-backends gvfs-fuse zip cava cbonsai cmatrix htop libreoffice pipewire pipewire-jack pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf
+sudo apt install login passwd sudo openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim vlc cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty htop cmatrix cbonsai libreoffice
+
+sudo apt autoremove
+sudo apt install -f
 ```
 
-## TTY Config
+## TTY Configuration
 
 To adjust the font/font-size used for the TTY, run `sudo dpkg-reconfigure console-setup`, which will guide you through the steps to choose a font and font-size:
 
@@ -49,11 +54,10 @@ To adjust the font/font-size used for the TTY, run `sudo dpkg-reconfigure consol
 3. Choose the default `Fixed`, be sure to read the notes above on the visual effect different fonts can have. 
 4. Choose the default `16`.
 
-## Drivers NVIDIA
+## NVIDIA Drivers
 
 ```sh
 # Download drivers from NVIDIA website
-
 chmod +x NVIDIA-Linux-x86_64-550.135.run
 pkill Xorg
 sudo apt update
@@ -62,6 +66,7 @@ sudo nano /etc/modprobe.d/blacklist-nouveau.conf
 ```
 
 > /etc/modprobe.d/blacklist-nouveau.conf
+
 ```conf
 blacklist nouveau
 options nouveau modeset=0
@@ -72,24 +77,21 @@ sudo update-initramfs -u
 sudo apt install linux-headers-$(uname -r)
 ls /usr/src
 sudo apt install pkg-config libglvnd-dev
-sudo reboot
+systemctl reboot
 lsmod | grep nouveau
 sudo ./NVIDIA-Linux-x86_64-<version>.run
-
-# Show results
 nvidia-smi
 ```
 
 ```sh
 # 32Bit Compatibility
-
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install libc6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386
 sudo ./NVIDIA-Linux-x86_64-<version>.run
 ```
 
-## Avoid Screen Tearing NVIDIA
+## Avoid Screen Tearing
 
 > /etc/X11/xorg.conf.d/20-nvidia.conf
 
@@ -112,6 +114,7 @@ nano ~/.xinitrc
 ```
 
 > .xinitrc
+
 ```sh
 #!/bin/sh
 
@@ -123,12 +126,25 @@ exec bspwm
 
 ```sh
 chmod +x ~/.xinitrc
-
-# Run bspwm
 startx
 ```
 
-## File Manager Mobile Detection
+## Audio
+
+```sh
+sudo apt update
+sudo apt install pipewire pipewire-jack pipewire-audio
+
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+
+systemctl --user status pipewire
+systemctl --user status pipewire-pulse
+systemctl --user status wireplumber
+
+sudo apt install firmware-sof-signed alsa-ucm-conf
+```
+
+## Mobile Detection
 
 ```sh
 sudo apt update
@@ -194,22 +210,16 @@ chmod +x ./eww
 ./eww open --toggle powermenu
 ```
 
-## Audio
+## startx Intel Laptop
 
 ```sh
-sudo apt update
-sudo apt install pipewire pipewire-jack pipewire-jack pipewire-audio
-
-systemctl --user enable --now pipewire pipewire-pulse wireplumber
-
-systemctl --user status pipewire
-systemctl --user status pipewire-pulse
-systemctl --user status wireplumber
-
-sudo apt install firmware-sof-signed alsa-ucm-conf
+su
+X -configure
+mv xorg.conf.new /etc/X11/xorg.conf
+exit
+systemctl reboot
+startx
 ```
-
-## startx Intel Laptop
 
 > /etc/X11/xorg.conf
 
@@ -270,9 +280,35 @@ Section "Screen"
 EndSection
 ```
 
+## Laptop Touchpad
+
 ```sh
-sudo X -configure
-sudo mv xorg.conf.new /etc/X11/xorg.conf
+sudo apt update
+sudo apt install xserver-xorg-input-libinput
+sudo nano /etc/X11/xorg.conf.d/40-libinput.conf
+```
+
+> /etc/X11/xorg.conf.d/40-libinput.conf
+```conf
+Section "InputClass"
+    Identifier "libinput touchpad catchall"
+    MatchIsTouchpad "on"
+    Driver "libinput"
+    Option "Tapping" "on"
+    Option "NaturalScrolling" "false"
+    Option "ClickMethod" "clickfinger"
+    Option "HorizontalScrolling" "true"
+EndSection
+```
+
+## Wifi
+
+```sh
+sudo apt update
+sudo apt install network-manager
+sudo systemctl status NetworkManager
+nmcli dev wifi list
+nmcli dev wifi connect "SSID" password "PASSWORD"
 ```
 
 <link rel="stylesheet" href="./README.css">
