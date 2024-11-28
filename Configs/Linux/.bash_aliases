@@ -14,11 +14,10 @@ alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Dr
 # Custom
 alias audiovisualizer='cava'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-alias cl='clear && neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
 alias interactiveprocessviewer='htop'
 alias matrix='cmatrix'
-alias neofetch='neofetch --ascii $HOME/.config/neofetch/Ascii.txt'
-alias neofetchdefault='clear && neofetch --config $HOME/.config/neofetch/default.conf'
+alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/tux.txt --config $HOME/.config/neofetch/box.conf'
+alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal.txt --config $HOME/.config/neofetch/minimal.conf'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
