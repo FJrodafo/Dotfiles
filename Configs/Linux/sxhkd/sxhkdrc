@@ -24,7 +24,7 @@ super + Return
 
 # program launcher
 super + {_,shift + }@space
-	{rofi -show drun,~/eww/target/release/eww open --toggle powermenu}
+	{rofi -show drun,~/.eww/target/release/eww open --toggle powermenu}
 
 # emoji launcher
 super + ctrl + @space

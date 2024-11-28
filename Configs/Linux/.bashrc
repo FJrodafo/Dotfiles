@@ -128,9 +128,9 @@ if ! shopt -oq posix; then
 fi
 
 # PATH
-export PATH=$PATH:$HOME/nodejs/bin
+export PATH=$PATH:$HOME/.nodejs/bin
 export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/eww/target/release
+export PATH=$PATH:$HOME/.eww/target/release
 
 # Neofetch
 neofetch

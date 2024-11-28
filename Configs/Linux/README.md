@@ -200,14 +200,15 @@ sudo apt install libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3
 
 # Install EWW
 git clone https://github.com/elkowar/eww.git
-cd eww
+mv eww .eww
+cd .eww
 cargo build --release --no-default-features --features x11
 
 # Running EWW
 cd target/release
-chmod +x ./eww
-./eww daemon
-./eww open --toggle powermenu
+chmod +x ./.eww
+./.eww daemon
+./.eww open --toggle powermenu
 ```
 
 ## startx Intel Laptop

@@ -41,7 +41,7 @@
       (_battery :status battery_status :charging "󰂄" :no-battery "󱉞" :capacity battery_capacity :empty "󰂎" :bat10 "󰁺" :bat20 "󰁻" :bat30 "󰁼" :bat40 "󰁽" :bat50 "󰁾" :bat60 "󰁿" :bat70 "󰂀" :bat80 "󰂁" :bat90 "󰂂" :bat100 "󰁹")
       (label :text "|" :class "sep")
       (button
-        :onclick "~/eww/target/release/eww close powermenu"
+        :onclick "~/.eww/target/release/eww close powermenu"
         :class "close-btn" ""
       )
     )
