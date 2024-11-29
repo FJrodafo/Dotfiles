@@ -18,15 +18,18 @@ alias interactiveprocessviewer='htop'
 alias matrix='cmatrix'
 alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/tux.txt --config $HOME/.config/neofetch/box.conf'
 alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal.txt --config $HOME/.config/neofetch/minimal.conf'
-# App
-alias eclipse='$HOME/eclipse/eclipse'
-alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
-alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 # Discord
 alias discordcrps='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm i && npm start'
 alias discordcrpscanary='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm i && npm run canary'
 alias discordapp='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm i && npm start'
 alias discordappcanary='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm i && npm run canary'
+# App
+alias eclipse='$HOME/eclipse/eclipse'
+alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
+alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+# Configuration
+alias defaultbrightness='brightnessctl s 75%'
+alias defaultvolume='amixer set Master 40%'
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'

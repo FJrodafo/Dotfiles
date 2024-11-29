@@ -9,23 +9,11 @@
 
 (defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
-;; (deflisten ethernet_status :initial ""
-  ;;   `nmcli -t -f DEVICE,STATE device \
-  ;;   | grep -E 'eth|en' \
-  ;;   | awk -F':' '{if($2=="connected") print "connected"; else print "disconnected"}'`
-;; )
-
+(deflisten airplane_status :initial "" `nmcli radio wifi`)
 (deflisten wifi_status :initial ""
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
   | awk -F':' '{if($2=="yes")print$1}'`
 )
-
-;; (deflisten bluetooth_status :initial ""
-  ;;   Bluetooth Service
-  ;;   `systemctl status bluetooth | grep -q "Active: active (running)" && echo "connected" || echo "disconnected"`
-  ;;   Bluetooth Antenna
-  ;;   `lsusb | grep -q "0a12:0001" && echo "connected" || echo "disconnected"`
-;; )
 
 (defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
 (defpoll battery_capacity :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
@@ -34,10 +22,10 @@
   (box :class "layout-box" :space-evenly false :orientation "vertical"
     (box :valign "start" :space-evenly false :spacing 25
       (_sundial)
-      ;; (_wired-network :ethernet-cable ethernet_status :ethernet-disconnected "󰈂" :ethernet-connected "󰈁")
-      ;; (_wireless-network :wifi-strength wifi_status :wifi-offline "󰣽" :wifi-slow "󰣴" :wifi-okay "󰣶" :wifi-good "󰣸" :wifi-excellent "󰣺")
-      (_wireless-network :wifi-strength wifi_status :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨")
-      ;; (_bluetooth-network :bluetooth-connection bluetooth_status :bluetooth-disconnected "󰂲" :bluetooth-connected "󰂯")
+      (_wireless-network
+        :airplane-mode airplane_status :airplane-icon "󰀝"
+        :wifi-strength wifi_status :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨"
+      )
       (_battery :status battery_status :charging "󰂄" :no-battery "󱉞" :capacity battery_capacity :empty "󰂎" :bat10 "󰁺" :bat20 "󰁻" :bat30 "󰁼" :bat40 "󰁽" :bat50 "󰁾" :bat60 "󰁿" :bat70 "󰂀" :bat80 "󰂁" :bat90 "󰂂" :bat100 "󰁹")
       (label :text "|" :class "sep")
       (button
@@ -75,18 +63,10 @@
   })
 )
 
-;; (defwidget _wired-network [ethernet-cable ethernet-disconnected ethernet-connected]
-  ;;   (box :class "net-box" :space-evenly false :spacing 8
-    ;;     (label :text {
-      ;;       (ethernet-cable == "disconnected") ? ethernet-disconnected :
-      ;;       (ethernet-cable == "connected") ? ethernet-connected : ethernet-connected
-    ;;     })
-  ;;   )
-;; )
-
-(defwidget _wireless-network [wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
+(defwidget _wireless-network [airplane-mode airplane-icon wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
   (box :class "net-box" :space-evenly false :spacing 8
     (label :text {
+      (airplane-mode == "disabled") ? airplane-icon :
       (wifi-strength == "") ? wifi-offline :
       (wifi-strength < 26) ? wifi-slow :
       (wifi-strength < 51) ? wifi-okay :
@@ -94,15 +74,6 @@
     })
   )
 )
-
-;; (defwidget _bluetooth-network [bluetooth-connection bluetooth-disconnected bluetooth-connected]
-  ;;   (box :class "blu-box" :space-evenly false :spacing 8
-    ;;     (label :text {
-      ;;       (bluetooth-connection == "disconnected") ? bluetooth-disconnected :
-      ;;       (bluetooth-connection == "connected") ? bluetooth-connected : bluetooth-connected
-    ;;     })
-  ;;   )
-;; )
 
 (defwidget _battery [status charging no-battery capacity empty bat10 bat20 bat30 bat40 bat50 bat60 bat70 bat80 bat90 bat100]
   (box :class "bat-box" :space-evenly false :spacing 8
