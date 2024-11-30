@@ -27,12 +27,15 @@ alias discordappcanary='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm 
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
-# Configuration
-alias defaultbrightness='brightnessctl s 75%'
-alias defaultvolume='amixer set Master 40%'
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
+# Networks
+alias airplanemodeon='nmcli radio all off'
+alias airplanemodeoff='nmcli radio all on'
+# System
+alias defaultbrightness='brightnessctl s 75%'
+alias defaultvolume='amixer set Master 40%'
 # Node
 alias npkill='npx npkill -s size'
 # VPN
