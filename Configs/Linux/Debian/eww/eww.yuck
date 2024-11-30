@@ -50,14 +50,14 @@
   (label :class "sundial-lbl" :halign "end" :hexpand true :text {
     ((time.hour >= 0) && (time.hour < 1)) ? "Midnight" :
     ((time.hour >= 1) && (time.hour < 4)) ? "Night" :
-    ((time.hour >= 4) && (time.hour <= 6 && time.min <= 30)) ? "Early Morning" :
-    ((time.hour >= 6) && (time.hour <= 7 && time.min <= 30)) ? "Dawn" :
+    ((time.hour >= 4) && ((time.hour <= 6) || (time.hour < 6 && time.min < 30))) ? "Early Morning" :
+    ((time.hour >= 6 && time.min >= 30) && ((time.hour < 7) || (time.hour < 7 && time.min < 30))) ? "Dawn" :
     ((time.hour >= 7) && (time.hour < 10)) ? "Morning" :
     ((time.hour >= 10) && (time.hour < 12)) ? "Late Morning" :
     ((time.hour >= 12) && (time.hour < 13)) ? "Midday" :
     ((time.hour >= 13) && (time.hour < 16)) ? "Afternoon" :
-    ((time.hour >= 16) && (time.hour <= 18 && time.min <= 30)) ? "Late Afternoon" :
-    ((time.hour >= 18) && (time.hour <= 19 && time.min <= 30)) ? "Dusk" :
+    ((time.hour >= 16) && ((time.hour <= 18) || (time.hour < 18 && time.min < 30))) ? "Late Afternoon" :
+    ((time.hour >= 18 && time.min >= 30) && ((time.hour < 19) || (time.hour < 19 && time.min < 30))) ? "Dusk" :
     ((time.hour >= 19) && (time.hour < 21)) ? "Evening" :
     (time.hour >= 21) ? "Night" : "Unknown Time"
   })
