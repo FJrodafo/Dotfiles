@@ -40,7 +40,7 @@
       )
       (_buttons
         :shutdown "systemctl poweroff" :reboot "systemctl reboot" :suspend "systemctl suspend" :logout "loginctl kill-session self"
-        :shutdown_icon "󰐥" :reboot_icon "󰑥" :suspend_icon "󰤄" :logout_icon "󱅞"
+        :shutdown-icon "󰐥" :reboot-icon "󰑥" :suspend-icon "󰤄" :logout-icon "󱅞"
       )
     )
   )
@@ -48,17 +48,17 @@
 
 (defwidget _sundial []
   (label :class "sundial-lbl" :halign "end" :hexpand true :text {
-    (time.hour = 0) ? "Midnight" :
+    (time.hour == 0) ? "Midnight" :
     ((time.hour >= 1) && (time.hour < 4)) ? "Night" :
-    ((time.hour >= 4) && (time.hour < 6)) ? "Early Morning" :
-    (time.hour = 6) ? "Dawn" :
-    ((time.hour >= 7) && (time.hour < 10)) ? "Morning" :
+    ((time.hour >= 4) && (time.hour < 6) || (time.hour == 6) && (time.min < 30)) ? "Early Morning" :
+    ((time.hour == 6) && (time.min >= 30)) || ((time.hour == 7) && (time.min < 30)) ? "Dawn" :
+    ((time.hour == 7) && (time.min >= 30)) || ((time.hour >= 8) && (time.hour < 10)) ? "Morning" :
     ((time.hour >= 10) && (time.hour < 12)) ? "Late Morning" :
-    (time.hour = 12) ? "Midday" :
+    (time.hour == 12) ? "Midday" :
     ((time.hour >= 13) && (time.hour < 16)) ? "Afternoon" :
-    ((time.hour >= 16) && (time.hour < 18)) ? "Late Afternoon" :
-    (time.hour = 18) ? "Dusk" :
-    ((time.hour >= 19) && (time.hour < 21)) ? "Evening" :
+    ((time.hour >= 16) && (time.hour < 18) || (time.hour == 18) && (time.min < 30)) ? "Late Afternoon" :
+    ((time.hour == 18) && (time.min >= 30)) || ((time.hour == 19) && (time.min < 30)) ? "Dusk" :
+    ((time.hour == 19) && (time.min >= 30)) || ((time.hour >= 20) && (time.hour < 21)) ? "Evening" :
     (time.hour >= 21) ? "Night" : "Unknown Time"
   })
 )
@@ -94,11 +94,11 @@
   )
 )
 
-(defwidget _buttons [shutdown shutdown_icon reboot reboot_icon suspend suspend_icon logout logout_icon]
+(defwidget _buttons [shutdown shutdown-icon reboot reboot-icon suspend suspend-icon logout logout-icon]
   (box :class "btns-box" :spacing 5 :vexpand true :hexpand true :valign "end" :halign "end" :space-evenly false
-    (button :onclick shutdown shutdown_icon)
-    (button :onclick reboot reboot_icon)
-    (button :onclick suspend suspend_icon)
-    (button :onclick logout logout_icon)
+    (button :onclick shutdown shutdown-icon)
+    (button :onclick reboot reboot-icon)
+    (button :onclick suspend suspend-icon)
+    (button :onclick logout logout-icon)
   )
 )
