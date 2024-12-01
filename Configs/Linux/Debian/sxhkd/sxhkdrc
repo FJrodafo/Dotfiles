@@ -2,6 +2,22 @@
 # wm independent hotkeys
 #
 
+# audio
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+    amixer set Master {toggle,5%-,5%+}
+
+# brightness+
+XF86MonBrightnessUp
+	brightnessctl s 10%+
+
+# brightness-
+XF86MonBrightnessDown
+	brightnessctl s 10%-
+
+# calculator
+XF86Calculator
+	qalculate
+
 # screenshots
 Print
 	maim ~/Pictures/Screenshots/$(date +%s).png
