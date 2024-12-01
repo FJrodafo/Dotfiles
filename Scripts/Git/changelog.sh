@@ -2,7 +2,7 @@
 
 # Check if we are in a Git repository
 if [ ! -d .git ]; then
-    echo "You are not in the root of a Git repository. Cannot generate CHANGELOG.md"
+    echo "Error: You are not in the root of a Git repository. Cannot generate CHANGELOG.md"
     exit 1
 fi
 

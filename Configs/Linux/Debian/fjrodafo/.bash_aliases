@@ -8,7 +8,7 @@ alias dockerdownoracle='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/o
 alias ijavajavac='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spinner.sh'
-alias multipush='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/multipush.sh'
+alias commitandpush='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/commitandpush.sh'
 alias xorguniversaldriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/universal.sh'
 alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/nvidia.sh'
 # Custom
