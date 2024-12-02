@@ -1,6 +1,7 @@
 # Script
-alias backup='$HOME/.Backup.sh'
+alias backup='$HOME/.backup.sh'
 alias changelog='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/changelog.sh'
+alias commitandpush='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/commitandpush.sh'
 alias dockerupmysqlphpmyadmin='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/mysql-phpmyadmin/up.sh'
 alias dockerdownmysqlphpmyadmin='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/mysql-phpmyadmin/down.sh'
 alias dockeruporacle='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/oracle/up.sh'
@@ -8,12 +9,13 @@ alias dockerdownoracle='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/o
 alias ijavajavac='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spinner.sh'
-alias commitandpush='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/commitandpush.sh'
 alias xorguniversaldriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/universal.sh'
 alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/nvidia.sh'
 # Custom
 alias audiovisualizer='cava'
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
+alias dammit='sudo $(history -p !!)'
+alias damnit='sudo $(fc -ln -1)'
 alias interactiveprocessviewer='htop'
 alias matrix='cmatrix'
 alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/tux.txt --config $HOME/.config/neofetch/box.conf'
