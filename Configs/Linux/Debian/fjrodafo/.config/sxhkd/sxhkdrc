@@ -17,7 +17,7 @@ XF86Calculator
 
 # screenshots
 Print
-	maim ~/Pictures/Screenshots/$(date +%s).png
+	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
 
 # alternate between the tiled and monocle layout
 super + m

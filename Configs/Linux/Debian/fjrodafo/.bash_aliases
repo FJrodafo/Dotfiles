@@ -13,11 +13,8 @@ alias xorguniversaldriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts
 alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/nvidia.sh'
 # Custom
 alias audiovisualizer='cava'
-alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
-alias dammit='sudo $(history -p !!)'
-alias damnit='sudo $(fc -ln -1)'
+alias damnit='sudo $(history -p !!)'
 alias interactiveprocessviewer='htop'
-alias matrix='cmatrix'
 alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/tux.txt --config $HOME/.config/neofetch/box.conf'
 alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal.txt --config $HOME/.config/neofetch/minimal.conf'
 # Discord
