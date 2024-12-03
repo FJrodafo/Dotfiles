@@ -7,8 +7,9 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
     amixer set Master {toggle,5%-,5%+}
 
 # brightness
-XF86MonBrightness{Up,Down}
-	brightnessctl s {10%+,10%-}
+#XF86MonBrightness{Up,Down}
+super + alt + {Up,Down}
+	brightnessctl s {5%+,5%-}
 
 # calculator
 XF86Calculator

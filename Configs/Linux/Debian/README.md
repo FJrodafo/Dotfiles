@@ -15,7 +15,7 @@
 13. [startx Intel Laptop](#startx-intel-laptop)
 14. [Laptop Touchpad](#laptop-touchpad)
 15. [Wifi](#wifi)
-13. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
+16. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
 
 ## Distro
 
@@ -291,6 +291,7 @@ sudo nano /etc/X11/xorg.conf.d/40-libinput.conf
 ```
 
 > /etc/X11/xorg.conf.d/40-libinput.conf
+
 ```conf
 Section "InputClass"
     Identifier "libinput touchpad catchall"
@@ -321,30 +322,6 @@ When streaming videos on YouTube using `firefox-esr` and `firefox`, the video pl
 about:config
 gfx.webrender.all true
 ```
-
-## Enable brightness keys for laptops
-
-https://bbs.archlinux.org/viewtopic.php?id=230932
-
-I finally solved it. I deleted all kernel parameters from `GRUB_CMDLINE_LINUX_DEFAULT` from `/etc/default/grub` leaving only `quiet`. After that I added `pcie_aspm=force` and `acpi_osi=` to `GRUB_CMDLINE_LINUX_DEFAULT` line.
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet pcie_aspm=force acpi_osi="
-```
-
-Then I run
-
-```
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-and
-
-```
-reboot
-```
-
-Now my brightness keys work.
 
 <link rel="stylesheet" href="./README.css">
 <a class="scrollup" href="#top">&#x1F53C</a>

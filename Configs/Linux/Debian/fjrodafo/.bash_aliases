@@ -36,7 +36,7 @@ alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxo
 alias airplanemodeon='nmcli radio all off'
 alias airplanemodeoff='nmcli radio all on'
 # System
-alias defaultbrightness='brightnessctl s 70%'
+alias defaultbrightness='brightnessctl s 80%'
 alias defaultvolume='amixer set Master 40%'
 # Node
 alias npkill='npx npkill -s size'
