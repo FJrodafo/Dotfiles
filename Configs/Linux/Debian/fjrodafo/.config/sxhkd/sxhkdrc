@@ -2,14 +2,26 @@
 # wm independent hotkeys
 #
 
+# quit/restart bspwm
+super + r
+	bspc wm -r
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# special keys
+#
+
 # audio
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-    amixer set Master {toggle,5%-,5%+}
+	amixer set Master {toggle,5%-,5%+}
 
 # brightness
-#XF86MonBrightness{Up,Down}
-super + alt + {Up,Down}
-	brightnessctl s {5%+,5%-}
+#XF86MonBrightness{Down,Up}
+super + alt + {Down,Up}
+	brightnessctl s {5%-,5%+}
 
 # calculator
 XF86Calculator
@@ -19,44 +31,44 @@ XF86Calculator
 Print
 	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
 
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
-
-# quit/restart bspwm
-super + r
-	bspc wm -r
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+#
+# apps
+#
 
 # terminal emulator
 super + Return
 	kitty
 
-# program launcher
-super + {_,shift + }@space
-	{rofi -show drun,~/.eww/target/release/eww open --toggle powermenu}
-
-# emoji launcher
-super + ctrl + @space
-	rofi -show emoji
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
 
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
+
+# program/emoji launcher
+super + {_,shift + }@space
+	rofi -show {drun,emoji}
+
+# eww powermenu
+super + ctrl + alt + @space
+	~/.eww/target/release/eww open --toggle powermenu
+
+#
+# tiled windows
+#
 
 # focus or send the node to the given desktop
 super + {_,shift + }{1-4}
 	bspc {desktop -f,node -d} '^{1-4}'
 
 # focus or send the node to the given direction
-super + {_,shift + }{Left,Up,Down,Right}
-	bspc node -{f,s} {west,north,south,east}
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
 
-# Smart resize, will grow or shrink depending on location.
-# Will always grow for floating nodes.
+# smart resize, will grow or shrink depending on location.
+# will always grow for floating nodes.
 super + ctrl + {Left,Down,Up,Right}
   n=10; \
   { d1=left;   d2=right;  dx=-$n; dy=0;   \

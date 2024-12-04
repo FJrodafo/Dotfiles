@@ -16,6 +16,7 @@
 14. [Laptop Touchpad](#laptop-touchpad)
 15. [Wifi](#wifi)
 16. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
+17. [Open Broadcaster Software](#open-broadcaster-software)
 
 ## Distro
 
@@ -40,7 +41,7 @@ systemctl reboot
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim vlc cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty htop libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk
+sudo apt install login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty htop libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk
 
 sudo apt autoremove
 sudo apt install -f
@@ -321,6 +322,14 @@ When streaming videos on YouTube using `firefox-esr` and `firefox`, the video pl
 ```
 about:config
 gfx.webrender.all true
+```
+
+## Open Broadcaster Software
+
+```sh
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install ffmpeg obs-studio
 ```
 
 <link rel="stylesheet" href="./README.css">
