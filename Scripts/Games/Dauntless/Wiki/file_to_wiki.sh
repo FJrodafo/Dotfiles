@@ -1,35 +1,33 @@
 #!/bin/bash
 
-while read line;
-do
-    # change the field separator from " - " to ";"
-    resep="$( echo "${line}" | sed 's/ - /;/g' )"
-    # title is the first field
-    title="$( echo ${resep} | cut -d';' -f1 )"
-    # rarity is the 2nd field
-    rarity="$( echo ${resep} | cut -d';' -f2 )"
-    # how to get it is the 3rd field
-    how="$( echo ${resep} | cut -d';' -f3 )"
-    # description is basically how to get, but with minor changes
-    descr="$( echo "${how}" | sed 's/Being part/Awarded to members/; s/guilds in Gauntlet/guilds for Gauntlet/; s/Gauntlet/[[Gauntlet]]/' )"
-    # Add the [[link]] to -> Gauntlet to the ${how}.
-    how="$( echo "${how}" | sed 's/Gauntlet/[[Gauntlet]]/' )"
+file="Gauntlet_titles.txt"
 
-    # just for debug purposes
-    #echo "'${line}'"
-    #echo "'${resep}'"
-    #echo "'${title}'"
-    #echo "'${rarity}'"
-    #echo "'${how}'"
-    #echo "'${descr}'"
+while IFS=';' read -r name rarity season; do
+    case "$rarity" in
+        Uncommon)
+            obtained="Participating in [[Gauntlet]] Season $season"
+            description="Awarded to members of all guilds that participated in Gauntlet Season $season."
+            ;;
+        Epic)
+            obtained="Being part of the Top 100 guilds in [[Gauntlet]] Season $season"
+            description="Awarded to members of the Top 100 guilds for Gauntlet Season $season."
+            ;;
+        Legendary)
+            obtained="Being part of the Top 5 guilds in [[Gauntlet]] Season $season"
+            description="Awarded to members of the Top 5 guilds for Gauntlet Season $season."
+            ;;
+        *)
+            obtained="No information available."
+            description="No description available."
+            ;;
+    esac
 
-echo "${title}" | sed 's/ /_/g'
-echo "{{Title
-|Rarity=${rarity}
-|ObtainedFrom=${how}
-|Description=${descr}.
-}}"
-
-echo "--------------------------------------------------"
-
-done < Gauntlet_Titles.txt
+    echo "----------------------------------------"
+    echo "$name"
+    echo "{{Title"
+    echo "|Rarity=$rarity"
+    echo "|ObtainedFrom=$obtained"
+    echo "|Description=$description"
+    echo "}}"
+done < "$file"
+echo "----------------------------------------"
