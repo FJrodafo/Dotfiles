@@ -2,11 +2,11 @@
 # wm independent hotkeys
 #
 
-# quit/restart bspwm
+# restart bspwm
 super + r
 	bspc wm -r
 
-# make sxhkd reload its configuration files:
+# make sxhkd reload its configuration files
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -39,25 +39,25 @@ Print
 super + Return
 	kitty
 
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
-
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
 
-# program/emoji launcher
+# program launcher/emoji picker
 super + {_,shift + }@space
 	rofi -show {drun,emoji}
 
 # eww powermenu
-super + ctrl + alt + @space
+super + ctrl + @space
 	~/.eww/target/release/eww open --toggle powermenu
 
 #
 # tiled windows
 #
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
 
 # focus or send the node to the given desktop
 super + {_,shift + }{1-4}
