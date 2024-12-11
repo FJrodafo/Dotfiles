@@ -21,7 +21,7 @@
         <td>Audio</td>
     </tr>
     <tr>
-        <td><kbd>XF86MonBrightness</kbd> { <kbd>Down</kbd>, <kbd>Up</kbd> }<hr><kbd>Super</kbd> + <kbd>Alt</kbd> + { <kbd>⬇</kbd>, <kbd>⬆</kbd> }</td>
+        <td><kbd>Super</kbd> + <kbd>Alt</kbd> + { <kbd>Down</kbd>, <kbd>Up</kbd> }</td>
         <td>Brightness</td>
     </tr>
     <tr>
@@ -79,15 +79,15 @@
         <td>Send the node to the given desktop</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + { <kbd>⬅</kbd>, <kbd>⬇</kbd>, <kbd>⬆</kbd>, <kbd>➡</kbd> }</td>
+        <td><kbd>Super</kbd> + { <kbd>Left</kbd>, <kbd>Down</kbd>, <kbd>Up</kbd>, <kbd>Right</kbd> }</td>
         <td>Move focus to {west, south, north, east}</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + { <kbd>⬅</kbd>, <kbd>⬇</kbd>, <kbd>⬆</kbd>, <kbd>➡</kbd> }</td>
+        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + { <kbd>Left</kbd>, <kbd>Down</kbd>, <kbd>Up</kbd>, <kbd>Right</kbd> }</td>
         <td>Move focused window to {west, south, north, east}</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + { <kbd>⬅</kbd>, <kbd>⬇</kbd>, <kbd>⬆</kbd>, <kbd>➡</kbd> }</td>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + { <kbd>Left</kbd>, <kbd>Down</kbd>, <kbd>Up</kbd>, <kbd>Right</kbd> }</td>
         <td>Smart resize</td>
     </tr>
 </table>
