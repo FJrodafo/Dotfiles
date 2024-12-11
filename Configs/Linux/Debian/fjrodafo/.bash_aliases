@@ -12,7 +12,7 @@ alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spi
 alias xorguniversaldriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/universal.sh'
 alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/nvidia.sh'
 # Custom
-alias audiovisualizer='cava'
+alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
 alias interactiveprocessviewer='htop'
 alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/tux.txt --config $HOME/.config/neofetch/box.conf'
