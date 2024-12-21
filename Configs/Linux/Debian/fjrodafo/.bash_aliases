@@ -15,8 +15,9 @@ alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Dr
 alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
 alias interactiveprocessviewer='htop'
-alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/tux.txt --config $HOME/.config/neofetch/box.conf'
-alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal.txt --config $HOME/.config/neofetch/minimal.conf'
+alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/box/ascii.txt --config $HOME/.config/neofetch/box/config.conf'
+alias neofetchbunny='neofetch --ascii $HOME/.config/neofetch/bunny/ascii.txt --config $HOME/.config/neofetch/bunny/config.conf'
+alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal/ascii.txt --config $HOME/.config/neofetch/minimal/config.conf'
 # Discord
 alias discordcrps='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm i && npm start'
 alias discordcrpscanary='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm i && npm run canary'
