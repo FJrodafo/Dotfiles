@@ -39,7 +39,7 @@ Print
 super + Return
 	kitty
 
-# close and kill
+# close/kill
 super + {_,shift + }w
 	bspc node -{c,k}
 
@@ -59,11 +59,11 @@ super + ctrl + @space
 super + m
 	bspc desktop -l next
 
-# focus or send the node to the given desktop
+# focus/send the node to the given desktop
 super + {_,shift + }{1-4}
 	bspc {desktop -f,node -d} '^{1-4}'
 
-# focus or send the node to the given direction
+# focus/send the node to the given direction
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 

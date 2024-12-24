@@ -6,11 +6,11 @@ SendMode Input
 
 toggle := false
 dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
-soundFilePath1 := "C:\Users\Franchu\Downloads\Macro\ding.wav"
-soundFilePath2 := "C:\Users\Franchu\Downloads\Macro\Bamboo.mp3"
-keyToSend := "F5"  ; Make sure this is the correct key
+soundFilePath1 := "C:\Users\User\Documents\Dauntless\Macro\ding.wav"
+soundFilePath2 := "C:\Users\User\Documents\Dauntless\Macro\bamboo.mp3"
+keyToSend := "v"  ; Make sure this is the correct key
 inventorykey := "i"
-emotekey := "b"
+emotekey := "t"
 jumpkey := "f"
 
 ; Close the script when the game closes

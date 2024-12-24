@@ -23,6 +23,7 @@ alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 # Neofetch
 alias neofetchbox='neofetch --ascii $HOME/.config/neofetch/box/ascii.txt --config $HOME/.config/neofetch/box/config.conf'
 alias neofetchbunny='neofetch --ascii $HOME/.config/neofetch/bunny/ascii.txt --config $HOME/.config/neofetch/bunny/config.conf'
+alias neofetchdefault='neofetch --config $HOME/.config/neofetch/config.conf'
 alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal/ascii.txt --config $HOME/.config/neofetch/minimal/config.conf'
 # Terminal
 alias audiovisualizer='cava -p ~/.config/cava/config'
@@ -38,6 +39,11 @@ alias airplanemodeoff='nmcli radio all on'
 alias brightnessdefault='brightnessctl s 75%'
 alias brightnessdown='brightnessctl s 5%-'
 alias brightnessup='brightnessctl s 5%+'
+# System power
+alias poff='systemctl poweroff'
+alias preboot='systemctl reboot'
+alias psuspend='systemctl suspend'
+alias plogout='loginctl kill-session self'
 # System volume
 alias volumedefault='amixer set Master 40%'
 alias volumedown='amixer set Master 5%-'
