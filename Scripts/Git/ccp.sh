@@ -1,27 +1,24 @@
 #!/bin/bash
 
-# Ask user to enter version number
-#read -p "Enter the version number (just the number): " version_number
+# Check if we are in a Git repository
+if [ ! -d .git ]; then
+    echo "Error: You are not in the root of a Git repository. Cannot generate CHANGELOG.md"
+    exit 1
+fi
 
-# Verify that the user entered a value
-#if [ -z "$version_number" ];
-#then
-#    echo "Error: No version number provided. Aborting."
-#    exit 1
-#fi
+# Get current directory path and file name
+DIR=$(pwd)
+CHANGELOG="$DIR/CHANGELOG.md"
 
-# Commit changes
-#git add -A
-#git commit -m "v$version_number"
+# Save YAML header to file
+# Run git log and save the output to file
+# Add YAML closure to the end of the file
+echo '```' > "$CHANGELOG"
+git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n' --decorate >> "$CHANGELOG"
+echo '```' >> "$CHANGELOG"
 
-# Push changes
-#git push github
-#git push gitlab
-#git push bitbucket
-
-#
-# OLD ABOVE / NEW BELOW
-#
+# Show confirmation message
+echo "Changelog successfully generated in $CHANGELOG"
 
 # Check if VERSION.md file exists
 if [ ! -f "VERSION.md" ]; then
