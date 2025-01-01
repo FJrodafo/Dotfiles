@@ -18,7 +18,7 @@ git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n' --decorat
 echo '```' >> "$CHANGELOG"
 
 # Show confirmation message
-echo "Changelog successfully generated in $CHANGELOG"
+echo "Changelog successfully generated at: ./CHANGELOG.md"
 
 # Check if VERSION.md file exists
 if [ ! -f "VERSION.md" ]; then
