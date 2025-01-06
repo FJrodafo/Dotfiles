@@ -133,9 +133,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.eww/target/release
 
 # Displays a random neofetch line
-case $((RANDOM % 4)) in
-    0) neofetchbox ;;
-    1) neofetchbunny ;;
-    2) neofetchminimal ;;
-    3) neofetchnerd ;;
+case $((RANDOM % 3)) in
+    0) neofetchbunny ;;
+    1) neofetchminimal ;;
+    2) neofetchnerd ;;
 esac
