@@ -55,6 +55,10 @@
         <td>Kill</td>
     </tr>
     <tr>
+        <td><kbd>Super</kbd> + <kbd>Tab</kbd></td>
+        <td>Open windows</td>
+    </tr>
+    <tr>
         <td><kbd>Super</kbd> + <kbd>Space</kbd></td>
         <td>Program launcher</td>
     </tr>

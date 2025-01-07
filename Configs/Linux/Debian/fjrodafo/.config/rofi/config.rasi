@@ -1,11 +1,15 @@
 configuration {
-    display-drun: "Applications:";
-    display-window: "Windows:";
-    drun-display-format: "{icon} {name}";
-    font: "Hack Nerd Font Mono 10";
     modi: "window,run,drun,emoji";
+
+    display-window: "Window:";
+    display-run: "Run:";
+    display-drun: "Application:";
+    display-emoji: "Emoji:";
+
     show-icons: true;
     icon-theme: "Papirus";
+
+    font: "Hack Nerd Font Mono 10";
 }
 
 @theme "/dev/null"
@@ -31,6 +35,7 @@ window {
 }
 
 element {
+    spacing: 12;
     padding: 12;
     text-color: @char;
 }
@@ -40,16 +45,26 @@ element selected {
 }
 
 element-text {
+    cursor: pointer;
     background-color: inherit;
     text-color: inherit;
     vertical-align: 0.5;
 }
 
 element-icon {
-    size: 30;
+    cursor: pointer;
+    size: 29;
+}
+
+prompt {
+    background-color: @bg-alt;
+    enabled: true;
+    padding: 12 0 0 12;
+    text-color: @char-selected;
 }
 
 entry {
+    cursor: text;
     background-color: @bg-alt;
     padding: 12;
     text-color: @char-selected;
@@ -62,17 +77,10 @@ inputbar {
 listview {
     background-color: @bg;
     columns: 1;
-    lines: 8;
+    lines: 9;
 }
 
 mainbox {
     background-color: @bg;
     children: [inputbar, listview];
-}
-
-prompt {
-    background-color: @bg-alt;
-    enabled: true;
-    padding: 12 0 0 12;
-    text-color: @char-selected;
 }

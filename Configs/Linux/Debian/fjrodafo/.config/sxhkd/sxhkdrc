@@ -43,6 +43,10 @@ super + Return
 super + {_,shift + }w
 	bspc node -{c,k}
 
+# open windows
+super + Tab
+	rofi -show window
+
 # program launcher/emoji picker
 super + {_,shift + }@space
 	rofi -show {drun,emoji}
