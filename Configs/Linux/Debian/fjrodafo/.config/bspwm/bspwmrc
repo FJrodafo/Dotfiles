@@ -3,17 +3,20 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x picom > /dev/null || picom --experimental-backend &
 
+# Layout
 bspc monitor -d I II III IV # V VI VII VIII IX X
 
+# Configs
 bspc config focused_border_color "#ffffff"
 bspc config border_width         1
 bspc config window_gap           7
-
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+# Rules
 bspc rule -a Screenkey manage=off
+bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
 feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
