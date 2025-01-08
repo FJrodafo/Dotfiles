@@ -15,29 +15,28 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg: #20252b;
-    bg-alt: #3d464e;
+    background-color: transparent;
+    char-selected: #ffffff;
+    bg: #000000cc;
 
-    char: #949494;
-    char-selected: #FFFFFF;
-
-    background-color: @bg;
-
-    border: 0;
-    margin: 0;
-    padding: 0;
     spacing: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 window {
+    border-color: #ffffff;
+    border: 1px;
+
     width: 20%;
-    border-radius: 10px;
 }
 
 element {
+    text-color: #ffffff99;
+
     spacing: 12;
     padding: 12;
-    text-color: @char;
 }
 
 element selected {
@@ -45,29 +44,37 @@ element selected {
 }
 
 element-text {
-    cursor: pointer;
-    background-color: inherit;
     text-color: inherit;
+
     vertical-align: 0.5;
+
+    cursor: pointer;
 }
 
 element-icon {
+    background-color: transparent;
+
     cursor: pointer;
+
     size: 29;
 }
 
 prompt {
-    background-color: @bg-alt;
-    enabled: true;
-    padding: 12 0 0 12;
     text-color: @char-selected;
+    background-color: @bg;
+
+    padding: 12 0 0 12;
+
+    enabled: true;
 }
 
 entry {
-    cursor: text;
-    background-color: @bg-alt;
-    padding: 12;
     text-color: @char-selected;
+    background-color: @bg;
+
+    cursor: text;
+
+    padding: 12;
 }
 
 inputbar {
@@ -76,11 +83,11 @@ inputbar {
 
 listview {
     background-color: @bg;
+
     columns: 1;
     lines: 9;
 }
 
 mainbox {
-    background-color: @bg;
     children: [inputbar, listview];
 }

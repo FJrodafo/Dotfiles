@@ -133,8 +133,10 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.eww/target/release
 
 # Displays a random neofetch line
-case $((RANDOM % 3)) in
-    0) neofetchbunny ;;
-    1) neofetchminimal ;;
-    2) neofetchnerd ;;
-esac
+if [ "$TERM" == "xterm-kitty" ]; then
+    case $((RANDOM % 3)) in
+        0) neofetchbunny ;;
+        1) neofetchminimal ;;
+        2) neofetchnerd ;;
+    esac
+fi
