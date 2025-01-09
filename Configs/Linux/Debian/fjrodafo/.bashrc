@@ -64,10 +64,7 @@ parse_git_branch() {
 
 # Prompt
 if [ "$color_prompt" = yes ]; then
-    # User
     PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]]\[\033[01;93m\]$(parse_git_branch)\[\033[00m\]\n╰─╴\[\033[01;93m\]\$\[\033[00m\] '
-    # Root
-    #PS1='${debian_chroot:+($debian_chroot)}╭╴\[\033[01;97m\]\u\[\033[00m\]@\h[\[\033[01;94m\]\W\[\033[00m\]]\n╰─╴\[\033[01;93m\]\$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\W]$(parse_git_branch)\n╰─╴\$ '
 fi
