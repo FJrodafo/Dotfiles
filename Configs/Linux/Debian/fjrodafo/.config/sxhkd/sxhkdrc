@@ -49,7 +49,7 @@ super + Tab
 
 # program launcher/emoji picker
 super + {_,shift + }@space
-	rofi -show {drun,emoji}
+	rofi {-show drun,-config ~/.config/rofi/emoji.rasi -show emoji}
 
 # eww powermenu
 super + ctrl + @space

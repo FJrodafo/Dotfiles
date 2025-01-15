@@ -1,10 +1,10 @@
+/********** General Configuration **********/
 configuration {
-    modi: "window,run,drun,emoji";
+    modi: "window,run,drun";
 
-    display-window: "Window:";
-    display-run: "Run:";
-    display-drun: "Application:";
-    display-emoji: "Emoji:";
+    display-window: "Window";
+    display-run: "Run";
+    display-drun: "Application";
 
     show-icons: true;
     icon-theme: "Papirus";
@@ -12,82 +12,5 @@ configuration {
     font: "Hack Nerd Font Mono 10";
 }
 
-@theme "/dev/null"
-
-* {
-    background-color: transparent;
-    char-selected: #ffffff;
-    bg: #000000cc;
-
-    spacing: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-
-window {
-    border-color: #ffffff;
-    border: 1px;
-
-    width: 20%;
-}
-
-element {
-    text-color: #ffffff99;
-
-    spacing: 12;
-    padding: 12;
-}
-
-element selected {
-    text-color: @char-selected;
-}
-
-element-text {
-    text-color: inherit;
-
-    vertical-align: 0.5;
-
-    cursor: pointer;
-}
-
-element-icon {
-    background-color: transparent;
-
-    cursor: pointer;
-
-    size: 29;
-}
-
-prompt {
-    text-color: @char-selected;
-    background-color: @bg;
-
-    padding: 12 0 0 12;
-
-    enabled: true;
-}
-
-entry {
-    text-color: @char-selected;
-    background-color: @bg;
-
-    cursor: text;
-
-    padding: 12;
-}
-
-inputbar {
-    children: [prompt, entry];
-}
-
-listview {
-    background-color: @bg;
-
-    columns: 1;
-    lines: 9;
-}
-
-mainbox {
-    children: [inputbar, listview];
-}
+/* @theme "/dev/null" */
+@theme "~/.config/rofi/launcher.rasi"
