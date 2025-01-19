@@ -1,0 +1,54 @@
+; ╦┌┐┌┌─┐┬  ┬ ┬┌┬┐┌─┐
+; ║││││  │  │ │ ││├┤
+; ╩┘└┘└─┘┴─┘└─┘─┴┘└─┘
+
+(include "./workspaces.yuck")
+
+; ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+; ║║║││││ │││ ││││
+; ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+
+(defwindow bar [monitor]
+  :monitor monitor
+  :geometry (geometry :x "-7px" :y "0%" :anchor "right center" :height "90%" :width "47px")
+  ; :reserve (struts :distance "0px" :side "right")
+  :wm-ignore false
+  (bar :monitor monitor)
+)
+
+; ╔═╗┌─┐┬  ┬
+; ╠═╝│ ││  │
+; ╩  └─┘┴─┘┴─┘
+
+(defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+
+; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+; ║║║│ │││ ┬├┤  │
+; ╚╩╝┴─┴┘└─┘└─┘ ┴
+
+(defwidget time []
+  (box :orientation "v" :class "time" :valign "end"
+    (eventbox :cursor "pointer"
+      (label :text "${time.hour}")
+    )
+    (eventbox :cursor "pointer"
+      (label :text "${time.min}")
+    )
+  )
+)
+(defwidget start [monitor]
+  (box :orientation "v" :space-evenly false :valign "start"
+    (workspaces :monitor monitor)
+  )
+)
+(defwidget end []
+  (box :orientation "v" :space-evenly false :valign "end"
+    (time)
+  )
+)
+(defwidget bar [monitor]
+  (box :class "eww_bar" :orientation "v" :vexpand false :hexpand false
+    (start :monitor monitor)
+    (end)
+  )
+)

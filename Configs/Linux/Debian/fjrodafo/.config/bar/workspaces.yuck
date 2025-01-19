@@ -1,0 +1,11 @@
+; ╦ ╦┌─┐┬─┐┬┌─┌─┐┌─┐┌─┐┌─┐┌─┐┌─┐
+; ║║║│ │├┬┘├┴┐└─┐├─┘├─┤│  ├┤ └─┐
+; ╚╩╝└─┘┴└─┴ ┴└─┘┴  ┴ ┴└─┘└─┘└─┘
+
+(deflisten workspace0 "scripts/WorkSpaces DP-4")
+(defwidget workspace0 [] (literal :content workspace0))
+(defwidget workspaces [monitor]
+  (box :orientation "v" :space-evenly "false" :valign "start"
+    (box :visible { monitor=="DP-4" } (workspace0))
+  )
+)

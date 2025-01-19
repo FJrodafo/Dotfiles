@@ -51,8 +51,12 @@ super + Tab
 super + {_,shift + }@space
 	rofi {-show drun,-config ~/.config/rofi/emoji.rasi -show emoji}
 
+# eww bar
+super + b
+	~/.config/Bar.bash
+
 # eww powermenu
-super + ctrl + @space
+super + p
 	~/.eww/target/release/eww open --toggle powermenu
 
 #

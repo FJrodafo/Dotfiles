@@ -1,0 +1,17 @@
+; ╔═╗┌─┐┬  ┬
+; ╠═╝│ ││  │
+; ╩  └─┘┴─┘┴─┘
+
+(defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll battery_status :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
+(defpoll battery_capacity :interval "60s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
+
+; ╦  ┬┌─┐┌┬┐┌─┐┌┐┌
+; ║  │└─┐ │ ├┤ │││
+; ╩═╝┴└─┘ ┴ └─┘┘└┘
+
+(deflisten airplane_status :initial "" `nmcli radio wifi`)
+(deflisten wifi_status :initial ""
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+  | awk -F':' '{if($2=="yes")print$1}'`
+)

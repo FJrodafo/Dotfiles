@@ -67,8 +67,12 @@
         <td>Emoji picker</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Space</kbd></td>
-        <td>Powermenu</td>
+        <td><kbd>Super</kbd> + <kbd>b</kbd></td>
+        <td>EWW Bar</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>p</kbd></td>
+        <td>EWW Powermenu</td>
     </tr>
 </table>
 
