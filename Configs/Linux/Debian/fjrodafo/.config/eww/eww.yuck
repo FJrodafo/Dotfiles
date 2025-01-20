@@ -2,5 +2,7 @@
 ; ║││││  │  │ │ ││├┤
 ; ╩┘└┘└─┘┴─┘└─┘─┴┘└─┘
 
+(include "./bar/bar.yuck")
+(include "./bar/workspaces.yuck")
 (include "./defs/defs.yuck")
 (include "./powermenu/powermenu.yuck")

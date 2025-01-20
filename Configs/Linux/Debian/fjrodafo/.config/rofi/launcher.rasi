@@ -17,6 +17,7 @@ window {
     cursor:                      default;
     background-color:            @background;
     border-radius:               0px;
+    width:                       20%;
 }
 
 /********** Main Box **********/
@@ -30,7 +31,7 @@ mainbox {
 
 /********** Inputbar **********/
 inputbar {
-    enabled:                     false; /* true */
+    enabled:                     true;
     background-color:            @background;
     text-color:                  @white;
     border-color:                @white;
@@ -70,8 +71,8 @@ listbox {
 /********** List View **********/
 listview {
     enabled:                     true;
-    columns:                     3;
-    lines:                       9;
+    columns:                     1;
+    lines:                       7;
     cycle:                       true;
     dynamic:                     true;
     reverse:                     false;
@@ -87,7 +88,7 @@ listview {
 
 /********** Mode Switcher **********/
 mode-switcher{
-    enabled:                     false; /* true */
+    enabled:                     true;
     cursor:                      default;
     background-color:            @white;
     border-color:                @white;
@@ -122,14 +123,13 @@ error-message {
 element {
     enabled:                     true;
     cursor:                      pointer;
-    background-color:            @background; /* @box */
-    text-color:                  @white; /* white-alt */
+    background-color:            @box;
+    text-color:                  @white-alt;
     border-radius:               8px;
     spacing:                     12;
     padding:                     12;
 }
 /* Fancy elements */
-/*
 element selected {
     background-color:            @selected;
     text-color:                  @white;
@@ -142,7 +142,6 @@ element active {
     background-color:            @active;
     text-color:                  @white;
 }
-*/
 element-icon {
     cursor:                      inherit;
     background-color:            @background;

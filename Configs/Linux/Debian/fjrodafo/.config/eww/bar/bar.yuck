@@ -1,33 +1,27 @@
-; ╦┌┐┌┌─┐┬  ┬ ┬┌┬┐┌─┐
-; ║││││  │  │ │ ││├┤
-; ╩┘└┘└─┘┴─┘└─┘─┴┘└─┘
-
-(include "./workspaces.yuck")
-
 ; ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
 ; ║║║││││ │││ ││││
 ; ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
 (defwindow bar [monitor]
   :monitor monitor
-  :geometry (geometry :x "-7px" :y "0%" :anchor "right center" :height "90%" :width "47px")
-  ; :reserve (struts :distance "0px" :side "right")
+  :geometry (geometry :x "7px" :y "0%" :anchor "left center" :height "90%" :width "47px")
   :wm-ignore false
   (bar :monitor monitor)
 )
-
-; ╔═╗┌─┐┬  ┬
-; ╠═╝│ ││  │
-; ╩  └─┘┴─┘┴─┘
-
-(defpoll time :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ; ║║║│ │││ ┬├┤  │
 ; ╚╩╝┴─┴┘└─┘└─┘ ┴
 
+(defwidget launcher []
+  (box :orientation "v" :class "launcher_icon"
+    (eventbox :cursor "pointer"
+      (button :onclick "rofi -show drun" :onrightclick "rofi -show window" "")
+    )
+  )
+)
 (defwidget time []
-  (box :orientation "v" :class "time" :valign "end"
+  (box :orientation "v" :class "time"
     (eventbox :cursor "pointer"
       (label :text "${time.hour}")
     )
@@ -38,6 +32,7 @@
 )
 (defwidget start [monitor]
   (box :orientation "v" :space-evenly false :valign "start"
+    (launcher)
     (workspaces :monitor monitor)
   )
 )

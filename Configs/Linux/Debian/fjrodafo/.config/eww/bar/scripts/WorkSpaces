@@ -26,7 +26,7 @@ print_workspaces() {
             class="workspace-empty"
         fi
 
-        buf+="(eventbox :cursor \"pointer\" (button :class \"$class\" :onclick \"bspc desktop -f $ws\" \"$icon\"))"
+        buf+="(eventbox :cursor \"pointer\" (button :class \"$class\" :onclick \"bspc desktop -f $ws\" :onrightclick \"bspc node -d $ws\" \"$icon\"))"
     done
 
     echo "(box :orientation \"v\" :class \"works\" :halign \"center\" :valign \"center\" :vexpand true :hexpand true $buf)"
