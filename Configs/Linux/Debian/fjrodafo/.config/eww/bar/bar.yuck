@@ -16,7 +16,7 @@
 (defwidget launcher []
   (box :orientation "v" :class "launcher_icon"
     (eventbox :cursor "pointer"
-      (button :onclick "rofi -show drun" :onrightclick "rofi -show window" "")
+      (button :onclick "rofi -show drun &" :onrightclick "rofi -show window &" "")
     )
   )
 )

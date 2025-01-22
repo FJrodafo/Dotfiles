@@ -19,33 +19,23 @@ $bg: #000000;
   color: $logo-color;
   border-radius: 0.2rem;
   padding: 0.4rem 0rem 0.4rem 0rem;
-  margin: 0.4rem 0.4rem 0rem 0.4rem;
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
 .works {
   font-family: $text-font;
   background-color: $bg-alt;
   border-radius: 0.2rem;
-  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
-  margin: 0.5rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
-.workspace-focused {
-  font-size: 18.5px;
-  color: $text-color;
-  margin: 0.4rem 0 0.4rem 0;
-}
-
-.workspace-occupied {
-  font-size: 18.5px;
-  color: $text-color;
-  margin: 0.4rem 0 0.4rem 0;
-}
-
+.workspace-focused,
+.workspace-occupied,
 .workspace-empty {
   font-size: 18.5px;
   color: $text-color;
-  margin: 0.4rem 0 0.4rem 0;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  margin: 0.2rem 0rem 0.2rem 0rem;
 }
 
 .time {
@@ -55,6 +45,6 @@ $bg: #000000;
   background-color: $bg-alt;
   color: $text-color;
   border-radius: 0.2rem;
-  padding: 0.7rem 0 0.7rem 0;
-  margin: 0.5rem;
+  padding: 0.7rem 0rem 0.7rem 0rem;
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
