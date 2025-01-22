@@ -74,6 +74,10 @@
         <td><kbd>Super</kbd> + <kbd>p</kbd></td>
         <td>EWW Powermenu</td>
     </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>c</kbd></td>
+        <td>Change Wallpaper</td>
+    </tr>
 </table>
 
 #### Tiled Windows

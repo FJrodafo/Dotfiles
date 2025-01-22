@@ -35,4 +35,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
-feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
+feh --bg-fill ~/Pictures/Wallpapers/Debian.png # Wallpaper
+"${HOME}"/.config/eww/bar/scripts/GenerateWorkSpaces # EWW bar

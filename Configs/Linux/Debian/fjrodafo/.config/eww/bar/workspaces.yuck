@@ -2,7 +2,7 @@
 ; ║║║│ │├┬┘├┴┐└─┐├─┘├─┤│  ├┤ └─┐
 ; ╚╩╝└─┘┴└─┴ ┴└─┘┴  ┴ ┴└─┘└─┘└─┘
 
-(deflisten workspace0 "./bar/scripts/WorkSpaces DP-4")
+(deflisten workspace0 "./bar/scripts/WorkSpacesStyle DP-4")
 (defwidget workspace0 [] (literal :content workspace0))
 (defwidget workspaces [monitor]
   (box :orientation "v" :space-evenly "false" :valign "start"

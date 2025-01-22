@@ -53,11 +53,15 @@ super + {_,shift + }@space
 
 # eww bar
 super + b
-	~/.config/Bar.bash
+	~/.config/eww/bar/scripts/LaunchBar.bash
 
 # eww powermenu
 super + p
 	~/.eww/target/release/eww open --toggle powermenu
+
+# change wallpaper
+super + c
+	feh --bg-fill --randomize ~/Pictures/Wallpapers/*
 
 #
 # tiled windows
