@@ -1,49 +1,49 @@
-$text-font: "Hack Nerd Font Mono";
-$text-color: #ffffff;
-$logo-color: #d70a53;
-$bg-alt: #444444;
-$bg: #000000;
+$bar-text-font: "Hack Nerd Font Mono";
+$bar-text-color: rgb(255, 255, 255);
+$bar-debian-logo-color: rgb(215, 10, 83);
+$bar-bg: rgb(0, 0, 0);
+$bar-bg-alt: rgb(68, 68, 68);
 
 * {
   all: unset;
 }
 
-.eww_bar {
-  background-color: $bg;
+.bar-layout-box {
+  background-color: $bar-bg;
   border-radius: 0.5rem;
 }
 
-.launcher_icon {
-  font-family: $text-font;
+.bar-logo-box {
+  font-family: $bar-text-font;
   font-size: 25px;
-  color: $logo-color;
+  color: $bar-debian-logo-color;
   border-radius: 0.2rem;
   padding: 0.4rem 0rem 0.4rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
-.works {
-  font-family: $text-font;
-  background-color: $bg-alt;
+.bar-workspaces {
+  font-family: $bar-text-font;
+  background-color: $bar-bg-alt;
   border-radius: 0.2rem;
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
-.workspace-focused,
-.workspace-occupied,
-.workspace-empty {
+.bar-workspace-focused,
+.bar-workspace-occupied,
+.bar-workspace-empty {
   font-size: 18.5px;
-  color: $text-color;
+  color: $bar-text-color;
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   margin: 0.2rem 0rem 0.2rem 0rem;
 }
 
-.time {
-  font-family: $text-font;
+.bar-time-box {
+  font-family: $bar-text-font;
   font-weight: bold;
   font-size: 18.5px;
-  background-color: $bg-alt;
-  color: $text-color;
+  background-color: $bar-bg-alt;
+  color: $bar-text-color;
   border-radius: 0.2rem;
   padding: 0.7rem 0rem 0.7rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;

@@ -1,2 +1,13 @@
+* {
+    all: unset;
+}
+
+tooltip {
+    font-family: "Hack Nerd Font Mono";
+    font-size: 1rem;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
 @import "./bar/bar.scss";
 @import "./powermenu/powermenu.scss";

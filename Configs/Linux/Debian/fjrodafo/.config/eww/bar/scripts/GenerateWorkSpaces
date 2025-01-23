@@ -11,7 +11,7 @@ generate_eww_workspaces() {
     echo -e "; ╦ ╦┌─┐┬─┐┬┌─┌─┐┌─┐┌─┐┌─┐┌─┐┌─┐\n; ║║║│ │├┬┘├┴┐└─┐├─┘├─┤│  ├┤ └─┐\n; ╚╩╝└─┘┴└─┴ ┴└─┘┴  ┴ ┴└─┘└─┘└─┘\n" > "$eww_file"
 
     for m in $monitors; do
-        local workspace_name="workspace${count}"
+        local workspace_name="bar-workspace-${count}"
         listen_workspaces+="(deflisten ${workspace_name} \"./bar/scripts/WorkSpacesStyle $m\")"
         widgets+="    (box :visible { monitor==\""$m\"" } (${workspace_name}))\n"
         local workspace_widgets="(defwidget ${workspace_name} [] (literal :content ${workspace_name}))"
@@ -20,7 +20,7 @@ generate_eww_workspaces() {
 
     echo -e $listen_workspaces >> "$eww_file"
     echo -e $workspace_widgets >> "$eww_file"
-    echo -e "(defwidget workspaces [monitor]\n  (box :orientation \"v\" :space-evenly \"false\" :valign \"start\"\n$widgets  )\n)" >> "$eww_file"
+    echo -e "(defwidget bar-workspaces-widget [monitor]\n  (box :orientation \"v\" :valign \"start\" :space-evenly false\n$widgets  )\n)" >> "$eww_file"
 }
 
 generate_eww_workspaces

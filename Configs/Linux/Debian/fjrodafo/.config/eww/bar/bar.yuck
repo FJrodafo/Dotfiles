@@ -4,46 +4,55 @@
 
 (defwindow bar [monitor]
   :monitor monitor
-  :geometry (geometry :x "7px" :y "0%" :anchor "left center" :height "90%" :width "47px")
   :wm-ignore false
-  (bar :monitor monitor)
+  :geometry (geometry :anchor "left center" :x "7px" :y "0%" :width "47px" :height "90%")
+  (bar-layout-widget :monitor monitor)
+)
+
+; ╔═╗┌─┐┬  ┬
+; ╠═╝│ ││  │
+; ╩  └─┘┴─┘┴─┘
+
+(defpoll bar-time-poll
+  :interval "5s"
+  :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`
 )
 
 ; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ; ║║║│ │││ ┬├┤  │
 ; ╚╩╝┴─┴┘└─┘└─┘ ┴
 
-(defwidget launcher []
-  (box :orientation "v" :class "launcher_icon"
+(defwidget bar-layout-widget [monitor]
+  (box :class "bar-layout-box" :orientation "v" :vexpand false :hexpand false
+    (bar-start-widget :monitor monitor)
+    (bar-end-widget)
+  )
+)
+(defwidget bar-start-widget [monitor]
+  (box :orientation "v" :valign "start" :space-evenly false
+    (bar-logo-widget)
+    (bar-workspaces-widget :monitor monitor)
+  )
+)
+(defwidget bar-end-widget []
+  (box :orientation "v" :valign "end" :space-evenly false
+    (bar-time-widget)
+  )
+)
+(defwidget bar-logo-widget []
+  (box :class "bar-logo-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :onclick "rofi -show drun &" :onrightclick "rofi -show window &" "")
+      (button :tooltip "Launcher" :onclick "rofi -show drun &" :onrightclick "rofi -show window &" "")
     )
   )
 )
-(defwidget time []
-  (box :orientation "v" :class "time"
+(defwidget bar-time-widget []
+  (box :class "bar-time-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (label :text "${time.hour}")
+      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle date" "${bar-time-poll.hour}")
     )
     (eventbox :cursor "pointer"
-      (label :text "${time.min}")
+      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle date" "${bar-time-poll.min}")
     )
-  )
-)
-(defwidget start [monitor]
-  (box :orientation "v" :space-evenly false :valign "start"
-    (launcher)
-    (workspaces :monitor monitor)
-  )
-)
-(defwidget end []
-  (box :orientation "v" :space-evenly false :valign "end"
-    (time)
-  )
-)
-(defwidget bar [monitor]
-  (box :class "eww_bar" :orientation "v" :vexpand false :hexpand false
-    (start :monitor monitor)
-    (end)
   )
 )

@@ -1,70 +1,73 @@
-$char: #949494;
-$char-red: #f87070;
-$btn-bg: #20252b;
-$btn-hover: #3d464e;
+$powermenu-text-font: "Hack Nerd Font";
+$powermenu-text-color: rgb(255, 255, 255);
+$powermenu-text-color-alt: rgba(255, 255, 255, 0.6);
+$powermenu-text-color-red: rgb(248, 112, 112);
+$powermenu-bg-button: rgb(32, 37, 43);
+$powermenu-bg-button-hover: rgb(61, 70, 78);
 
 * {
   all: unset;
 }
 
-.layout-box {
-  font-family: "Hack Nerd Font";
+.powermenu-layout-box {
+  font-family: $powermenu-text-font;
+  color: $powermenu-text-color-alt;
   background-repeat: no-repeat;
   background-size: contain;
   background: rgba(0, 0, 0, 0.80);
   padding: 5em;
-  color: rgba($char, 1);
 }
 
-.net-box,
-.bat-box,
-.tm-box {
+.powermenu-separator-label {
+  font-family: $powermenu-text-font;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.powermenu-close-button {
+  font-size: 2em;
+  padding-right: 1px;
+
+  &:hover {
+    color: $powermenu-text-color-red;
+  }
+}
+
+.powermenu-battery-box,
+.powermenu-wifi-box,
+.powermenu-time-box {
   label {
     font-size: 2em;
   }
 }
 
-.close-btn {
-  font-size: 2em;
-
-  &:hover {
-    color: $char-red;
-  }
-}
-
-.btns-box {
-  font-size: 2.5em;
-
-  button {
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
-    padding-left: 19px;
-    padding-right: 20px;
-    margin-right: 0.1em;
-    border-radius: 0.2em;
-    background-color: rgba($btn-bg, 1);
-
-    &:hover {
-      transition: 200ms linear background-color, border-radius;
-      background-color: rgba($btn-hover, 1);
-    }
-
-    &:first-child {
-      color: rgba($char-red, 1);
-    }
-  }
-}
-
-.sep {
-  font-size: 1em;
-  font-family: "Hack Nerd Font";
-  font-weight: 400;
-}
-
-.sundial-lbl {
+.powermenu-sundial-label {
+  font-family: $powermenu-text-font;
   font-size: 1.5em;
   font-weight: bold;
   border-radius: 0.2em;
   padding: 0.4em;
-  font-family: "Hack Nerd Font";
+}
+
+.powermenu-button-box {
+  font-size: 2.5em;
+
+  button {
+    background-color: $powermenu-bg-button;
+    border-radius: 0.2em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 19px;
+    padding-right: 20px;
+
+    &:hover {
+      transition: 200ms linear background-color, border-radius;
+      background-color: $powermenu-bg-button-hover;
+      color: $powermenu-text-color;
+    }
+  }
+
+  &.powermenu-shutdown-button-box button:hover {
+    color: $powermenu-text-color-red;
+  }
 }

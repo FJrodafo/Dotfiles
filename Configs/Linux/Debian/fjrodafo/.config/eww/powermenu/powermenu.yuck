@@ -8,60 +8,90 @@
   :windowtype "normal"
   :wm-ignore true
   :geometry (geometry :width "100%" :height "100%")
-  (powermenu_layout)
+  (powermenu-layout-widget)
+)
+
+; ╔═╗┌─┐┬  ┬
+; ╠═╝│ ││  │
+; ╩  └─┘┴─┘┴─┘
+
+(defpoll powermenu-time-poll
+  :interval "5s"
+  :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`
+)
+(defpoll powermenu-battery-status-poll
+  :interval "60s"
+  :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0"
+)
+(defpoll powermenu-battery-capacity-poll
+  :interval "60s"
+  :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0"
+)
+
+; ╦  ┬┌─┐┌┬┐┌─┐┌┐┌
+; ║  │└─┐ │ ├┤ │││
+; ╩═╝┴└─┘ ┴ └─┘┘└┘
+
+(deflisten powermenu-airplane-status-listen
+  :initial "" `nmcli radio wifi`
+)
+(deflisten powermenu-wifi-status-listen
+  :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`
 )
 
 ; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ; ║║║│ │││ ┬├┤  │
 ; ╚╩╝┴─┴┘└─┘└─┘ ┴
 
-(defwidget powermenu_layout []
-  (box :class "layout-box" :space-evenly false :orientation "vertical"
+(defwidget powermenu-layout-widget []
+  (box :class "powermenu-layout-box" :orientation "vertical" :space-evenly false
     (box :valign "start" :space-evenly false :spacing 25
-      (_sundial)
-      (_wireless-network
-        :airplane-mode airplane_status :airplane-icon "󰀝"
-        :wifi-strength wifi_status :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨"
+      (powermenu-sundial)
+      (powermenu-wifi
+        :airplane-mode powermenu-airplane-status-listen :airplane-icon "󰀝"
+        :wifi-strength powermenu-wifi-status-listen :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨"
       )
-      (_battery :status battery_status :charging "󰂄" :no-battery "󱉞" :capacity battery_capacity :empty "󰂎" :bat10 "󰁺" :bat20 "󰁻" :bat30 "󰁼" :bat40 "󰁽" :bat50 "󰁾" :bat60 "󰁿" :bat70 "󰂀" :bat80 "󰂁" :bat90 "󰂂" :bat100 "󰁹")
-      (label :text "|" :class "sep")
+      (powermenu-battery
+        :status powermenu-battery-status-poll :charging "󰂄" :no-battery "󱉞"
+        :capacity powermenu-battery-capacity-poll :empty "󰂎" :bat10 "󰁺" :bat20 "󰁻" :bat30 "󰁼" :bat40 "󰁽" :bat50 "󰁾" :bat60 "󰁿" :bat70 "󰂀" :bat80 "󰂁" :bat90 "󰂂" :bat100 "󰁹"
+      )
+      (label :text "|" :class "powermenu-separator-label")
       (eventbox :cursor "pointer"
-        (button
-          :onclick "~/.eww/target/release/eww close powermenu"
-          :class "close-btn" ""
-        )
+        (button :class "powermenu-close-button" :onclick "~/.eww/target/release/eww close powermenu" "")
       )
     )
-    (box :space-evenly false :hexpand true :vexpand true
-      (box :spacing 15 :class "tm-box" :space-evenly false :valign "end" :halign "start"
+    (box :vexpand true :hexpand true :space-evenly false
+      (box :class "powermenu-time-box" :valign "end" :halign "start" :space-evenly false :spacing 15
         (label :text "󰣉")
-        (label :text "${time.hour}:${time.min}")
+        (label :text "${powermenu-time-poll.hour}:${powermenu-time-poll.min}")
       )
-      (_buttons
-        :shutdown "systemctl poweroff" :reboot "systemctl reboot" :suspend "systemctl suspend" :logout "loginctl kill-session self"
-        :shutdown-icon "󰐥" :reboot-icon "󰜉" :suspend-icon "󰤄" :logout-icon "󱅞"
+      (powermenu-buttons
+        :shutdown "systemctl poweroff" :shutdown-icon "󰐥"
+        :reboot "systemctl reboot" :reboot-icon "󰜉"
+        :suspend "systemctl suspend" :suspend-icon "󰤄"
+        :logout "loginctl kill-session self" :logout-icon "󱅞"
       )
     )
   )
 )
-(defwidget _sundial []
-  (label :class "sundial-lbl" :halign "end" :hexpand true :text {
-    (time.hour >= 21) ? "Night" :
-    (time.hour >= 20) || (time.hour == 19 && time.min >= 30) ? "Evening" :
-    (time.hour == 19 && time.min < 30) || (time.hour == 18 && time.min >= 30) ? "Dusk" :
-    (time.hour == 18 && time.min < 30) || (time.hour >= 16) ? "Late Afternoon" :
-    (time.hour >= 13) ? "Afternoon" :
-    (time.hour == 12) ? "Midday" :
-    (time.hour >= 10) ? "Late Morning" :
-    (time.hour >= 8) || (time.hour == 7 && time.min >= 30) ? "Morning" :
-    (time.hour == 7 && time.min < 30) || (time.hour == 6 && time.min >= 30) ? "Dawn" :
-    (time.hour == 6 && time.min < 30) || (time.hour >= 4) ? "Early Morning" :
-    (time.hour >= 1) ? "Night" :
-    (time.hour == 0) ? "Midnight" : "Unknown Time";
+(defwidget powermenu-sundial []
+  (label :class "powermenu-sundial-label" :halign "end" :hexpand true :text {
+    (powermenu-time-poll.hour >= 21) ? "Night" :
+    (powermenu-time-poll.hour >= 20) || (powermenu-time-poll.hour == 19 && powermenu-time-poll.min >= 30) ? "Evening" :
+    (powermenu-time-poll.hour == 19 && powermenu-time-poll.min < 30) || (powermenu-time-poll.hour == 18 && powermenu-time-poll.min >= 30) ? "Dusk" :
+    (powermenu-time-poll.hour == 18 && powermenu-time-poll.min < 30) || (powermenu-time-poll.hour >= 16) ? "Late Afternoon" :
+    (powermenu-time-poll.hour >= 13) ? "Afternoon" :
+    (powermenu-time-poll.hour == 12) ? "Midday" :
+    (powermenu-time-poll.hour >= 10) ? "Late Morning" :
+    (powermenu-time-poll.hour >= 8) || (powermenu-time-poll.hour == 7 && powermenu-time-poll.min >= 30) ? "Morning" :
+    (powermenu-time-poll.hour == 7 && powermenu-time-poll.min < 30) || (powermenu-time-poll.hour == 6 && powermenu-time-poll.min >= 30) ? "Dawn" :
+    (powermenu-time-poll.hour == 6 && powermenu-time-poll.min < 30) || (powermenu-time-poll.hour >= 4) ? "Early Morning" :
+    (powermenu-time-poll.hour >= 1) ? "Night" :
+    (powermenu-time-poll.hour == 0) ? "Midnight" : "Unknown Time";
   })
 )
-(defwidget _wireless-network [airplane-mode airplane-icon wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
-  (box :class "net-box" :space-evenly false :spacing 8
+(defwidget powermenu-wifi [airplane-mode airplane-icon wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]
+  (box :class "powermenu-wifi-box" :space-evenly false :spacing 8
     (label :text {
       (airplane-mode == "disabled") ? airplane-icon :
       (wifi-strength == "") ? wifi-offline :
@@ -71,8 +101,8 @@
     })
   )
 )
-(defwidget _battery [status charging no-battery capacity empty bat10 bat20 bat30 bat40 bat50 bat60 bat70 bat80 bat90 bat100]
-  (box :class "bat-box" :space-evenly false :spacing 8
+(defwidget powermenu-battery [status charging no-battery capacity empty bat10 bat20 bat30 bat40 bat50 bat60 bat70 bat80 bat90 bat100]
+  (box :class "powermenu-battery-box" :space-evenly false :spacing 8
     (label :text {
       (status == 0 && capacity == 0) ? no-battery :
       (status == 'Charging') ? charging :
@@ -89,11 +119,19 @@
     })
   )
 )
-(defwidget _buttons [shutdown shutdown-icon reboot reboot-icon suspend suspend-icon logout logout-icon]
-  (box :class "btns-box" :spacing 5 :vexpand true :hexpand true :valign "end" :halign "end" :space-evenly false
-    (button :onclick shutdown shutdown-icon)
-    (button :onclick reboot reboot-icon)
-    (button :onclick suspend suspend-icon)
-    (button :onclick logout logout-icon)
+(defwidget powermenu-buttons [shutdown shutdown-icon reboot reboot-icon suspend suspend-icon logout logout-icon]
+  (box :valign "end" :halign "end" :vexpand true :hexpand true :space-evenly false :spacing 7
+    (eventbox :cursor "pointer" :class "powermenu-button-box powermenu-shutdown-button-box"
+      (button :onclick shutdown shutdown-icon)
+    )
+    (eventbox :cursor "pointer" :class "powermenu-button-box"
+      (button :onclick reboot reboot-icon)
+    )
+    (eventbox :cursor "pointer" :class "powermenu-button-box"
+      (button :onclick suspend suspend-icon)
+    )
+    (eventbox :cursor "pointer" :class "powermenu-button-box"
+      (button :onclick logout logout-icon)
+    )
   )
 )

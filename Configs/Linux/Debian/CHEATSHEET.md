@@ -1,7 +1,15 @@
 ## Index
 
 1. [bspwm/sxhkd](#bspwmsxhkd)
+    * [WM Independent Hotkeys](#wm-independent-hotkeys)
+    * [Special Keys](#special-keys)
+    * [Apps](#apps)
+    * [Tiled Windows](#tiled-windows)
 2. [zathura](#zathura)
+    * [Navigation](#navigation)
+    * [Bookmarks](#bookmarks)
+    * [Manipulation](#manipulation)
+    * [Miscellaneous](#miscellaneous)
 
 ## bspwm/sxhkd
 
@@ -88,11 +96,11 @@
         <td>Alternate between the tiled and monocle layout</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>1-4</kbd></td>
+        <td><kbd>Super</kbd> + <kbd>1-6</kbd></td>
         <td>Focus on the given desktop</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-4</kbd></td>
+        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-6</kbd></td>
         <td>Send the node to the given desktop</td>
     </tr>
     <tr>
