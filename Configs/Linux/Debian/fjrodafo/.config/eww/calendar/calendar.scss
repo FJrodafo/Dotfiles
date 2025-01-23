@@ -16,7 +16,7 @@
     }
 
     .calendar-separator-box {
-      background-color: $calendar-bg-alt;
+      background-color: $calendar-text-color-white;
       padding: 0px 1px;
       margin: 0.2rem 15px;
     }
@@ -38,8 +38,8 @@
   color: $calendar-text-color-white;
   background-color: $calendar-bg-alt;
   border-radius: 0.5rem;
-  padding: 0 1rem 0.2rem;
-  margin: 0.9rem 0.6rem 0.9rem 0.6rem;
+  padding: 0rem 1rem 0rem;
+  margin: 0.6rem;
 
   .calendar {
     background-color: inherit;
@@ -57,11 +57,11 @@
 }
 
 calendar:selected {
-  color: $calendar-text-color-magenta;
+  color: $calendar-text-color-green;
 }
 
 calendar.header {
-  color: $calendar-text-color-magenta;
+  color: $calendar-text-color-green;
   font-weight: bold;
 }
 
@@ -70,7 +70,7 @@ calendar.button {
 }
 
 calendar.highlight {
-  color: $calendar-text-color-green;
+  color: $calendar-text-color-white;
   font-weight: bold;
 }
 

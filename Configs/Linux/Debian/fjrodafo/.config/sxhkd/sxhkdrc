@@ -51,13 +51,9 @@ super + Tab
 super + {_,shift + }@space
 	rofi {-show drun,-config ~/.config/rofi/emoji.rasi -show emoji}
 
-# eww bar
-super + b
-	~/.config/eww/bar/scripts/LaunchBar.bash
-
-# eww powermenu
-super + p
-	~/.eww/target/release/eww open --toggle powermenu
+# eww widgets
+super + e
+	~/.config/eww/eww.bash
 
 # change wallpaper
 super + c

@@ -57,7 +57,7 @@
       )
       (label :text "|" :class "powermenu-separator-label")
       (eventbox :cursor "pointer"
-        (button :class "powermenu-close-button" :onclick "~/.eww/target/release/eww close powermenu" "")
+        (button :class "powermenu-close-button" :onclick "~/.eww/target/release/eww close powermenu && bash ~/.config/eww/eww.bash" "")
       )
     )
     (box :vexpand true :hexpand true :space-evenly false

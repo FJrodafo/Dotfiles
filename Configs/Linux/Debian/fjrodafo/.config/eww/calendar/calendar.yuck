@@ -4,7 +4,7 @@
 
 (defwindow calendar
   :wm-ignore true
-  :geometry (geometry :anchor "left center" :x "61px" :y "0%")
+  :geometry (geometry :anchor "left bottom" :x "61px" :y "-5%")
   (calendar-layout-widget)
 )
 

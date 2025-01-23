@@ -75,12 +75,8 @@
         <td>Emoji picker</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>b</kbd></td>
-        <td>EWW Bar</td>
-    </tr>
-    <tr>
-        <td><kbd>Super</kbd> + <kbd>p</kbd></td>
-        <td>EWW Powermenu</td>
+        <td><kbd>Super</kbd> + <kbd>e</kbd></td>
+        <td>EWW Widgets</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>c</kbd></td>

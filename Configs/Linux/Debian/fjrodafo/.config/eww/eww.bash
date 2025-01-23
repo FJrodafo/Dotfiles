@@ -1,6 +1,8 @@
-# This file launch EWW bar
+#!/bin/bash
 
-launch_bar(){
+# This file launch EWW widgets
+
+launch_eww_widgets(){
     # Check if EWW bar/calendar is active by using 'eww active-windows'
     local eww_active_windows=$(~/.eww/target/release/eww active-windows)
 
@@ -20,4 +22,4 @@ launch_bar(){
     done
 }
 
-launch_bar
+launch_eww_widgets

@@ -42,17 +42,17 @@
 (defwidget bar-logo-widget []
   (box :class "bar-logo-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :tooltip "Launcher" :onclick "rofi -show drun &" :onrightclick "rofi -show window &" "")
+      (button :onclick "rofi -show drun &" :onrightclick "~/.eww/target/release/eww close-all && bspc config left_padding 0 && ~/.eww/target/release/eww open powermenu" "")
     )
   )
 )
 (defwidget bar-time-widget []
   (box :class "bar-time-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.hour}")
+      (button :onclick "~/.eww/target/release/eww open calendar && bspc config left_padding 313" :onrightclick "~/.eww/target/release/eww close calendar && bspc config left_padding 54" "${bar-time-poll.hour}")
     )
     (eventbox :cursor "pointer"
-      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.min}")
+      (button :onclick "~/.eww/target/release/eww open calendar && bspc config left_padding 313" :onrightclick "~/.eww/target/release/eww close calendar && bspc config left_padding 54" "${bar-time-poll.min}")
     )
   )
 )
