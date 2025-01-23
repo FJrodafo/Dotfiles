@@ -1,13 +1,3 @@
-$bar-text-font: "Hack Nerd Font Mono";
-$bar-text-color: rgb(255, 255, 255);
-$bar-debian-logo-color: rgb(215, 10, 83);
-$bar-bg: rgb(0, 0, 0);
-$bar-bg-alt: rgb(68, 68, 68);
-
-* {
-  all: unset;
-}
-
 .bar-layout-box {
   background-color: $bar-bg;
   border-radius: 0.5rem;
@@ -33,7 +23,7 @@ $bar-bg-alt: rgb(68, 68, 68);
 .bar-workspace-occupied,
 .bar-workspace-empty {
   font-size: 18.5px;
-  color: $bar-text-color;
+  color: $bar-text-color-white;
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   margin: 0.2rem 0rem 0.2rem 0rem;
 }
@@ -42,8 +32,8 @@ $bar-bg-alt: rgb(68, 68, 68);
   font-family: $bar-text-font;
   font-weight: bold;
   font-size: 18.5px;
+  color: $bar-text-color-white;
   background-color: $bar-bg-alt;
-  color: $bar-text-color;
   border-radius: 0.2rem;
   padding: 0.7rem 0rem 0.7rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;

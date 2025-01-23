@@ -1,0 +1,56 @@
+; ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+; ║║║││││ │││ ││││
+; ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+
+(defwindow calendar
+  :wm-ignore true
+  :geometry (geometry :anchor "left center" :x "61px" :y "0%")
+  (calendar-layout-widget)
+)
+
+; ╔═╗┌─┐┬  ┬
+; ╠═╝│ ││  │
+; ╩  └─┘┴─┘┴─┘
+
+(defpoll calendar-current-date-poll :interval "1s" "date '+%d %b, %I:%M %p'")
+(defpoll calendar-full-day-poll :interval "1h" "date '+%A, %d %B'")
+(defpoll calendar-hour-poll :interval "30m" "date +%H")
+(defpoll calendar-minutes-poll :interval "30s" "date +%M")
+(defpoll calendar-day-poll :interval "10h" "date '+%d'")
+(defpoll calendar-month-poll :interval "10h" "date '+%m'")
+(defpoll calendar-year-poll :interval "10h" "date '+%Y'")
+
+; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+; ║║║│ │││ ┬├┤  │
+; ╚╩╝┴─┴┘└─┘└─┘ ┴
+
+(defwidget calendar-layout-widget []
+  (box :class "calendar-layout-box" :orientation "v" :space-evenly false
+    (calendar-time-widget)
+    (calendar-widget)
+  )
+)
+(defwidget calendar-time-widget []
+  (box :class "calendar-time-box" :orientation "v" :space-evenly false
+    (box :class "calendar-time-container-1" :orientation "h" :halign "center" :valign "center" :space-evenly false
+      (label :class "calendar-time-container-1-label" :text "${calendar-hour-poll}")
+      (calendar-separator-widget)
+      (label :class "calendar-time-container-1-label" :text "${calendar-minutes-poll}")
+    )
+    (box :class "calendar-time-container-2" :orientation "h" :halign "center" :space-evenly true
+      (label :text "${calendar-full-day-poll}")
+    )
+  )
+)
+(defwidget calendar-widget []
+  (box :class "calendar-box" :orientation "v" :space-evenly false
+    (calendar :class "calendar"
+      :day {calendar-day-poll ?: "1"}
+      :month {calendar-month-poll ?: "1"}
+      :year {calendar-year-poll ?: "2023"}
+    )
+  )
+)
+(defwidget calendar-separator-widget []
+  (box :class "calendar-separator-box" :orientation "v" :space-evenly true)
+)

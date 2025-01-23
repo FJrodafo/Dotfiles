@@ -1,0 +1,79 @@
+.calendar-layout-box {
+  color: $calendar-text-color-white;
+  background-color: $calendar-bg;
+  border-radius: 0.5rem;
+}
+
+.calendar-time-box {
+  margin: 1.2rem 3.5rem 0 3.5rem;
+
+  .calendar-time-container-1 {
+    .calendar-time-container-1-label {
+      font-family: $calendar-text-font;
+      font-weight: bolder;
+      font-size: 3.6rem;
+      color: $calendar-text-color-white;
+    }
+
+    .calendar-separator-box {
+      background-color: $calendar-bg-alt;
+      padding: 0px 1px;
+      margin: 0.2rem 15px;
+    }
+  }
+
+  .calendar-time-container-2 {
+    font-family: $calendar-text-font;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $calendar-text-color-white;
+    margin: 5px 0;
+  }
+}
+
+.calendar-box {
+  font-family: $calendar-text-font;
+  font-weight: Bold;
+  font-size: 0.9rem;
+  color: $calendar-text-color-white;
+  background-color: $calendar-bg-alt;
+  border-radius: 0.5rem;
+  padding: 0 1rem 0.2rem;
+  margin: 0.9rem 0.6rem 0.9rem 0.6rem;
+
+  .calendar {
+    background-color: inherit;
+    padding: 0.5rem 0.15rem 0.2rem;
+    margin-left: 10px;
+
+    &>* {
+      border: solid 0px transparent;
+    }
+
+    &.highlight {
+      padding: 10rem;
+    }
+  }
+}
+
+calendar:selected {
+  color: $calendar-text-color-magenta;
+}
+
+calendar.header {
+  color: $calendar-text-color-magenta;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $calendar-text-color-white;
+}
+
+calendar.highlight {
+  color: $calendar-text-color-green;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: $calendar-text-color-red;
+}

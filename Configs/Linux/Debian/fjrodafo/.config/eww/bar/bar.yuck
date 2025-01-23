@@ -49,10 +49,10 @@
 (defwidget bar-time-widget []
   (box :class "bar-time-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle date" "${bar-time-poll.hour}")
+      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.hour}")
     )
     (eventbox :cursor "pointer"
-      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle date" "${bar-time-poll.min}")
+      (button :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.min}")
     )
   )
 )

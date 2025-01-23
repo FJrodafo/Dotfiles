@@ -1,14 +1,14 @@
 # This file launch EWW bar
 
 launch_bar(){
-    # Check if EWW bar is active by using 'eww active-windows'
+    # Check if EWW bar/calendar is active by using 'eww active-windows'
     local eww_active_windows=$(~/.eww/target/release/eww active-windows)
 
-    if [[ "$eww_active_windows" == *"bar"* ]]; then
-        bspc config left_padding 0
-    else
-        bspc config left_padding 54
-    fi
+    # Close calendar if it's open
+    [[ "$eww_active_windows" == *"calendar"* ]] && ~/.eww/target/release/eww close calendar
+
+    # Adjust left padding based on whether the bar is active or not
+    bspc config left_padding $( [[ "$eww_active_windows" == *"bar"* ]] && echo 0 || echo 54 )
 
     # Get a list of monitors and sort them so that the primary monitor is first
     local monitors=$(xrandr -q | grep -w 'connected' | sort -k3n | cut -d' ' -f1)
