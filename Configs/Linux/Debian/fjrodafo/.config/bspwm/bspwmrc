@@ -36,4 +36,4 @@ bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
 feh --bg-fill ~/Pictures/Wallpapers/Debian.png # Wallpaper
-"${HOME}"/.config/eww/bar/scripts/GenerateWorkSpaces # EWW bar
+"${HOME}"/.config/eww/scripts/GenerateWorkSpaces # EWW

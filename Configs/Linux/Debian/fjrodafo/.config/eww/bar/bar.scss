@@ -1,3 +1,7 @@
+//  ╔╗ ┌─┐┬─┐
+//  ╠╩╗├─┤├┬┘
+//  ╚═╝┴ ┴┴└─
+
 .bar-layout-box {
   background-color: $bar-bg;
   border-radius: 0.5rem;
@@ -28,6 +32,16 @@
   margin: 0.2rem 0rem 0.2rem 0rem;
 }
 
+.bar-control-panel-box {
+  font-family: $bar-text-font;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: $bar-bg-alt;
+  border-radius: 0.2rem;
+  padding: 0.7rem 0rem 0.7rem 0rem;
+  margin: 0rem 0.4rem 0.4rem 0.4rem;
+}
+
 .bar-time-box {
   font-family: $bar-text-font;
   font-weight: bold;
@@ -36,5 +50,5 @@
   background-color: $bar-bg-alt;
   border-radius: 0.2rem;
   padding: 0.7rem 0rem 0.7rem 0rem;
-  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+  margin: 0rem 0.4rem 0.4rem 0.4rem;
 }

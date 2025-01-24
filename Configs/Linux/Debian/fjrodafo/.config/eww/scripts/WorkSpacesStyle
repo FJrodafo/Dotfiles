@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# Checks if a list ($1) contains an element ($2)
+#  ╦ ╦┌─┐┬─┐┬┌─  ╔═╗┌─┐┌─┐┌─┐┌─┐┌─┐  ╔═╗┌┬┐┬ ┬┬  ┌─┐
+#  ║║║│ │├┬┘├┴┐  ╚═╗├─┘├─┤│  ├┤ └─┐  ╚═╗ │ └┬┘│  ├┤
+#  ╚╩╝└─┘┴└─┴ ┴  ╚═╝┴  ┴ ┴└─┘└─┘└─┘  ╚═╝ ┴  ┴ ┴─┘└─┘
+
 contains() {
     [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && echo 1 || echo 0
 }
@@ -32,10 +35,8 @@ print_workspaces() {
     echo "(box :class \"bar-workspaces\" :orientation \"v\" :valign \"center\" :halign \"center\" :vexpand true :hexpand true $buf)"
 }
 
-# Initial print
 print_workspaces $1
 
-# Listen to bspwm changes
 bspc subscribe desktop node_transfer | while read -r _ ; do
     print_workspaces $1
 done

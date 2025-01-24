@@ -1,6 +1,6 @@
-; ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
-; ║║║││││ │││ ││││
-; ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+;  ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+;  ║║║││││ │││ ││││
+;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
 (defwindow powermenu
   ; monitor 0 ; Wayland users may need this
@@ -11,9 +11,9 @@
   (powermenu-layout-widget)
 )
 
-; ╔═╗┌─┐┬  ┬
-; ╠═╝│ ││  │
-; ╩  └─┘┴─┘┴─┘
+;  ╔═╗┌─┐┬  ┬
+;  ╠═╝│ ││  │
+;  ╩  └─┘┴─┘┴─┘
 
 (defpoll powermenu-time-poll
   :interval "5s"
@@ -28,9 +28,9 @@
   :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0"
 )
 
-; ╦  ┬┌─┐┌┬┐┌─┐┌┐┌
-; ║  │└─┐ │ ├┤ │││
-; ╩═╝┴└─┘ ┴ └─┘┘└┘
+;  ╦  ┬┌─┐┌┬┐┌─┐┌┐┌
+;  ║  │└─┐ │ ├┤ │││
+;  ╩═╝┴└─┘ ┴ └─┘┘└┘
 
 (deflisten powermenu-airplane-status-listen
   :initial "" `nmcli radio wifi`
@@ -39,9 +39,9 @@
   :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`
 )
 
-; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
-; ║║║│ │││ ┬├┤  │
-; ╚╩╝┴─┴┘└─┘└─┘ ┴
+;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+;  ║║║│ │││ ┬├┤  │
+;  ╚╩╝┴─┴┘└─┘└─┘ ┴
 
 (defwidget powermenu-layout-widget []
   (box :class "powermenu-layout-box" :orientation "vertical" :space-evenly false

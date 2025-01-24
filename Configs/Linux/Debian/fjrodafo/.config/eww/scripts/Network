@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+#  ╔╗╔┌─┐┌┬┐┬ ┬┌─┐┬─┐┬┌─
+#  ║║║├┤  │ ││││ │├┬┘├┴┐
+#  ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴
+
+is_online() {
+	ping -c 1 -W 1 debian.org &>/dev/null
+}
+
+ID=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
+
+ICON="󰤮"
+STATUS="Offline"
+
+if is_online; then
+	ICON="󰤨"
+	
+    if [[ $ID == e* ]]; then
+        STATUS="$ID"
+    elif command -v nmcli &>/dev/null; then
+        STATUS=$(nmcli -t -f active,ssid dev wifi show | sed -n '1{s/SSID: //p}')
+    fi
+fi
+
+case "$1" in
+    --icon) echo "$ICON" ;;
+    --stat) echo "$STATUS" ;;
+esac

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#  ╔═╗┬  ╦╔═┌─┐┬ ┬┌─┐┬─┐┌─┐  ╦ ╦┌─┐┌─┐┬┌─┬ ┬  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐┌─┐
+#  ║╣ │  ╠╩╗│ ││││├─┤├┬┘└─┐  ║║║├─┤│  ├┴┐└┬┘  ║║║│ │││ ┬├┤  │ └─┐
+#  ╚═╝┴─┘╩ ╩└─┘└┴┘┴ ┴┴└─└─┘  ╚╩╝┴ ┴└─┘┴ ┴ ┴   ╚╩╝┴─┴┘└─┘└─┘ ┴ └─┘
+
 # This file launch EWW widgets
 launch_eww_widgets(){
     # Check if EWW bar/calendar is active by using 'eww active-windows'

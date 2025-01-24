@@ -1,6 +1,6 @@
-; ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
-; ║║║││││ │││ ││││
-; ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+;  ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+;  ║║║││││ │││ ││││
+;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
 (defwindow bar [monitor]
   :monitor monitor
@@ -9,18 +9,24 @@
   (bar-layout-widget :monitor monitor)
 )
 
-; ╔═╗┌─┐┬  ┬
-; ╠═╝│ ││  │
-; ╩  └─┘┴─┘┴─┘
+;  ╔═╗┌─┐┬  ┬
+;  ╠═╝│ ││  │
+;  ╩  └─┘┴─┘┴─┘
 
+(defpoll WIFIICON
+  :interval "15s" `./scripts/Network --icon`
+)
+(defpoll NETSTAT
+  :interval "15s" `./scripts/Network --stat`
+)
 (defpoll bar-time-poll
   :interval "5s"
   :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`
 )
 
-; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
-; ║║║│ │││ ┬├┤  │
-; ╚╩╝┴─┴┘└─┘└─┘ ┴
+;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+;  ║║║│ │││ ┬├┤  │
+;  ╚╩╝┴─┴┘└─┘└─┘ ┴
 
 (defwidget bar-layout-widget [monitor]
   (box :class "bar-layout-box" :orientation "v" :vexpand false :hexpand false
@@ -36,6 +42,7 @@
 )
 (defwidget bar-end-widget []
   (box :orientation "v" :valign "end" :space-evenly false
+    (bar-control-panel-widget)
     (bar-time-widget)
   )
 )
@@ -43,6 +50,21 @@
   (box :class "bar-logo-box" :orientation "v"
     (eventbox :cursor "pointer"
       (button :onclick "rofi -show drun &" :onrightclick "~/.eww/target/release/eww close-all && bspc config left_padding 0 && ~/.eww/target/release/eww open powermenu" "")
+    )
+  )
+)
+(defwidget bar-control-panel-widget []
+  (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
+    (bar-wifi-widget)
+  )
+)
+(defwidget bar-wifi-widget []
+  (box :orientation "v"
+    (eventbox :cursor "help"
+      (label
+        :tooltip "${NETSTAT}"
+        :text "${WIFIICON}"
+      )
     )
   )
 )

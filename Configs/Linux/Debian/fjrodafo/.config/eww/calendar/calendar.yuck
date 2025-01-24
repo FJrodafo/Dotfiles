@@ -1,6 +1,6 @@
-; ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
-; ║║║││││ │││ ││││
-; ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+;  ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+;  ║║║││││ │││ ││││
+;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
 (defwindow calendar
   :wm-ignore true
@@ -8,9 +8,9 @@
   (calendar-layout-widget)
 )
 
-; ╔═╗┌─┐┬  ┬
-; ╠═╝│ ││  │
-; ╩  └─┘┴─┘┴─┘
+;  ╔═╗┌─┐┬  ┬
+;  ╠═╝│ ││  │
+;  ╩  └─┘┴─┘┴─┘
 
 (defpoll calendar-current-date-poll :interval "1s" "date '+%d %b, %I:%M %p'")
 (defpoll calendar-full-day-poll :interval "1h" "date '+%A, %d %B'")
@@ -20,9 +20,9 @@
 (defpoll calendar-month-poll :interval "10h" "date '+%m'")
 (defpoll calendar-year-poll :interval "10h" "date '+%Y'")
 
-; ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
-; ║║║│ │││ ┬├┤  │
-; ╚╩╝┴─┴┘└─┘└─┘ ┴
+;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+;  ║║║│ │││ ┬├┤  │
+;  ╚╩╝┴─┴┘└─┘└─┘ ┴
 
 (defwidget calendar-layout-widget []
   (box :class "calendar-layout-box" :orientation "v" :space-evenly false
