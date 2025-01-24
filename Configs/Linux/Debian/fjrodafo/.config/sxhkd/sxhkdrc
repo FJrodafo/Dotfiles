@@ -53,7 +53,7 @@ super + {_,shift + }@space
 
 # eww widgets
 super + e
-	~/.config/eww/eww.bash
+	bash ~/.config/eww/eww.bash
 
 # change wallpaper
 super + c
