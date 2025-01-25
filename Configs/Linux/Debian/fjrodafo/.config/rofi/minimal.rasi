@@ -17,7 +17,6 @@ window {
     cursor:                      default;
     background-color:            @background;
     border-radius:               0px;
- /* width:                       20%; */
 }
 
 /********** Main Box **********/
@@ -63,7 +62,6 @@ listbox {
     enabled:                     true;
     background-color:            @background;
     border-color:                @white;
- /* border:                      1px solid; */
     orientation:                 vertical;
     children:                    [listview, mode-switcher, message];
 }
@@ -82,7 +80,6 @@ listview {
     layout:                      vertical;
     cursor:                      default;
     background-color:            @black-alt;
-    border-radius:               7px;
     spacing:                     12px;
     padding:                     12px;
 }

@@ -55,7 +55,7 @@
         :status powermenu-battery-status-poll :charging "󰂄" :no-battery "󱉞"
         :capacity powermenu-battery-capacity-poll :empty "󰂎" :bat10 "󰁺" :bat20 "󰁻" :bat30 "󰁼" :bat40 "󰁽" :bat50 "󰁾" :bat60 "󰁿" :bat70 "󰂀" :bat80 "󰂁" :bat90 "󰂂" :bat100 "󰁹"
       )
-      (label :text "|" :class "powermenu-separator-label")
+      (label :class "powermenu-separator-label" :text "|")
       (eventbox :cursor "pointer"
         (button :class "powermenu-close-button" :onclick "~/.eww/target/release/eww close powermenu && bash ~/.config/eww/eww.bash" "")
       )

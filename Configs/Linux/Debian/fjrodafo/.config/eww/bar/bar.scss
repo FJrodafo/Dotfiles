@@ -8,34 +8,35 @@
 }
 
 .bar-logo-box {
-  font-family: $bar-text-font;
+  font-family: $bar-text-font-mono;
   font-weight: bold;
   font-size: 25px;
   color: $bar-debian-logo-color;
   border-radius: 0.2rem;
-  padding: 0.4rem 0rem 0.4rem 0rem;
+  padding: 0.2rem 0rem 0.2rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
 .bar-workspaces {
-  font-family: $bar-text-font;
+  font-family: $bar-text-font-mono;
   font-weight: bold;
   font-size: 18.5px;
   color: $bar-text-color-white;
   background-color: $bar-bg-alt;
   border-radius: 0.2rem;
+  padding: 0.2rem 0rem 0.2rem 0rem;
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
 .bar-workspace-focused,
 .bar-workspace-occupied,
 .bar-workspace-empty {
-  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-  margin: 0.2rem 0rem 0.2rem 0rem;
+  padding: 0rem 0.4rem 0rem 0.4rem;
+  margin: 0.4rem 0rem 0.4rem 0rem;
 }
 
 .bar-control-panel-box {
-  font-family: $bar-text-font;
+  font-family: $bar-text-font-mono;
   font-weight: bold;
   font-size: 25px;
   color: $bar-text-color-white;
@@ -45,8 +46,14 @@
   margin: 0rem 0.4rem 0.4rem 0.4rem;
 }
 
+.bar-control-panel-icons {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+}
+
 .bar-time-box {
-  font-family: $bar-text-font;
+  font-family: $bar-text-font-mono;
   font-weight: bold;
   font-size: 18.5px;
   color: $bar-text-color-white;

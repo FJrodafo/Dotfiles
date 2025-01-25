@@ -13,16 +13,12 @@
 ;  ╠═╝│ ││  │
 ;  ╩  └─┘┴─┘┴─┘
 
-(defpoll WIFIICON
-  :interval "15s" `./scripts/Network --icon`
-)
-(defpoll NETSTAT
-  :interval "15s" `./scripts/Network --stat`
-)
-(defpoll bar-time-poll
-  :interval "5s"
-  :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`
-)
+(defpoll bar-network-icon-poll :interval "15s" `./scripts/Network --icon`)
+(defpoll bar-network-status-poll :interval "15s" `./scripts/Network --stat`)
+(defpoll bar-battery-icon-poll :interval "60s" "./scripts/Battery icon")
+(defpoll bar-battery-percentage-poll :interval "60s" "./scripts/Battery percentage")
+; (defpoll bar-battery-visible-poll :interval "60s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+(defpoll bar-time-poll :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ;  ║║║│ │││ ┬├┤  │
@@ -49,32 +45,50 @@
 (defwidget bar-logo-widget []
   (box :class "bar-logo-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :onclick "rofi -show drun &" :onrightclick "~/.eww/target/release/eww close-all && bspc config left_padding 0 && ~/.eww/target/release/eww open powermenu" "")
+      (button
+        :onclick "rofi -show drun &"
+        :onrightclick "~/.eww/target/release/eww close-all && bspc config left_padding 0 && ~/.eww/target/release/eww open powermenu"
+        ""
+      )
     )
   )
 )
 (defwidget bar-control-panel-widget []
   (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
-    (bar-wifi-widget)
+    (bar-network-widget)
+    (bar-battery-widget)
   )
 )
-(defwidget bar-wifi-widget []
+(defwidget bar-network-widget []
   (box :orientation "v"
-    (eventbox :cursor "help"
-      (label
-        :tooltip "${NETSTAT}"
-        :text "${WIFIICON}"
-      )
-    )
+    ; (eventbox :cursor "help"
+      (label :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :tooltip "${bar-network-status-poll}")
+    ; )
+  )
+)
+(defwidget bar-battery-widget []
+  (box :orientation "v"
+    ; :visible {bar-battery-visible-poll}
+    ; (eventbox :cursor "help"
+      (label :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');" :tooltip "${bar-battery-percentage-poll}")
+    ; )
   )
 )
 (defwidget bar-time-widget []
   (box :class "bar-time-box" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :onclick "~/.eww/target/release/eww open calendar && bspc config left_padding 301" :onrightclick "~/.eww/target/release/eww close calendar && bspc config left_padding 54" "${bar-time-poll.hour}")
+      (button
+        :onclick "~/.eww/target/release/eww open calendar"
+        :onrightclick "~/.eww/target/release/eww close calendar && bspc config left_padding 54"
+        "${bar-time-poll.hour}"
+      )
     )
     (eventbox :cursor "pointer"
-      (button :onclick "~/.eww/target/release/eww open calendar && bspc config left_padding 301" :onrightclick "~/.eww/target/release/eww close calendar && bspc config left_padding 54" "${bar-time-poll.min}")
+      (button
+        :onclick "~/.eww/target/release/eww open calendar"
+        :onrightclick "~/.eww/target/release/eww close calendar && bspc config left_padding 54"
+        "${bar-time-poll.min}"
+      )
     )
   )
 )

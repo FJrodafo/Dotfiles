@@ -5,17 +5,17 @@
 #  ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴
 
 is_online() {
-	ping -c 1 -W 1 debian.org &>/dev/null
+    ping -c 1 -W 1 debian.org &>/dev/null
 }
 
 ID=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
 
-ICON="󰤮"
+ICON="./images/Network/Gimp/Off.png"
 STATUS="Offline"
 
 if is_online; then
-	ICON="󰤨"
-	
+    ICON="./images/Network/Gimp/On.png"
+    
     if [[ $ID == e* ]]; then
         STATUS="$ID"
     elif command -v nmcli &>/dev/null; then
