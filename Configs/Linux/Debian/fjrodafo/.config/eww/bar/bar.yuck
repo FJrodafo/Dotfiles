@@ -17,7 +17,7 @@
 (defpoll bar-network-status-poll :interval "15s" `./scripts/Network --stat`)
 (defpoll bar-battery-icon-poll :interval "60s" "./scripts/Battery icon")
 (defpoll bar-battery-percentage-poll :interval "60s" "./scripts/Battery percentage")
-; (defpoll bar-battery-visible-poll :interval "60s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+(defpoll bar-battery-visible-poll :interval "60s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "5s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
@@ -61,17 +61,12 @@
 )
 (defwidget bar-network-widget []
   (box :orientation "v"
-    ; (eventbox :cursor "help"
-      (label :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :tooltip "${bar-network-status-poll}")
-    ; )
+    (label :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :tooltip "${bar-network-status-poll}")
   )
 )
 (defwidget bar-battery-widget []
-  (box :orientation "v"
-    ; :visible {bar-battery-visible-poll}
-    ; (eventbox :cursor "help"
-      (label :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');" :tooltip "${bar-battery-percentage-poll}")
-    ; )
+  (box :orientation "v" :visible {bar-battery-visible-poll}
+    (label :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');" :tooltip "${bar-battery-percentage-poll}")
   )
 )
 (defwidget bar-time-widget []

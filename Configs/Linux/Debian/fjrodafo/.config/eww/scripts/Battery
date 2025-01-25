@@ -10,7 +10,7 @@ status=$(cat $(battery)status || echo 0)
 capacity=$(cat $(battery)capacity || echo 0)
 
 icon() {
-    [ "$status" = 0 ] && [ "$capacity" = 0 ] && icon="./images/Battery/0.png" && echo "$icon" && exit
+    # [ "$status" = 0 ] && [ "$capacity" = 0 ] && icon="󱉞" && echo "$icon" && exit
     [ "$status" = Charging ] && icon="./images/Battery/Charging.png" && echo "$icon" && exit
 
     if [ "$capacity" -gt 90 ]; then  # if [ "$capacity" -lt 9 ]; then
