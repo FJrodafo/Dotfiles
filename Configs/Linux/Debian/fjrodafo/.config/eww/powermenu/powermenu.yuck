@@ -19,6 +19,14 @@
   :interval "5s"
   :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`
 )
+(defpoll powermenu-airplane-status-poll
+  :interval "5s"
+  :initial "" `nmcli radio wifi`
+)
+(defpoll powermenu-wifi-status-poll
+  :interval "5s"
+  :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`
+)
 (defpoll powermenu-battery-status-poll
   :interval "60s"
   :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0"
@@ -26,17 +34,6 @@
 (defpoll powermenu-battery-capacity-poll
   :interval "60s"
   :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0"
-)
-
-;  ╦  ┬┌─┐┌┬┐┌─┐┌┐┌
-;  ║  │└─┐ │ ├┤ │││
-;  ╩═╝┴└─┘ ┴ └─┘┘└┘
-
-(deflisten powermenu-airplane-status-listen
-  :initial "" `nmcli radio wifi`
-)
-(deflisten powermenu-wifi-status-listen
-  :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`
 )
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
@@ -48,8 +45,8 @@
     (box :valign "start" :space-evenly false :spacing 25
       (powermenu-sundial)
       (powermenu-wifi
-        :airplane-mode powermenu-airplane-status-listen :airplane-icon "󰀝"
-        :wifi-strength powermenu-wifi-status-listen :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨"
+        :airplane-mode powermenu-airplane-status-poll :airplane-icon "󰀝"
+        :wifi-strength powermenu-wifi-status-poll :wifi-offline "󰤮" :wifi-slow "󰤟" :wifi-okay "󰤢" :wifi-good "󰤥" :wifi-excellent "󰤨"
       )
       (powermenu-battery
         :status powermenu-battery-status-poll :charging "󰂄" :no-battery "󱉞"
