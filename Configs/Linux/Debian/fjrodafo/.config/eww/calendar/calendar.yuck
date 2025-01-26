@@ -4,7 +4,7 @@
 
 (defwindow calendar
   :wm-ignore true
-  :geometry (geometry :anchor "center top" :x "0px" :y "5%")
+  :geometry (geometry :anchor "left bottom" :x "61px" :y "-5%")
   (calendar-layout-widget)
 )
 
@@ -14,8 +14,8 @@
 
 (defpoll calendar-current-date-poll :interval "1s" "date '+%d %b, %I:%M %p'")
 (defpoll calendar-full-day-poll :interval "1h" "date '+%A, %d %B'")
-(defpoll calendar-hour-poll :interval "30m" "date +%H")
-(defpoll calendar-minutes-poll :interval "30s" "date +%M")
+(defpoll calendar-hour-poll :interval "1s" "date +%H")
+(defpoll calendar-minutes-poll :interval "1s" "date +%M")
 (defpoll calendar-day-poll :interval "10h" "date '+%d'")
 (defpoll calendar-month-poll :interval "10h" "date '+%m'")
 (defpoll calendar-year-poll :interval "10h" "date '+%Y'")
