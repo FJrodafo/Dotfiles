@@ -40,7 +40,7 @@ echo "The commit message will be: $version_number"
 read -p "Are you sure you want to continue with this commit message? [Y/n]: " confirmation
 
 # Check the user's response
-if [[ "$confirmation" != "Y" && "$confirmation" != "" ]]; then
+if [ "$confirmation" != "Y" ]; then
     echo "Operation cancelled. Neither commit nor push will be performed."
     exit 0
 fi
