@@ -5,7 +5,9 @@
     * [Special Keys](#special-keys)
     * [Apps](#apps)
     * [Tiled Windows](#tiled-windows)
-2. [zathura](#zathura)
+2. [OBS](#obs)
+    * [Record a Video](#record-a-video)
+3. [Zathura](#zathura)
     * [Navigation](#navigation)
     * [Bookmarks](#bookmarks)
     * [Manipulation](#manipulation)
@@ -113,7 +115,22 @@
     </tr>
 </table>
 
-## zathura
+## OBS
+
+#### Record a Video
+
+<table>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd></td>
+        <td>Start recording</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>2</kbd></td>
+        <td>Stop recording</td>
+    </tr>
+</table>
+
+## Zathura
 
 #### Navigation
 
@@ -206,3 +223,6 @@
         <td>Open the printing software</td>
     </tr>
 </table>
+
+<link rel="stylesheet" href="./README.css">
+<a class="scrollup" href="#top">&#x1F53C</a>
