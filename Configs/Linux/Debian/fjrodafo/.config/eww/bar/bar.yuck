@@ -50,8 +50,8 @@
   )
 )
 (defwidget bar-system-tray-widget []
-  (box :orientation "v" :halign "center"
-    (systray :orientation "v" :icon-size 16 :spacing 5)
+  (box :class "bar-system-tray-box" :orientation "v" :halign "center"
+    (systray :orientation "v" :icon-size 25 :spacing 7 :prepend-new false)
   )
 )
 (defwidget bar-control-panel-widget []
