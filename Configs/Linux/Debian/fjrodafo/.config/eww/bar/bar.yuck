@@ -37,6 +37,7 @@
 )
 (defwidget bar-end-widget []
   (box :orientation "v" :valign "end" :space-evenly false
+    (bar-system-tray-widget)
     (bar-control-panel-widget)
     (bar-time-widget)
   )
@@ -50,6 +51,11 @@
         ""
       )
     )
+  )
+)
+(defwidget bar-system-tray-widget []
+  (box :orientation "v" :halign "center"
+    (systray :class "bar-system-tray" :orientation "v" :icon-size 16 :spacing 5)
   )
 )
 (defwidget bar-control-panel-widget []

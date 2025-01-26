@@ -12,28 +12,28 @@ capacity="$(cat "$battery/capacity")"
 icon() {
     [ "$status" = Charging ] && icon="./images/Battery/Charging.png" && echo "$icon" && exit
 
-    if [ "$capacity" -gt "90" ]; then  # if [ "$capacity" -lt "9" ]; then
-        icon="./images/Battery/100.png"  # icon="󰂎"
-    elif [ "$capacity" -gt "80" ]; then  # elif [ "$capacity" -lt "17" ]; then
-        icon="./images/Battery/90.png"  # icon="󰁺"
-    elif [ "$capacity" -gt "70" ]; then  # elif [ "$capacity" -lt "25" ]; then
-        icon="./images/Battery/80.png"  # icon="󰁻"
-    elif [ "$capacity" -gt "60" ]; then  # elif [ "$capacity" -lt "33" ]; then
-        icon="./images/Battery/70.png"  # icon="󰁼"
-    elif [ "$capacity" -gt "50" ]; then  # elif [ "$capacity" -lt "41" ]; then
-        icon="./images/Battery/60.png"  # icon="󰁽"
-    elif [ "$capacity" -gt "40" ]; then  # elif [ "$capacity" -lt "51" ]; then
+    if [ "$capacity" -gt "90" ]; then
+        icon="./images/Battery/100.png"  # icon="󰁹"
+    elif [ "$capacity" -gt "80" ]; then
+        icon="./images/Battery/90.png"  # icon="󰂂"
+    elif [ "$capacity" -gt "70" ]; then
+        icon="./images/Battery/80.png"  # icon="󰂁"
+    elif [ "$capacity" -gt "60" ]; then
+        icon="./images/Battery/70.png"  # icon="󰂀"
+    elif [ "$capacity" -gt "50" ]; then
+        icon="./images/Battery/60.png"  # icon="󰁿"
+    elif [ "$capacity" -gt "40" ]; then
         icon="./images/Battery/50.png"  # icon="󰁾"
-    elif [ "$capacity" -gt "30" ]; then  # elif [ "$capacity" -lt "61" ]; then
-        icon="./images/Battery/40.png"  # icon="󰁿"
-    elif [ "$capacity" -gt "20" ]; then  # elif [ "$capacity" -lt "71" ]; then
-        icon="./images/Battery/30.png"  # icon="󰂀"
-    elif [ "$capacity" -gt "10" ]; then  # elif [ "$capacity" -lt "81" ]; then
-        icon="./images/Battery/20.png"  # icon="󰂁"
-    elif [ "$capacity" -gt "0" ]; then  # elif [ "$capacity" -lt "91" ]; then
-        icon="./images/Battery/10.png"  # icon="󰂂"
+    elif [ "$capacity" -gt "30" ]; then
+        icon="./images/Battery/40.png"  # icon="󰁽"
+    elif [ "$capacity" -gt "20" ]; then
+        icon="./images/Battery/30.png"  # icon="󰁼"
+    elif [ "$capacity" -gt "10" ]; then
+        icon="./images/Battery/20.png"  # icon="󰁻"
+    elif [ "$capacity" -gt "0" ]; then
+        icon="./images/Battery/10.png"  # icon="󰁺"
     else
-        icon="./images/Battery/0.png"  # icon="󰁹"
+        icon="./images/Battery/0.png"  # icon="󰂎"
     fi
 
     echo "$icon"

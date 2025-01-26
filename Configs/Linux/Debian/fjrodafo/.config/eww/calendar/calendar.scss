@@ -3,8 +3,8 @@
 //  ╚═╝┴ ┴┴─┘└─┘┘└┘─┴┘┴ ┴┴└─
 
 .calendar-layout-box {
-  color: $calendar-text-color-white;
-  background-color: $calendar-bg;
+  color: $text-color-white;
+  background-color: $bg;
   border-radius: 0.5rem;
 }
 
@@ -13,34 +13,34 @@
 
   .calendar-time-container-1 {
     .calendar-time-container-1-label {
-      font-family: $calendar-text-font-mono;
+      font-family: $text-font-mono;
       font-weight: bolder;
       font-size: 3.6rem;
-      color: $calendar-text-color-white;
+      color: $text-color-white;
     }
 
     .calendar-separator-box {
-      background-color: $calendar-text-color-white;
+      background-color: $text-color-white;
       padding: 0px 1px;
       margin: 0.2rem 15px;
     }
   }
 
   .calendar-time-container-2 {
-    font-family: $calendar-text-font-mono;
+    font-family: $text-font-mono;
     font-weight: bold;
     font-size: 1rem;
-    color: $calendar-text-color-white;
+    color: $text-color-white;
     margin: 5px 0;
   }
 }
 
 .calendar-box {
-  font-family: $calendar-text-font-mono;
+  font-family: $text-font-mono;
   font-weight: Bold;
   font-size: 0.9rem;
-  color: $calendar-text-color-white;
-  background-color: $calendar-bg-alt;
+  color: $text-color-white;
+  background-color: $bg-alt;
   border-radius: 0.5rem;
   padding: 0rem 1rem 0rem;
   margin: 0.6rem;
@@ -61,23 +61,23 @@
 }
 
 calendar:selected {
-  color: $calendar-text-color-green;
+  color: $text-color-red;
 }
 
 calendar.header {
-  color: $calendar-text-color-green;
+  color: $text-color-red;
   font-weight: bold;
 }
 
 calendar.button {
-  color: $calendar-text-color-white;
+  color: $text-color-white;
 }
 
 calendar.highlight {
-  color: $calendar-text-color-white;
+  color: $text-color-white;
   font-weight: bold;
 }
 
 calendar:indeterminate {
-  color: $calendar-text-color-red;
+  color: $text-color-alt-2;
 }

@@ -2,30 +2,17 @@
 //  ╠═╝├─┤│  ├┤  │  │ ├┤
 //  ╩  ┴ ┴┴─┘└─┘ ┴  ┴ └─┘
 
-$bar-text-font: "Hack Nerd Font";
-$bar-text-font-mono: "Hack Nerd Font Mono";
-$bar-text-color-white: rgb(255, 255, 255);
-$bar-debian-logo-color: rgb(215, 10, 83);
-$bar-bg: rgb(0, 0, 0, 0.80);
-$bar-bg-alt: rgb(68, 68, 68);
-
-$calendar-text-font: "Hack Nerd Font";
-$calendar-text-font-mono: "Hack Nerd Font Mono";
-$calendar-text-color-white: rgb(255, 255, 255);
-$calendar-debian-logo-color: rgb(215, 10, 83);
-$calendar-text-color-red: rgb(248, 112, 112);
-$calendar-text-color-magenta: rgb(187, 154, 247);
-$calendar-text-color-green: rgb(158, 206, 106);
-$calendar-bg: rgb(0, 0, 0, 0.80);
-$calendar-bg-alt: rgb(68, 68, 68);
-
-$powermenu-text-font: "Hack Nerd Font";
-$powermenu-text-font-mono: "Hack Nerd Font Mono";
-$powermenu-text-color-white: rgb(255, 255, 255);
-$powermenu-text-color-alt: rgba(255, 255, 255, 0.6);
-$powermenu-text-color-red: rgb(248, 112, 112);
-$powermenu-bg-button: rgb(32, 37, 43);
-$powermenu-bg-button-hover: rgb(61, 70, 78);
+$text-font: "Hack Nerd Font";
+$text-font-mono: "Hack Nerd Font Mono";
+$text-color-white: rgb(255, 255, 255);
+$text-color-alt-6: rgba(255, 255, 255, 0.6);
+$text-color-alt-2: rgba(255, 255, 255, 0.2);
+$text-color-red: rgb(248, 112, 112);
+$debian-logo-color: rgb(215, 10, 83);
+$bg: rgb(0, 0, 0, 0.80);
+$bg-alt: rgb(68, 68, 68);
+$bg-button: rgb(32, 37, 43);
+$bg-button-hover: rgb(61, 70, 78);
 
 //  ╦┌┬┐┌─┐┌─┐┬─┐┌┬┐
 //  ║│││├─┘│ │├┬┘ │

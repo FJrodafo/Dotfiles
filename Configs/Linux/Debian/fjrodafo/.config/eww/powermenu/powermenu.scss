@@ -3,16 +3,16 @@
 //  ╩  └─┘└┴┘└─┘┴└─  ╩ ╩└─┘┘└┘└─┘
 
 .powermenu-layout-box {
-  font-family: $powermenu-text-font;
-  color: $powermenu-text-color-alt;
+  font-family: $text-font;
+  color: $text-color-alt-6;
   background-repeat: no-repeat;
   background-size: contain;
-  background: rgba(0, 0, 0, 0.80);
+  background: $bg;
   padding: 5em;
 }
 
 .powermenu-separator-label {
-  font-family: $powermenu-text-font;
+  font-family: $text-font;
   font-size: 1em;
   font-weight: 400;
 }
@@ -22,7 +22,7 @@
   padding-right: 1px;
 
   &:hover {
-    color: $powermenu-text-color-red;
+    color: $text-color-red;
   }
 }
 
@@ -35,7 +35,7 @@
 }
 
 .powermenu-sundial-label {
-  font-family: $powermenu-text-font;
+  font-family: $text-font;
   font-size: 1.5em;
   font-weight: bold;
   border-radius: 0.2em;
@@ -46,7 +46,7 @@
   font-size: 2.5em;
 
   button {
-    background-color: $powermenu-bg-button;
+    background-color: $bg-button;
     border-radius: 0.2em;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
@@ -55,12 +55,12 @@
 
     &:hover {
       transition: 200ms linear background-color, border-radius;
-      background-color: $powermenu-bg-button-hover;
-      color: $powermenu-text-color-white;
+      background-color: $bg-button-hover;
+      color: $text-color-white;
     }
   }
 
   &.powermenu-shutdown-button-box button:hover {
-    color: $powermenu-text-color-red;
+    color: $text-color-red;
   }
 }

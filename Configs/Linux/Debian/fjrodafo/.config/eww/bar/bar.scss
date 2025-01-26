@@ -3,26 +3,26 @@
 //  ╚═╝┴ ┴┴└─
 
 .bar-layout-box {
-  background-color: $bar-bg;
+  background-color: $bg;
   border-radius: 0.5rem;
 }
 
 .bar-logo-box {
-  font-family: $bar-text-font-mono;
+  font-family: $text-font-mono;
   font-weight: bold;
   font-size: 25px;
-  color: $bar-debian-logo-color;
+  color: $debian-logo-color;
   border-radius: 0.2rem;
   padding: 0.2rem 0rem 0.2rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
 .bar-workspaces {
-  font-family: $bar-text-font-mono;
+  font-family: $text-font-mono;
   font-weight: bold;
   font-size: 18.5px;
-  color: $bar-text-color-white;
-  background-color: $bar-bg-alt;
+  color: $text-color-white;
+  background-color: $bg-alt;
   border-radius: 0.2rem;
   padding: 0.2rem 0rem 0.2rem 0rem;
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
@@ -35,12 +35,41 @@
   margin: 0.4rem 0rem 0.4rem 0rem;
 }
 
+.bar-system-tray menu {
+  padding: 5px 5px;
+  background-color: $bg-alt;
+
+  >menuitem {
+    font-family: $text-font-mono;
+    font-size: 14px;
+    padding: 2px 5px;
+    color: $text-color-white;
+
+    &:disabled label {
+      color: $bg-alt;
+    }
+
+    &:hover {
+      background-color: $bg-alt;
+    }
+  }
+
+  separator {
+    background-color: $text-color-white;
+    padding-top: 1px;
+
+    &:last-child {
+      padding: unset;
+    }
+  }
+}
+
 .bar-control-panel-box {
-  font-family: $bar-text-font-mono;
+  font-family: $text-font-mono;
   font-weight: bold;
   font-size: 25px;
-  color: $bar-text-color-white;
-  background-color: $bar-bg-alt;
+  color: $text-color-white;
+  background-color: $bg-alt;
   border-radius: 0.2rem;
   padding: 0.4rem 0rem 0.4rem 0rem;
   margin: 0rem 0.4rem 0.4rem 0.4rem;
@@ -53,11 +82,11 @@
 }
 
 .bar-time-box {
-  font-family: $bar-text-font-mono;
+  font-family: $text-font-mono;
   font-weight: bold;
   font-size: 18.5px;
-  color: $bar-text-color-white;
-  background-color: $bar-bg-alt;
+  color: $text-color-white;
+  background-color: $bg-alt;
   border-radius: 0.2rem;
   padding: 0.7rem 0rem 0.7rem 0rem;
   margin: 0rem 0.4rem 0.4rem 0.4rem;
