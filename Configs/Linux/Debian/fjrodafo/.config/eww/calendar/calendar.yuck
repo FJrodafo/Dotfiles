@@ -4,7 +4,7 @@
 
 (defwindow calendar
   :wm-ignore true
-  :geometry (geometry :anchor "left bottom" :x "61px" :y "-5%")
+  :geometry (geometry :anchor "center top" :x "0px" :y "5%")
   (calendar-layout-widget)
 )
 
@@ -47,7 +47,7 @@
     (calendar :class "calendar"
       :day {calendar-day-poll ?: "1"}
       :month {calendar-month-poll ?: "1"}
-      :year {calendar-year-poll ?: "2023"}
+      :year {calendar-year-poll ?: "2000"}
     )
   )
 )

@@ -15,26 +15,11 @@
 ;  ╠═╝│ ││  │
 ;  ╩  └─┘┴─┘┴─┘
 
-(defpoll powermenu-time-poll
-  :interval "5s"
-  :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`
-)
-(defpoll powermenu-airplane-status-poll
-  :interval "5s"
-  :initial "" `nmcli radio wifi`
-)
-(defpoll powermenu-wifi-status-poll
-  :interval "5s"
-  :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`
-)
-(defpoll powermenu-battery-status-poll
-  :interval "60s"
-  :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0"
-)
-(defpoll powermenu-battery-capacity-poll
-  :interval "60s"
-  :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0"
-)
+(defpoll powermenu-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll powermenu-airplane-status-poll :interval "1s" :initial "" `nmcli radio wifi`)
+(defpoll powermenu-wifi-status-poll :interval "1s" :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`)
+(defpoll powermenu-battery-status-poll :interval "1s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
+(defpoll powermenu-battery-capacity-poll :interval "1s" :initial 0 "cat /sys/class/power_supply/BAT0/capacity || echo 0")
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ;  ║║║│ │││ ┬├┤  │
@@ -54,7 +39,7 @@
       )
       (label :class "powermenu-separator-label" :text "|")
       (eventbox :cursor "pointer"
-        (button :class "powermenu-close-button" :onclick "~/.eww/target/release/eww close powermenu && bash ~/.config/eww/eww.bash" "")
+        (button :class "powermenu-close-button" :onclick "~/.eww/target/release/eww close powermenu" "")
       )
     )
     (box :vexpand true :hexpand true :space-evenly false
