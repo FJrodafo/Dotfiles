@@ -20,7 +20,7 @@
 (defpoll bar-audio-mic-icon-poll :interval "1s" "./scripts/Audio --mic-icon")
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery icon")
 (defpoll bar-battery-percentage-poll :interval "1s" "./scripts/Battery percentage")
-(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo true")
+(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
