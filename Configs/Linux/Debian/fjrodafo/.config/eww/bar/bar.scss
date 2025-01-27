@@ -37,6 +37,27 @@
 
 .bar-system-tray-box {
   margin-bottom: 7px;
+
+  >menuitem {
+    font-family: $text-font;
+    color: $text-color-white;
+
+    &:disabled label {
+      color: $text-color-red;
+    }
+
+    &:hover {
+      background-color: $bg-alt;
+    }
+  }
+
+  separator {
+    background-color: $text-color-white;
+
+    &:last-child {
+      padding: unset;
+    }
+  }
 }
 
 .bar-control-panel-box {

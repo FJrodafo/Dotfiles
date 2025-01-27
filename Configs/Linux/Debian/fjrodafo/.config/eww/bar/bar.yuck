@@ -17,6 +17,7 @@
 (defpoll bar-network-status-poll :interval "1s" `./scripts/Network --status`)
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery icon")
 (defpoll bar-battery-percentage-poll :interval "1s" "./scripts/Battery percentage")
+(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
@@ -63,8 +64,8 @@
 )
 (defwidget bar-control-panel-widget []
   (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
-    (bar-battery-widget)
     (bar-network-widget)
+    (bar-battery-widget)
   )
 )
 (defwidget bar-network-widget []
@@ -77,7 +78,7 @@
   )
 )
 (defwidget bar-battery-widget []
-  (box :orientation "v"
+  (box :orientation "v" :visible {bar-battery-status-poll}
     (label
       :class "bar-control-panel-icons"
       :style "background-image: url('${bar-battery-icon-poll}');"
