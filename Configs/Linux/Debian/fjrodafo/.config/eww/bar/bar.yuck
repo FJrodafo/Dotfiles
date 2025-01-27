@@ -56,8 +56,8 @@
 )
 (defwidget bar-control-panel-widget []
   (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
-    (bar-network-widget)
     (bar-battery-widget)
+    (bar-network-widget)
   )
 )
 (defwidget bar-network-widget []

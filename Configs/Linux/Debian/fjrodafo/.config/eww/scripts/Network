@@ -10,11 +10,11 @@ is_online() {
 
 ID=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
 
-ICON="./images/Network/Gimp/Off.png"
+ICON="./icons/Network/Off.png"
 STATUS="Offline"
 
 if is_online; then
-    ICON="./images/Network/Gimp/On.png"
+    ICON="./icons/Network/On.png"
     
     if [[ $ID == e* ]]; then
         STATUS="$ID"
