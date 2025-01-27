@@ -19,6 +19,12 @@
 (defpoll bar-battery-percentage-poll :interval "1s" "./scripts/Battery percentage")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
+;  ╦  ╦┌─┐┬─┐
+;  ╚╗╔╝├─┤├┬┘
+;   ╚╝ ┴ ┴┴└─
+
+(defvar bar-power-menu-var false)
+
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ;  ║║║│ │││ ┬├┤  │
 ;  ╚╩╝┴─┴┘└─┘└─┘ ┴
@@ -40,6 +46,7 @@
     (bar-system-tray-widget)
     (bar-control-panel-widget)
     (bar-time-widget)
+    (bar-power-menu-widget)
   )
 )
 (defwidget bar-logo-widget []
@@ -85,6 +92,20 @@
     )
     (eventbox :cursor "pointer" :tooltip "Calendar"
       (button :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.min}")
+    )
+  )
+)
+(defwidget bar-power-menu-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-power-menu-var=true" :onhoverlost "${EWW_CMD} update bar-power-menu-var=false" :cursor "pointer"
+    (box :class "bar-power-menu-box" :orientation "v" :vexpand false :space-evenly false
+      (revealer :reveal bar-power-menu-var :transition "slideup" :duration "550ms"
+        (box :orientation "v" :space-evenly false
+          (button :style "background-image: url('./icons/Power_Menu/Log_Out.png');" :class "bar-power-menu-button-logout" :tooltip "Log Out" :onclick "loginctl kill-session self")
+          (button :style "background-image: url('./icons/Power_Menu/Suspend.png');" :class "bar-power-menu-button-suspend" :tooltip "Suspend" :onclick "systemctl suspend")
+          (button :style "background-image: url('./icons/Power_Menu/Reboot.png');" :class "bar-power-menu-button-reboot" :tooltip "Reboot" :onclick "systemctl reboot")
+        )
+      )
+      (button :style "background-image: url('./icons/Power_Menu/Power_Off.png');" :class "bar-power-menu-button-power-off" :tooltip "Power Off" :onclick "systemctl poweroff")
     )
   )
 )
