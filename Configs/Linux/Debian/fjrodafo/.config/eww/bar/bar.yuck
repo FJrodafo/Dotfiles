@@ -15,15 +15,19 @@
 
 (defpoll bar-network-icon-poll :interval "1s" `./scripts/Network --icon`)
 (defpoll bar-network-status-poll :interval "1s" `./scripts/Network --status`)
+(defpoll bar-audio-vol-value-poll :interval "1s" "./scripts/Audio --vol-value")
+(defpoll bar-audio-vol-icon-poll :interval "1s" "./scripts/Audio --vol-icon")
+(defpoll bar-audio-mic-icon-poll :interval "1s" "./scripts/Audio --mic-icon")
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery icon")
 (defpoll bar-battery-percentage-poll :interval "1s" "./scripts/Battery percentage")
-(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo true")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
 ;  ╚╗╔╝├─┤├┬┘
 ;   ╚╝ ┴ ┴┴└─
 
+(defvar bar-audio-vol-var false)
 (defvar bar-power-menu-var false)
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
@@ -64,26 +68,37 @@
 )
 (defwidget bar-control-panel-widget []
   (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
+    (bar-audio-vol-widget)
+    (bar-audio-mic-widget)
     (bar-network-widget)
     (bar-battery-widget)
   )
 )
+(defwidget bar-audio-vol-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-audio-vol-var=true" :onhoverlost "${EWW_CMD} update bar-audio-vol-var=false" :cursor "pointer"
+    (box :orientation "v" :space-evenly false
+      (revealer :reveal bar-audio-vol-var :transition "slideup" :duration "550ms"
+        (scale :class "bar-audio-vol-scale" :orientation "v" :value {bar-audio-vol-value-poll ?: "0"} :onchange "amixer set Master {}%" :tooltip "Volume: ${bar-audio-vol-value-poll}%" :flipped true :max 101 :min 0)
+      )
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-audio-vol-icon-poll}');" :tooltip "Deafen" :onclick "./scripts/Audio --toggle-deafen &")
+    )
+  )
+)
+(defwidget bar-audio-mic-widget []
+  (eventbox :cursor "pointer"
+    (box :orientation "v" :space-evenly false
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-audio-mic-icon-poll}');" :tooltip "Mute" :onclick "./scripts/Audio --toggle-mute &")
+    )
+  )
+)
 (defwidget bar-network-widget []
   (box :orientation "v"
-    (label
-      :class "bar-control-panel-icons"
-      :style "background-image: url('${bar-network-icon-poll}');"
-      :tooltip "${bar-network-status-poll}"
-    )
+    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :tooltip "${bar-network-status-poll}")
   )
 )
 (defwidget bar-battery-widget []
   (box :orientation "v" :visible {bar-battery-status-poll}
-    (label
-      :class "bar-control-panel-icons"
-      :style "background-image: url('${bar-battery-icon-poll}');"
-      :tooltip "${bar-battery-percentage-poll}"
-    )
+    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');" :tooltip "${bar-battery-percentage-poll}")
   )
 )
 (defwidget bar-time-widget []

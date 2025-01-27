@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+#  ╔═╗┬ ┬┌┬┐┬┌─┐
+#  ╠═╣│ │ ││││ │
+#  ╩ ╩└─┘─┴┘┴└─┘
+
+get_vol () {
+    volume=$(amixer get Master | grep -oP '\d+(?=%)' | head -n 1)
+    deafen=$(amixer get Master | grep -oP '\[off\]' | wc -l)
+    [[ $deafen -gt 0 ]] && echo "0" || echo "$volume"
+}
+
+get_vol_icon () {
+    vol_value=$(get_vol)
+    echo "./icons/Media/$( [[ $vol_value == "0" ]] && echo "Deafened" || echo "Headphones" ).png"
+}
+
+get_mic () {
+    microphone=$(amixer get Capture | grep -o '\[off\]' | wc -l)
+    [[ $microphone -gt 0 ]] && echo "0" || echo "2"
+}
+
+get_mic_icon () {
+    mic_value=$(get_mic)
+    echo "./icons/Media/$( [[ $mic_value == "0" ]] && echo "Muted" || echo "Microphone" ).png"
+}
+
+case "$1" in
+    --vol-value) get_vol ;;
+    --vol-icon) get_vol_icon ;;
+    --mic-icon) get_mic_icon ;;
+    --toggle-deafen) amixer set Master toggle ;;
+    --toggle-mute) amixer set Capture toggle ;;
+esac

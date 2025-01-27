@@ -75,7 +75,22 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 25px;
-  padding: 0.25rem 0rem 0.25rem 0rem;
+  min-height: 25px;
+  padding: 0.4rem 0rem 0.4rem 0rem;
+}
+
+scale trough {
+  all: unset;
+  background-color: $bg;
+  border-radius: 5px;
+  min-height: 100px;
+  min-width: 9px;
+  margin: 0.7rem 0rem 0.4rem 0rem;
+}
+
+.bar-audio-vol-scale trough highlight {
+  background: $text-color-white;
+  border-radius: 5px;
 }
 
 .bar-time-box {
