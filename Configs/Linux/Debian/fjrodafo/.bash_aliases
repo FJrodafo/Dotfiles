@@ -40,17 +40,23 @@ alias hunsterverse='cd $HOME/Documents/Games/Servers/HunsterVerse && sudo openvp
 # Networks
 alias airplanemodeon='nmcli radio all off'
 alias airplanemodeoff='nmcli radio all on'
+# System Audio
+alias audiooutputdefault='amixer set Master 40%'
+alias audiooutputdown='amixer set Master 5%-'
+alias audiooutputup='amixer set Master 5%+'
+alias audiooutputdeafen='amixer set Master toggle'
+alias audioinputdefault='amixer set Capture 40%'
+alias audioinputdown='amixer set Capture 5%-'
+alias audioinputup='amixer set Capture 5%+'
+alias audioinputdeafen='amixer set Capture toggle'
 # System Brightness
-alias brightnessdefault='brightnessctl s 75%'
+alias brightnessdefault='brightnessctl s 70%'
 alias brightnessdown='brightnessctl s 5%-'
 alias brightnessup='brightnessctl s 5%+'
-# System Power
+# System Power Menu
 alias poff='systemctl poweroff'
 alias preboot='systemctl reboot'
 alias psuspend='systemctl suspend'
+alias phibernate='systemctl hibernate'
+alias phybridsleep='systemctl hybrid-sleep'
 alias plogout='loginctl kill-session self'
-# System Volume
-alias volumedefault='amixer set Master 40%'
-alias volumedown='amixer set Master 5%-'
-alias volumeup='amixer set Master 5%+'
-alias volumemute='amixer set Master toggle'

@@ -15,9 +15,10 @@
 
 (defpoll bar-network-icon-poll :interval "1s" `./scripts/Network --icon`)
 (defpoll bar-network-status-poll :interval "1s" `./scripts/Network --status`)
-(defpoll bar-audio-vol-value-poll :interval "1s" "./scripts/Audio --vol-value")
-(defpoll bar-audio-vol-icon-poll :interval "1s" "./scripts/Audio --vol-icon")
-(defpoll bar-audio-mic-icon-poll :interval "1s" "./scripts/Audio --mic-icon")
+(defpoll bar-audio-output-value-poll :interval "1s" "./scripts/Audio --output-value")
+(defpoll bar-audio-input-value-poll :interval "1s" "./scripts/Audio --input-value")
+(defpoll bar-audio-output-icon-poll :interval "1s" "./scripts/Audio --output-icon")
+(defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio --input-icon")
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery icon")
 (defpoll bar-battery-percentage-poll :interval "1s" "./scripts/Battery percentage")
 (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
@@ -27,7 +28,8 @@
 ;  ╚╗╔╝├─┤├┬┘
 ;   ╚╝ ┴ ┴┴└─
 
-(defvar bar-audio-vol-var false)
+(defvar bar-audio-output-var false)
+(defvar bar-audio-input-var false)
 (defvar bar-power-menu-var false)
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
@@ -68,26 +70,29 @@
 )
 (defwidget bar-control-panel-widget []
   (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
-    (bar-audio-vol-widget)
-    (bar-audio-mic-widget)
+    (bar-audio-output-widget)
+    (bar-audio-input-widget)
     (bar-network-widget)
     (bar-battery-widget)
   )
 )
-(defwidget bar-audio-vol-widget []
-  (eventbox :onhover "${EWW_CMD} update bar-audio-vol-var=true" :onhoverlost "${EWW_CMD} update bar-audio-vol-var=false" :cursor "pointer"
+(defwidget bar-audio-output-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-audio-output-var=true" :onhoverlost "${EWW_CMD} update bar-audio-output-var=false" :cursor "pointer"
     (box :orientation "v" :space-evenly false
-      (revealer :reveal bar-audio-vol-var :transition "slideup" :duration "550ms"
-        (scale :class "bar-audio-vol-scale" :orientation "v" :value {bar-audio-vol-value-poll ?: "0"} :onchange "amixer set Master {}%" :tooltip "Volume: ${bar-audio-vol-value-poll}%" :flipped true :max 101 :min 0)
+      (revealer :reveal bar-audio-output-var :transition "slideup" :duration "550ms"
+        (scale :class "bar-audio-output-scale" :orientation "v" :value {bar-audio-output-value-poll ?: "0"} :onchange "amixer set Master {}%" :tooltip "Output: ${bar-audio-output-value-poll}%" :flipped true :max 101 :min 0)
       )
-      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-audio-vol-icon-poll}');" :tooltip "Deafen" :onclick "./scripts/Audio --toggle-deafen &")
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-audio-output-icon-poll}');" :tooltip "Deafen" :onclick "./scripts/Audio --toggle-deafen &")
     )
   )
 )
-(defwidget bar-audio-mic-widget []
-  (eventbox :cursor "pointer"
+(defwidget bar-audio-input-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-audio-input-var=true" :onhoverlost "${EWW_CMD} update bar-audio-input-var=false" :cursor "pointer"
     (box :orientation "v" :space-evenly false
-      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-audio-mic-icon-poll}');" :tooltip "Mute" :onclick "./scripts/Audio --toggle-mute &")
+      (revealer :reveal bar-audio-input-var :transition "slideup" :duration "550ms"
+        (scale :class "bar-audio-input-scale" :orientation "v" :value {bar-audio-input-value-poll ?: "0"} :onchange "amixer set Capture {}%" :tooltip "Input: ${bar-audio-input-value-poll}%" :flipped true :max 101 :min 0)
+      )
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-audio-input-icon-poll}');" :tooltip "Mute" :onclick "./scripts/Audio --toggle-mute &")
     )
   )
 )
