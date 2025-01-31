@@ -16,12 +16,12 @@
 (defpoll bar-network-icon-poll :interval "1s" `./scripts/Network --icon`)
 (defpoll bar-network-status-poll :interval "1s" `./scripts/Network --status`)
 (defpoll bar-audio-output-value-poll :interval "1s" "./scripts/Audio --output-value")
-(defpoll bar-audio-input-value-poll :interval "1s" "./scripts/Audio --input-value")
 (defpoll bar-audio-output-icon-poll :interval "1s" "./scripts/Audio --output-icon")
+(defpoll bar-audio-input-value-poll :interval "1s" "./scripts/Audio --input-value")
 (defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio --input-icon")
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery icon")
 (defpoll bar-battery-percentage-poll :interval "1s" "./scripts/Battery percentage")
-(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+; (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
@@ -70,10 +70,15 @@
 )
 (defwidget bar-control-panel-widget []
   (box :orientation "v" :class "bar-control-panel-box" :space-evenly false
+    (bar-network-widget)
     (bar-audio-output-widget)
     (bar-audio-input-widget)
-    (bar-network-widget)
     (bar-battery-widget)
+  )
+)
+(defwidget bar-network-widget []
+  (box :orientation "v"
+    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :tooltip "${bar-network-status-poll}")
   )
 )
 (defwidget bar-audio-output-widget []
@@ -96,13 +101,8 @@
     )
   )
 )
-(defwidget bar-network-widget []
-  (box :orientation "v"
-    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :tooltip "${bar-network-status-poll}")
-  )
-)
 (defwidget bar-battery-widget []
-  (box :orientation "v" :visible {bar-battery-status-poll}
+  (box :orientation "v" ; :visible {bar-battery-status-poll}
     (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');" :tooltip "${bar-battery-percentage-poll}")
   )
 )

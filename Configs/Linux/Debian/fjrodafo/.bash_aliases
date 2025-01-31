@@ -10,6 +10,7 @@ alias dockerdowntodo='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/to-
 alias ijavajavac='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spinner.sh'
+alias updatelinuxkernel='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Kernel/update.sh'
 alias xorguniversaldriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/universal.sh'
 alias xorgnvidiadriverssetup='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Drivers/nvidia.sh'
 # Discord
