@@ -18,6 +18,7 @@ alias discordcrps='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm i &&
 alias discordcrpscanary='cd $HOME/Documents/Repos/FJrodafo/DiscordCRPS/App && npm i && npm run canary'
 alias discordapp='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm i && npm start'
 alias discordappcanary='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm i && npm run canary'
+alias discordappshrikebot='cd $HOME/Documents/Repos/FJrodafo/DiscordAPP/App && npm i && npm run shrikebot'
 # App
 alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
