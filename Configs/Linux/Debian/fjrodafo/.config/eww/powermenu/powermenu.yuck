@@ -48,10 +48,10 @@
         (label :text "${powermenu-time-poll.hour}:${powermenu-time-poll.min}")
       )
       (powermenu-buttons
-        :shutdown "systemctl poweroff" :shutdown-icon "󰐥"
-        :reboot "systemctl reboot" :reboot-icon "󰜉"
-        :suspend "systemctl suspend" :suspend-icon "󰤄"
-        :logout "loginctl kill-session self" :logout-icon "󱅞"
+        :shutdown "systemctl poweroff" :shutdown-icon "󰐥" ; :shutdown-icon "󰤆"
+        :reboot "systemctl reboot" :reboot-icon "󰜉" ; :reboot-icon ""
+        :suspend "systemctl suspend" :suspend-icon "󰤄" ; :suspend-icon "󰤄"
+        :logout "loginctl kill-session self" :logout-icon "󱅞" ; :logout-icon "󰗼"
       )
     )
   )
