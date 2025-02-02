@@ -58,7 +58,7 @@
 )
 (defwidget bar-logo-widget []
   (box :class "bar-logo-box" :orientation "v"
-    (eventbox :cursor "pointer"
+    (eventbox :cursor "pointer" :tooltip "Linux"
       (button :onclick "~/.eww/target/release/eww open powermenu" "")
     )
   )
@@ -73,6 +73,7 @@
     (bar-network-widget)
     (bar-audio-output-widget)
     (bar-audio-input-widget)
+    (bar-calendar-widget)
     (bar-battery-widget)
   )
 )
@@ -101,6 +102,13 @@
     )
   )
 )
+(defwidget bar-calendar-widget []
+  (box :orientation "v"
+    (eventbox :cursor "pointer"
+      (button :class "bar-control-panel-icons" :style "background-image: url('./icons/Calendar/Bullseye_Arrow.png');" :tooltip "Calendar" :onclick "~/.eww/target/release/eww open --toggle calendar")
+    )
+  )
+)
 (defwidget bar-battery-widget []
   (box :orientation "v" ; :visible {bar-battery-status-poll}
     (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');" :tooltip "${bar-battery-percentage-poll}")
@@ -108,12 +116,8 @@
 )
 (defwidget bar-time-widget []
   (box :class "bar-time-box" :orientation "v"
-    (eventbox :cursor "pointer" :tooltip "Calendar"
-      (button :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.hour}")
-    )
-    (eventbox :cursor "pointer" :tooltip "Calendar"
-      (button :onclick "~/.eww/target/release/eww open --toggle calendar" "${bar-time-poll.min}")
-    )
+    (button :tooltip "Hour" "${bar-time-poll.hour}")
+    (button :tooltip "Minute" "${bar-time-poll.min}")
   )
 )
 (defwidget bar-power-menu-widget []
