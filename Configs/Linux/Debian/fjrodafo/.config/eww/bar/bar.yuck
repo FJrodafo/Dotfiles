@@ -121,12 +121,13 @@
     (box :class "bar-power-menu-box" :orientation "v" :vexpand false :space-evenly false
       (revealer :reveal bar-power-menu-var :transition "slideup" :duration "550ms"
         (box :orientation "v" :space-evenly false
-          (button :style "background-image: url('./icons/Power_Menu/Log_Out.png');" :class "bar-power-menu-button-logout" :tooltip "Log Out" :onclick "loginctl kill-session self")
+          (button :style "background-image: url('./icons/Power_Menu/Lock.png');" :class "bar-power-menu-button-lock" :tooltip "Lock" :onclick "loginctl kill-session self")
           (button :style "background-image: url('./icons/Power_Menu/Suspend.png');" :class "bar-power-menu-button-suspend" :tooltip "Suspend" :onclick "systemctl suspend")
+          (button :style "background-image: url('./icons/Power_Menu/Hibernate.png');" :class "bar-power-menu-button-hibernate" :tooltip "Hibernate" :onclick "systemctl hibernate")
           (button :style "background-image: url('./icons/Power_Menu/Reboot.png');" :class "bar-power-menu-button-reboot" :tooltip "Reboot" :onclick "systemctl reboot")
         )
       )
-      (button :style "background-image: url('./icons/Power_Menu/Power_Off.png');" :class "bar-power-menu-button-power-off" :tooltip "Power Off" :onclick "systemctl poweroff")
+      (button :style "background-image: url('./icons/Power_Menu/Shutdown.png');" :class "bar-power-menu-button-shutdown" :tooltip "Shutdown" :onclick "systemctl poweroff")
     )
   )
 )

@@ -51,7 +51,7 @@
         :shutdown "systemctl poweroff" :shutdown-icon "󰐥" ; :shutdown-icon "󰤆"
         :reboot "systemctl reboot" :reboot-icon "󰜉" ; :reboot-icon ""
         :suspend "systemctl suspend" :suspend-icon "󰤄" ; :suspend-icon "󰤄"
-        :logout "loginctl kill-session self" :logout-icon "󱅞" ; :logout-icon "󰗼"
+        :lock "loginctl kill-session self" :lock-icon "󱅞" ; :lock-icon "󰗼"
       )
     )
   )
@@ -101,7 +101,7 @@
     })
   )
 )
-(defwidget powermenu-buttons [shutdown shutdown-icon reboot reboot-icon suspend suspend-icon logout logout-icon]
+(defwidget powermenu-buttons [shutdown shutdown-icon reboot reboot-icon suspend suspend-icon lock lock-icon]
   (box :valign "end" :halign "end" :vexpand true :hexpand true :space-evenly false :spacing 7
     (eventbox :cursor "pointer" :class "powermenu-button-box powermenu-shutdown-button-box"
       (button :onclick shutdown shutdown-icon)
@@ -113,7 +113,7 @@
       (button :onclick suspend suspend-icon)
     )
     (eventbox :cursor "pointer" :class "powermenu-button-box"
-      (button :onclick logout logout-icon)
+      (button :onclick lock lock-icon)
     )
   )
 )
