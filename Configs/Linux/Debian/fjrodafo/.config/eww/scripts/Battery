@@ -39,11 +39,13 @@ icon() {
     echo "$icon"
 }
 
-percentage() {
+tooltip() {
+    [ ! -f "$battery" ] && echo "No battery" && exit
+
     echo "$capacity%"
 }
 
 [ "$1" = "icon" ] && icon && exit
-[ "$1" = "percentage" ] && percentage && exit
+[ "$1" = "tooltip" ] && tooltip && exit
 
 exit
