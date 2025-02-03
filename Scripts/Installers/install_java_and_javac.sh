@@ -3,7 +3,6 @@
 # Download de LTS .deb file at https://www.oracle.com/java/technologies/downloads/ and put the file in your Downloads folder
 
 if java --version && javac --version; then
-    clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Neofetch/Ascii.txt
     echo "You currently have Java installed!"
 else
     clear && cd ~/Downloads
@@ -15,6 +14,6 @@ else
     sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-17/bin/javac 1
     # Fix broken dependencies
     sudo apt install -fy
-    clear && neofetch --ascii $HOME/Documents/Repos/FJrodafo/Dotfiles/Configs/Neofetch/Ascii.txt
+    clear && cd ~
     echo "Java has been successfully installed!"
 fi

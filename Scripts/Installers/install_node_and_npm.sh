@@ -11,5 +11,6 @@ else
     tar -xf node-v18.17.1-linux-x64.tar.xz
     # Check the version!
     mv node-v18.17.1-linux-x64 ~/.nodejs
+    clear && cd ~
     echo "Nodejs has been successfully installed!"
 fi
