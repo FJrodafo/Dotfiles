@@ -103,16 +103,16 @@
 )
 (defwidget powermenu-buttons [shutdown shutdown-icon reboot reboot-icon suspend suspend-icon lock lock-icon]
   (box :valign "end" :halign "end" :vexpand true :hexpand true :space-evenly false :spacing 7
-    (eventbox :cursor "pointer" :class "powermenu-button-box powermenu-shutdown-button-box"
+    (eventbox :class "powermenu-button-box powermenu-shutdown-button-box" :cursor "pointer"
       (button :onclick shutdown shutdown-icon)
     )
-    (eventbox :cursor "pointer" :class "powermenu-button-box"
+    (eventbox :class "powermenu-button-box powermenu-reboot-button-box" :cursor "pointer"
       (button :onclick reboot reboot-icon)
     )
-    (eventbox :cursor "pointer" :class "powermenu-button-box"
+    (eventbox :class "powermenu-button-box powermenu-suspend-button-box" :cursor "pointer"
       (button :onclick suspend suspend-icon)
     )
-    (eventbox :cursor "pointer" :class "powermenu-button-box"
+    (eventbox :class "powermenu-button-box powermenu-lock-button-box" :cursor "pointer"
       (button :onclick lock lock-icon)
     )
   )

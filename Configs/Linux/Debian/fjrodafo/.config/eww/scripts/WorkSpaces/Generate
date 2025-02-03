@@ -23,7 +23,7 @@ generate_eww_workspaces() {
 
     echo -e $listen_workspaces >> "$eww_file"
     echo -e $workspace_widgets >> "$eww_file"
-    echo -e "(defwidget bar-workspaces-widget [monitor]\n  (box :orientation \"v\" :valign \"start\" :space-evenly false\n$widgets  )\n)" >> "$eww_file"
+    echo -e "(defwidget bar-workspaces-widget [monitor]\n  (box :valign \"start\" :orientation \"v\" :space-evenly false\n$widgets  )\n)" >> "$eww_file"
 }
 
 generate_eww_workspaces

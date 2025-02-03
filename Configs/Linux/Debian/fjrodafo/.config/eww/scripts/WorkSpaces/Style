@@ -32,10 +32,10 @@ print_workspaces() {
             class="bar-workspace-empty"
         fi
 
-        buf+="(eventbox :cursor \"pointer\" :tooltip \"$tooltip\" (button :class \"$class\" :onclick \"bspc desktop -f $ws\" :onrightclick \"bspc node -d $ws\" \"$icon\"))"
+        buf+="(eventbox :tooltip \"$tooltip\" :cursor \"pointer\" (button :class \"$class\" :onclick \"bspc desktop -f $ws\" :onrightclick \"bspc node -d $ws\" \"$icon\"))"
     done
 
-    echo "(box :class \"bar-workspaces\" :orientation \"v\" :valign \"center\" :halign \"center\" :vexpand true :hexpand true $buf)"
+    echo "(box :class \"bar-workspaces\" :valign \"center\" :halign \"center\" :vexpand true :hexpand true :orientation \"v\" $buf)"
 }
 
 print_workspaces $1
