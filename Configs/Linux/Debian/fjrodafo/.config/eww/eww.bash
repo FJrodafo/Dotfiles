@@ -10,6 +10,7 @@ launch_eww(){
     local eww_active_windows=$(~/.eww/target/release/eww active-windows)
 
     # Close calendar if it's open
+    [[ "$eww_active_windows" == *"card"* ]] && ~/.eww/target/release/eww close card
     [[ "$eww_active_windows" == *"calendar"* ]] && ~/.eww/target/release/eww close calendar
 
     # Get a list of monitors and sort them so that the primary monitor is first

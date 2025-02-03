@@ -69,7 +69,7 @@
     (powermenu-time-poll.hour == 7 && powermenu-time-poll.min < 30) || (powermenu-time-poll.hour == 6 && powermenu-time-poll.min >= 30) ? "Dawn" :
     (powermenu-time-poll.hour == 6 && powermenu-time-poll.min < 30) || (powermenu-time-poll.hour >= 4) ? "Early Morning" :
     (powermenu-time-poll.hour >= 1) ? "Night" :
-    (powermenu-time-poll.hour == 0) ? "Midnight" : "Unknown Time";
+    (powermenu-time-poll.hour == 0) ? "Midnight" : "Unknown Time"
   })
 )
 (defwidget powermenu-wifi [airplane-mode airplane-icon wifi-strength wifi-offline wifi-slow wifi-okay wifi-good wifi-excellent]

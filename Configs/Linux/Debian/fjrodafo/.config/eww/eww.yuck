@@ -5,4 +5,5 @@
 (include "./bar/bar.yuck")
 (include "./bar/workspaces.yuck")
 (include "./calendar/calendar.yuck")
+(include "./card/card.yuck")
 (include "./powermenu/powermenu.yuck")

@@ -1,0 +1,17 @@
+//  ╔═╗┌─┐┬─┐┌┬┐
+//  ║  ├─┤├┬┘ ││
+//  ╚═╝┴ ┴┴└──┴┘
+
+.card-layout-box {
+    color: $text-color-white;
+    background-color: $bg;
+    border-radius: 0.5rem;
+    min-width: 18rem;
+}
+
+.card-close-button {
+    font-family: $text-font-mono;
+    font-size: 1.1rem;
+    color: $text-color-white;
+    padding: 0 0.9rem;
+}

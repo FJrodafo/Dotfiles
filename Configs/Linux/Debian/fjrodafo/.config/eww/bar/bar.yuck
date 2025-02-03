@@ -59,7 +59,7 @@
 (defwidget bar-logo-widget []
   (box :class "bar-logo-box" :tooltip "Debian Linux" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :onclick "~/.eww/target/release/eww open powermenu" "")
+      (button :onclick "~/.eww/target/release/eww open --toggle card" "")
     )
   )
 )

@@ -1,0 +1,27 @@
+;  ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+;  ║║║││││ │││ ││││
+;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+
+(defwindow card
+  :wm-ignore true
+  :geometry (geometry :x "61px" :y "5%" :anchor "left top")
+  (card-layout-widget)
+)
+
+;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+;  ║║║│ │││ ┬├┤  │
+;  ╚╩╝┴─┴┘└─┘└─┘ ┴
+
+(defwidget card-layout-widget []
+  (box :class "card-layout-box" :orientation "v" :space-evenly false :spacing 7
+    (card-close-widget)
+  )
+)
+
+(defwidget card-close-widget []
+  (box :halign "end" :orientation "h" :space-evenly false
+    (eventbox :cursor "pointer"
+      (button :class "card-close-button" :onclick "~/.eww/target/release/eww close card" "󰅙")
+    )
+  )
+)
