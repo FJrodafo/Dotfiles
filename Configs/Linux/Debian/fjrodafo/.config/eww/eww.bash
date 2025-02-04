@@ -4,9 +4,9 @@
 #  ║╣ │  ╠╩╗│ ││││├─┤├┬┘└─┐  ║║║├─┤│  ├┴┐└┬┘  ║║║│ │││ ┬├┤  │ └─┐
 #  ╚═╝┴─┘╩ ╩└─┘└┴┘┴ ┴┴└─└─┘  ╚╩╝┴ ┴└─┘┴ ┴ ┴   ╚╩╝┴─┴┘└─┘└─┘ ┴ └─┘
 
-# This file launch EWW
-launch_eww(){
-    # Check if EWW bar/calendar is active by using 'eww active-windows'
+# This file launch eww
+launch_eww() {
+    # Check if eww bar/calendar is active by using 'eww active-windows'
     local eww_active_windows=$(~/.eww/target/release/eww active-windows)
 
     # Close calendar if it's open

@@ -4,7 +4,7 @@
 #  ╠╩╗├─┤ │  │ ├┤ ├┬┘└┬┘
 #  ╚═╝┴ ┴ ┴  ┴ └─┘┴└─ ┴
 
-battery=/sys/class/power_supply/BAT0
+battery="/sys/class/power_supply/BAT0"
 
 status="$(cat "$battery/status")"
 capacity="$(cat "$battery/capacity")"

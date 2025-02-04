@@ -8,22 +8,22 @@ is_online() {
     ping -c 1 -W 1 debian.org &>/dev/null
 }
 
-ID=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
+id=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
 
-ICON="./icons/Network/Off.png"
-STATUS="Offline"
+icon="./icons/Network/Off.png"
+status="Offline"
 
 if is_online; then
-    ICON="./icons/Network/On.png"
+    icon="./icons/Network/On.png"
     
-    if [[ $ID == e* ]]; then
-        STATUS="$ID"
+    if [[ $id == e* ]]; then
+        status="$id"
     elif command -v nmcli &>/dev/null; then
-        STATUS=$(nmcli -t -f active,ssid dev wifi show | sed -n '1{s/SSID: //p}')
+        status=$(nmcli -t -f active,ssid dev wifi show | sed -n '1{s/SSID: //p}')
     fi
 fi
 
 case "$1" in
-    --icon) echo "$ICON" ;;
-    --status) echo "$STATUS" ;;
+    --icon) echo "$icon" ;;
+    --status) echo "$status" ;;
 esac
