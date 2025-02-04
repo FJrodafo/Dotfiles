@@ -5,5 +5,5 @@
 (include "./bar/bar.yuck")
 (include "./bar/workspaces.yuck")
 (include "./calendar/calendar.yuck")
-(include "./card/card.yuck")
-(include "./powermenu/powermenu.yuck")
+(include "./profile-card/profile-card.yuck")
+(include "./power-menu/power-menu.yuck")

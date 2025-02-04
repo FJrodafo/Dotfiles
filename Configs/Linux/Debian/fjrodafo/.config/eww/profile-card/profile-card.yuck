@@ -2,26 +2,26 @@
 ;  ║║║││││ │││ ││││
 ;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
-(defwindow card
+(defwindow profile-card
   :wm-ignore true
   :geometry (geometry :x "61px" :y "5%" :anchor "left top")
-  (card-layout-widget)
+  (profile-card-layout-widget)
 )
 
 ;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
 ;  ║║║│ │││ ┬├┤  │
 ;  ╚╩╝┴─┴┘└─┘└─┘ ┴
 
-(defwidget card-layout-widget []
-  (box :class "card-layout-box" :orientation "v" :space-evenly false :spacing 7
-    (card-close-widget)
+(defwidget profile-card-layout-widget []
+  (box :class "profile-card-layout-box" :orientation "v" :space-evenly false :spacing 7
+    (profile-card-close-widget)
   )
 )
 
-(defwidget card-close-widget []
+(defwidget profile-card-close-widget []
   (box :halign "end" :orientation "h" :space-evenly false
     (eventbox :cursor "pointer"
-      (button :class "card-close-button" :onclick "~/.eww/target/release/eww close card" "󰅙")
+      (button :class "profile-card-close-button" :onclick "~/.eww/target/release/eww close profile-card" "󰅙")
     )
   )
 )

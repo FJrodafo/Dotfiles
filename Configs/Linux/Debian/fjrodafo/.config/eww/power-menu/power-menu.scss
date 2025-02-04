@@ -2,7 +2,7 @@
 //  ╠═╝│ ││││├┤ ├┬┘  ║║║├┤ ││││ │
 //  ╩  └─┘└┴┘└─┘┴└─  ╩ ╩└─┘┘└┘└─┘
 
-.powermenu-layout-box {
+.power-menu-layout-box {
   font-family: $text-font;
   color: $text-color-alt-6;
   background-repeat: no-repeat;
@@ -11,13 +11,13 @@
   padding: 5em;
 }
 
-.powermenu-separator-label {
+.power-menu-separator-label {
   font-family: $text-font;
   font-size: 1em;
   font-weight: 400;
 }
 
-.powermenu-close-button {
+.power-menu-close-button {
   font-size: 2em;
   padding-right: 1px;
 
@@ -26,15 +26,15 @@
   }
 }
 
-.powermenu-battery-box,
-.powermenu-wifi-box,
-.powermenu-time-box {
+.power-menu-battery-box,
+.power-menu-wifi-box,
+.power-menu-time-box {
   label {
     font-size: 2em;
   }
 }
 
-.powermenu-sundial-label {
+.power-menu-sundial-label {
   font-family: $text-font;
   font-size: 1.5em;
   font-weight: bold;
@@ -42,7 +42,7 @@
   padding: 0.4em;
 }
 
-.powermenu-button-box {
+.power-menu-button-box {
   font-size: 2.5em;
 
   button {
@@ -60,7 +60,7 @@
     }
   }
 
-  &.powermenu-shutdown-button-box button:hover {
+  &.power-menu-shutdown-button-box button:hover {
     color: $text-color-red;
   }
 }

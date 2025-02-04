@@ -215,7 +215,7 @@ cargo build --release --no-default-features --features x11
 cd target/release
 chmod +x ./.eww
 ./.eww daemon
-./.eww open --toggle powermenu
+./.eww open --toggle power-menu
 ```
 
 ## startx Intel Laptop
