@@ -40,8 +40,8 @@ alias npkill='npx npkill -s size'
 # VPN
 alias hunsterverse='cd $HOME/Documents/Games/Servers/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
 # Networks
-alias airplanemodeon='nmcli radio all off'
-alias airplanemodeoff='nmcli radio all on'
+alias airplanemodeon='nmcli networking off' # alias airplanemodeon='nmcli radio all off'
+alias airplanemodeoff='nmcli networking on' # alias airplanemodeoff='nmcli radio all on'
 # System Audio
 alias audiooutputdefault='amixer set Master 40%'
 alias audiooutputdown='amixer set Master 5%-'

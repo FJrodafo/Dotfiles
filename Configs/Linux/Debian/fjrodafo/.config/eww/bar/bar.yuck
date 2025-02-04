@@ -79,7 +79,9 @@
 )
 (defwidget bar-network-widget []
   (box :tooltip "${bar-network-status-poll}" :orientation "v"
-    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');")
+    (eventbox :cursor "pointer"
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :onclick "./scripts/Airplane --toggle &")
+    )
   )
 )
 (defwidget bar-audio-output-widget []

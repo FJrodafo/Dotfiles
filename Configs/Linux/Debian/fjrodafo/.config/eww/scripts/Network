@@ -4,16 +4,21 @@
 #  ║║║├┤  │ ││││ │├┬┘├┴┐
 #  ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴
 
+airplane=$(./scripts/Airplane --status)
+
+icon="./icons/Network/Off.png"
+status="Offline"
+
 is_online() {
     ping -c 1 -W 1 debian.org &>/dev/null
 }
 
 id=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
 
-icon="./icons/Network/Off.png"
-status="Offline"
-
-if is_online; then
+if [ "$airplane" = "On" ]; then
+    icon="./icons/Network/Airplane.png"
+    status="Airplane"
+elif is_online; then
     icon="./icons/Network/On.png"
     
     if [[ $id == e* ]]; then
