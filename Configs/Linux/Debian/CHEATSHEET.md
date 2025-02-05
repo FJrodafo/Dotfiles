@@ -94,11 +94,11 @@
         <td>Alternate between the tiled and monocle layout</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>1-6</kbd></td>
+        <td><kbd>Super</kbd> + <kbd>1-7</kbd></td>
         <td>Focus on the given desktop</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-6</kbd></td>
+        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-7</kbd></td>
         <td>Send the node to the given desktop</td>
     </tr>
     <tr>

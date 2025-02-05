@@ -68,8 +68,8 @@ super + m
 	bspc desktop -l next
 
 # focus/send the node to the given desktop
-super + {_,shift + }{1-6}
-	bspc {desktop -f,node -d} '^{1-6}'
+super + {_,shift + }{1-7}
+	bspc {desktop -f,node -d} '^{1-7}'
 
 # focus/send the node to the given direction
 super + {_,shift + }{Left,Down,Up,Right}
