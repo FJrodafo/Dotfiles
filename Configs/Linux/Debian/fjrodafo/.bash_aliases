@@ -31,7 +31,7 @@ alias interactiveprocessviewer='htop'
 alias neofetchbunny='neofetch --ascii $HOME/.config/neofetch/bunny/ascii.txt --config $HOME/.config/neofetch/bunny/config.conf'
 alias neofetchdefault='neofetch --config $HOME/.config/neofetch/config.conf'
 alias neofetchminimal='neofetch --ascii $HOME/.config/neofetch/minimal/ascii.txt --config $HOME/.config/neofetch/minimal/config.conf'
-alias neofetchnerd='neofetch --ascii $HOME/.config/neofetch/nerd/ascii.txt --config $HOME/.config/neofetch/nerd/config.conf'
+alias neofetchnerd='neofetch --ascii $(find $HOME/.config/neofetch/nerd/ascii/ -type f -name "*.txt" | shuf -n 1) --config $HOME/.config/neofetch/nerd/config.conf'
 # Java
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
