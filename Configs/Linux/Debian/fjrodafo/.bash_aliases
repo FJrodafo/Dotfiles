@@ -28,7 +28,7 @@ alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
 alias interactiveprocessviewer='htop'
 # Neofetch
-alias neofetchbunny='neofetch --ascii $HOME/.config/neofetch/bunny/ascii.txt --config $HOME/.config/neofetch/bunny/config.conf'
+alias neofetchbunny='neofetch --ascii $(find $HOME/.config/neofetch/bunny/ascii/ -type f -name "*.txt" | shuf -n 1) --config $HOME/.config/neofetch/bunny/config.conf'
 alias neofetchdefault='neofetch --config $HOME/.config/neofetch/config.conf'
 alias neofetchminimal='neofetch --ascii $(find $HOME/.config/neofetch/minimal/ascii/ -type f -name "*.txt" | shuf -n 1) --config $HOME/.config/neofetch/minimal/config.conf'
 alias neofetchnerd='neofetch --ascii $(find $HOME/.config/neofetch/nerd/ascii/ -type f -name "*.txt" | shuf -n 1) --config $HOME/.config/neofetch/nerd/config.conf'
