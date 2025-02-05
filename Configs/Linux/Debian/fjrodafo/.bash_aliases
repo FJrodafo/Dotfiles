@@ -1,6 +1,6 @@
 # Script
 alias backup='$HOME/.backup.sh'
-alias ccp='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/ccp.sh'
+alias push='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/push.sh'
 alias dockerupmysqlphpmyadmin='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/mysql-phpmyadmin/up.sh'
 alias dockerdownmysqlphpmyadmin='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/mysql-phpmyadmin/down.sh'
 alias dockeruporacle='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/oracle/up.sh'
