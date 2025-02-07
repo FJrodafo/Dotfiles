@@ -1,12 +1,12 @@
 # Script
 alias backup='$HOME/.backup.sh'
-alias push='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/push.sh'
 alias dockerupmysqlphpmyadmin='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/mysql-phpmyadmin/up.sh'
 alias dockerdownmysqlphpmyadmin='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/mysql-phpmyadmin/down.sh'
 alias dockeruporacle='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/oracle/up.sh'
 alias dockerdownoracle='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/oracle/down.sh'
 alias dockeruptodo='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/to-do/up.sh'
 alias dockerdowntodo='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Docker/to-do/down.sh'
+alias gitsh='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Git/push.sh'
 alias ijavajavac='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Repos/FJrodafo/Dotfiles/Scripts/Miscellaneous/spinner.sh'
