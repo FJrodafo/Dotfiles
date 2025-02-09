@@ -40,7 +40,7 @@ icon() {
 }
 
 tooltip() {
-    [ ! "$battery" ] || echo "No battery" && exit
+    [ ! "$battery" ] && echo "No battery" && exit
 
     echo "$capacity%"
 }
