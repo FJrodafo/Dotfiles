@@ -6,12 +6,6 @@ if [ ! -d .git ]; then
     exit 1
 fi
 
-# Run git log and save the output to CHANGELOG.md
-changelog="$(pwd)/CHANGELOG.md"
-echo '```' > "$changelog"
-git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n' --decorate >> "$changelog"
-echo '```' >> "$changelog"
-
 # Use the first argument passed as the commit message
 commit_message=$1
 
@@ -32,6 +26,12 @@ if [ "$confirmation" != "Y" ]; then
     echo "Neither commit nor push will be performed."
     exit 0
 fi
+
+# Run git log and save the output to CHANGELOG.md
+changelog="$(pwd)/CHANGELOG.md"
+echo '```' > "$changelog"
+git log --graph --pretty=format:'Commit: %h - %s%nAuthor: %an - %cD%n' --decorate >> "$changelog"
+echo '```' >> "$changelog"
 
 # Commit changes
 git add -A
