@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# This script is available on GitHub Gist at:
+# https://gist.github.com/FJrodafo/37bfe38ba14cd6a2957e775e353eac8d
+
+# This Bash script automates committing and pushing changes to multiple Git remotes (GitHub, GitLab, Bitbucket).
+# It verifies the repository, ensures a commit message is provided, logs the commit history in a CHANGELOG.md file, and then prompts for user confirmation before committing and pushing changes.
+
+# Explore more gists by FJrodafo at: https://gist.github.com/FJrodafo
+
 # Check if we are inside a Git repository by looking for the .git directory
 # If the directory does not exist, exit with an error message
 if [ ! -d .git ]; then
