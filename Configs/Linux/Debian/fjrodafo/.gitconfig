@@ -4,5 +4,17 @@
 [core]
 	editor = code --wait
 	autocrlf = input
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	lg = log --oneline --graph --all --decorate
 [color]
 	ui = auto
+[push]
+	default = simple
+# [commit]
+# 	gpgsign = true
+[credential]
+	helper = cache
