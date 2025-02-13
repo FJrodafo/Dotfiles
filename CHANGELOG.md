@@ -1,4 +1,7 @@
 ```
+* Commit: 35c3bea - New VERSION.md
+| Author: fjrodafo - Thu, 13 Feb 2025 00:02:20 +0000
+| 
 * Commit: a777b4b - Upload push.sh to Github Gist
 | Author: fjrodafo - Wed, 12 Feb 2025 23:32:46 +0000
 | 
