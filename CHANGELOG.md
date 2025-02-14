@@ -1,4 +1,7 @@
 ```
+* Commit: d0b1e58 - Update run/kill animated wallpaper
+| Author: fjrodafo - Fri, 14 Feb 2025 20:19:52 +0000
+| 
 * Commit: 2f3282f - Update .bash_aliases
 | Author: fjrodafo - Thu, 13 Feb 2025 03:12:50 +0000
 | 
