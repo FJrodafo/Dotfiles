@@ -11,6 +11,9 @@
 # Make sure you have an alias set up in your .bashrc file to run this script from the root of a git repository:
 #   alias gitsh='$HOME/path/to/push.sh'
 
+# You need to grant execute permissions for the script to run on your computer with the following command:
+#   chmod +x ./push.sh
+
 # Finally, make sure you have the remotes configured (You can see/modify the remotes that connect your local repository at the end of the script).
 # Please note that by default, any changes made will be pushed to all three remotes at the same time (GitHub, GitLab, Bitbucket).
 
@@ -19,7 +22,7 @@
 #   git remote add gitlab git@gitlab.com:FJrodafo/Test.git
 #   git remote add bitbucket git@bitbucket.org:FJrodafo/Test.git
 
-# Once the alias and remotes are properly configured, you will be ready to run the following command:
+# Once you have everything properly configured, you can push your commits with the following command:
 #   gitsh "commit message"
 
 # Check if we are inside a Git repository by looking for the .git directory.
