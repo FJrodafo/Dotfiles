@@ -1,4 +1,7 @@
 ```
+* Commit: a1a02bc - Update rofi
+| Author: fjrodafo - Fri, 14 Feb 2025 20:20:56 +0000
+| 
 * Commit: d0b1e58 - Update run/kill animated wallpaper
 | Author: fjrodafo - Fri, 14 Feb 2025 20:19:52 +0000
 | 
