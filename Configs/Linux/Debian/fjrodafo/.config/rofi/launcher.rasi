@@ -93,7 +93,8 @@ mode-switcher{
     background-color:            @white;
     border-color:                @white;
     border:                      1px 0px 0px 0px solid;
-    padding:                     2;
+    margin:                      -2px 0px 0px 0px;
+    padding:                     2px;
 }
 
 /********** Message **********/
