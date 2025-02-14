@@ -8,6 +8,12 @@
 
 # Explore more gists by FJrodafo at: https://gist.github.com/FJrodafo
 
+# Make sure you have an alias set up in your .bashrc file to run this script from the root of a git repository:
+# alias gitsh='$HOME/path/to/push.sh'
+
+# Once the alias is properly configured, you will be ready to run the following command:
+# gitsh "commit message"
+
 # Check if we are inside a Git repository by looking for the .git directory.
 # If the directory does not exist, exit with an error message.
 if [ ! -d .git ]; then
@@ -23,7 +29,7 @@ commit_message=$1
 if [ -z "$commit_message" ]; then
     echo "Error: No commit message provided."
     echo "Please provide a commit message as the first argument."
-    echo 'Expected format: alias "commit message"'
+    echo 'Expected format: gitsh "commit message"'
     exit 1
 fi
 

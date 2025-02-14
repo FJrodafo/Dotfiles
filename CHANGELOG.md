@@ -1,4 +1,7 @@
 ```
+* Commit: d7f2b69 - Fix rofi
+| Author: fjrodafo - Fri, 14 Feb 2025 21:06:42 +0000
+| 
 * Commit: 6c4bf51 - Update .bspwmrc
 | Author: fjrodafo - Fri, 14 Feb 2025 20:30:12 +0000
 | 
