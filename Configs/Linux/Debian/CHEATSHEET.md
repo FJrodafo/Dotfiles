@@ -84,6 +84,14 @@
         <td><kbd>Super</kbd> + <kbd>c</kbd></td>
         <td>Change Wallpaper</td>
     </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>a</kbd></td>
+        <td>Run Animated Wallpaper</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>a</kbd></td>
+        <td>Kill Animated Wallpaper</td>
+    </tr>
 </table>
 
 #### Tiled Windows

@@ -59,6 +59,10 @@ super + e
 super + c
 	feh --bg-fill --randomize ~/Pictures/Wallpapers/*
 
+# run/kill animated wallpaper
+super + {_,shift + }a
+	{xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio ~/Pictures/Wallpapers/Animated/*.mp4,pkill -f xwinwrap}
+
 #
 # tiled windows
 #
