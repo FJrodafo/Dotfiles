@@ -1,4 +1,7 @@
 ```
+* Commit: 42ce29d - Fix RiceInstaller.sh hyperlink
+| Author: fjrodafo - Sat, 15 Feb 2025 21:45:31 +0000
+| 
 * Commit: 350c046 - Fix anchors
 | Author: fjrodafo - Sat, 15 Feb 2025 21:43:39 +0000
 | 
