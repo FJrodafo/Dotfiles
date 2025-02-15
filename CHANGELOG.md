@@ -1,4 +1,7 @@
 ```
+* Commit: 8d0c6c3 - Update rofi
+| Author: fjrodafo - Sat, 15 Feb 2025 11:42:11 +0000
+| 
 * Commit: a91f428 - Update push.sh
 | Author: fjrodafo - Fri, 14 Feb 2025 21:46:31 +0000
 | 
