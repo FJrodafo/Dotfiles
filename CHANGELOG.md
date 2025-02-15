@@ -1,4 +1,7 @@
 ```
+* Commit: cc0e41a - Fix EWW
+| Author: fjrodafo - Sat, 15 Feb 2025 18:14:58 +0000
+| 
 * Commit: 8d0c6c3 - Update rofi
 | Author: fjrodafo - Sat, 15 Feb 2025 11:42:11 +0000
 | 
