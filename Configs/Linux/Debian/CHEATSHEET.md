@@ -66,15 +66,19 @@
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Tab</kbd></td>
-        <td>Open windows</td>
+        <td>Open Windows</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Space</kbd></td>
-        <td>Program launcher</td>
+        <td>Application Launcher</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd></td>
-        <td>Emoji picker</td>
+        <td>Program Launcher</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd></td>
+        <td>Emoji Picker</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>e</kbd></td>

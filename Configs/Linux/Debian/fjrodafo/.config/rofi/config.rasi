@@ -2,9 +2,9 @@
 configuration {
     modi: "window,run,drun";
 
-    display-window: "Window";
+    display-window: "Win";
     display-run: "Run";
-    display-drun: "Application";
+    display-drun: "App";
 
     show-icons: true;
     icon-theme: "Papirus";

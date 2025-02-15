@@ -47,9 +47,13 @@ super + {_,shift + }w
 super + Tab
 	rofi -show window
 
-# program launcher/emoji picker
+# application/program launcher
 super + {_,shift + }@space
-	rofi {-show drun,-config ~/.config/rofi/emoji.rasi -show emoji}
+	rofi -show {drun,run}
+
+# emoji picker
+super + alt + @space
+	rofi -config ~/.config/rofi/emoji.rasi -show emoji
 
 # elkowars wacky widgets
 super + e
