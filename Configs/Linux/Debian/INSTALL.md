@@ -19,9 +19,15 @@
 16. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
 17. [Open Broadcaster Software](#open-broadcaster-software)
 
-## Distro
+## Rice Installer
 
-[Debian 12.8.0](https://www.debian.org/)
+> [!NOTE]
+> 
+> You will need to have installed a clean version of [Debian 12.8.0](https://www.debian.org/) before running this [RiceInstaller](./RiceInstaller) script.
+
+> [!WARNING]
+> 
+> This [RiceInstaller](./RiceInstaller) script is under construction, do not run the script under any circumstances until further notice!
 
 ## Sudo
 
@@ -42,7 +48,7 @@ systemctl reboot
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty htop libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk
+sudo apt install login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty htop libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk xorg-dev libx11-dev x11proto-xext-dev libxrender-dev libxext-dev
 
 sudo apt autoremove
 sudo apt install -f
