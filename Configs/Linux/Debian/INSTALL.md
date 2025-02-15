@@ -23,11 +23,11 @@
 
 > [!NOTE]
 > 
-> You will need to have installed a clean version of [Debian 12.8.0](https://www.debian.org/) before running this [RiceInstaller](./RiceInstaller) script.
+> You will need to have installed a clean version of [Debian 12.8.0](https://www.debian.org/) before running this [RiceInstaller.sh](./RiceInstaller.sh) script.
 
 > [!WARNING]
 > 
-> This [RiceInstaller](./RiceInstaller) script is under construction, do not run the script under any circumstances until further notice!
+> This [RiceInstaller.sh](./RiceInstaller.sh) script is under construction, do not run the script under any circumstances until further notice!
 
 ## Sudo
 
