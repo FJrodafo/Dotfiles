@@ -1,4 +1,7 @@
 ```
+* Commit: 329052b - Fix sxhkdrc
+| Author: fjrodafo - Sat, 15 Feb 2025 19:13:05 +0000
+| 
 * Commit: 3fbd8de - Update neofetch
 | Author: fjrodafo - Sat, 15 Feb 2025 19:03:36 +0000
 | 

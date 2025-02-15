@@ -61,11 +61,11 @@ super + e
 
 # change wallpaper
 super + c
-	feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+	feh --bg-fill --randomize ~/Pictures/Wallpapers/
 
 # run/kill animated wallpaper
 super + {_,shift + }a
-	{xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio ~/Videos/Wallpapers/*,pkill -f xwinwrap}
+	{xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio "$(find ~/Videos/Wallpapers/ -type f | shuf -n 1)",pkill -f xwinwrap}
 
 #
 # tiled windows
