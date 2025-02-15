@@ -1,4 +1,7 @@
 ```
+* Commit: ce97e4d - Update Configs/Linux/Debian/README.md
+| Author: fjrodafo - Sat, 15 Feb 2025 20:36:31 +0000
+| 
 * Commit: 3406bd5 - Fix sxhkdrc
 | Author: fjrodafo - Sat, 15 Feb 2025 20:04:48 +0000
 | 
