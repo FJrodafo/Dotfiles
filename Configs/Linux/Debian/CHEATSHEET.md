@@ -1,6 +1,6 @@
 ## Index
 
-* [Go Back](./README.md)
+* [Home](./README.md)
 1. [bspwm/sxhkd](#bspwmsxhkd)
     * [WM Independent Hotkeys](#wm-independent-hotkeys)
     * [Special Keys](#special-keys)
