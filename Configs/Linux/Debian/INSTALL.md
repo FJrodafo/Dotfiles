@@ -1,6 +1,6 @@
 ## Index
 
-0. [Home](./README.md)
+* [Go Back](./README.md)
 1. [Distro](#distro)
 2. [Sudo](#sudo)
 3. [Packages](#packages)
