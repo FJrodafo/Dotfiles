@@ -1,4 +1,7 @@
 ```
+* Commit: 20a95bf - Upload .bash_logout
+| Author: fjrodafo - Mon, 17 Feb 2025 19:07:18 +0000
+| 
 * Commit: 5ef1610 - Upload .profile
 | Author: fjrodafo - Mon, 17 Feb 2025 19:06:37 +0000
 | 
