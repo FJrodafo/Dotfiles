@@ -1,4 +1,7 @@
 ```
+* Commit: f5554cd - Update rofi
+| Author: fjrodafo - Mon, 17 Feb 2025 18:08:11 +0000
+| 
 * Commit: 28f229e - Upload dunstrc
 | Author: fjrodafo - Mon, 17 Feb 2025 17:54:29 +0000
 | 
