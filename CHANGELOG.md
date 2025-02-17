@@ -1,4 +1,7 @@
 ```
+* Commit: 2309929 - Update eww workspaces
+| Author: fjrodafo - Mon, 17 Feb 2025 19:02:28 +0000
+| 
 * Commit: 1ebefa6 - Update kitty
 | Author: fjrodafo - Mon, 17 Feb 2025 18:08:50 +0000
 | 
