@@ -1,4 +1,7 @@
 ```
+* Commit: 3a485e0 - Update kitty
+| Author: fjrodafo - Mon, 17 Feb 2025 17:47:39 +0000
+| 
 * Commit: 53c29ca - Update INSTALL.md
 | Author: fjrodafo - Sun, 16 Feb 2025 19:20:39 +0000
 | 
