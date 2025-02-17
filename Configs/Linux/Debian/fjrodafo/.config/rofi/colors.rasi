@@ -1,0 +1,12 @@
+/********** Pallette **********/
+* {
+    white:                       rgb(255, 255, 255);
+    white-alt:                   rgba(255, 255, 255, 0.6);
+    black:                       rgb(0, 0, 0);
+    black-alt:                   rgba(0, 0, 0, 0.8);
+    background:                  rgba(0, 0, 0, 0);
+    box:                         rgb(32, 37, 43);
+    selected:                    rgb(61, 70, 78);
+    active:                      rgb(104, 157, 104);
+    urgent:                      rgb(248, 112, 112);
+}
