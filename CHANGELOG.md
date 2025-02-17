@@ -1,4 +1,7 @@
 ```
+* Commit: 53c29ca - Update INSTALL.md
+| Author: fjrodafo - Sun, 16 Feb 2025 19:20:39 +0000
+| 
 * Commit: 616dcb0 - Update TODO.md
 | Author: fjrodafo - Sat, 15 Feb 2025 22:07:52 +0000
 | 
