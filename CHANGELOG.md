@@ -1,4 +1,7 @@
 ```
+* Commit: 1ebefa6 - Update kitty
+| Author: fjrodafo - Mon, 17 Feb 2025 18:08:50 +0000
+| 
 * Commit: f5554cd - Update rofi
 | Author: fjrodafo - Mon, 17 Feb 2025 18:08:11 +0000
 | 
