@@ -1,4 +1,7 @@
 ```
+* Commit: b759348 - Update eww scripts/*.sh
+| Author: fjrodafo - Tue, 18 Feb 2025 12:21:41 +0000
+| 
 * Commit: 8c75e0f - Upload .backup.sh
 | Author: fjrodafo - Tue, 18 Feb 2025 12:04:00 +0000
 | 
