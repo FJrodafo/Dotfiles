@@ -13,14 +13,14 @@
 ;  ╠═╝│ ││  │
 ;  ╩  └─┘┴─┘┴─┘
 
-(defpoll bar-network-icon-poll :interval "1s" `./scripts/Network --icon`)
-(defpoll bar-network-status-poll :interval "1s" `./scripts/Network --status`)
-(defpoll bar-audio-output-value-poll :interval "1s" "./scripts/Audio --output-value")
-(defpoll bar-audio-output-icon-poll :interval "1s" "./scripts/Audio --output-icon")
-(defpoll bar-audio-input-value-poll :interval "1s" "./scripts/Audio --input-value")
-(defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio --input-icon")
-(defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery icon")
-(defpoll bar-battery-tooltip-poll :interval "1s" "./scripts/Battery tooltip")
+(defpoll bar-network-icon-poll :interval "1s" "./scripts/Network.sh --icon")
+(defpoll bar-network-status-poll :interval "1s" "./scripts/Network.sh --status")
+(defpoll bar-audio-output-value-poll :interval "1s" "./scripts/Audio.sh --output-value")
+(defpoll bar-audio-output-icon-poll :interval "1s" "./scripts/Audio.sh --output-icon")
+(defpoll bar-audio-input-value-poll :interval "1s" "./scripts/Audio.sh --input-value")
+(defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio.sh --input-icon")
+(defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery.sh icon")
+(defpoll bar-battery-tooltip-poll :interval "1s" "./scripts/Battery.sh tooltip")
 ; (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
 
@@ -80,7 +80,7 @@
 (defwidget bar-network-widget []
   (box :tooltip "${bar-network-status-poll}" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :onclick "./scripts/Airplane --toggle &")
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :onclick "./scripts/Airplane.sh --toggle &")
     )
   )
 )
@@ -90,7 +90,7 @@
       (revealer :reveal bar-audio-output-var :transition "slideup" :duration "550ms"
         (scale :class "bar-audio-output-scale" :tooltip "Output: ${bar-audio-output-value-poll}%" :orientation "v" :value {bar-audio-output-value-poll ?: "0"} :onchange "amixer set Master {}%" :flipped true :max 101 :min 0)
       )
-      (button :class "bar-control-panel-icons" :tooltip "Deafen" :style "background-image: url('${bar-audio-output-icon-poll}');" :onclick "./scripts/Audio --toggle-deafen &")
+      (button :class "bar-control-panel-icons" :tooltip "Deafen" :style "background-image: url('${bar-audio-output-icon-poll}');" :onclick "./scripts/Audio.sh --toggle-deafen &")
     )
   )
 )
@@ -100,7 +100,7 @@
       (revealer :reveal bar-audio-input-var :transition "slideup" :duration "550ms"
         (scale :class "bar-audio-input-scale" :tooltip "Input: ${bar-audio-input-value-poll}%" :orientation "v" :value {bar-audio-input-value-poll ?: "0"} :onchange "amixer set Capture {}%" :flipped true :max 101 :min 0)
       )
-      (button :class "bar-control-panel-icons" :tooltip "Mute" :style "background-image: url('${bar-audio-input-icon-poll}');" :onclick "./scripts/Audio --toggle-mute &")
+      (button :class "bar-control-panel-icons" :tooltip "Mute" :style "background-image: url('${bar-audio-input-icon-poll}');" :onclick "./scripts/Audio.sh --toggle-mute &")
     )
   )
 )

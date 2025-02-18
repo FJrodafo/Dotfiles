@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #  ╦ ╦┌─┐┬─┐┬┌─┌─┐┌─┐┌─┐┌─┐┌─┐┌─┐     ╔═╗┌─┐┌┐┌┌─┐┬─┐┌─┐┌┬┐┌─┐
 #  ║║║│ │├┬┘├┴┐└─┐├─┘├─┤│  ├┤ └─┐  ─  ║ ╦├┤ │││├┤ ├┬┘├─┤ │ ├┤ 
@@ -15,7 +15,7 @@ generate_eww_workspaces() {
 
     for m in $monitors; do
         local workspace_name="bar-workspace-${count}"
-        listen_workspaces+="(deflisten ${workspace_name} \"./scripts/Workspaces/Style $m\")"
+        listen_workspaces+="(deflisten ${workspace_name} \"./scripts/Workspaces/Style.sh $m\")"
         widgets+="    (box :visible { monitor==\""$m\"" } (${workspace_name}))\n"
         local workspace_widgets="(defwidget ${workspace_name} [] (literal :content ${workspace_name}))"
         count=$((count + 1))

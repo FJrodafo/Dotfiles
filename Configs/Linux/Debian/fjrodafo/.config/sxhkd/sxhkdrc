@@ -57,7 +57,7 @@ super + alt + @space
 
 # elkowars wacky widgets
 super + e
-	bash ~/.config/eww/eww.bash
+	bash ~/.config/eww/eww.sh
 
 # change wallpaper
 super + c

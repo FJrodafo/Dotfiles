@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #  ╔╗╔┌─┐┌┬┐┬ ┬┌─┐┬─┐┬┌─
 #  ║║║├┤  │ ││││ │├┬┘├┴┐
 #  ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴
 
-airplane=$(./scripts/Airplane --status)
+airplane=$(./scripts/Airplane.sh --status)
 
 icon="./icons/Network/Off.png"
 status="Offline"
