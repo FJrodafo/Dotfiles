@@ -1,0 +1,70 @@
+;  ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+;  ║║║││││ │││ ││││
+;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+
+(defwindow calendar
+  :wm-ignore true
+  :geometry (geometry :x "61px" :y "-5%" :anchor "left bottom")
+  (calendar-layout-widget)
+)
+
+;  ╔═╗┌─┐┬  ┬
+;  ╠═╝│ ││  │
+;  ╩  └─┘┴─┘┴─┘
+
+(defpoll calendar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll calendar-current-date-poll :interval "1s" "date '+%d %b, %I:%M %p'")
+(defpoll calendar-minutes-poll :interval "1s" "date +%M")
+(defpoll calendar-hour-poll :interval "1s" "date +%H")
+(defpoll calendar-day-poll :interval "10h" "date '+%d'")
+(defpoll calendar-week-poll :interval "1h" "date '+%A'")
+(defpoll calendar-month-poll :interval "10h" "date '+%m'")
+(defpoll calendar-year-poll :interval "10h" "date '+%Y'")
+
+;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+;  ║║║│ │││ ┬├┤  │
+;  ╚╩╝┴─┴┘└─┘└─┘ ┴
+
+(defwidget calendar-layout-widget []
+  (box :class "calendar-layout-box" :orientation "v" :space-evenly false
+    (calendar-time-widget)
+    (calendar-widget)
+  )
+)
+(defwidget calendar-time-widget []
+  (box :class "calendar-time-box" :orientation "v" :space-evenly false
+    (box :class "calendar-time-container-1" :valign "center" :halign "center" :orientation "h" :space-evenly false
+      (label :class "calendar-time-container-1-label" :text "${calendar-hour-poll}")
+      (calendar-separator-widget)
+      (label :class "calendar-time-container-1-label" :text "${calendar-minutes-poll}")
+    )
+    (box :class "calendar-time-container-2" :halign "center" :orientation "h" :space-evenly true
+      (label :text {
+        (calendar-time-poll.hour >= 21) ? "───── Night ─────" :
+        (calendar-time-poll.hour >= 20) || (calendar-time-poll.hour == 19 && calendar-time-poll.min >= 30) ? "──── Evening ────" :
+        (calendar-time-poll.hour == 19 && calendar-time-poll.min < 30) || (calendar-time-poll.hour == 18 && calendar-time-poll.min >= 30) ? "────── Dusk ──────" :
+        (calendar-time-poll.hour == 18 && calendar-time-poll.min < 30) || (calendar-time-poll.hour >= 16) ? "─ Late Afternoon ─" :
+        (calendar-time-poll.hour >= 13) ? "─── Afternoon ───" :
+        (calendar-time-poll.hour == 12) ? "───── Midday ─────" :
+        (calendar-time-poll.hour >= 10) ? "── Late Morning ──" :
+        (calendar-time-poll.hour >= 8) || (calendar-time-poll.hour == 7 && calendar-time-poll.min >= 30) ? "──── Morning ────" :
+        (calendar-time-poll.hour == 7 && calendar-time-poll.min < 30) || (calendar-time-poll.hour == 6 && calendar-time-poll.min >= 30) ? "────── Dawn ──────" :
+        (calendar-time-poll.hour == 6 && calendar-time-poll.min < 30) || (calendar-time-poll.hour >= 4) ? "─ Early Morning ─" :
+        (calendar-time-poll.hour >= 1) ? "───── Night ─────" :
+        (calendar-time-poll.hour == 0) ? "──── Midnight ────" : "── Unknown Time ──"
+      })
+    )
+  )
+)
+(defwidget calendar-widget []
+  (box :class "calendar-box" :orientation "v" :space-evenly false
+    (calendar :class "calendar"
+      :day {calendar-day-poll ?: "1"}
+      :month {calendar-month-poll ?: "1"}
+      :year {calendar-year-poll ?: "2000"}
+    )
+  )
+)
+(defwidget calendar-separator-widget []
+  (box :class "calendar-separator-box" :orientation "v" :space-evenly true)
+)

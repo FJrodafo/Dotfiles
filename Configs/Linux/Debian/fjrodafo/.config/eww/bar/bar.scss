@@ -1,0 +1,119 @@
+//  ╔╗ ┌─┐┬─┐
+//  ╠╩╗├─┤├┬┘
+//  ╚═╝┴ ┴┴└─
+
+.bar-layout-box {
+  background-color: $bg;
+  border-radius: 0.5rem;
+}
+
+.bar-logo-box {
+  font-family: $text-font-mono;
+  font-weight: bold;
+  font-size: 25px;
+  color: $debian-logo-color;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0rem 0.2rem 0rem;
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+.bar-workspaces {
+  font-family: $text-font-mono;
+  font-weight: bold;
+  font-size: 18px;
+  color: $text-color-white;
+  background-color: $bg-alt;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0rem 0.2rem 0rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+.bar-workspace-focused,
+.bar-workspace-occupied,
+.bar-workspace-empty {
+  padding: 0rem 0.4rem 0rem 0.4rem;
+  margin: 0.4rem 0rem 0.4rem 0rem;
+}
+
+.bar-system-tray-box {
+  margin-bottom: 7px;
+
+  >menuitem {
+    font-family: $text-font;
+    color: $text-color-white;
+
+    &:disabled label {
+      color: $text-color-red;
+    }
+
+    &:hover {
+      background-color: $bg-alt;
+    }
+  }
+
+  separator {
+    background-color: $text-color-white;
+
+    &:last-child {
+      padding: unset;
+    }
+  }
+}
+
+.bar-control-panel-box {
+  font-family: $text-font-mono;
+  font-weight: bold;
+  font-size: 25px;
+  color: $text-color-white;
+  background-color: $bg-alt;
+  border-radius: 0.2rem;
+  padding: 0.4rem 0rem 0.4rem 0rem;
+  margin: 0rem 0.4rem 0.4rem 0.4rem;
+}
+
+.bar-control-panel-icons {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  min-height: 25px;
+  padding: 0.4rem 0rem 0.4rem 0rem;
+}
+
+scale trough {
+  all: unset;
+  background-color: $bg;
+  border-radius: 5px;
+  min-height: 100px;
+  min-width: 9px;
+  margin: 0.4rem 0rem 0.4rem 0rem;
+}
+
+.bar-audio-output-scale trough highlight,
+.bar-audio-input-scale trough highlight {
+  background: $text-color-white;
+  border-radius: 5px;
+}
+
+.bar-time-box {
+  font-family: $text-font-mono;
+  font-weight: bold;
+  font-size: 19px;
+  color: $text-color-white;
+  background-color: $bg-alt;
+  border-radius: 0.2rem;
+  padding: 0.9rem 0rem 0.9rem 0rem;
+  margin: 0rem 0.4rem 0.4rem 0.4rem;
+}
+
+.bar-power-menu-button-lock,
+.bar-power-menu-button-suspend,
+.bar-power-menu-button-hibernate,
+.bar-power-menu-button-reboot,
+.bar-power-menu-button-shutdown,
+.bar-power-menu-box {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  min-height: 25px;
+  padding: 0.2rem 0rem 0.6rem 0rem;
+}

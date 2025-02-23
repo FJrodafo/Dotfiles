@@ -1,0 +1,66 @@
+//  ╔═╗┌─┐┬ ┬┌─┐┬─┐  ╔╦╗┌─┐┌┐┌┬ ┬
+//  ╠═╝│ ││││├┤ ├┬┘  ║║║├┤ ││││ │
+//  ╩  └─┘└┴┘└─┘┴└─  ╩ ╩└─┘┘└┘└─┘
+
+.power-menu-layout-box {
+  font-family: $text-font;
+  color: $text-color-alt-6;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background: $bg;
+  padding: 5em;
+}
+
+.power-menu-separator-label {
+  font-family: $text-font;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.power-menu-close-button {
+  font-size: 2em;
+  padding-right: 1px;
+
+  &:hover {
+    color: $text-color-red;
+  }
+}
+
+.power-menu-battery-box,
+.power-menu-wifi-box,
+.power-menu-time-box {
+  label {
+    font-size: 2em;
+  }
+}
+
+.power-menu-sundial-label {
+  font-family: $text-font;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 0.2em;
+  padding: 0.4em;
+}
+
+.power-menu-button-box {
+  font-size: 2.5em;
+
+  button {
+    background-color: $bg-button;
+    border-radius: 0.2em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 19px;
+    padding-right: 20px;
+
+    &:hover {
+      transition: 200ms linear background-color, border-radius;
+      background-color: $bg-button-hover;
+      color: $text-color-white;
+    }
+  }
+
+  &.power-menu-shutdown-button-box button:hover {
+    color: $text-color-red;
+  }
+}

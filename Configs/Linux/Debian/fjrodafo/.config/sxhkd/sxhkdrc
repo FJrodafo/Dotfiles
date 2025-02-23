@@ -1,0 +1,95 @@
+#
+# wm independent hotkeys
+#
+
+# restart bspwm
+super + r
+	bspc wm -r
+
+# make sxhkd reload its configuration files
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# special keys
+#
+
+# audio
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+	amixer set Master {toggle,5%-,5%+}
+
+# brightness
+#XF86MonBrightness{Down,Up}
+super + alt + {Down,Up}
+	brightnessctl s {5%-,5%+}
+
+# calculator
+XF86Calculator
+	qalculate
+
+# screenshots
+Print
+	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
+
+#
+# apps
+#
+
+# terminal emulator
+super + Return
+	kitty
+
+# close/kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# open windows
+super + Tab
+	rofi -show window
+
+# application/program launcher
+super + {_,shift + }@space
+	rofi -show {drun,run}
+
+# emoji picker
+super + alt + @space
+	rofi -config ~/.config/rofi/emoji.rasi -show emoji
+
+# elkowars wacky widgets
+super + e
+	bash ~/.config/eww/eww.sh
+
+# change wallpaper
+super + c
+	feh --bg-fill --randomize ~/Pictures/Wallpapers/
+
+# run/kill animated wallpaper
+super + {_,shift + }a
+	{xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio "$(find ~/Videos/Wallpapers/ -type f | shuf -n 1)",pkill -f xwinwrap}
+
+#
+# tiled windows
+#
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# focus/send the node to the given desktop
+super + {_,shift + }{1-7}
+	bspc {desktop -f,node -d} '^{1-7}'
+
+# focus/send the node to the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# smart resize, will grow or shrink depending on location.
+# will always grow for floating nodes.
+super + ctrl + {Left,Down,Up,Right}
+  n=10; \
+  { d1=left;   d2=right;  dx=-$n; dy=0;   \
+  , d1=bottom; d2=top;    dx=0;   dy=$n;  \
+  , d1=top;    d2=bottom; dx=0;   dy=-$n; \
+  , d1=right;  d2=left;   dx=$n;  dy=0;   \
+  } \
+  bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy

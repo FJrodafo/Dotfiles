@@ -1,0 +1,11 @@
+# Dark Mode
+#set recolor
+
+# Dark Mode Background
+#set recolor-lightcolor '#282828'
+
+# Background
+set default-bg '#ffffff'
+
+# Open links in default browser
+set sandbox none

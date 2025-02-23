@@ -1,0 +1,42 @@
+//  ╔═╗┌─┐┬  ┌─┐┌┬┐┌┬┐┌─┐
+//  ╠═╝├─┤│  ├┤  │  │ ├┤ 
+//  ╩  ┴ ┴┴─┘└─┘ ┴  ┴ └─┘
+
+$text-font: "Hack Nerd Font";
+$text-font-mono: "Hack Nerd Font Mono";
+$text-color-white: rgb(255, 255, 255);
+$text-color-alt-6: rgba(255, 255, 255, 0.6);
+$text-color-alt-2: rgba(255, 255, 255, 0.2);
+$text-color-red: rgb(248, 112, 112);
+$debian-logo-color: rgb(215, 10, 83);
+$bg: rgb(0, 0, 0, 0.80);
+$bg-alt: rgb(68, 68, 68);
+$bg-button: rgb(32, 37, 43);
+$bg-button-hover: rgb(61, 70, 78);
+
+//  ╦┌┬┐┌─┐┌─┐┬─┐┌┬┐
+//  ║│││├─┘│ │├┬┘ │
+//  ╩┴ ┴┴  └─┘┴└─ ┴
+
+@import "./bar/bar.scss";
+@import "./calendar/calendar.scss";
+
+//  \│/
+//  ─ ─
+//  /│\
+
+* {
+    all: unset;
+}
+
+//  ╔╦╗┌─┐┌─┐┬ ┌┬┐┬┌─┐
+//   ║ │ ││ ││  │ │├─┘
+//   ╩ └─┘└─┘┴─┘┴ ┴┴  
+
+tooltip {
+    font-family: "Hack Nerd Font Mono";
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    background-color: $bg;
+    border-radius: 0.2rem;
+}

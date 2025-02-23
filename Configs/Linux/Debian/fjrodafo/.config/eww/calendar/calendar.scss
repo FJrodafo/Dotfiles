@@ -1,0 +1,84 @@
+//  ╔═╗┌─┐┬  ┌─┐┌┐┌┌┬┐┌─┐┬─┐
+//  ║  ├─┤│  ├┤ │││ ││├─┤├┬┘
+//  ╚═╝┴ ┴┴─┘└─┘┘└┘─┴┘┴ ┴┴└─
+
+.calendar-layout-box {
+  color: $text-color-white;
+  background-color: $bg;
+  border-radius: 0.5rem;
+  min-width: 18rem;
+}
+
+.calendar-time-box {
+  margin: 1.2rem 3.5rem 0 3.5rem;
+
+  .calendar-time-container-1 {
+    .calendar-time-container-1-label {
+      font-family: $text-font-mono;
+      font-weight: bolder;
+      font-size: 3.6rem;
+      color: $text-color-white;
+    }
+
+    .calendar-separator-box {
+      background-color: $text-color-white;
+      padding: 0px 1px;
+      margin: 0.2rem 15px;
+    }
+  }
+
+  .calendar-time-container-2 {
+    font-family: $text-font-mono;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $text-color-white;
+    margin: 5px 0;
+  }
+}
+
+.calendar-box {
+  font-family: $text-font-mono;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: $text-color-white;
+  background-color: $bg-alt;
+  border-radius: 0.5rem;
+  padding: 0rem 1rem 0rem;
+  margin: 0.6rem;
+
+  .calendar {
+    background-color: inherit;
+    padding: 0.5rem 0.15rem 0.2rem;
+    margin-left: 10px;
+
+    &>* {
+      border: solid 0px transparent;
+    }
+
+    &.highlight {
+      padding: 10rem;
+    }
+  }
+}
+
+calendar:selected {
+  color: $text-color-red;
+}
+
+calendar.header {
+  color: $text-color-red;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $text-color-white;
+}
+
+calendar.highlight {
+  color: $text-color-white;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: $text-color-alt-2;
+}

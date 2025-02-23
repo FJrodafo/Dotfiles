@@ -1,0 +1,42 @@
+Explorer of Old Ramsgate;Uncommon;01 and 14
+Defender of Old Ramsgate;Epic;01 and 14
+Champion of Old Ramsgate;Legendary;01 and 14
+Dauntlet;Uncommon;02 and 15
+The Gauntmore;Epic;02 and 15
+The Gauntless;Legendary;02 and 15
+Undaunted;Uncommon;03 and 16
+Fearless;Epic;03 and 16
+Indomitable;Legendary;03 and 16
+Elemental Engager;Uncommon;04
+Elemental Scion;Epic;04
+Elemental Conqueror;Legendary;04
+Dime a Dozen;Uncommon;05
+Cut Above;Epic;05
+One in a Million;Legendary;05
+Farmer;Uncommon;06
+Artisan;Epic;06
+Fae;Legendary;06
+Mediocre;Uncommon;07
+Acceptable;Epic;07
+Above and Beyond;Legendary;07
+Participator;Uncommon;08
+Top 100;Epic;08
+Top 5;Legendary;08
+Warden;Uncommon;09
+Guardian;Epic;09
+Saviour;Legendary;09
+Corrupted;Uncommon;10
+Purifier;Epic;10
+Righteous;Legendary;10
+Oblivious;Uncommon;11
+Jealous;Epic;11
+Unrivaled;Legendary;11
+Tarnished;Uncommon;12
+Repentant;Epic;12
+Unsullied;Legendary;12
+Nobody;Uncommon;13
+Noble;Epic;13
+Monarch;Legendary;13
+Try Harder;Uncommon;17
+Tryhard;Epic;17
+Touch Grass;Legendary;17

@@ -1,0 +1,139 @@
+;  ╦ ╦┬┌┐┌┌┬┐┌─┐┬ ┬
+;  ║║║││││ │││ ││││
+;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
+
+(defwindow bar [monitor]
+  :monitor monitor
+  :wm-ignore false
+  :geometry (geometry :x "7px" :y "0%" :width "47px" :height "90%" :anchor "left center")
+  (bar-layout-widget :monitor monitor)
+)
+
+;  ╔═╗┌─┐┬  ┬
+;  ╠═╝│ ││  │
+;  ╩  └─┘┴─┘┴─┘
+
+(defpoll bar-network-icon-poll :interval "1s" "./scripts/Network.sh --icon")
+(defpoll bar-network-status-poll :interval "1s" "./scripts/Network.sh --status")
+(defpoll bar-audio-output-value-poll :interval "1s" "./scripts/Audio.sh --output-value")
+(defpoll bar-audio-output-icon-poll :interval "1s" "./scripts/Audio.sh --output-icon")
+(defpoll bar-audio-input-value-poll :interval "1s" "./scripts/Audio.sh --input-value")
+(defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio.sh --input-icon")
+(defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery.sh icon")
+(defpoll bar-battery-tooltip-poll :interval "1s" "./scripts/Battery.sh tooltip")
+; (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+(defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+
+;  ╦  ╦┌─┐┬─┐
+;  ╚╗╔╝├─┤├┬┘
+;   ╚╝ ┴ ┴┴└─
+
+(defvar bar-audio-output-var false)
+(defvar bar-audio-input-var false)
+(defvar bar-power-menu-var false)
+
+;  ╦ ╦┬┌┬┐┌─┐┌─┐┌┬┐
+;  ║║║│ │││ ┬├┤  │
+;  ╚╩╝┴─┴┘└─┘└─┘ ┴
+
+(defwidget bar-layout-widget [monitor]
+  (box :class "bar-layout-box" :vexpand false :hexpand false :orientation "v"
+    (bar-start-widget :monitor monitor)
+    (bar-end-widget)
+  )
+)
+(defwidget bar-start-widget [monitor]
+  (box :valign "start" :orientation "v" :space-evenly false
+    (bar-logo-widget)
+    (bar-workspaces-widget :monitor monitor)
+  )
+)
+(defwidget bar-end-widget []
+  (box :valign "end" :orientation "v" :space-evenly false
+    (bar-system-tray-widget)
+    (bar-control-panel-widget)
+    (bar-time-widget)
+    (bar-power-menu-widget)
+  )
+)
+(defwidget bar-logo-widget []
+  (box :class "bar-logo-box" :tooltip "Linux" :orientation "v"
+    (eventbox :cursor "pointer"
+      (button :onclick "bash ~/.config/eww/eww.sh" "")
+    )
+  )
+)
+(defwidget bar-system-tray-widget []
+  (box :class "bar-system-tray-box" :halign "center" :orientation "v"
+    (systray :orientation "v" :icon-size 25 :spacing 7 :prepend-new false)
+  )
+)
+(defwidget bar-control-panel-widget []
+  (box :class "bar-control-panel-box" :orientation "v" :space-evenly false
+    (bar-network-widget)
+    (bar-audio-output-widget)
+    (bar-audio-input-widget)
+    (bar-calendar-widget)
+    (bar-battery-widget)
+  )
+)
+(defwidget bar-network-widget []
+  (box :tooltip "${bar-network-status-poll}" :orientation "v"
+    (eventbox :cursor "pointer"
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :onclick "./scripts/Airplane.sh --toggle &")
+    )
+  )
+)
+(defwidget bar-audio-output-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-audio-output-var=true" :onhoverlost "${EWW_CMD} update bar-audio-output-var=false" :cursor "pointer"
+    (box :orientation "v" :space-evenly false
+      (revealer :reveal bar-audio-output-var :transition "slideup" :duration "550ms"
+        (scale :class "bar-audio-output-scale" :tooltip "Output: ${bar-audio-output-value-poll}%" :orientation "v" :value {bar-audio-output-value-poll ?: "0"} :onchange "amixer set Master {}%" :flipped true :max 101 :min 0)
+      )
+      (button :class "bar-control-panel-icons" :tooltip "Deafen" :style "background-image: url('${bar-audio-output-icon-poll}');" :onclick "./scripts/Audio.sh --toggle-deafen &")
+    )
+  )
+)
+(defwidget bar-audio-input-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-audio-input-var=true" :onhoverlost "${EWW_CMD} update bar-audio-input-var=false" :cursor "pointer"
+    (box :orientation "v" :space-evenly false
+      (revealer :reveal bar-audio-input-var :transition "slideup" :duration "550ms"
+        (scale :class "bar-audio-input-scale" :tooltip "Input: ${bar-audio-input-value-poll}%" :orientation "v" :value {bar-audio-input-value-poll ?: "0"} :onchange "amixer set Capture {}%" :flipped true :max 101 :min 0)
+      )
+      (button :class "bar-control-panel-icons" :tooltip "Mute" :style "background-image: url('${bar-audio-input-icon-poll}');" :onclick "./scripts/Audio.sh --toggle-mute &")
+    )
+  )
+)
+(defwidget bar-calendar-widget []
+  (box :tooltip "Calendar" :orientation "v"
+    (eventbox :cursor "pointer"
+      (button :class "bar-control-panel-icons" :style "background-image: url('./icons/Calendar/Bullseye_Arrow.png');" :onclick "~/.eww/target/release/eww open --toggle calendar")
+    )
+  )
+)
+(defwidget bar-battery-widget []
+  (box :tooltip "${bar-battery-tooltip-poll}" :orientation "v" ; :visible {bar-battery-status-poll}
+    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
+  )
+)
+(defwidget bar-time-widget []
+  (box :class "bar-time-box" :orientation "v"
+    (button :tooltip "Hour" "${bar-time-poll.hour}")
+    (button :tooltip "Minute" "${bar-time-poll.min}")
+  )
+)
+(defwidget bar-power-menu-widget []
+  (eventbox :onhover "${EWW_CMD} update bar-power-menu-var=true" :onhoverlost "${EWW_CMD} update bar-power-menu-var=false" :cursor "pointer"
+    (box :class "bar-power-menu-box" :vexpand false :orientation "v" :space-evenly false
+      (revealer :reveal bar-power-menu-var :transition "slideup" :duration "550ms"
+        (box :orientation "v" :space-evenly false
+          (button :class "bar-power-menu-button-lock" :tooltip "Lock" :style "background-image: url('./icons/Power_Menu/Lock.png');" :onclick "loginctl kill-session self")
+          (button :class "bar-power-menu-button-suspend" :tooltip "Suspend" :style "background-image: url('./icons/Power_Menu/Suspend.png');" :onclick "systemctl suspend")
+          ; (button :class "bar-power-menu-button-hibernate" :tooltip "Hibernate" :style "background-image: url('./icons/Power_Menu/Hibernate.png');" :onclick "systemctl hibernate")
+          (button :class "bar-power-menu-button-reboot" :tooltip "Reboot" :style "background-image: url('./icons/Power_Menu/Reboot.png');" :onclick "systemctl reboot")
+        )
+      )
+      (button :class "bar-power-menu-button-shutdown" :tooltip "Shutdown" :style "background-image: url('./icons/Power_Menu/Shutdown.png');" :onclick "systemctl poweroff")
+    )
+  )
+)
