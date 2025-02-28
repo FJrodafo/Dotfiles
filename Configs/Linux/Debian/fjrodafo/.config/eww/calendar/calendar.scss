@@ -5,7 +5,7 @@
 .calendar-layout-box {
   color: $text-color-white;
   background-color: $bg;
-  border-radius: 0.5rem;
+  border-radius: 7px;
   min-width: 18rem;
 }
 
@@ -42,12 +42,11 @@
   font-size: 0.9rem;
   color: $text-color-white;
   background-color: $bg-alt;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   padding: 0rem 1rem 0rem;
   margin: 0.6rem;
 
   .calendar {
-    background-color: inherit;
     padding: 0.5rem 0.15rem 0.2rem;
     margin-left: 10px;
 
