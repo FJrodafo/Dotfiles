@@ -2,17 +2,17 @@
 
 * [Home](./README.md)
 1. [bspwm/sxhkd](#bspwmsxhkd)
-    * [WM Independent Hotkeys](#wm-independent-hotkeys)
-    * [Special Keys](#special-keys)
-    * [Apps](#apps)
-    * [Tiled Windows](#tiled-windows)
+    1. [WM Independent Hotkeys](#wm-independent-hotkeys)
+    2. [Special Keys](#special-keys)
+    3. [Apps](#apps)
+    4. [Tiled Windows](#tiled-windows)
 2. [OBS](#obs)
-    * [Record a Video](#record-a-video)
+    1. [Record a Video](#record-a-video)
 3. [Zathura](#zathura)
-    * [Navigation](#navigation)
-    * [Bookmarks](#bookmarks)
-    * [Manipulation](#manipulation)
-    * [Miscellaneous](#miscellaneous)
+    1. [Navigation](#navigation)
+    2. [Bookmarks](#bookmarks)
+    3. [Manipulation](#manipulation)
+    4. [Miscellaneous](#miscellaneous)
 
 ## bspwm/sxhkd
 
