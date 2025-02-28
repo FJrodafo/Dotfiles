@@ -5,8 +5,8 @@
     black:                       rgb(0, 0, 0);
     black-alt:                   rgba(0, 0, 0, 0.8);
     background:                  rgba(0, 0, 0, 0);
-    box:                         rgb(32, 37, 43);
-    selected:                    rgb(61, 70, 78);
+    box:                         rgb(40, 40, 40);
+    selected:                    rgb(70, 70, 70);
     active:                      rgb(104, 157, 104);
     urgent:                      rgb(248, 112, 112);
 }

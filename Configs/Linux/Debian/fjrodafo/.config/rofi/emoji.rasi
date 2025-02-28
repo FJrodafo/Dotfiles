@@ -10,4 +10,4 @@ configuration {
 }
 
 /* @theme "/dev/null" */
-@theme "~/.config/rofi/launcher.rasi"
+@theme "~/.config/rofi/minimal.rasi"
