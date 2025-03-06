@@ -26,6 +26,7 @@ alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
 alias interactiveprocessviewer='htop'
+alias music='mpv --shuffle ~/Music'
 # Neofetch
 alias neofetchbunny='neofetch --ascii $(find $HOME/.config/neofetch/bunny/ascii/ -type f -name "*.txt" | shuf -n 1) --config $HOME/.config/neofetch/bunny/config.conf'
 alias neofetchdefault='neofetch --config $HOME/.config/neofetch/config.conf'
