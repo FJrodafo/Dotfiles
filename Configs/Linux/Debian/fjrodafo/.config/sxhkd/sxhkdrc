@@ -83,6 +83,10 @@ super + {_,shift + }{1-7}
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
+# opens the next window to the given direction
+super + alt + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
 # smart resize, will grow or shrink depending on location.
 # will always grow for floating nodes.
 super + ctrl + {Left,Down,Up,Right}
