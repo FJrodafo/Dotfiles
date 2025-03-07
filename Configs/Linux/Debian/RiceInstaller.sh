@@ -52,3 +52,8 @@ cd eww
 cargo build --release --no-default-features --features x11
 chmod +x target/release/.eww
 echo "EWW installation complete!"
+
+# Finish and reboot!
+echo "RiceInstaller.sh has finished running!"
+echo "Please reboot your system now."
+sudo systemctl reboot
