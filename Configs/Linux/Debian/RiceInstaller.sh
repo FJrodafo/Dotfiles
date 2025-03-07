@@ -37,3 +37,9 @@ systemctl --user status pipewire
 systemctl --user status pipewire-pulse
 systemctl --user status wireplumber
 echo "Audio configuration complete!"
+
+# Wifi set up
+echo "Setting up Wifi..."
+sudo systemctl status NetworkManager
+nmcli dev wifi list
+echo "Wifi setup complete!"
