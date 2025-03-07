@@ -14,22 +14,29 @@ super + Escape
 # special keys
 #
 
-# audio
-XF86Audio{Mute,LowerVolume,RaiseVolume}
-	amixer set Master {toggle,5%-,5%+}
-
-# brightness
-#XF86MonBrightness{Down,Up}
-super + alt + {Down,Up}
-	brightnessctl s {5%-,5%+}
+# screenshots
+Print
+	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
 
 # calculator
 XF86Calculator
 	qalculate
 
-# screenshots
-Print
-	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
+# audio
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+	amixer set Master {toggle,5%-,5%+}
+
+# brightness
+XF86MonBrightness{Down,Up}
+	brightnessctl s {5%-,5%+}
+
+# alternative audio
+super + alt + {KP_Subtract,KP_Add}
+	amixer set Master {5%-,5%+}
+
+# alternative brightness
+super + alt + shift + {KP_Subtract,KP_Add}
+	brightnessctl s {5%-,5%+}
 
 #
 # apps
