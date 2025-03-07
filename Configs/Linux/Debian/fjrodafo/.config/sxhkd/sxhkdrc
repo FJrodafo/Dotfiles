@@ -75,6 +75,10 @@ super + {_,shift + }a
 super + m
 	bspc desktop -l next
 
+# toggle focus follows pointer
+super + ctrl + p
+	bspc config focus_follows_pointer {false,true}
+
 # focus/send the node to the given desktop
 super + {_,shift + }{1-7}
 	bspc {desktop -f,node -d} '^{1-7}'
