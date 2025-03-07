@@ -115,6 +115,10 @@
         <td>Alternate between the tiled and monocle layout</td>
     </tr>
     <tr>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>P</kbd></td>
+        <td>Toggle focus follows pointer</td>
+    </tr>
+    <tr>
         <td><kbd>Super</kbd> + <kbd>1-7</kbd></td>
         <td>Focus on the given desktop</td>
     </tr>
@@ -131,8 +135,16 @@
         <td>Move focused window to {west, south, north, east}</td>
     </tr>
     <tr>
+        <td><kbd>Super</kbd> + <kbd>Alt</kbd> + { <kbd>Left</kbd>, <kbd>Down</kbd>, <kbd>Up</kbd>, <kbd>Right</kbd> }</td>
+        <td>Opens the next window to the {west,south,north,east}</td>
+    </tr>
+    <tr>
         <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + { <kbd>Left</kbd>, <kbd>Down</kbd>, <kbd>Up</kbd>, <kbd>Right</kbd> }</td>
         <td>Smart resize</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + { <kbd>-</kbd>, <kbd>+</kbd> }</td>
+        <td>Dynamic gap size</td>
     </tr>
 </table>
 
