@@ -29,3 +29,11 @@ touch ~/.xinitrc
 echo -e '#!/bin/sh\n\nxset s off\nxset -dpms\nxsetroot -cursor_name left_ptr\nexec bspwm' > ~/.xinitrc
 chmod +x ~/.xinitrc
 echo "Desktop environment setup complete!"
+
+# Install audio management (Pipewire)
+echo "Installing audio management..."
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+systemctl --user status pipewire
+systemctl --user status pipewire-pulse
+systemctl --user status wireplumber
+echo "Audio configuration complete!"
