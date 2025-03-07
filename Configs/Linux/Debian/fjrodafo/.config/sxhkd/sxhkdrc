@@ -87,8 +87,8 @@ super + {_,shift + }{Left,Down,Up,Right}
 super + alt + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
-# smart resize, will grow or shrink depending on location.
-# will always grow for floating nodes.
+# smart resize, will grow or shrink depending on location
+# will always grow for floating nodes
 super + ctrl + {Left,Down,Up,Right}
   n=10; \
   { d1=left;   d2=right;  dx=-$n; dy=0;   \
