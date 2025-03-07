@@ -43,3 +43,12 @@ echo "Setting up Wifi..."
 sudo systemctl status NetworkManager
 nmcli dev wifi list
 echo "Wifi setup complete!"
+
+# Install EWW (ElKowar's Wacky Widgets)
+echo "Installing EWW (ElKowar's Wacky Widgets)..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+git clone https://github.com/elkowar/eww.git
+cd eww
+cargo build --release --no-default-features --features x11
+chmod +x target/release/.eww
+echo "EWW installation complete!"
