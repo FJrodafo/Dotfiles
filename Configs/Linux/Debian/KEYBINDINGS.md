@@ -33,20 +33,28 @@
 
 <table>
     <tr>
-        <td><kbd>XF86Audio</kbd> { <kbd>Mute</kbd>, <kbd>LowerVolume</kbd>, <kbd>RaiseVolume</kbd> }</td>
-        <td>Audio</td>
-    </tr>
-    <tr>
-        <td><kbd>Super</kbd> + <kbd>Alt</kbd> + { <kbd>Down</kbd>, <kbd>Up</kbd> }</td>
-        <td>Brightness</td>
+        <td><kbd>Print</kbd></td>
+        <td>Screenshots</td>
     </tr>
     <tr>
         <td><kbd>XF86Calculator</kbd></td>
         <td>Calculator</td>
     </tr>
     <tr>
-        <td><kbd>Print</kbd></td>
-        <td>Screenshots</td>
+        <td><kbd>XF86Audio</kbd> { <kbd>Mute</kbd>, <kbd>LowerVolume</kbd>, <kbd>RaiseVolume</kbd> }</td>
+        <td>Audio</td>
+    </tr>
+    <tr>
+        <td><kbd>XF86MonBrightness</kbd> { <kbd>Down</kbd>, <kbd>Up</kbd> }</td>
+        <td>Brightness</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>alt</kbd> { <kbd>-</kbd>, <kbd>+</kbd> }</td>
+        <td>Alternative Audio</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>alt</kbd> + <kbd>shift</kbd> { <kbd>-</kbd>, <kbd>+</kbd> }</td>
+        <td>Alternative Brightness</td>
     </tr>
 </table>
 
