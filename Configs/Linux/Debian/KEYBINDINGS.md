@@ -83,7 +83,7 @@
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>e</kbd></td>
-        <td>ElKowars Wacky Widgets</td>
+        <td>ElKowar's Wacky Widgets</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>c</kbd></td>

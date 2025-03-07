@@ -12,7 +12,7 @@
 9. [Mobile Detection](#mobile-detection)
 10. [Fonts](#fonts)
 11. [Rofi Emoji Selector](#rofi-emoji-selector)
-12. [EWW](#eww)
+12. [EWW (ElKowar's Wacky Widgets)](#eww-elkowars-wacky-widgets)
 13. [startx Intel Laptop](#startx-intel-laptop)
 14. [Laptop Touchpad](#laptop-touchpad)
 15. [Wifi](#wifi)
@@ -202,7 +202,7 @@ sudo libtool --finish /usr/lib/x86_64-linux-gnu/rofi//
 rofi -show emoji
 ```
 
-## EWW
+## EWW (ElKowar's Wacky Widgets)
 
 ```sh
 # Install Rust

@@ -55,7 +55,7 @@ super + {_,shift + }@space
 super + alt + @space
 	rofi -config ~/.config/rofi/emoji.rasi -show emoji
 
-# elkowars wacky widgets
+# elkowar's wacky widgets
 super + e
 	bash ~/.config/eww/eww.sh
 
