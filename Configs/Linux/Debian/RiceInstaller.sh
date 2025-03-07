@@ -14,6 +14,6 @@ echo E-mail: FJrodafo@gmail.com
 echo GitHub: https://github.com/FJrodafo
 echo Website: https://fjrodafo.vercel.app
 
-# Update and Install essential packages
+# Update system
 echo "Updating system..."
 sudo apt update && sudo apt upgrade -y
