@@ -23,7 +23,7 @@ echo "Installing essential packages..."
 sudo apt install -y login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk xorg-dev libx11-dev x11proto-xext-dev libxrender-dev libxext-dev
 echo "Package installation complete!"
 
-# Set up the desktop environment (bspwm + sxhkd)
+# Desktop environment set up (bspwm + sxhkd)
 echo "Setting up the desktop environment..."
 touch ~/.xinitrc
 echo -e '#!/bin/sh\n\nxset s off\nxset -dpms\nxsetroot -cursor_name left_ptr\nexec bspwm' > ~/.xinitrc
