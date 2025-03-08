@@ -133,9 +133,10 @@ export PATH=$PATH:$HOME/.eww/target/release
 
 # Displays a random neofetch line
 if [ "$TERM" == "xterm-kitty" ]; then
-    case $((RANDOM % 3)) in
+    case $((RANDOM % 4)) in
         0) neofetchbunny ;;
-        1) neofetchminimal ;;
-        2) neofetchnerd ;;
+        1) neofetchdebian ;;
+        2) neofetchminimal ;;
+        3) neofetchnerd ;;
     esac
 fi
