@@ -11,7 +11,7 @@
   font-family: $text-font-mono;
   font-weight: bold;
   font-size: 25px;
-  color: $debian-logo-color;
+  color: $debian-color;
   border-radius: 4px;
   padding: 0.2rem 0rem 0.2rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
@@ -43,7 +43,7 @@
     color: $text-color-white;
 
     &:disabled label {
-      color: $text-color-red;
+      color: $debian-color;
     }
 
     &:hover {

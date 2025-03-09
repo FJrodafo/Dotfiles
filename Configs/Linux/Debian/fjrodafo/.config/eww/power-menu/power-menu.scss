@@ -22,7 +22,7 @@
   padding-right: 1px;
 
   &:hover {
-    color: $text-color-red;
+    color: $debian-color;
   }
 }
 
@@ -61,6 +61,6 @@
   }
 
   &.power-menu-shutdown-button-box button:hover {
-    color: $text-color-red;
+    color: $debian-color;
   }
 }

@@ -14,11 +14,9 @@
   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
   xmlns="http://www.w3.org/2000/svg"
-  xmlns:svg="http://www.w3.org/2000/svg"
->
+  xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-    id="defs1"
-  />
+    id="defs1" />
   <sodipodi:namedview
     id="namedview1"
     pagecolor="#ffffff"
@@ -28,36 +26,40 @@
     inkscape:pageopacity="0.0"
     inkscape:pagecheckerboard="true"
     inkscape:deskcolor="#d1d1d1"
-    inkscape:zoom="1"
-    inkscape:cx="200"
-    inkscape:cy="200"
+    inkscape:zoom="2.8284271"
+    inkscape:cx="233.16846"
+    inkscape:cy="197.81312"
     inkscape:window-width="1852"
     inkscape:window-height="1066"
     inkscape:window-x="61"
     inkscape:window-y="7"
     inkscape:window-maximized="1"
     inkscape:current-layer="svg1"
-  />
+    showgrid="false" />
   <path
     d="m 256,-651.36842 q -26.31579,0 -44.73684,-18.42105 -18.42106,-18.42106 -18.42106,-44.73684 V -840.8421 q 0,-26.31579 18.42106,-44.73685 Q 229.68421,-904 256,-904 q 26.31579,0 44.73685,18.42105 18.42105,18.42106 18.42105,44.73685 v 126.31579 q 0,26.31578 -18.42105,44.73684 -18.42106,18.42105 -44.73685,18.42105 z m 0,-126.31579 z M 234.94737,-504 v -64.73684 q -54.73684,-7.36842 -90.52632,-48.94737 -35.78947,-41.57894 -35.78947,-96.8421 h 42.10526 q 0,43.6842 30.78948,74.47368 30.78947,30.78947 74.47368,30.78947 43.68421,0 74.47369,-30.78947 30.78947,-30.78948 30.78947,-74.47368 h 42.10526 q 0,55.26316 -35.78947,96.8421 -35.78948,41.57895 -90.52632,48.94737 V -504 Z M 256,-693.47368 q 8.94737,0 15,-6.05263 6.05263,-6.05264 6.05263,-15 V -840.8421 q 0,-8.94737 -6.05263,-15.00001 -6.05263,-6.05262 -15,-6.05262 -8.94737,0 -15,6.05262 -6.05263,6.05264 -6.05263,15.00001 v 126.31579 q 0,8.94736 6.05263,15 6.05263,6.05263 15,6.05263 z"
     id="path1"
-    style="stroke-width:0.526316"
-  />
+    style="stroke-width:0.526316" />
+  <rect
+    style="fill:#ffffff;stroke:#ffffff;stroke-width:1.1148;paint-order:markers fill stroke"
+    id="rect1-5"
+    width="69.386848"
+    height="188.88521"
+    x="221.42084"
+    y="-872.3894" />
   <rect
     style="fill:#ffffff;stroke:#ffffff;stroke-width:1.05276;paint-order:markers fill stroke"
     id="rect1"
     width="69.615356"
     height="167.89586"
     x="221.19232"
-    y="-861.89471"
-  />
+    y="-861.89471" />
   <g
     id="g2"
     transform="matrix(0.63468675,0.63468675,-0.63468675,0.63468675,-383.7643,-513.45333)"
-    style="fill:#f87070;fill-opacity:1"
-  >
+    style="fill:#d70a53;fill-opacity:1">
     <rect
-      style="fill:#f87070;fill-opacity:1;stroke:#000000;stroke-width:0.236108;stroke-opacity:0;paint-order:markers fill stroke"
+      style="fill:#d70a53;fill-opacity:1;stroke:#000000;stroke-width:0.236108;stroke-opacity:0;paint-order:markers fill stroke"
       id="rect2-2"
       width="39.763893"
       height="170.09955"
@@ -65,17 +67,15 @@
       y="204.59081"
       rx="4.4734383"
       ry="14.352148"
-      transform="rotate(-90)"
-    />
+      transform="rotate(-90)" />
     <rect
-      style="fill:#f87070;fill-opacity:1;stroke:#000000;stroke-width:0.236108;stroke-opacity:0;paint-order:markers fill stroke"
+      style="fill:#d70a53;fill-opacity:1;stroke:#000000;stroke-width:0.236108;stroke-opacity:0;paint-order:markers fill stroke"
       id="rect2-5-9"
       width="39.763893"
       height="170.09955"
       x="269.75861"
       y="-803.40924"
       rx="4.4734383"
-      ry="14.352148"
-    />
+      ry="14.352148" />
   </g>
 </svg>
