@@ -18,12 +18,12 @@ get_input_value () {
 
 get_output_icon () {
     vol_value=$(get_output_value)
-    echo "./icons/Media/$( [[ $vol_value == "0" ]] && echo "Deafened" || echo "Headphones" ).png"
+    echo "./icons/Media/$( [[ $vol_value == "0" ]] && echo "Deafened" || echo "Headphones" ).svg"
 }
 
 get_input_icon () {
     mic_value=$(get_input_value)
-    echo "./icons/Media/$( [[ $mic_value == "0" ]] && echo "Muted" || echo "Microphone" ).png"
+    echo "./icons/Media/$( [[ $mic_value == "0" ]] && echo "Muted" || echo "Microphone" ).svg"
 }
 
 case "$1" in

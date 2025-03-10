@@ -112,7 +112,7 @@
 (defwidget bar-calendar-widget []
   (box :tooltip "Calendar" :orientation "v"
     (eventbox :cursor "pointer"
-      (button :class "bar-control-panel-icons" :style "background-image: url('./icons/Calendar/Bullseye_Arrow.png');" :onclick "~/.eww/target/release/eww open --toggle calendar")
+      (button :class "bar-control-panel-icons" :style "background-image: url('./icons/Calendar/Bullseye_Arrow.svg');" :onclick "~/.eww/target/release/eww open --toggle calendar")
     )
   )
 )
@@ -127,13 +127,13 @@
     (box :class "bar-power-menu-box" :vexpand false :orientation "v" :space-evenly false
       (revealer :reveal bar-power-menu-var :transition "slideup" :duration "550ms"
         (box :orientation "v" :space-evenly false
-          (button :class "bar-power-menu-button-lock" :tooltip "Lock" :style "background-image: url('./icons/Power_Menu/Lock.png');" :onclick "loginctl kill-session self")
-          (button :class "bar-power-menu-button-suspend" :tooltip "Suspend" :style "background-image: url('./icons/Power_Menu/Suspend.png');" :onclick "systemctl suspend")
-          ; (button :class "bar-power-menu-button-hibernate" :tooltip "Hibernate" :style "background-image: url('./icons/Power_Menu/Hibernate.png');" :onclick "systemctl hibernate")
-          (button :class "bar-power-menu-button-reboot" :tooltip "Reboot" :style "background-image: url('./icons/Power_Menu/Reboot.png');" :onclick "systemctl reboot")
+          (button :class "bar-power-menu-button-lock" :tooltip "Lock" :style "background-image: url('./icons/Power_Menu/Lock.svg');" :onclick "loginctl kill-session self")
+          (button :class "bar-power-menu-button-suspend" :tooltip "Suspend" :style "background-image: url('./icons/Power_Menu/Suspend.svg');" :onclick "systemctl suspend")
+          ; (button :class "bar-power-menu-button-hibernate" :tooltip "Hibernate" :style "background-image: url('./icons/Power_Menu/Hibernate.svg');" :onclick "systemctl hibernate")
+          (button :class "bar-power-menu-button-reboot" :tooltip "Reboot" :style "background-image: url('./icons/Power_Menu/Reboot.svg');" :onclick "systemctl reboot")
         )
       )
-      (button :class "bar-power-menu-button-shutdown" :tooltip "Shutdown" :style "background-image: url('./icons/Power_Menu/Shutdown.png');" :onclick "systemctl poweroff")
+      (button :class "bar-power-menu-button-shutdown" :tooltip "Shutdown" :style "background-image: url('./icons/Power_Menu/Shutdown.svg');" :onclick "systemctl poweroff")
     )
   )
 )

@@ -6,7 +6,7 @@
 
 airplane=$(./scripts/Airplane.sh --status)
 
-icon="./icons/Network/Off.png"
+icon="./icons/Network/Off.svg"
 status="Offline"
 
 is_online() {
@@ -16,10 +16,10 @@ is_online() {
 id=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
 
 if [ "$airplane" = "On" ]; then
-    icon="./icons/Network/Airplane.png"
+    icon="./icons/Network/Airplane.svg"
     status="Airplane"
 elif is_online; then
-    icon="./icons/Network/On.png"
+    icon="./icons/Network/On.svg"
     
     if [[ $id == e* ]]; then
         status="$id"
