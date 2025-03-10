@@ -76,10 +76,10 @@
 (defwidget bar-control-panel-widget []
   (box :class "bar-control-panel-box" :orientation "v" :space-evenly false
     (bar-network-widget)
-    (bar-battery-widget)
     (bar-audio-output-widget)
     (bar-audio-input-widget)
     (bar-calendar-widget)
+    (bar-battery-widget)
   )
 )
 (defwidget bar-network-widget []
