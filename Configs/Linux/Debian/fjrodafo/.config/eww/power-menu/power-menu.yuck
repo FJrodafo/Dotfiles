@@ -15,7 +15,7 @@
 ;  ╠═╝│ ││  │
 ;  ╩  └─┘┴─┘┴─┘
 
-(defpoll power-menu-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll power-menu-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M","sec":"%S"}'`)
 (defpoll power-menu-airplane-status-poll :interval "1s" :initial "" `nmcli radio wifi`)
 (defpoll power-menu-wifi-status-poll :interval "1s" :initial "" `nmcli -t -f SIGNAL,ACTIVE device wifi | awk -F':' '{if($2=="yes")print$1}'`)
 (defpoll power-menu-battery-status-poll :interval "1s" :initial 0 "cat /sys/class/power_supply/BAT0/status || echo 0")
@@ -45,7 +45,7 @@
     (box :vexpand true :hexpand true :space-evenly false
       (box :class "power-menu-time-box" :valign "end" :halign "start" :space-evenly false :spacing 15
         (label :text "󰣉")
-        (label :text "${power-menu-time-poll.hour}:${power-menu-time-poll.min}")
+        (label :text "${power-menu-time-poll.hour}:${power-menu-time-poll.min}:${power-menu-time-poll.sec}")
       )
       (power-menu-buttons
         :shutdown "systemctl poweroff" :shutdown-icon "󰐥" ; :shutdown-icon "󰤆"

@@ -22,7 +22,7 @@
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery.sh icon")
 (defpoll bar-battery-tooltip-poll :interval "1s" "./scripts/Battery.sh tooltip")
 (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
-(defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M","sec":"%S"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
 ;  ╚╗╔╝├─┤├┬┘
@@ -39,6 +39,7 @@
 (defwidget bar-layout-widget [monitor]
   (box :class "bar-layout-box" :vexpand false :hexpand false :orientation "v"
     (bar-start-widget :monitor monitor)
+    ; (bar-center-widget)
     (bar-end-widget)
   )
 )
@@ -48,16 +49,20 @@
     (bar-workspaces-widget :monitor monitor)
   )
 )
+(defwidget bar-center-widget []
+  (box :valign "center" :orientation "v" :space-evenly false
+    (bar-time-widget)
+  )
+)
 (defwidget bar-end-widget []
   (box :valign "end" :orientation "v" :space-evenly false
     (bar-system-tray-widget)
     (bar-control-panel-widget)
-    (bar-time-widget)
     (bar-power-menu-widget)
   )
 )
 (defwidget bar-logo-widget []
-  (box :class "bar-logo-box" :tooltip "Linux" :orientation "v"
+  (box :class "bar-logo-box" :tooltip "Debian" :orientation "v"
     (eventbox :cursor "pointer"
       (button :onclick "bash ~/.config/eww/eww.sh" "")
     )
@@ -118,8 +123,9 @@
 )
 (defwidget bar-time-widget []
   (box :class "bar-time-box" :orientation "v"
-    (button :tooltip "Hour" "${bar-time-poll.hour}")
-    (button :tooltip "Minute" "${bar-time-poll.min}")
+    (button :tooltip "Hours" "${bar-time-poll.hour}")
+    (button :tooltip "Minutes" "${bar-time-poll.min}")
+    ; (button :tooltip "Seconds" "${bar-time-poll.sec}")
   )
 )
 (defwidget bar-power-menu-widget []
