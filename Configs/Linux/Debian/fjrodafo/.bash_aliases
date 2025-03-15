@@ -19,7 +19,6 @@ alias discordapp='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App &&
 alias discordappcanary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run canary'
 alias discordappshrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run shrikebot'
 # App
-alias eclipse='$HOME/eclipse/eclipse'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 # Terminal
