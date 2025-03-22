@@ -10,6 +10,10 @@ else
     tar -xzvf sqlite-autoconf-3490100.tar.gz
     # Check the version!
     mv sqlite-autoconf-3490100 ~/.sqlite
+    cd ~/.sqlite
+    ./configure
+    make
+    sudo make install
     clear && cd ~
     echo "SQLite3 has been successfully installed!"
 fi
