@@ -7,7 +7,7 @@
   border-radius: 7px;
 }
 
-.bar-logo-box {
+.bar-logo-text {
   font-family: $text-font-mono;
   font-weight: bold;
   font-size: 25px;
@@ -15,6 +15,16 @@
   border-radius: 4px;
   padding: 0.2rem 0rem 0.2rem 0rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+
+.bar-logo-box,
+.bar-logo-debian {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  min-height: 25px;
+  padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
 .bar-workspaces {
@@ -68,7 +78,7 @@
   background-color: $bg-alt;
   border-radius: 4px;
   padding: 0.4rem 0rem 0.4rem 0rem;
-  margin: 0rem 0.4rem 0.4rem 0.4rem;
+  margin: 0rem 0.4rem 0rem 0.4rem;
 }
 
 .bar-control-panel-icons {
@@ -102,18 +112,25 @@ scale trough {
   background-color: $bg-alt;
   border-radius: 4px;
   padding: 0.9rem 0rem 0.9rem 0rem;
-  margin: 0rem 0.4rem 0.4rem 0.4rem;
+  margin: 0.4rem 0.4rem 0rem 0.4rem;
 }
 
 .bar-power-menu-button-lock,
 .bar-power-menu-button-suspend,
 .bar-power-menu-button-hibernate,
 .bar-power-menu-button-reboot,
-.bar-power-menu-button-shutdown,
+.bar-power-menu-button-shutdown {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  min-height: 25px;
+  padding: 0.4rem 0rem 0.4rem 0rem;
+}
+
 .bar-power-menu-box {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 25px;
   min-height: 25px;
-  padding: 0.2rem 0rem 0.6rem 0rem;
+  padding: 0.6rem 0rem 0.6rem 0rem;
 }
