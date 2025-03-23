@@ -21,7 +21,7 @@
 (defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio.sh --input-icon")
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery.sh icon")
 (defpoll bar-battery-tooltip-poll :interval "1s" "./scripts/Battery.sh tooltip")
-(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+; (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M","sec":"%S"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
@@ -89,11 +89,6 @@
     )
   )
 )
-(defwidget bar-battery-widget []
-  (box :tooltip "${bar-battery-tooltip-poll}" :orientation "v" :visible {bar-battery-status-poll}
-    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
-  )
-)
 (defwidget bar-audio-output-widget []
   (eventbox :onhover "${EWW_CMD} update bar-audio-output-var=true" :onhoverlost "${EWW_CMD} update bar-audio-output-var=false" :cursor "pointer"
     (box :orientation "v" :space-evenly false
@@ -119,6 +114,11 @@
     (eventbox :cursor "pointer"
       (button :class "bar-control-panel-icons" :style "background-image: url('./icons/Calendar/Bullseye_Arrow.svg');" :onclick "~/.eww/target/release/eww open --toggle calendar")
     )
+  )
+)
+(defwidget bar-battery-widget []
+  (box :tooltip "${bar-battery-tooltip-poll}" :orientation "v" ; :visible {bar-battery-status-poll}
+    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
   )
 )
 (defwidget bar-time-widget []
