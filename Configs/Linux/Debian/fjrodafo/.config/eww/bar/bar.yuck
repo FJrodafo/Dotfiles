@@ -141,7 +141,9 @@
           (button :class "bar-power-menu-button-reboot" :tooltip "Reboot" :style "background-image: url('./icons/Power_Menu/Reboot.svg');" :onclick "systemctl reboot")
         )
       )
-      (button :class "bar-power-menu-button-shutdown" :tooltip "Shutdown" :style "background-image: url('./icons/Power_Menu/Shutdown.svg');" :onclick "systemctl poweroff")
+      (eventbox :cursor "pirate"
+        (button :class "bar-power-menu-button-shutdown" :tooltip "Shutdown" :style "background-image: url('./icons/Power_Menu/Shutdown.svg');" :onclick "systemctl poweroff")
+      )
     )
   )
 )
