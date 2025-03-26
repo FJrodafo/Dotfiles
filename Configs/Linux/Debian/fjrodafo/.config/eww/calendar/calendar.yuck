@@ -58,10 +58,12 @@
 )
 (defwidget calendar-widget []
   (box :class "calendar-box" :orientation "v" :space-evenly false
-    (calendar :class "calendar"
-      :day {calendar-day-poll ?: "1"}
-      :month {calendar-month-poll ?: "1"}
-      :year {calendar-year-poll ?: "2000"}
+    (eventbox :cursor "pointer"
+      (calendar :class "calendar"
+        :day {calendar-day-poll ?: "1"}
+        :month {calendar-month-poll ?: "1"}
+        :year {calendar-year-poll ?: "2000"}
+      )
     )
   )
 )
