@@ -62,7 +62,7 @@
   )
 )
 (defwidget bar-logo-widget []
-  (eventbox :cursor "pointer"
+  (eventbox :cursor "x-cursor"
     (box :class "bar-logo-box" :vexpand false :orientation "v" :space-evenly false
       (button :class "bar-logo-debian" :tooltip "Debian" :style "background-image: url('./icons/Debian.svg');" :onclick "bash ~/.config/eww/eww.sh")
     )
