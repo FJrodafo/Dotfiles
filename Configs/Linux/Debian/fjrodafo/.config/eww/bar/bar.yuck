@@ -118,7 +118,9 @@
 )
 (defwidget bar-battery-widget []
   (box :tooltip "${bar-battery-tooltip-poll}" :orientation "v" ; :visible {bar-battery-status-poll}
-    (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
+    (eventbox :cursor "default"
+      (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
+    )
   )
 )
 (defwidget bar-time-widget []
