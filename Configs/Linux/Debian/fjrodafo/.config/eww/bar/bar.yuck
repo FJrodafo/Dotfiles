@@ -5,7 +5,7 @@
 (defwindow bar [monitor]
   :monitor monitor
   :wm-ignore false
-  :geometry (geometry :x "7px" :y "0%" :width "47px" :height "90%" :anchor "left center")
+  :geometry (geometry :x "0px" :y "0%" :width "47px" :height "100%" :anchor "left center")
   (bar-layout-widget :monitor monitor)
 )
 
@@ -37,7 +37,7 @@
 ;  ╚╩╝┴─┴┘└─┘└─┘ ┴
 
 (defwidget bar-layout-widget [monitor]
-  (box :class "bar-layout-box" :vexpand false :hexpand false :orientation "v"
+  (box :class "bar-layout-box" :orientation "v" :space-evenly true
     (bar-start-widget :monitor monitor)
     ; (bar-center-widget)
     (bar-end-widget)
@@ -58,19 +58,20 @@
   (box :valign "end" :orientation "v" :space-evenly false
     (bar-system-tray-widget)
     (bar-control-panel-widget)
+    (bar-time-widget)
     (bar-power-menu-widget)
   )
 )
 (defwidget bar-logo-widget []
-  (eventbox :cursor "x-cursor"
-    (box :class "bar-logo-box" :vexpand false :orientation "v" :space-evenly false
-      (button :class "bar-logo-debian" :tooltip "Debian" :style "background-image: url('./icons/Debian.svg');" :onclick "bash ~/.config/eww/eww.sh")
+  (eventbox :cursor "x-cursor" :tooltip "Debian"
+    (box :orientation "v" :space-evenly false
+      (button :class "bar-logo-debian" :style "background-image: url('./icons/Debian.svg');" :onclick "bash ~/.config/eww/eww.sh")
     )
   )
 )
 (defwidget bar-system-tray-widget []
-  (box :class "bar-system-tray-box" :halign "center" :orientation "v"
-    (systray :orientation "v" :icon-size 25 :spacing 7 :prepend-new false)
+  (box :class "bar-system-tray-box" :orientation "v" :space-evenly false
+    (systray :orientation "v" :space-evenly false :prepend-new true :icon-size 25 :spacing 7)
   )
 )
 (defwidget bar-control-panel-widget []
@@ -83,14 +84,14 @@
   )
 )
 (defwidget bar-network-widget []
-  (box :tooltip "${bar-network-status-poll}" :orientation "v"
-    (eventbox :cursor "pointer"
+  (eventbox :cursor "pointer" :tooltip "${bar-network-status-poll}"
+    (box :orientation "v" :space-evenly false
       (button :class "bar-control-panel-icons" :style "background-image: url('${bar-network-icon-poll}');" :onclick "./scripts/Airplane.sh --toggle &")
     )
   )
 )
 (defwidget bar-audio-output-widget []
-  (eventbox :onhover "${EWW_CMD} update bar-audio-output-var=true" :onhoverlost "${EWW_CMD} update bar-audio-output-var=false" :cursor "pointer"
+  (eventbox :cursor "pointer" :onhover "${EWW_CMD} update bar-audio-output-var=true" :onhoverlost "${EWW_CMD} update bar-audio-output-var=false"
     (box :orientation "v" :space-evenly false
       (revealer :reveal bar-audio-output-var :transition "slideup" :duration "550ms"
         (scale :class "bar-audio-output-scale" :tooltip "Output: ${bar-audio-output-value-poll}%" :orientation "v" :value {bar-audio-output-value-poll ?: "0"} :onchange "amixer set Master {}%" :flipped true :max 101 :min 0)
@@ -100,7 +101,7 @@
   )
 )
 (defwidget bar-audio-input-widget []
-  (eventbox :onhover "${EWW_CMD} update bar-audio-input-var=true" :onhoverlost "${EWW_CMD} update bar-audio-input-var=false" :cursor "pointer"
+  (eventbox :cursor "pointer" :onhover "${EWW_CMD} update bar-audio-input-var=true" :onhoverlost "${EWW_CMD} update bar-audio-input-var=false"
     (box :orientation "v" :space-evenly false
       (revealer :reveal bar-audio-input-var :transition "slideup" :duration "550ms"
         (scale :class "bar-audio-input-scale" :tooltip "Input: ${bar-audio-input-value-poll}%" :orientation "v" :value {bar-audio-input-value-poll ?: "0"} :onchange "amixer set Capture {}%" :flipped true :max 101 :min 0)
@@ -110,29 +111,29 @@
   )
 )
 (defwidget bar-calendar-widget []
-  (box :tooltip "Calendar" :orientation "v"
-    (eventbox :cursor "pointer"
+  (eventbox :cursor "pointer" :tooltip "Calendar"
+    (box :orientation "v" :space-evenly false
       (button :class "bar-control-panel-icons" :style "background-image: url('./icons/Calendar/Bullseye_Arrow.svg');" :onclick "~/.eww/target/release/eww open --toggle calendar")
     )
   )
 )
 (defwidget bar-battery-widget []
-  (box :tooltip "${bar-battery-tooltip-poll}" :orientation "v" ; :visible {bar-battery-status-poll}
-    (eventbox :cursor "default"
+  (eventbox :cursor "default" :tooltip "${bar-battery-tooltip-poll}"
+    (box :orientation "v" :space-evenly false ; :visible {bar-battery-status-poll}
       (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
     )
   )
 )
 (defwidget bar-time-widget []
-  (box :class "bar-time-box" :orientation "v"
+  (box :class "bar-time-box" :orientation "v" :space-evenly false
     (button :tooltip "Hours" "${bar-time-poll.hour}")
     (button :tooltip "Minutes" "${bar-time-poll.min}")
     ; (button :tooltip "Seconds" "${bar-time-poll.sec}")
   )
 )
 (defwidget bar-power-menu-widget []
-  (eventbox :onhover "${EWW_CMD} update bar-power-menu-var=true" :onhoverlost "${EWW_CMD} update bar-power-menu-var=false" :cursor "pointer"
-    (box :class "bar-power-menu-box" :vexpand false :orientation "v" :space-evenly false
+  (eventbox :cursor "pointer" :onhover "${EWW_CMD} update bar-power-menu-var=true" :onhoverlost "${EWW_CMD} update bar-power-menu-var=false"
+    (box :class "bar-power-menu-box" :orientation "v" :space-evenly false
       (revealer :reveal bar-power-menu-var :transition "slideup" :duration "550ms"
         (box :orientation "v" :space-evenly false
           (button :class "bar-power-menu-button-lock" :tooltip "Lock" :style "background-image: url('./icons/Power_Menu/Lock.svg');" :onclick "loginctl kill-session self")

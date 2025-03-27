@@ -2,10 +2,10 @@
 ;  ║║║│ │├┬┘├┴┐└─┐├─┘├─┤│  ├┤ └─┐
 ;  ╚╩╝└─┘┴└─┴ ┴└─┘┴  ┴ ┴└─┘└─┘└─┘
 
-(deflisten bar-workspace-0 "./scripts/Workspaces/Style.sh eDP1")
+(deflisten bar-workspace-0 "./scripts/Workspaces/Style.sh DP-4")
 (defwidget bar-workspace-0 [] (literal :content bar-workspace-0))
 (defwidget bar-workspaces-widget [monitor]
   (box :valign "start" :orientation "v" :space-evenly false
-    (box :visible { monitor=="eDP1" } (bar-workspace-0))
+    (box :visible { monitor=="DP-4" } (bar-workspace-0))
   )
 )

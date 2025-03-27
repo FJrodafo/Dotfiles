@@ -4,7 +4,7 @@
 
 (defwindow calendar
   :wm-ignore true
-  :geometry (geometry :x "61px" :y "-5%" :anchor "left bottom")
+  :geometry (geometry :x "0px" :y "0%" :anchor "center center")
   (calendar-layout-widget)
 )
 
@@ -57,8 +57,8 @@
   )
 )
 (defwidget calendar-widget []
-  (box :class "calendar-box" :orientation "v" :space-evenly false
-    (eventbox :cursor "pointer"
+  (eventbox :cursor "pointer"
+    (box :class "calendar-box" :orientation "v" :space-evenly false
       (calendar :class "calendar"
         :day {calendar-day-poll ?: "1"}
         :month {calendar-month-poll ?: "1"}

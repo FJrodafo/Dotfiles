@@ -3,10 +3,9 @@
 //  ╚═╝┴ ┴┴─┘└─┘┘└┘─┴┘┴ ┴┴└─
 
 .calendar-layout-box {
-  color: $text-color-white;
   background-color: $bg;
   border-radius: 7px;
-  min-width: 18rem;
+  color: $text-color-white;
 }
 
 .calendar-time-box {
@@ -14,41 +13,41 @@
 
   .calendar-time-container-1 {
     .calendar-time-container-1-label {
-      font-family: $text-font-mono;
-      font-weight: bolder;
-      font-size: 3.6rem;
       color: $text-color-white;
+      font-family: $text-font-mono;
+      font-size: 3.6rem;
+      font-weight: bolder;
     }
 
     .calendar-separator-box {
       background-color: $text-color-white;
-      padding: 0px 1px;
       margin: 0.2rem 15px;
+      padding: 0px 1px;
     }
   }
 
   .calendar-time-container-2 {
-    font-family: $text-font-mono;
-    font-weight: bold;
-    font-size: 1rem;
     color: $text-color-white;
+    font-family: $text-font-mono;
+    font-size: 1rem;
+    font-weight: bold;
     margin: 5px 0;
   }
 }
 
 .calendar-box {
-  font-family: $text-font-mono;
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: $text-color-white;
   background-color: $bg-alt;
   border-radius: 4px;
-  padding: 0rem 1rem 0rem;
+  color: $text-color-white;
+  font-family: $text-font-mono;
+  font-size: 0.9rem;
+  font-weight: bold;
   margin: 0.6rem;
+  padding: 0rem 1rem 0rem;
 
   .calendar {
-    padding: 0.5rem 0.15rem 0.2rem;
     margin-left: 10px;
+    padding: 0.5rem 0.15rem 0.2rem;
 
     &>* {
       border: solid 0px transparent;
