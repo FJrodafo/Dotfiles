@@ -118,17 +118,19 @@
   )
 )
 (defwidget bar-battery-widget []
-  (eventbox :cursor "default" :tooltip "${bar-battery-tooltip-poll}"
+  (eventbox :cursor "help" :tooltip "${bar-battery-tooltip-poll}"
     (box :orientation "v" :space-evenly false ; :visible {bar-battery-status-poll}
       (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
     )
   )
 )
 (defwidget bar-time-widget []
-  (box :class "bar-time-box" :orientation "v" :space-evenly false
-    (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Hours" "${bar-time-poll.hour}")
-    (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Minutes" "${bar-time-poll.min}")
-    ; (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Seconds" "${bar-time-poll.sec}")
+  (eventbox :cursor "alias"
+    (box :class "bar-time-box" :orientation "v" :space-evenly false
+      (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Hours" "${bar-time-poll.hour}")
+      (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Minutes" "${bar-time-poll.min}")
+      ; (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Seconds" "${bar-time-poll.sec}")
+    )
   )
 )
 (defwidget bar-power-menu-widget []
