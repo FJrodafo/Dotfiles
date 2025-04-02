@@ -79,7 +79,7 @@
     (bar-network-widget)
     (bar-audio-output-widget)
     (bar-audio-input-widget)
-    (bar-calendar-widget)
+    ; (bar-calendar-widget)
     (bar-battery-widget)
   )
 )
@@ -126,9 +126,9 @@
 )
 (defwidget bar-time-widget []
   (box :class "bar-time-box" :orientation "v" :space-evenly false
-    (button :tooltip "Hours" "${bar-time-poll.hour}")
-    (button :tooltip "Minutes" "${bar-time-poll.min}")
-    ; (button :tooltip "Seconds" "${bar-time-poll.sec}")
+    (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Hours" "${bar-time-poll.hour}")
+    (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Minutes" "${bar-time-poll.min}")
+    ; (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Seconds" "${bar-time-poll.sec}")
   )
 )
 (defwidget bar-power-menu-widget []
