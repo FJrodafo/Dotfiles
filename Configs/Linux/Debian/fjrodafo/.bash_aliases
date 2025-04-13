@@ -9,8 +9,8 @@ alias dockerdowntodo='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts
 alias ijavajavac='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Miscellaneous/spinner.sh'
-alias startxuniversaldriverssetup='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/universal.sh'
-alias startxnvidiadriverssetup='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/nvidia.sh'
+alias startxuniversaldrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/universal.sh'
+alias startxnvidiadrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/nvidia.sh'
 alias updatelinuxkernel='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Kernel/update.sh'
 # Discord
 alias discordcrps='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App && npm i && npm start'
