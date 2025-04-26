@@ -35,6 +35,12 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Incognito mode
+incognito="false"
+if [ -f "$HOME/.bash_incognito" ]; then
+    incognito=$(cat "$HOME/.bash_incognito")
+fi
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color|xterm-kitty) color_prompt=yes;;
@@ -63,7 +69,9 @@ parse_git_branch() {
 }
 
 # Prompt
-if [ "$color_prompt" = yes ]; then
+if [ "$incognito" = "true" ]; then
+    PS1='${debian_chroot:+($debian_chroot)}╭╴unknown@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;93m\]\$\[\033[00m\] '
+elif [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;93m\]\$\[\033[00m\] '
     # PS1='\W > '
 else
@@ -140,3 +148,22 @@ if [ "$TERM" == "xterm-kitty" ]; then
         3) neofetchnerd ;;
     esac
 fi
+
+# Enable/disable incognito mode
+function toggle_incognito_mode() {
+    # If the file does not exist, create it as false
+    if [ ! -f "$HOME/.bash_incognito" ]; then
+        echo false > "$HOME/.bash_incognito"
+    fi
+
+    current_state=$(cat "$HOME/.bash_incognito")
+
+    if [ "$current_state" = "true" ]; then
+        echo false > "$HOME/.bash_incognito"
+    else
+        echo true > "$HOME/.bash_incognito"
+    fi
+
+    clear && source ~/.bashrc
+}
+alias incognito=toggle_incognito_mode
