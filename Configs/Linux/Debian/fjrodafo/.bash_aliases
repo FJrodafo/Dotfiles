@@ -1,4 +1,6 @@
-# Script
+#  ╔═╗┌─┐┬─┐┬┌─┐┌┬┐
+#  ╚═╗│  ├┬┘│├─┘ │
+#  ╚═╝└─┘┴└─┴┴   ┴
 alias backup='$HOME/.backup.sh'
 alias dockerupmysqlphpmyadmin='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Docker/mysql-phpmyadmin/up.sh'
 alias dockerdownmysqlphpmyadmin='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Docker/mysql-phpmyadmin/down.sh'
@@ -12,37 +14,57 @@ alias loading='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Miscel
 alias startxuniversaldrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/universal.sh'
 alias startxnvidiadrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/nvidia.sh'
 alias updatelinuxkernel='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Kernel/update.sh'
-# Discord
+#  ╔╦╗┬┌─┐┌─┐┌─┐┬─┐┌┬┐
+#   ║║│└─┐│  │ │├┬┘ ││
+#  ═╩╝┴└─┘└─┘└─┘┴└──┴┘
 alias discordcrps='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App && npm i && npm start'
 alias discordcrpscanary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App && npm i && npm run canary'
 alias discordapp='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm start'
 alias discordappcanary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run canary'
 alias discordappshrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run shrikebot'
-# App
+#  ╔═╗┌─┐┌─┐
+#  ╠═╣├─┘├─┘
+#  ╩ ╩┴  ┴
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
-# Terminal
+#  ╔╦╗┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬
+#   ║ ├┤ ├┬┘│││││││├─┤│
+#   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
 alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
 alias interactiveprocessviewer='htop'
 alias music='mpv --shuffle --no-audio-display ~/Music'
-# Neofetch
+#  ╔╗╔┌─┐┌─┐┌─┐┌─┐┌┬┐┌─┐┬ ┬
+#  ║║║├┤ │ │├┤ ├┤  │ │  ├─┤
+#  ╝╚╝└─┘└─┘└  └─┘ ┴ └─┘┴ ┴
 alias neofetchbunny='neofetch --config $HOME/.config/neofetch/bunny/config.conf --ascii $(find $HOME/.config/neofetch/bunny/ascii/ -type f -name "*.txt" | shuf -n 1)'
 alias neofetchdebian='neofetch --config $HOME/.config/neofetch/debian/config.conf --ascii $HOME/.config/neofetch/debian/ascii.txt'
 alias neofetchdefault='neofetch --config $HOME/.config/neofetch/config.conf'
 alias neofetchminimal='neofetch --config $HOME/.config/neofetch/minimal/config.conf --ascii $(find $HOME/.config/neofetch/minimal/ascii/ -type f -name "*.txt" | shuf -n 1)'
 alias neofetchnerd='neofetch --config $HOME/.config/neofetch/nerd/config.conf --ascii $(find $HOME/.config/neofetch/nerd/ascii/ -type f -name "*.txt" | shuf -n 1)'
-# Java
+#   ╦┌─┐┬  ┬┌─┐
+#   ║├─┤└┐┌┘├─┤
+#  ╚╝┴ ┴ └┘ ┴ ┴
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
-# Node
+#  ╔╗╔┌─┐┌┬┐┌─┐
+#  ║║║│ │ ││├┤
+#  ╝╚╝└─┘─┴┘└─┘
 alias npkill='npx npkill -s size'
-# VPN
+#  ╦  ╦╔═╗╔╗╔
+#  ╚╗╔╝╠═╝║║║
+#   ╚╝ ╩  ╝╚╝
 alias hunsterverse='cd $HOME/Documents/Games/Servers/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
-# Networks
-alias airplanemodeon='nmcli networking off' # alias airplanemodeon='nmcli radio all off'
-alias airplanemodeoff='nmcli networking on' # alias airplanemodeoff='nmcli radio all on'
-# System Audio
+#  ╔╗╔┌─┐┌┬┐┬ ┬┌─┐┬─┐┬┌─┌─┐
+#  ║║║├┤  │ ││││ │├┬┘├┴┐└─┐
+#  ╝╚╝└─┘ ┴ └┴┘└─┘┴└─┴ ┴└─┘
+alias airplanemodeon='nmcli networking off'
+#alias airplanemodeon='nmcli radio all off'
+alias airplanemodeoff='nmcli networking on'
+#alias airplanemodeoff='nmcli radio all on'
+#  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┬ ┬┌┬┐┬┌─┐
+#  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╣│ │ ││││ │
+#  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩ ╩└─┘─┴┘┴└─┘
 alias audiooutputdefault='amixer set Master 40%'
 alias audiooutputdown='amixer set Master 5%-'
 alias audiooutputup='amixer set Master 5%+'
@@ -51,14 +73,18 @@ alias audioinputdefault='amixer set Capture 40%'
 alias audioinputdown='amixer set Capture 5%-'
 alias audioinputup='amixer set Capture 5%+'
 alias audioinputdeafen='amixer set Capture toggle'
-# System Brightness
+#  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔╗ ┬─┐┬┌─┐┬ ┬┌┬┐┌┐┌┌─┐┌─┐┌─┐
+#  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠╩╗├┬┘││ ┬├─┤ │ │││├┤ └─┐└─┐
+#  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╚═╝┴└─┴└─┘┴ ┴ ┴ ┘└┘└─┘└─┘└─┘
 alias brightnessdefault='brightnessctl s 70%'
 alias brightnessdown='brightnessctl s 5%-'
 alias brightnessup='brightnessctl s 5%+'
-# System Power Menu
+#  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┌─┐┬ ┬┌─┐┬─┐
+#  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╝│ ││││├┤ ├┬┘
+#  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩  └─┘└┴┘└─┘┴└─
 alias poff='systemctl poweroff'
-alias preboot='systemctl reboot'
-alias psuspend='systemctl suspend'
-alias phibernate='systemctl hibernate'
-alias phybridsleep='systemctl hybrid-sleep'
-alias plogout='loginctl kill-session self'
+alias sreboot='systemctl reboot'
+alias ssuspend='systemctl suspend'
+#alias shibernate='systemctl hibernate'
+#alias shybridsleep='systemctl hybrid-sleep'
+alias slogout='loginctl kill-session self'
