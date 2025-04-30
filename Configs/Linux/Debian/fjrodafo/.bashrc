@@ -70,9 +70,9 @@ parse_git_branch() {
 
 # Prompt
 if [ "$incognito" = "true" ]; then
-    PS1='${debian_chroot:+($debian_chroot)}╭╴unknown@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;93m\]\$\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}╭╴unknown@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
 elif [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;93m\]\$\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
     # PS1='\W > '
 else
     PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\W]$(parse_git_branch)\n╰─╴\$ '
