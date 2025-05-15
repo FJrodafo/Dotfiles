@@ -5,5 +5,3 @@
 &ensp;<a href="./KEYBINDINGS.md"><kbd>Keybindings</kbd></a>&ensp;
 &ensp;<a href="https://kernel.org/"><img src="https://raw.githubusercontent.com/FJrodafo/Dotfiles/main/Configs/Linux/Assets/Linux.svg" width="24" height="24" /></a>&ensp;
 </div>
-<link rel="stylesheet" href="./README.css">
-<a class="scrollup" href="#top">&#x1F53C</a>
