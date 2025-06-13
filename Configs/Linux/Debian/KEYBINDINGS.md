@@ -37,24 +37,36 @@
         <td>Screenshots</td>
     </tr>
     <tr>
-        <td><kbd>XF86Calculator</kbd></td>
-        <td>Calculator</td>
-    </tr>
-    <tr>
         <td><kbd>XF86Audio</kbd> { <kbd>Mute</kbd>, <kbd>LowerVolume</kbd>, <kbd>RaiseVolume</kbd> }</td>
         <td>Audio</td>
     </tr>
     <tr>
-        <td><kbd>XF86MonBrightness</kbd> { <kbd>Down</kbd>, <kbd>Up</kbd> }</td>
-        <td>Brightness</td>
+        <td><kbd>XF86Calculator</kbd></td>
+        <td>Calculator</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>alt</kbd> { <kbd>-</kbd>, <kbd>+</kbd> }</td>
+        <td><kbd>Super</kbd> + { <kbd>F1</kbd>, <kbd>F2</kbd>, <kbd>F3</kbd> }</td>
         <td>Alternative Audio</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>alt</kbd> + <kbd>shift</kbd> { <kbd>-</kbd>, <kbd>+</kbd> }</td>
+        <td><kbd>Super</kbd> + <kbd>F4</kbd></td>
+        <td>Alternative Mic</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + { <kbd>F5</kbd>, <kbd>F6</kbd> }</td>
         <td>Alternative Brightness</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F8</kbd></td>
+        <td>Alternative Airplane Mode</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F9</kbd></td>
+        <td>Alternative Support</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F12</kbd></td>
+        <td>Alternative Calculator</td>
     </tr>
 </table>
 
