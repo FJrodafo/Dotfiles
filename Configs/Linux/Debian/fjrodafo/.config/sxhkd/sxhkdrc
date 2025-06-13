@@ -18,25 +18,49 @@ super + Escape
 Print
 	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
 
-# calculator
-XF86Calculator
-	qalculate
-
 # audio
 XF86Audio{Mute,LowerVolume,RaiseVolume}
 	amixer set Master {toggle,5%-,5%+}
 
+# mic
+#AudioMicMute
+#	amixer set Capture toggle
+
 # brightness
-XF86MonBrightness{Down,Up}
-	brightnessctl s {5%-,5%+}
+#XF86MonBrightness{Down,Up}
+#	brightnessctl s {5%-,5%+}
+
+# support
+#XF86Support
+#	qimgv ~/Downloads/KEYBINDS.png
+
+# calculator
+XF86Calculator
+	qalculate
 
 # alternative audio
-super + alt + {KP_Subtract,KP_Add}
-	amixer set Master {5%-,5%+}
+super + {F1,F2,F3}
+	amixer set Master {toggle,5%-,5%+}
+
+# alternative mic
+super + F4
+	amixer set Capture toggle
 
 # alternative brightness
-super + alt + shift + {KP_Subtract,KP_Add}
+super + {F5,F6}
 	brightnessctl s {5%-,5%+}
+
+# alternative airplane mode
+super + F8
+	bash ~/.config/eww/scripts/Airplane.sh --toggle
+
+# support
+super + F9
+	qimgv ~/Downloads/KEYBINDS.png
+
+# alternative calculator
+super + F12
+	qalculate
 
 #
 # apps
