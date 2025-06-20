@@ -49,15 +49,15 @@
     </tr>
     <tr>
         <td><kbd>Super</kbd> + { <kbd>F1</kbd>, <kbd>F2</kbd>, <kbd>F3</kbd> }</td>
-        <td>Alternative Audio</td>
+        <td>Alternative audio</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F4</kbd></td>
-        <td>Alternative Mic</td>
+        <td>Alternative mic</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + { <kbd>F5</kbd>, <kbd>F6</kbd> }</td>
-        <td>Alternative Brightness</td>
+        <td>Alternative brightness</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F7</kbd></td>
@@ -65,11 +65,11 @@
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F8</kbd></td>
-        <td>Alternative Airplane Mode</td>
+        <td>Alternative airplane mode</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F9</kbd></td>
-        <td>Alternative Support</td>
+        <td>Alternative support</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F10</kbd></td>
@@ -81,7 +81,7 @@
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F12</kbd></td>
-        <td>Alternative Calculator</td>
+        <td>Alternative calculator</td>
     </tr>
 </table>
 
@@ -102,35 +102,35 @@
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Tab</kbd></td>
-        <td>Open Windows</td>
+        <td>Open windows</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Space</kbd></td>
-        <td>Application Launcher</td>
+        <td>Application launcher</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd></td>
-        <td>Program Launcher</td>
+        <td>Program launcher</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd></td>
-        <td>Emoji Picker</td>
+        <td>Emoji picker</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>e</kbd></td>
-        <td>ElKowar's Wacky Widgets</td>
+        <td>EWW (ElKowar's Wacky Widgets)</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>c</kbd></td>
-        <td>Change Wallpaper</td>
+        <td>Change wallpaper</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>a</kbd></td>
-        <td>Run Animated Wallpaper</td>
+        <td>Run animated wallpaper</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>a</kbd></td>
-        <td>Kill Animated Wallpaper</td>
+        <td>Kill animated wallpaper</td>
     </tr>
 </table>
 
