@@ -6,9 +6,12 @@
     2. [Special Keys](#special-keys)
     3. [Apps](#apps)
     4. [Tiled Windows](#tiled-windows)
-2. [OBS](#obs)
+2. [Discord](#discord)
+    1. [Streamer Mode](#streamer-mode)
+    2. [Voice Channel](#voice-channel)
+3. [OBS](#obs)
     1. [Record a Video](#record-a-video)
-3. [Zathura](#zathura)
+4. [Zathura](#zathura)
     1. [Navigation](#navigation)
     2. [Bookmarks](#bookmarks)
     3. [Manipulation](#manipulation)
@@ -57,12 +60,24 @@
         <td>Alternative Brightness</td>
     </tr>
     <tr>
+        <td><kbd>Super</kbd> + <kbd>F7</kbd></td>
+        <td>Toggle streamer mode (Discord)</td>
+    </tr>
+    <tr>
         <td><kbd>Super</kbd> + <kbd>F8</kbd></td>
         <td>Alternative Airplane Mode</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F9</kbd></td>
         <td>Alternative Support</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F10</kbd></td>
+        <td>Switch to voice channel (Discord)</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F11</kbd></td>
+        <td>Disconnect from voice channel (Discord)</td>
     </tr>
     <tr>
         <td><kbd>Super</kbd> + <kbd>F12</kbd></td>
@@ -157,6 +172,30 @@
     <tr>
         <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + { <kbd>-</kbd>, <kbd>+</kbd> }</td>
         <td>Dynamic gap size</td>
+    </tr>
+</table>
+
+## Discord
+
+#### Streamer Mode
+
+<table>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F7</kbd></td>
+        <td>Toggle streamer mode</td>
+    </tr>
+</table>
+
+#### Voice Channel
+
+<table>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F10</kbd></td>
+        <td>Switch to voice channel</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>F11</kbd></td>
+        <td>Disconnect from voice channel</td>
     </tr>
 </table>
 
