@@ -35,10 +35,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Incognito mode
-incognito="false"
-if [ -f "$HOME/.bash_incognito" ]; then
-    incognito=$(cat "$HOME/.bash_incognito")
+# Unknown mode
+unknown="false"
+if [ -f "$HOME/.bash_unknown" ]; then
+    unknown=$(cat "$HOME/.bash_unknown")
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
@@ -69,7 +69,7 @@ parse_git_branch() {
 }
 
 # Prompt
-if [ "$incognito" = "true" ]; then
+if [ "$unknown" = "true" ]; then
     PS1='${debian_chroot:+($debian_chroot)}╭╴\e[3munknown\e[0m@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
 elif [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
@@ -153,21 +153,21 @@ if [ "$TERM" == "xterm-kitty" ]; then
     esac
 fi
 
-# Enable/disable incognito mode
-function toggle_incognito_mode() {
+# Enable/disable unknown mode
+function toggle_unknown_mode() {
     # If the file does not exist, create it as false
-    if [ ! -f "$HOME/.bash_incognito" ]; then
-        echo false > "$HOME/.bash_incognito"
+    if [ ! -f "$HOME/.bash_unknown" ]; then
+        echo false > "$HOME/.bash_unknown"
     fi
 
-    current_state=$(cat "$HOME/.bash_incognito")
+    current_state=$(cat "$HOME/.bash_unknown")
 
     if [ "$current_state" = "true" ]; then
-        echo false > "$HOME/.bash_incognito"
+        echo false > "$HOME/.bash_unknown"
     else
-        echo true > "$HOME/.bash_incognito"
+        echo true > "$HOME/.bash_unknown"
     fi
 
     clear && source ~/.bashrc
 }
-alias incognito=toggle_incognito_mode
+alias unknown=toggle_unknown_mode
