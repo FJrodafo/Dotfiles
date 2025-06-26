@@ -13,6 +13,7 @@ alias inodenpm='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Insta
 alias loading='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Miscellaneous/spinner.sh'
 alias startxuniversaldrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/universal.sh'
 alias startxnvidiadrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/nvidia.sh'
+alias sudoapt='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/APT/update.sh'
 alias updatelinuxkernel='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Kernel/update.sh'
 #  ╔╦╗┬┌─┐┌─┐┌─┐┬─┐┌┬┐
 #   ║║│└─┐│  │ │├┬┘ ││
