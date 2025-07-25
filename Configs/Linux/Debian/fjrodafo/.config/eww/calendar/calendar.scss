@@ -60,11 +60,15 @@
 }
 
 calendar:selected {
-  color: $debian-color;
+  // color: $debian-color;
+  color: $text-color-black;
+  background-color: $text-color-white;
+  border-radius: 7px;
 }
 
 calendar.header {
-  color: $debian-color;
+  // color: $debian-color;
+  color: $text-color-white;
   font-weight: bold;
 }
 
