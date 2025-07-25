@@ -123,13 +123,9 @@ element selected {
     text-color:                  @white;
 }
 element selected.active {
-    background-color:            @urgent;
     text-color:                  @white;
 }
-element active {
-    background-color:            @active;
-    text-color:                  @white;
-}
+element active {}
 element-icon {
     cursor:                      inherit;
     background-color:            @background;
