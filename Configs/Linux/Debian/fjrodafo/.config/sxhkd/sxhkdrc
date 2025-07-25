@@ -102,6 +102,10 @@ super + {_,shift + }a
 # tiled windows
 #
 
+# set the tall bsp-layout once
+super + t
+	bsp-layout once tall
+
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
