@@ -2,6 +2,7 @@
 ;  ║││││  │  │ │ ││├┤
 ;  ╩┘└┘└─┘┴─┘└─┘─┴┘└─┘
 
+(include "./activate-linux/activate-linux.yuck")
 (include "./bar/bar.yuck")
 (include "./bar/workspaces.yuck")
 (include "./calendar/calendar.yuck")

@@ -18,6 +18,7 @@ $bg-button-hover: rgb(70, 70, 70);
 //  ║│││├─┘│ │├┬┘ │
 //  ╩┴ ┴┴  └─┘┴└─ ┴
 
+@import "./activate-linux/activate-linux.scss";
 @import "./bar/bar.scss";
 @import "./calendar/calendar.scss";
 
