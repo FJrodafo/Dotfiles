@@ -6,11 +6,14 @@
 
 # This file launch eww
 launch_eww() {
-    # Check if eww /calendar is active by using 'eww active-windows'
+    # Check if eww calendar or activate-linux is active by using 'eww active-windows'
     local eww_active_windows=$(~/.eww/target/release/eww active-windows)
 
     # Close calendar if it's open
     [[ "$eww_active_windows" == *"calendar"* ]] && ~/.eww/target/release/eww close calendar
+
+    # Close activate-linux if it's open
+    [[ "$eww_active_windows" == *"activate-linux"* ]] && ~/.eww/target/release/eww close activate-linux
 
     # Get a list of monitors and sort them so that the primary monitor is first
     local monitors=$(xrandr -q | grep -w 'connected' | sort -k3n | cut -d' ' -f1)
