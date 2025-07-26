@@ -1,7 +1,7 @@
 ## Index
 
 * [Home](./README.md)
-1. [Distro](#distro)
+1. [Rice Installer](#rice-installer)
 2. [Sudo](#sudo)
 3. [Packages](#packages)
 4. [TTY Configuration](#tty-configuration)
@@ -18,6 +18,8 @@
 15. [Wifi](#wifi)
 16. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
 17. [Open Broadcaster Software](#open-broadcaster-software)
+18. [Animated Wallpaper](#animated-wallpaper)
+19. [bsp-layout](#bsp-layout)
 
 ## Rice Installer
 
@@ -48,7 +50,7 @@ systemctl reboot
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk xorg-dev libx11-dev x11proto-xext-dev libxrender-dev libxext-dev
+sudo apt install -y login passwd sudo openvpn openssh-client git systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk xorg-dev libx11-dev x11proto-xext-dev libxrender-dev libxext-dev bash bspc bc man
 
 sudo apt autoremove
 sudo apt install -f
@@ -360,6 +362,21 @@ xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio
 
 # Kill it!
 pkill -f xwinwrap
+```
+
+## bsp-layout
+
+```sh
+# Installing
+sudo apt install bash bspc bc man
+git clone https://github.com/phenax/bsp-layout.git
+sudo make install
+
+# Run it!
+bsp-layout help
+
+# Kill it!
+sudo make uninstall
 ```
 
 <link rel="stylesheet" href="./README.css">
