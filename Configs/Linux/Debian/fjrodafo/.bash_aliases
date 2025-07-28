@@ -22,7 +22,7 @@ alias discordcrps='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App 
 alias discordcrpscanary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App && npm i && npm run canary'
 alias discordapp='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm start'
 alias discordappcanary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run canary'
-alias discordappshrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run shrikebot'
+alias discordappshrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/ShrikeBot/App && npm i && npm run start'
 #  ╔═╗┌─┐┌─┐
 #  ╠═╣├─┘├─┘
 #  ╩ ╩┴  ┴
