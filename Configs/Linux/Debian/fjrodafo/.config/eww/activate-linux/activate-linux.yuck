@@ -5,7 +5,7 @@
 (defwindow activate-linux
   ; monitor 0 ; Wayland users may need this
   :stacking "fg"
-  :geometry (geometry :x "-40px" :y "-40px" :anchor "bottom right")
+  :geometry (geometry :x "-80px" :y "-45px" :anchor "bottom right")
   (activate-linux-widget)
 )
 
