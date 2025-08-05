@@ -25,7 +25,7 @@ launch_eww() {
     done
 
     # Adjust left padding based on whether the bar is active or not
-    bspc config left_padding $( [[ "$eww_active_windows" == *"bar"* ]] && echo 0 || echo 47 )
+    #bspc config left_padding $( [[ "$eww_active_windows" == *"bar"* ]] && echo 0 || echo 47 )
 }
 
 launch_eww

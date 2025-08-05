@@ -146,11 +146,11 @@
         <td>Toggle focus follows pointer</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>1-4</kbd></td>
+        <td><kbd>Super</kbd> + <kbd>1-5</kbd></td>
         <td>Focus on the given desktop</td>
     </tr>
     <tr>
-        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-4</kbd></td>
+        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-5</kbd></td>
         <td>Send the node to the given desktop</td>
     </tr>
     <tr>

@@ -5,7 +5,7 @@
 (defwindow bar [monitor]
   :monitor monitor
   :wm-ignore false
-  :geometry (geometry :x "0px" :y "0%" :width "47px" :height "100%" :anchor "left center")
+  :geometry (geometry :x "1%" :y "0%" :width "47px" :height "97%" :anchor "left center")
   (bar-layout-widget :monitor monitor)
 )
 
@@ -21,7 +21,7 @@
 (defpoll bar-audio-input-icon-poll :interval "1s" "./scripts/Audio.sh --input-icon")
 (defpoll bar-battery-icon-poll :interval "1s" "./scripts/Battery.sh icon")
 (defpoll bar-battery-tooltip-poll :interval "1s" "./scripts/Battery.sh tooltip")
-; (defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
+(defpoll bar-battery-status-poll :interval "1s" "[ -d /sys/class/power_supply/BAT0 ] && echo true || echo false")
 (defpoll bar-time-poll :interval "1s" :initial `{"hour": 0, "min": 0}` `date +'{"hour":"%H","min":"%M","sec":"%S"}'`)
 
 ;  ╦  ╦┌─┐┬─┐
@@ -65,7 +65,7 @@
 (defwidget bar-logo-widget []
   (eventbox :cursor "x-cursor" :tooltip "Debian"
     (box :orientation "v" :space-evenly false
-      (button :class "bar-logo-debian" :style "background-image: url('./icons/Debian.svg');" :onclick "~/.eww/target/release/eww open --toggle activate-linux")
+      (button :class "bar-logo-debian" :style "background-image: url('./icons/Debian.svg');" :onclick "~/.eww/target/release/eww open --toggle activate-linux" :onrightclick "bash ~/.config/eww/eww.sh")
     )
   )
 )
@@ -79,7 +79,7 @@
     (bar-network-widget)
     (bar-audio-output-widget)
     (bar-audio-input-widget)
-    ; (bar-calendar-widget)
+    (bar-calendar-widget)
     (bar-battery-widget)
   )
 )
@@ -119,17 +119,17 @@
 )
 (defwidget bar-battery-widget []
   (eventbox :cursor "help" :tooltip "${bar-battery-tooltip-poll}"
-    (box :orientation "v" :space-evenly false ; :visible {bar-battery-status-poll}
+    (box :orientation "v" :space-evenly false :visible {bar-battery-status-poll}
       (button :class "bar-control-panel-icons" :style "background-image: url('${bar-battery-icon-poll}');")
     )
   )
 )
 (defwidget bar-time-widget []
-  (eventbox :cursor "alias"
+  (eventbox :cursor "default"
     (box :class "bar-time-box" :orientation "v" :space-evenly false
-      (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Hours" "${bar-time-poll.hour}")
-      (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Minutes" "${bar-time-poll.min}")
-      ; (button :onclick "~/.eww/target/release/eww open --toggle calendar" :tooltip "Seconds" "${bar-time-poll.sec}")
+      (button :tooltip "Hours" "${bar-time-poll.hour}")
+      (button :tooltip "Minutes" "${bar-time-poll.min}")
+      ; (button :tooltip "Seconds" "${bar-time-poll.sec}")
     )
   )
 )
