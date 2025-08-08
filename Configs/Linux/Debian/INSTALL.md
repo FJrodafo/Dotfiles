@@ -20,6 +20,7 @@
 17. [Open Broadcaster Software](#open-broadcaster-software)
 18. [Animated Wallpaper](#animated-wallpaper)
 19. [bsp-layout](#bsp-layout)
+20. [How to extract 7z files](#how-to-extract-7z-files)
 
 ## Rice Installer
 
@@ -377,6 +378,16 @@ bsp-layout help
 
 # Kill it!
 sudo make uninstall
+```
+
+## How to extract 7z files
+
+```sh
+# Install
+sudo apt install p7zip-full
+
+# Then to extract the file
+7za x yourfile.7z
 ```
 
 <link rel="stylesheet" href="./README.css">
