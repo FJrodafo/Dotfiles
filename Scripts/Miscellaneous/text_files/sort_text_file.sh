@@ -10,8 +10,8 @@ fi
 input="$1"
 
 # Check if the file exists
-if [ ! -e "$input" ]; then
-    echo "The file $input does not exist..."
+if [ ! -f "$input" ]; then
+    echo "Error: $input is not a valid file."
     exit 1
 fi
 
