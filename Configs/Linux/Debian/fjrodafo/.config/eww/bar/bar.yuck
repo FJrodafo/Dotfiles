@@ -94,7 +94,9 @@
   (eventbox :cursor "pointer" :onhover "${EWW_CMD} update bar-audio-output-var=true" :onhoverlost "${EWW_CMD} update bar-audio-output-var=false"
     (box :orientation "v" :space-evenly false
       (revealer :reveal bar-audio-output-var :transition "slideup" :duration "550ms"
-        (scale :class "bar-audio-output-scale" :tooltip "Output: ${bar-audio-output-value-poll}%" :orientation "v" :value {bar-audio-output-value-poll ?: "0"} :onchange "amixer set Master {}%" :flipped true :max 101 :min 0)
+        (eventbox :cursor "grab"
+          (scale :class "bar-audio-output-scale" :tooltip "Output: ${bar-audio-output-value-poll}%" :orientation "v" :value {bar-audio-output-value-poll ?: "0"} :onchange "amixer set Master {}%" :flipped true :max 101 :min 0)
+        )
       )
       (button :class "bar-control-panel-icons" :tooltip "Deafen" :style "background-image: url('${bar-audio-output-icon-poll}');" :onclick "./scripts/Audio.sh --toggle-deafen &")
     )
@@ -104,7 +106,9 @@
   (eventbox :cursor "pointer" :onhover "${EWW_CMD} update bar-audio-input-var=true" :onhoverlost "${EWW_CMD} update bar-audio-input-var=false"
     (box :orientation "v" :space-evenly false
       (revealer :reveal bar-audio-input-var :transition "slideup" :duration "550ms"
-        (scale :class "bar-audio-input-scale" :tooltip "Input: ${bar-audio-input-value-poll}%" :orientation "v" :value {bar-audio-input-value-poll ?: "0"} :onchange "amixer set Capture {}%" :flipped true :max 101 :min 0)
+        (eventbox :cursor "grab"
+          (scale :class "bar-audio-input-scale" :tooltip "Input: ${bar-audio-input-value-poll}%" :orientation "v" :value {bar-audio-input-value-poll ?: "0"} :onchange "amixer set Capture {}%" :flipped true :max 101 :min 0)
+        )
       )
       (button :class "bar-control-panel-icons" :tooltip "Mute" :style "background-image: url('${bar-audio-input-icon-poll}');" :onclick "./scripts/Audio.sh --toggle-mute &")
     )
