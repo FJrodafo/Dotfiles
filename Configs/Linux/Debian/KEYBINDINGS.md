@@ -52,6 +52,10 @@
         <td>Alternative audio</td>
     </tr>
     <tr>
+        <td><kbd>Super</kbd> + <kbd>Shift</kbd> + { <kbd>F2</kbd>, <kbd>F3</kbd> }</td>
+        <td>Alternative mic</td>
+    </tr>
+    <tr>
         <td><kbd>Super</kbd> + <kbd>F4</kbd></td>
         <td>Alternative mic</td>
     </tr>
