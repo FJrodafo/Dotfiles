@@ -43,6 +43,10 @@ super + {F1,F2,F3}
 	amixer set Master {toggle,5%-,5%+}
 
 # alternative mic
+super + shift + {F2,F3}
+	amixer set Capture {5%-,5%+}
+
+# alternative mic
 super + F4
 	amixer set Capture toggle
 
