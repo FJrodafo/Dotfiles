@@ -4,7 +4,8 @@
 
 (defwindow bar [monitor]
   :monitor monitor
-  :wm-ignore false
+  :stacking "fg"
+  :wm-ignore true
   :geometry (geometry :x "1%" :y "0%" :width "47px" :height "97%" :anchor "left center")
   (bar-layout-widget :monitor monitor)
 )

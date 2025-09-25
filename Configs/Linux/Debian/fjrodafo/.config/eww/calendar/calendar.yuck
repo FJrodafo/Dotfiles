@@ -3,6 +3,7 @@
 ;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
 (defwindow calendar
+  :stacking "fg"
   :wm-ignore true
   :geometry (geometry :x "0px" :y "0%" :anchor "center center")
   (calendar-layout-widget)

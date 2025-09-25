@@ -3,8 +3,8 @@
 ;  ╚╩╝┴┘└┘─┴┘└─┘└┴┘
 
 (defwindow activate-linux
-  ; monitor 0 ; Wayland users may need this
   :stacking "fg"
+  :wm-ignore true
   :geometry (geometry :x "-80px" :y "-45px" :anchor "bottom right")
   (activate-linux-widget)
 )
@@ -16,6 +16,6 @@
 (defwidget activate-linux-widget []
   (box :orientation "v" :halign "start" :valign "start"
     (label :xalign 0 :markup "<span font_size=\"large\">Activate Linux</span>")
-    (label :xalign 0 :text "Go to Settings to activate Linux")
+    (label :xalign 0 :text "Go to Settings to activate Linux.")
   )
 )

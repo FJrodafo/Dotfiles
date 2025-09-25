@@ -34,6 +34,7 @@ alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
 alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
+alias keww='pkill eww'
 alias interactiveprocessviewer='htop'
 alias music='mpv --shuffle --no-audio-display ~/Music'
 #  ╔╗╔┌─┐┌─┐┌─┐┌─┐┌┬┐┌─┐┬ ┬
