@@ -36,5 +36,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
-feh --bg-fill ~/Pictures/Wallpapers/Uzumaki_-_7680x4320.png # Wallpaper
+feh --bg-fill --randomize ~/Pictures/Wallpapers/Episodes/ # Wallpaper
 bash "${HOME}"/.config/eww/scripts/Workspaces/Generate.sh # EWW
