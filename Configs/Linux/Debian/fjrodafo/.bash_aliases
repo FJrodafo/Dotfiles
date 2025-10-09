@@ -27,6 +27,7 @@ alias discordappshrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/ShrikeBo
 #  ╔═╗┌─┐┌─┐
 #  ╠═╣├─┘├─┘
 #  ╩ ╩┴  ┴
+alias filezilla3='$HOME/.FileZilla3/bin/filezilla'
 alias sqldeveloper='$HOME/sqldeveloper/sqldeveloper.sh'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 #  ╔╦╗┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬
