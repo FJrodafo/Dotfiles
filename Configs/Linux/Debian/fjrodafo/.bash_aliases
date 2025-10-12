@@ -51,10 +51,6 @@ alias neofetchnerd='neofetch --config $HOME/.config/neofetch/nerd/config.conf --
 #  ╚╝┴ ┴ └┘ ┴ ┴
 alias basex='java -jar $HOME/Documents/Estudios/DAW/LND/Tema6/BaseX104.jar'
 alias saxon='java -jar $HOME/Documents/Estudios/DAW/LND/Tema5/saxon-he-11.4/saxon-he-11.4.jar'
-#  ╔╗╔┌─┐┌┬┐┌─┐
-#  ║║║│ │ ││├┤
-#  ╝╚╝└─┘─┴┘└─┘
-alias npkill='npx npkill -s size'
 #  ╦  ╦╔═╗╔╗╔
 #  ╚╗╔╝╠═╝║║║
 #   ╚╝ ╩  ╝╚╝
