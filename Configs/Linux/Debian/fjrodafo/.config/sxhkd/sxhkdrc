@@ -119,8 +119,8 @@ super + ctrl + p
 	bspc config focus_follows_pointer {false,true}
 
 # focus/send the node to the given desktop
-super + {_,shift + }{1-5}
-	bspc {desktop -f,node -d} '^{1-5}'
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # focus/send the node to the given direction
 super + {_,shift + }{Left,Down,Up,Right}

@@ -6,7 +6,7 @@ pgrep -x picom > /dev/null || picom --experimental-backend &
 # Default 1 monitor with 4 workspaces
 for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
     # Layout
-    bspc monitor "$monitor" -d I II III IV V # VI VII VIII IX X
+    bspc monitor "$monitor" -d I II III IV V VI VII VIII IX X
 done
 
 # Two Monitors Setup (Laptop and external monitor, set 4 workspaces on each monitor)
@@ -36,5 +36,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
-feh --bg-fill --randomize ~/Pictures/Wallpapers/Episodes/ # Wallpaper
+feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
 bash "${HOME}"/.config/eww/scripts/Workspaces/Generate.sh # EWW
