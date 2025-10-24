@@ -143,7 +143,7 @@
     (box :class "bar-power-menu-box" :orientation "v" :space-evenly false
       (revealer :reveal bar-power-menu-var :transition "slideup" :duration "550ms"
         (box :orientation "v" :space-evenly false
-          (button :class "bar-power-menu-button-lock" :tooltip "Lock" :style "background-image: url('./icons/Power_Menu/Lock.svg');" :onclick "loginctl kill-session self")
+          (button :class "bar-power-menu-button-lock" :tooltip "Lock" :style "background-image: url('./icons/Power_Menu/Lock.svg');" :onclick "bspc quit")
           (button :class "bar-power-menu-button-suspend" :tooltip "Suspend" :style "background-image: url('./icons/Power_Menu/Suspend.svg');" :onclick "systemctl suspend")
           ; (button :class "bar-power-menu-button-hibernate" :tooltip "Hibernate" :style "background-image: url('./icons/Power_Menu/Hibernate.svg');" :onclick "systemctl hibernate")
           (button :class "bar-power-menu-button-reboot" :tooltip "Reboot" :style "background-image: url('./icons/Power_Menu/Reboot.svg');" :onclick "systemctl reboot")
