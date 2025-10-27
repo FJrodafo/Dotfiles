@@ -106,9 +106,9 @@ super + {_,shift + }a
 # tiled windows
 #
 
-# set the tall bsp-layout once
+# set the tall bsp-layout once with the main window at 75%
 super + t
-	bsp-layout once tall
+	bsp-layout once tall; bspc node @parent -r 0.75
 
 # alternate between the tiled and monocle layout
 super + m
