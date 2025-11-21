@@ -11,6 +11,7 @@ alias dockerdowntodo='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts
 alias ijavajavac='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Installers/install_java_and_javac.sh'
 alias inodenpm='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Installers/install_node_and_npm.sh'
 alias loading='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Miscellaneous/spinner.sh'
+alias nginxsync='sudo $HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Nginx/nginx_sync.sh'
 alias sortcontacts='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Miscellaneous/text_files/sort_text_file.sh $HOME/Documents/Contacts/phone.csv'
 alias sortvehicles='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Miscellaneous/text_files/sort_text_file.sh $HOME/Documents/Vehicles/YouTube.txt'
 alias startxuniversaldrivers='$HOME/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Drivers/universal.sh'
