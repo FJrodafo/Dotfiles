@@ -98,6 +98,7 @@ sudo mkdir "$BACKUP_DIR/var/www"
 sudo cp -a /etc/nginx/mime.types "$BACKUP_DIR/etc/nginx/"
 sudo cp -a /etc/nginx/sites-available/. "$BACKUP_DIR/etc/nginx/sites-available/"
 sudo cp -a /etc/nginx/sites-enabled/. "$BACKUP_DIR/etc/nginx/sites-enabled/"
+sudo cp -a /etc/php/8.2/fpm/php.ini "$BACKUP_DIR/etc/php/8.2/fpm/"
 sudo cp -a /etc/php/8.2/fpm/pool.d/www.conf "$BACKUP_DIR/etc/php/8.2/fpm/pool.d/"
 sudo cp -a /var/www/. "$BACKUP_DIR/var/www/"
 echo "Backup directory at $BACKUP_DIR"
@@ -133,6 +134,13 @@ if [ -d "$PROJECT_PATH/etc/nginx/sites-available/" ]; then
         sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
         echo "Invalid selection. Symlink created for the default site instead."
     fi
+fi
+
+# Export PHP php.ini to production.
+if [ -f "$PROJECT_PATH/etc/php/8.2/fpm/php.ini" ] && [ -f "$PROJECT_PATH/etc/php/8.2/fpm/php.ini" ]; then
+    sudo cp "$PROJECT_PATH/etc/php/8.2/fpm/php.ini" /etc/php/8.2/fpm/php.ini
+else
+    echo "PHP 8.2 is not installed or not active. Check the version using 'php -v'"
 fi
 
 # Export PHP www.conf to production.
