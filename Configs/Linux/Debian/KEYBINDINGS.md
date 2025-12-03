@@ -9,9 +9,11 @@
 2. [Discord](#discord)
     1. [Streamer Mode](#streamer-mode)
     2. [Voice Channel](#voice-channel)
-3. [OBS](#obs)
+3. [MPV-Player](#mpv-player)
+    1. [Controller](#controller)
+4. [OBS](#obs)
     1. [Record a Video](#record-a-video)
-4. [Zathura](#zathura)
+5. [Zathura](#zathura)
     1. [Navigation](#navigation)
     2. [Bookmarks](#bookmarks)
     3. [Manipulation](#manipulation)
@@ -200,6 +202,33 @@
     <tr>
         <td><kbd>Super</kbd> + <kbd>F11</kbd></td>
         <td>Disconnect from voice channel</td>
+    </tr>
+</table>
+
+## MPV Player
+
+#### Controller
+
+<table>
+    <tr>
+        <td><kbd>1/2</kbd></td>
+        <td>Contrast (-/+)</td>
+    </tr>
+    <tr>
+        <td><kbd>3/4</kbd></td>
+        <td>Brightness (-/+)</td>
+    </tr>
+    <tr>
+        <td><kbd>5/6</kbd></td>
+        <td>Gamma (-/+)</td>
+    </tr>
+    <tr>
+        <td><kbd>7/8</kbd></td>
+        <td>Saturation (-/+)</td>
+    </tr>
+    <tr>
+        <td><kbd>9/0</kbd></td>
+        <td>Volume (-/+)</td>
     </tr>
 </table>
 
