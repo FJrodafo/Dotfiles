@@ -8,9 +8,9 @@ if node --version && npm --version; then
 else
     clear && cd ~/Downloads
     # Check the version!
-    tar -xf node-v22.14.0-linux-x64.tar.xz
+    tar -xf node-v24.11.1-linux-x64.tar.xz
     # Check the version!
-    mv node-v22.14.0-linux-x64 ~/.nodejs
+    mv node-v24.11.1-linux-x64 ~/.nodejs
     clear && cd ~
     echo "Nodejs has been successfully installed!"
 fi
