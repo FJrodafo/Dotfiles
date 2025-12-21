@@ -36,5 +36,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
-feh --bg-fill --randomize ~/Pictures/Wallpapers/* # Wallpaper
+feh --bg-fill --randomize ~/Pictures/Wallpapers/Enabled/* # Wallpaper
 bash "${HOME}"/.config/eww/scripts/Workspaces/Generate.sh # EWW
