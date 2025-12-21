@@ -91,12 +91,12 @@ super + alt + @space
 	rofi -config ~/.config/rofi/emoji.rasi -show emoji
 
 # elkowar's wacky widgets
-super + e
-	bash ~/.config/eww/eww.sh
+Scroll_Lock
+	sh -c 'xset q | grep -q "LED mask:.*00000004" && xset -led 3 || xset led 3; bash ~/.config/eww/eww.sh'
 
 # change wallpaper
 super + c
-	feh --bg-fill --randomize ~/Pictures/Wallpapers/
+	feh --bg-fill --randomize ~/Pictures/Wallpapers/Enabled/
 
 # run/kill animated wallpaper
 super + {_,shift + }a
