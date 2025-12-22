@@ -91,6 +91,8 @@ super + alt + @space
 	rofi -config ~/.config/rofi/emoji.rasi -show emoji
 
 # elkowar's wacky widgets
+#super + e
+#	bash ~/.config/eww/eww.sh
 Scroll_Lock
 	sh -c 'xset q | grep -q "LED mask:.*00000004" && xset -led 3 || xset led 3; bash ~/.config/eww/eww.sh'
 
