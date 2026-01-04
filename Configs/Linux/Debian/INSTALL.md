@@ -20,6 +20,7 @@
 17. [Animated Wallpaper](#animated-wallpaper)
 18. [bsp-layout](#bsp-layout)
 19. [How to extract 7z files](#how-to-extract-7z-files)
+20. [AppImage launcher](#appimage-launcher)
 
 ## Sudo
 
@@ -377,6 +378,23 @@ sudo apt install p7zip-full
 
 # Then to extract the file
 7za x yourfile.7z
+```
+
+## AppImage launcher
+
+```sh
+nano ~/.local/share/applications/app.desktop
+```
+
+```desktop
+[Desktop Entry]
+Name=App
+Comment=App.
+Exec=/home/fjrodafo/Downloads/App.AppImage
+Icon=/home/fjrodafo/Downloads/App.png
+Terminal=false
+Type=Application
+Categories=Utility;
 ```
 
 <link rel="stylesheet" href="./README.css">

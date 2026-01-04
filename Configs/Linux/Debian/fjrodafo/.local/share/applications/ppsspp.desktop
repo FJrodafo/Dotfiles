@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=PPSSPP
+Comment=A PSP emulator.
+Exec=/home/fjrodafo/Downloads/PPSSPP-v1.19.3-anylinux-x86_64.AppImage
+Icon=/home/fjrodafo/Downloads/PPSSPP.svg
+Terminal=false
+Type=Application
+Categories=Game;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=MuseScore4
+Comment=The world's most popular notation app.
+Exec=/home/fjrodafo/Downloads/MuseScore4.AppImage
+Icon=/home/fjrodafo/Downloads/MuseScore4.svg
+Terminal=false
+Type=Application
+Categories=AudioVideo;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=DrawIo
+Comment=Security-first diagramming for teams.
+Exec=/home/fjrodafo/Downloads/DrawIo.AppImage
+Icon=/home/fjrodafo/Downloads/DrawIo.svg
+Terminal=false
+Type=Application
+Categories=Graphics;
