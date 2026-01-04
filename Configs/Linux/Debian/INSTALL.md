@@ -24,7 +24,7 @@
 
 ## Sudo
 
-```sh
+```shell
 su
 apt update
 apt install login passwd sudo systemd-sysv
@@ -37,7 +37,7 @@ systemctl reboot
 
 ## Packages
 
-```sh
+```shell
 sudo apt update
 sudo apt upgrade -y
 
@@ -58,7 +58,7 @@ To adjust the font/font-size used for the TTY, run `sudo dpkg-reconfigure consol
 
 ## NVIDIA Drivers
 
-```sh
+```shell
 # Download drivers from NVIDIA website
 chmod +x NVIDIA-Linux-x86_64-550.135.run
 pkill Xorg
@@ -74,7 +74,7 @@ blacklist nouveau
 options nouveau modeset=0
 ```
 
-```sh
+```shell
 sudo update-initramfs -u
 sudo apt install linux-headers-$(uname -r)
 ls /usr/src
@@ -85,7 +85,7 @@ sudo ./NVIDIA-Linux-x86_64-<version>.run
 nvidia-smi
 ```
 
-```sh
+```shell
 # 32Bit Compatibility
 sudo dpkg --add-architecture i386
 sudo apt update
@@ -110,14 +110,14 @@ EndSection
 
 ## Desktop
 
-```sh
+```shell
 touch ~/.xinitrc
 nano ~/.xinitrc
 ```
 
 > .xinitrc
 
-```sh
+```shell
 #!/bin/sh
 
 # Prevent blank screen
@@ -131,14 +131,14 @@ xsetroot -cursor_name left_ptr
 exec bspwm
 ```
 
-```sh
+```shell
 chmod +x ~/.xinitrc
 startx
 ```
 
 ## Audio
 
-```sh
+```shell
 sudo apt update
 sudo apt install pipewire pipewire-jack pipewire-audio
 
@@ -153,7 +153,7 @@ sudo apt install firmware-sof-signed alsa-ucm-conf
 
 ## Mobile Detection
 
-```sh
+```shell
 sudo apt update
 sudo apt install mtp-tools gvfs gvfs-backends gvfs-fuse
 ```
@@ -166,7 +166,7 @@ Run `fc-cache` to update the font cache (add `-v` for verbose output). The above
 
 ## Rofi Emoji Selector
 
-```sh
+```shell
 sudo apt update
 
 # Emoji font
@@ -197,7 +197,7 @@ rofi -show emoji
 
 ## EWW (ElKowar's Wacky Widgets)
 
-```sh
+```shell
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
@@ -220,7 +220,7 @@ chmod +x ./.eww
 
 ## startx Intel Laptop
 
-```sh
+```shell
 su
 cd
 X -configure
@@ -290,7 +290,7 @@ EndSection
 
 ## Laptop Touchpad
 
-```sh
+```shell
 sudo apt update
 sudo apt install xserver-xorg-input-libinput
 sudo nano /etc/X11/xorg.conf.d/40-libinput.conf
@@ -312,7 +312,7 @@ EndSection
 
 ## Wifi
 
-```sh
+```shell
 sudo apt update
 sudo apt install network-manager
 sudo systemctl status NetworkManager
@@ -331,7 +331,7 @@ gfx.webrender.all true
 
 ## Open Broadcaster Software
 
-```sh
+```shell
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
 sudo apt install ffmpeg obs-studio
@@ -339,7 +339,7 @@ sudo apt install ffmpeg obs-studio
 
 ## Animated Wallpaper
 
-```sh
+```shell
 # Installing
 sudo apt install xorg-dev build-essential libx11-dev x11proto-xext-dev libxrender-dev libxext-dev
 git clone https://github.com/ujjwal96/xwinwrap.git
@@ -357,7 +357,7 @@ pkill -f xwinwrap
 
 ## bsp-layout
 
-```sh
+```shell
 # Installing
 sudo apt install bash bspc bc man
 git clone https://github.com/phenax/bsp-layout.git
@@ -372,7 +372,7 @@ sudo make uninstall
 
 ## How to extract 7z files
 
-```sh
+```shell
 # Install
 sudo apt install p7zip-full
 
@@ -382,7 +382,7 @@ sudo apt install p7zip-full
 
 ## AppImage launcher
 
-```sh
+```shell
 nano ~/.local/share/applications/app.desktop
 ```
 
