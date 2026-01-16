@@ -142,6 +142,8 @@ fi
 export PATH=$PATH:$HOME/.nodejs/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.eww/target/release
+export PATH="/home/fjrodafo/.config/herd-lite/bin:$PATH" # Laravel
+export PHP_INI_SCAN_DIR="/home/fjrodafo/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 # Displays a random neofetch line
 if [ "$TERM" == "xterm-kitty" ]; then
