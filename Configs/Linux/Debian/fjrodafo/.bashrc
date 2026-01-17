@@ -35,17 +35,16 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Stealth mode
-stealth="false"
-if [ -f "$HOME/.bash_stealth" ]; then
-    stealth=$(cat "$HOME/.bash_stealth")
+# Load stealth and unknown modes from a single file
+MODES_FILE="$HOME/.bash_modes"
+
+# Create file with default values if it doesn't exist
+if [ ! -f "$MODES_FILE" ]; then
+    echo -e "stealth=false\nunknown=false" > "$MODES_FILE"
 fi
 
-# Unknown mode
-unknown="false"
-if [ -f "$HOME/.bash_unknown" ]; then
-    unknown=$(cat "$HOME/.bash_unknown")
-fi
+# Source the modes
+source "$MODES_FILE"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -167,38 +166,34 @@ if [ "$TERM" == "xterm-kitty" ]; then
     esac
 fi
 
-# Enable/disable stealth mode
+# Toggle stealth mode
 function toggle_stealth_mode() {
-    # If the file does not exist, create it as false
-    if [ ! -f "$HOME/.bash_stealth" ]; then
-        echo false > "$HOME/.bash_stealth"
-    fi
-
-    current_state=$(cat "$HOME/.bash_stealth")
-
-    if [ "$current_state" = "true" ]; then
-        echo false > "$HOME/.bash_stealth"
+    source "$MODES_FILE"
+    
+    if [ "$stealth" = "true" ]; then
+        stealth=false
     else
-        echo true > "$HOME/.bash_stealth"
+        stealth=true
     fi
+
+    # Save updated modes back to the file
+    echo -e "stealth=$stealth\nunknown=$unknown" > "$MODES_FILE"
 
     source ~/.bashrc
 }
 
-# Enable/disable unknown mode
+# Toggle unknown mode
 function toggle_unknown_mode() {
-    # If the file does not exist, create it as false
-    if [ ! -f "$HOME/.bash_unknown" ]; then
-        echo false > "$HOME/.bash_unknown"
-    fi
+    source "$MODES_FILE"
 
-    current_state=$(cat "$HOME/.bash_unknown")
-
-    if [ "$current_state" = "true" ]; then
-        echo false > "$HOME/.bash_unknown"
+    if [ "$unknown" = "true" ]; then
+        unknown=false
     else
-        echo true > "$HOME/.bash_unknown"
+        unknown=true
     fi
+
+    # Save updated modes back to the file
+    echo -e "stealth=$stealth\nunknown=$unknown" > "$MODES_FILE"
 
     source ~/.bashrc
 }
