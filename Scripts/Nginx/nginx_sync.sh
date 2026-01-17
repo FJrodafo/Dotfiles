@@ -5,6 +5,7 @@ SCRIPT_PATH="/home/fjrodafo/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts
 
 # Project selection menu
 PROJECTS=(
+    "/home/fjrodafo/Documents/Dev/FJrodafo/Repositories/Nginx/Master"
     "/home/fjrodafo/Documents/Dev/FJrodafo/Repositories/University/DAW/DPL/Master"
     "/home/fjrodafo/Documents/Dev/FJrodafo/Repositories/University/DAW/DSW/Master"
     "/home/fjrodafo/Documents/Dev/FJrodafo/Repositories/University/Languages/Nginx-PHP/Master"
