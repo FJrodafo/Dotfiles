@@ -35,6 +35,12 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Stealth mode
+stealth="false"
+if [ -f "$HOME/.bash_stealth" ]; then
+    stealth=$(cat "$HOME/.bash_stealth")
+fi
+
 # Unknown mode
 unknown="false"
 if [ -f "$HOME/.bash_unknown" ]; then
@@ -69,14 +75,20 @@ parse_git_branch() {
 }
 
 # Prompt
-if [ "$unknown" = "true" ]; then
-    PS1='${debian_chroot:+($debian_chroot)}╭╴\e[3munknown\e[0m@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
+if [ "$stealth" = "true" ]; then
+    PS1='\W > '
 elif [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
-    # PS1='\W > '
+    if [ "$unknown" = "true" ]; then
+        PS1='${debian_chroot:+($debian_chroot)}╭╴\e[3munknown\e[0m@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
+    else
+        PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
+    fi
 else
-    PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\W]$(parse_git_branch)\n╰─╴\$ '
-    # PS1='\W > '
+    if [ "$unknown" = "true" ]; then
+        PS1='${debian_chroot:+($debian_chroot)}╭╴unknown@\h[\W]($(parse_git_branch))\n╰─╴\$ '
+    else
+        PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\W]($(parse_git_branch))\n╰─╴\$ '
+    fi
 fi
 unset color_prompt force_color_prompt
 
@@ -155,6 +167,24 @@ if [ "$TERM" == "xterm-kitty" ]; then
     esac
 fi
 
+# Enable/disable stealth mode
+function toggle_stealth_mode() {
+    # If the file does not exist, create it as false
+    if [ ! -f "$HOME/.bash_stealth" ]; then
+        echo false > "$HOME/.bash_stealth"
+    fi
+
+    current_state=$(cat "$HOME/.bash_stealth")
+
+    if [ "$current_state" = "true" ]; then
+        echo false > "$HOME/.bash_stealth"
+    else
+        echo true > "$HOME/.bash_stealth"
+    fi
+
+    source ~/.bashrc
+}
+
 # Enable/disable unknown mode
 function toggle_unknown_mode() {
     # If the file does not exist, create it as false
@@ -170,6 +200,8 @@ function toggle_unknown_mode() {
         echo true > "$HOME/.bash_unknown"
     fi
 
-    clear && source ~/.bashrc
+    source ~/.bashrc
 }
-alias unknown=toggle_unknown_mode
+
+alias stealthmode=toggle_stealth_mode
+alias unknownmode=toggle_unknown_mode
