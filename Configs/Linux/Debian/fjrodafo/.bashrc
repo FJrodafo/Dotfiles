@@ -67,26 +67,40 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Colors
+RESET="\[\e[0m\]"
+BLACK="\[\e[30m\]"
+RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
+YELLOW="\[\e[33m\]"
+BLUE="\[\e[34m\]"
+MAGENTA="\[\e[35m\]"
+CYAN="\[\e[36m\]"
+WHITE="\[\e[37m\]"
+BOLD="\[\e[1m\]"
+BOLDBLACK="\[\e[90m\]"
+BOLDRED="\[\e[91m\]"
+BOLDGREEN="\[\e[92m\]"
+BOLDYELLOW="\[\e[93m\]"
+BOLDBLUE="\[\e[94m\]"
+BOLDMAGENTA="\[\e[95m\]"
+BOLDCYAN="\[\e[96m\]"
+BOLDWHITE="\[\e[97m\]"
+
 # Git branch
 parse_git_branch() {
-    # git rev-parse --abbrev-ref HEAD 2> /dev/null
-    git branch 2> /dev/null | grep -q '\*' && git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' || echo '~'
+    git symbolic-ref --short HEAD 2>/dev/null || echo '~'
 }
 
 # Prompt
 if [ "$stealth" = "true" ]; then
-    PS1='\W > '
-elif [ "$color_prompt" = yes ]; then
-    if [ "$unknown" = "true" ]; then
-        PS1='${debian_chroot:+($debian_chroot)}╭╴\e[3munknown\e[0m@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
-    else
-        PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\[\033[01;94m\]\W\[\033[00m\]](\[\033[01;95m\]$(parse_git_branch)\[\033[00m\])\n╰─╴\[\033[01;90m\]$(date +%H:%M)\[\033[00m\]╶╴\[\033[01;93m\]\$\[\033[00m\] '
-    fi
+    PS1="\W > "
 else
-    if [ "$unknown" = "true" ]; then
-        PS1='${debian_chroot:+($debian_chroot)}╭╴unknown@\h[\W]($(parse_git_branch))\n╰─╴\$ '
+    if [ "$unknown" = "true" ]; then userhost="unknown"; else userhost="\u@\h"; fi
+    if [ "$color_prompt" = yes ]; then
+        PS1="╭╴${userhost}[${BOLDBLUE}\W${RESET}](${BOLDMAGENTA}\$(parse_git_branch)${RESET})${debian_chroot:+(${BOLDRED}${debian_chroot}${RESET})}\n╰─╴${BOLDBLACK}\A${RESET}╶╴${BOLDYELLOW}\$${RESET} "
     else
-        PS1='${debian_chroot:+($debian_chroot)}╭╴\u@\h[\W]($(parse_git_branch))\n╰─╴\$ '
+        PS1="╭╴${userhost}[\W](\$(parse_git_branch))${debian_chroot:+(${debian_chroot})}\n╰─╴\A╶╴\$ "
     fi
 fi
 unset color_prompt force_color_prompt
@@ -150,11 +164,12 @@ if ! shopt -oq posix; then
 fi
 
 # PATH
-export PATH=$PATH:$HOME/.nodejs/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/.eww/target/release
-export PATH="/home/fjrodafo/.config/herd-lite/bin:$PATH" # Laravel
-export PHP_INI_SCAN_DIR="/home/fjrodafo/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export PATH="$PATH:$HOME/.nodejs/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.eww/target/release"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/herd-lite/bin:$PATH" # Laravel
+export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 # Displays a random neofetch line
 if [ "$TERM" == "xterm-kitty" ]; then
