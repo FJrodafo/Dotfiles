@@ -32,7 +32,7 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 
 # support
 #XF86Support
-#	qimgv ~/.keybindings
+#	qimgv ~/.keybinds
 
 # calculator
 XF86Calculator
@@ -60,7 +60,7 @@ super + F8
 
 # support
 super + F9
-	qimgv ~/.keybindings
+	qimgv ~/.keybinds
 
 # alternative calculator
 super + F12
