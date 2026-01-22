@@ -1,23 +1,38 @@
 #!/bin/bash
+set -euo pipefail
 
-read -p "Are you sure you want to backup? [Y/n]: " confirmation
+# Configuration
+HOME_DIR="/home/fjrodafo"
+HARD_DRIVE="/media/fjrodafo/TOSHIBA"
+ZIP_PASSWORD="1234"
 
-if [ "$confirmation" != "Y" ]; then
-    echo "Backup cancelled."
+# Colors
+RESET="\e[0m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+
+# Confirmation
+read -r -p "Are you sure you want to backup? [Y/n]: " confirmation
+
+if [[ "$confirmation" != "Y" ]]; then
+    echo -e "${RED}Backup cancelled.${RESET}"
     exit 0
 fi
 
-if [ -e "/media/fjrodafo/TOSHIBA" ]; then
-    # Backup
-    zip -P 1234 -r backup.zip /home/fjrodafo/.backup.sh
-    mv /home/fjrodafo/backup.zip /media/fjrodafo/TOSHIBA
-    # Documents
-    zip -P 1234 -r Documents.zip /home/fjrodafo/Documents
-    mv /home/fjrodafo/Documents.zip /media/fjrodafo/TOSHIBA
-    # Backup done!
-    clear
-    echo "The backup has been successfully completed!"
-else
-    echo "Error: External hard drive is not connected..."
+if [[ ! -e "$HARD_DRIVE" ]]; then
+    echo -e "${RED}Error: External hard drive is not connected.${RESET}"
     exit 1
 fi
+
+cd "$HOME_DIR"
+# backup
+zip -P "$ZIP_PASSWORD" -r backup.zip .backup.sh
+echo -e "${YELLOW}Moving backup.zip${RESET}"
+mv backup.zip "$HARD_DRIVE"
+# Documents
+zip -P "$ZIP_PASSWORD" -r Documents.zip Documents
+echo -e "${YELLOW}Moving Documents.zip${RESET}"
+mv Documents.zip "$HARD_DRIVE"
+# Done!
+echo -e "${GREEN}The backup has been successfully completed!${RESET}"
