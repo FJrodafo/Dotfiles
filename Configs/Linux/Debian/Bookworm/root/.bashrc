@@ -11,14 +11,14 @@ MAGENTA="\[\e[35m\]"
 CYAN="\[\e[36m\]"
 WHITE="\[\e[37m\]"
 BOLD="\[\e[1m\]"
-BOLDBLACK="\[\e[90m\]"
-BOLDRED="\[\e[91m\]"
-BOLDGREEN="\[\e[92m\]"
-BOLDYELLOW="\[\e[93m\]"
-BOLDBLUE="\[\e[94m\]"
-BOLDMAGENTA="\[\e[95m\]"
-BOLDCYAN="\[\e[96m\]"
-BOLDWHITE="\[\e[97m\]"
+BRIGHTBLACK="\[\e[90m\]"
+BRIGHTRED="\[\e[91m\]"
+BRIGHTGREEN="\[\e[92m\]"
+BRIGHTYELLOW="\[\e[93m\]"
+BRIGHTBLUE="\[\e[94m\]"
+BRIGHTMAGENTA="\[\e[95m\]"
+BRIGHTCYAN="\[\e[96m\]"
+BRIGHTWHITE="\[\e[97m\]"
 
 # Git branch
 parse_git_branch() {
@@ -27,7 +27,7 @@ parse_git_branch() {
 
 # Note: PS1 and umask are already set in /etc/profile. You should not
 # need this unless you want different defaults for root.
-PS1="╭╴${BOLD}\u${RESET}@\H[${BOLDBLUE}\W${RESET}](${BOLDMAGENTA}\$(parse_git_branch)${RESET})\n╰─╴${BOLDBLACK}\A${RESET}╶╴${BOLDYELLOW}#${RESET} "
+PS1="╭╴${BOLD}\u${RESET}@\H[${BRIGHTBLUE}\W${RESET}](${BRIGHTMAGENTA}\$(parse_git_branch)${RESET})\n╰─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}#${RESET} "
 # umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:

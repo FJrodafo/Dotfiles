@@ -78,14 +78,14 @@ MAGENTA="\[\e[35m\]"
 CYAN="\[\e[36m\]"
 WHITE="\[\e[37m\]"
 BOLD="\[\e[1m\]"
-BOLDBLACK="\[\e[90m\]"
-BOLDRED="\[\e[91m\]"
-BOLDGREEN="\[\e[92m\]"
-BOLDYELLOW="\[\e[93m\]"
-BOLDBLUE="\[\e[94m\]"
-BOLDMAGENTA="\[\e[95m\]"
-BOLDCYAN="\[\e[96m\]"
-BOLDWHITE="\[\e[97m\]"
+BRIGHTBLACK="\[\e[90m\]"
+BRIGHTRED="\[\e[91m\]"
+BRIGHTGREEN="\[\e[92m\]"
+BRIGHTYELLOW="\[\e[93m\]"
+BRIGHTBLUE="\[\e[94m\]"
+BRIGHTMAGENTA="\[\e[95m\]"
+BRIGHTCYAN="\[\e[96m\]"
+BRIGHTWHITE="\[\e[97m\]"
 
 # Git branch
 parse_git_branch() {
@@ -98,7 +98,7 @@ if [ "$stealth" = "true" ]; then
 else
     if [ "$unknown" = "true" ]; then userhost="unknown"; else userhost="\u@\h"; fi
     if [ "$color_prompt" = yes ]; then
-        PS1="╭╴${userhost}[${BOLDBLUE}\W${RESET}](${BOLDMAGENTA}\$(parse_git_branch)${RESET})${debian_chroot:+(${BOLDRED}${debian_chroot}${RESET})}\n╰─╴${BOLDBLACK}\A${RESET}╶╴${BOLDYELLOW}\$${RESET} "
+        PS1="╭╴${userhost}[${BRIGHTBLUE}\W${RESET}](${BRIGHTMAGENTA}\$(parse_git_branch)${RESET})${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n╰─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
     else
         PS1="╭╴${userhost}[\W](\$(parse_git_branch))${debian_chroot:+(${debian_chroot})}\n╰─╴\A╶╴\$ "
     fi
