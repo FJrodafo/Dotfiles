@@ -29,6 +29,7 @@
 18. [bsp-layout](#bsp-layout)
 19. [How to extract 7z files](#how-to-extract-7z-files)
 20. [AppImage launcher](#appimage-launcher)
+21. [chroot](#chroot)
 
 ## Sudo
 
@@ -49,7 +50,7 @@ systemctl reboot
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install -y login passwd sudo openvpn openssh-client git nginx php-fpm systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk xorg-dev libx11-dev x11proto-xext-dev libxrender-dev libxext-dev bash bspc bc man
+sudo apt install -y login passwd sudo openvpn openssh-client git nginx php-fpm systemd-sysv build-essential nano curl zip pkg-config libglvnd-dev xorg xserver-xorg-input-libinput xinit bspwm sxhkd picom feh maim gimp vlc mpv cava pipewire pipewire-jack pipewire-audio firmware-sof-signed alsa-ucm-conf alsa-utils brightnessctl qimgv zathura thunar mtp-tools gvfs gvfs-backends gvfs-fuse fonts-noto-color-emoji rofi rofi-dev autoconf automake libtool-bin libtool xsel xclip copyq xdotool libcairo2-dev libatk1.0-dev libgdk-pixbuf2.0-dev librust-gdk+v3-24-dev libdbusmenu-glib-dev libdbusmenu-gtk3-dev network-manager bluez firefox-esr neofetch kitty libreoffice lxappearance arc-theme papirus-icon-theme qalculate-gtk xorg-dev libx11-dev x11proto-xext-dev libxrender-dev libxext-dev bash bspc bc man debootstrap schroot
 
 sudo apt autoremove
 sudo apt install -f
@@ -403,4 +404,46 @@ Icon=/home/fjrodafo/Downloads/App.png
 Terminal=false
 Type=Application
 Categories=Utility;
+```
+
+## chroot
+
+```shell
+# Install
+sudo apt install debootstrap schroot
+
+# Create dir
+sudo mkdir -p /srv/chroots/bookworm
+
+# Download & install the system
+sudo debootstrap --arch=amd64 bookworm /srv/chroots/bookworm http://deb.debian.org/debian/
+
+# Tag the system
+echo "bookworm" | sudo tee /srv/chroots/bookworm/etc/debian_chroot
+
+# schroot config
+sudo tee /etc/schroot/chroot.d/bookworm.conf > /dev/null <<EOL
+[bookworm]
+description=Debian Bookworm
+directory=/srv/chroots/bookworm
+users=root
+root-users=root
+type=directory
+setup.fstab=
+EOL
+
+# Copy .bashrc from root to chroot
+sudo cp /root/.bashrc /srv/chroots/bookworm/root/.bashrc
+
+# Log in chroot bookworm as root
+sudo schroot -c bookworm --directory=/root
+
+# Exit chroot bookworm
+exit
+
+# Delete chroot bookworm
+sudo rm -rf /srv/chroots/bookworm
+
+# List available chroots
+schroot -l
 ```
