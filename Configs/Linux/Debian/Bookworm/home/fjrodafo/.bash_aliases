@@ -36,6 +36,7 @@ alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 #  ╔╦╗┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬
 #   ║ ├┤ ├┬┘│││││││├─┤│
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
+alias clean='clear && source ~/.bashrc'
 alias audiovisualizer='cava -p ~/.config/cava/config'
 alias damnit='sudo $(history -p !!)'
 alias keww='pkill eww'
