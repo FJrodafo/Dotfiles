@@ -27,7 +27,7 @@ parse_git_branch() {
 
 # Note: PS1 and umask are already set in /etc/profile. You should not
 # need this unless you want different defaults for root.
-PS1="╭╴${BOLD}\u${RESET}@\H[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}\n╰─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}#${RESET} "
+PS1="╭╴${BOLD}\u${RESET}@\H[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n╰─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}#${RESET} "
 # umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:
