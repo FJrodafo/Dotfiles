@@ -35,6 +35,7 @@ apt install xinit xserver-xorg xorg
 apt install bspwm sxhkd
 apt install openvpn openssh-client git nano curl tar zip unzip
 apt install feh maim alsa-utils picom
+apt install lxappearance arc-theme papirus-icon-theme fonts-noto-color-emoji
 apt install qimgv mpv kitty rofi firefox-esr thunar zathura libreoffice qalculate-gtk
 
 export PATH="$PATH:/usr/sbin"
@@ -158,11 +159,13 @@ sudo apt update
 sudo apt install mtp-tools gvfs gvfs-backends gvfs-fuse
 ```
 
-## Fonts
+## Fonts + Cursors
 
 Install a font manually by downloading the appropriate .ttf or otf files and placing them into `/usr/local/share/fonts` (system-wide), `~/.local/share/fonts` (user-specific) or `~/.fonts` (user-specific). These files should have the permission 644 (-rw-r--r--), otherwise they may not be usable.
 
 Run `fc-cache` to update the font cache (add `-v` for verbose output). The above mentioned paths can be customized in the fontconfig configuration file at `/etc/fonts/fonts.conf` – you can also include subdirectories or links, which is useful if you have a directory of fonts on a separate hard drive (or partition or other location).
+
+To install cursors just unzip your cursors into `~/.icons`
 
 ## How to fix choppy YouTube video playback? Enable WebRender
 
@@ -171,4 +174,34 @@ When streaming videos on YouTube using `firefox-esr` and `firefox`, the video pl
 ```
 about:config
 gfx.webrender.all true
+```
+
+## AppImage launcher
+
+```shell
+sudo apt update
+sudo apt install libfuse2t64
+```
+
+> ~/.local/share/applications/app.desktop
+
+```desktop
+[Desktop Entry]
+Name=App
+Comment=App.
+Exec=/home/fjrodafo/Downloads/App.AppImage
+Icon=/home/fjrodafo/Downloads/App.png
+Terminal=false
+Type=Application
+Categories=Utility;
+```
+
+## Hide rofi from rofi ?
+
+Add `NoDisplay=true` to the following files:
+
+```shell
+cp /usr/share/applications/rofi*.desktop ~/.local/share/applications/
+nano ~/.local/share/applications/rofi.desktop 
+nano ~/.local/share/applications/rofi-theme-selector.desktop
 ```

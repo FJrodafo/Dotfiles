@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Inkscape
+Comment=Draw Freely.
+Exec=/home/fjrodafo/Downloads/Inkscape/Inkscape.AppImage
+Icon=/home/fjrodafo/Downloads/Inkscape/Inkscape.svg
+Terminal=false
+Type=Application
+Categories=Graphics;

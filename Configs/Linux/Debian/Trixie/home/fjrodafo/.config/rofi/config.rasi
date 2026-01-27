@@ -1,0 +1,16 @@
+/********** General Configuration **********/
+configuration {
+    modi: "window,run,drun";
+
+    display-window: "Win";
+    display-run: "Run";
+    display-drun: "App";
+
+    show-icons: true;
+    icon-theme: "Papirus";
+
+    font: "Hack Nerd Font Mono 10";
+}
+
+/* @theme "/dev/null" */
+@theme "~/.config/rofi/minimal.rasi"

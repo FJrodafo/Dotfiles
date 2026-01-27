@@ -1,0 +1,94 @@
+#
+# wm independent hotkeys
+#
+
+# restart bspwm
+super + r
+	bspc wm -r
+
+# make sxhkd reload its configuration files
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# special keys
+#
+
+# audio
+super + {F1,F2,F3}
+	amixer set Master {toggle,5%-,5%+}
+
+# mic
+super + shift + {F2,F3}
+	amixer set Capture {5%-,5%+}
+
+# mic
+super + F4
+	amixer set Capture toggle
+
+# screenshots
+super + F12
+	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
+
+#
+# apps
+#
+
+# terminal emulator
+super + Return
+	kitty
+
+# close/kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# open windows
+super + Tab
+	rofi -show window
+
+# application/program launcher
+super + {_,shift + }@space
+	rofi -show {drun,run}
+
+# change wallpaper
+super + c
+	feh --bg-fill --randomize ~/Pictures/Wallpapers/Enabled/
+
+#
+# tiled windows
+#
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# toggle focus follows pointer
+super + ctrl + p
+	bspc config focus_follows_pointer {false,true}
+
+# focus/send the node to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# focus/send the node to the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# opens the next window to the given direction
+super + alt + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# smart resize, will grow or shrink depending on location
+# will always grow for floating nodes
+super + ctrl + {Left,Down,Up,Right}
+  n=10; \
+  { d1=left;   d2=right;  dx=-$n; dy=0;   \
+  , d1=bottom; d2=top;    dx=0;   dy=$n;  \
+  , d1=top;    d2=bottom; dx=0;   dy=-$n; \
+  , d1=right;  d2=left;   dx=$n;  dy=0;   \
+  } \
+  bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
+
+# dynamic gap size
+super + ctrl + {Prior,Next}
+	bspc config -d focused window_gap "$(($(bspc config -d focused window_gap) {-,+} 10))"

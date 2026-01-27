@@ -1,0 +1,141 @@
+/********** Import **********/
+@import "./colors.rasi"
+
+/********** Main Window **********/
+window {
+    enabled:                     true;
+    cursor:                      default;
+    background-color:            @background;
+    border-radius:               7px;
+}
+
+/********** Main Box **********/
+mainbox {
+    enabled:                     true;
+    background-color:            @background;
+    spacing:                     0;
+    orientation:                 vertical;
+    children:                    [inputbar, listbox];
+}
+
+/********** Inputbar **********/
+inputbar {
+    enabled:                     false;
+    background-color:            @background;
+    text-color:                  @white;
+    border-color:                @white;
+    border:                      1px 1px 0px 1px solid;
+    spacing:                     0;
+    orientation:                 horizontal;
+    children:                    [prompt, entry];
+}
+prompt {
+    enabled:                     true;
+    expand:                      false;
+    background-color:            @black-alt;
+    text-color:                  inherit;
+    padding:                     12 0 0 12;
+}
+entry {
+    enabled:                     true;
+    expand:                      true;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           @white-alt;
+    background-color:            @black-alt;
+    text-color:                  inherit;
+    padding:                     12;
+}
+
+/********** List Box **********/
+listbox {
+    enabled:                     true;
+    background-color:            @background;
+    orientation:                 vertical;
+    children:                    [listview, mode-switcher, message];
+}
+
+/********** List View **********/
+listview {
+    enabled:                     true;
+    columns:                     5;
+    lines:                       7;
+    cycle:                       true;
+    dynamic:                     true;
+    reverse:                     false;
+    scrollbar:                   false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    layout:                      vertical;
+    cursor:                      default;
+    background-color:            @black-alt;
+    spacing:                     12px;
+    padding:                     12px;
+}
+
+/********** Mode Switcher **********/
+mode-switcher{
+    enabled:                     false;
+    cursor:                      default;
+    background-color:            @white;
+    border-color:                @white;
+    border:                      1px 0px 0px 0px solid;
+    margin:                      -2px 0px 0px 0px;
+    padding:                     2px;
+}
+
+/********** Message **********/
+message {
+    background-color: @background;
+}
+textbox {
+    background-color:            @black-alt;
+    text-color:                  @white;
+    border-radius:               0px;
+    border-color:                @white;
+    border:                      1px solid;
+    padding:                     12px;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    background-color:            @black-alt;
+    text-color:                  @white;
+    border-radius:               0px;
+    border-color:                @white;
+    border:                      1px solid;
+    padding:                     12px;
+}
+
+/********* Elements **********/
+element {
+    enabled:                     true;
+    cursor:                      pointer;
+    background-color:            @background;
+    text-color:                  @white-alt;
+    border-radius:               8px;
+    spacing:                     12;
+    padding:                     12;
+}
+/* Fancy elements */
+element selected {
+    background-color:            @background;
+    text-color:                  @white;
+}
+element selected.active {
+    text-color:                  @white;
+}
+element active {}
+element-icon {
+    cursor:                      inherit;
+    background-color:            @background;
+    text-color:                  inherit;
+    size:                        29;
+}
+element-text {
+    cursor:                      inherit;
+    background-color:            @background;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}

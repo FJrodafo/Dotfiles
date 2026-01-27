@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=LMMS
+Comment=Let's make music with a free, cross-platform tool for your computer.
+Exec=/home/fjrodafo/Downloads/LMMS/LMMS.AppImage
+Icon=/home/fjrodafo/Downloads/LMMS/LMMS.svg
+Terminal=false
+Type=Application
+Categories=AudioVideo;

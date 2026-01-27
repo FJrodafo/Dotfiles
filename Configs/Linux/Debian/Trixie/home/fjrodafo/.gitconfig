@@ -1,0 +1,21 @@
+[user]
+	name = Francisco José Rodríguez Afonso
+	email = FJrodafo@gmail.com
+[core]
+	editor = code --wait
+	autocrlf = input
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	lg = log --oneline --graph --all --decorate
+	pt = log --pretty=format:'%h %an %ae'
+[color]
+	ui = auto
+[push]
+	default = simple
+# [commit]
+# 	gpgsign = true
+[credential]
+	helper = cache
