@@ -11,25 +11,26 @@
 
 1. [Sudo](#sudo)
 2. [Packages](#packages)
-3. [TTY Configuration](#tty-configuration)
-4. [NVIDIA Drivers](#nvidia-drivers)
-5. [Avoid Screen Tearing](#avoid-screen-tearing)
-6. [Desktop](#desktop)
-7. [Audio](#audio)
-8. [Mobile Detection](#mobile-detection)
-9. [Fonts](#fonts)
-10. [Rofi Emoji Selector](#rofi-emoji-selector)
-11. [EWW (ElKowar's Wacky Widgets)](#eww-elkowars-wacky-widgets)
-12. [startx Intel Laptop](#startx-intel-laptop)
-13. [Laptop Touchpad](#laptop-touchpad)
-14. [Wifi](#wifi)
-15. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
-16. [Open Broadcaster Software](#open-broadcaster-software)
-17. [Animated Wallpaper](#animated-wallpaper)
-18. [bsp-layout](#bsp-layout)
-19. [How to extract 7z files](#how-to-extract-7z-files)
-20. [AppImage launcher](#appimage-launcher)
-21. [chroot](#chroot)
+3. [Portable Linux](#portable-linux)
+4. [TTY Configuration](#tty-configuration)
+5. [NVIDIA Drivers](#nvidia-drivers)
+6. [Avoid Screen Tearing](#avoid-screen-tearing)
+7. [Desktop](#desktop)
+8. [Audio](#audio)
+9. [Mobile Detection](#mobile-detection)
+10. [Fonts](#fonts)
+11. [Rofi Emoji Selector](#rofi-emoji-selector)
+12. [EWW (ElKowar's Wacky Widgets)](#eww-elkowars-wacky-widgets)
+13. [startx Intel Laptop](#startx-intel-laptop)
+14. [Laptop Touchpad](#laptop-touchpad)
+15. [Wifi](#wifi)
+16. [How to fix choppy YouTube video playback? Enable WebRender](#how-to-fix-choppy-youtube-video-playback-enable-webrender)
+17. [Open Broadcaster Software](#open-broadcaster-software)
+18. [Animated Wallpaper](#animated-wallpaper)
+19. [bsp-layout](#bsp-layout)
+20. [How to extract 7z files](#how-to-extract-7z-files)
+21. [AppImage launcher](#appimage-launcher)
+22. [chroot](#chroot)
 
 ## Sudo
 
@@ -54,6 +55,12 @@ sudo apt install -y login passwd sudo openvpn openssh-client git nginx php-fpm s
 
 sudo apt autoremove
 sudo apt install -f
+```
+
+## Portable Linux
+
+```shell
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --recheck --removable
 ```
 
 ## TTY Configuration
