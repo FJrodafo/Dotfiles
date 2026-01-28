@@ -36,7 +36,7 @@ apt install bspwm sxhkd
 apt install openvpn openssh-client git nano curl tar zip unzip
 apt install feh maim alsa-utils picom
 apt install lxappearance arc-theme papirus-icon-theme fonts-noto-color-emoji
-apt install qimgv mpv kitty rofi firefox-esr thunar zathura libreoffice qalculate-gtk
+apt install qimgv mpv kitty rofi firefox-esr thunar zathura libreoffice
 
 export PATH="$PATH:/usr/sbin"
 usermod -aG sudo fjrodafo
@@ -202,6 +202,13 @@ Add `NoDisplay=true` to the following files:
 
 ```shell
 cp /usr/share/applications/rofi*.desktop ~/.local/share/applications/
-nano ~/.local/share/applications/rofi.desktop 
+nano ~/.local/share/applications/rofi.desktop
 nano ~/.local/share/applications/rofi-theme-selector.desktop
+```
+
+```shell
+cp /usr/share/applications/debian-uxterm.desktop ~/.local/share/applications/
+cp /usr/share/applications/debian-xterm.desktop ~/.local/share/applications/
+nano ~/.local/share/applications/debian-uxterm.desktop
+nano ~/.local/share/applications/debian-xterm.desktop
 ```
