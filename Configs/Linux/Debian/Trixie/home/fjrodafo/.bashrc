@@ -99,10 +99,10 @@ else
     if [ "$unknown" = "true" ]; then userhost="unknown"; else userhost="\u@\h"; fi
     if [ "$color_prompt" = yes ]; then
         #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-        PS1="╭╴${userhost}[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n╰─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
+        PS1="┌╴${userhost}[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n└─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
     else
         #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-        PS1="╭╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n╰─╴\A╶╴\$ "
+        PS1="┌╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n└─╴\A╶╴\$ "
     fi
 fi
 unset color_prompt force_color_prompt
@@ -168,10 +168,10 @@ fi
 # Displays a random neofetch line
 if [ "$TERM" == "xterm-kitty" ]; then
     case $((RANDOM % 4)) in
-        0) neofetchbunny ;;
-        1) neofetchdebian ;;
-        2) neofetchminimal ;;
-        3) neofetchnerd ;;
+        0) neofetch-bunny ;;
+        1) neofetch-debian ;;
+        2) neofetch-minimal ;;
+        3) neofetch-nerd ;;
     esac
 fi
 
