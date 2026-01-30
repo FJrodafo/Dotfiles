@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=GIMP
+Comment=GNU Image Manipulation Program.
+Exec=/home/fjrodafo/Downloads/Applications/GIMP/GIMP.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/GIMP/GIMP.svg
+Terminal=false
+Type=Application
+Categories=Graphics;
