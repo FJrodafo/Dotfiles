@@ -2,7 +2,7 @@
 
 # Verify that at least one parameter was passed
 if [ $# -lt 1 ]; then
-    echo "Use: $0 <file_path>"
+    echo "Use: $0 /path/to/file.txt"
     exit 1
 fi
 

@@ -1,8 +1,7 @@
 #!/bin/bash
+set -euo pipefail
 
 # Script inspired by https://www.lipsum.com/
-
-set -euo pipefail
 
 WORDS=(
     lorem ipsum dolor sit amet consectetur adipiscing elit etiam a auctor est

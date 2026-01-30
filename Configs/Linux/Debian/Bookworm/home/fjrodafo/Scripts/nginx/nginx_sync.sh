@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to export Nginx files and configurations from the current working directory (local) to production!
-SCRIPT_PATH="/home/fjrodafo/Documents/Dev/FJrodafo/Repositories/Dotfiles/Scripts/Nginx"
+SCRIPT_PATH="/home/fjrodafo/Scripts/nginx"
 
 # Project selection menu
 PROJECTS=(
