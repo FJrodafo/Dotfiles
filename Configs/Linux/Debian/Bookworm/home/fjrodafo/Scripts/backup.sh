@@ -4,7 +4,7 @@ set -euo pipefail
 # Configuration
 HOME_DIR="/home/fjrodafo"
 HARD_DRIVE="/media/fjrodafo/TOSHIBA"
-ZIP_PASSWORD="0000"
+ZIP_PASSWORD="****"
 
 # Colors
 RESET="\e[0m"
