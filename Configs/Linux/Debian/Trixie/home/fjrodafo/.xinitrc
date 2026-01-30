@@ -4,7 +4,7 @@
 xsetroot -cursor_name left_ptr
 
 # Keyboard layout
-setxkbmap -layout us,es -option grp:toggle
+setxkbmap -layout us -option
 
 # Start the desktop
 exec bspwm

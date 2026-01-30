@@ -50,9 +50,9 @@ super + Tab
 super + {_,shift + }@space
 	rofi -show {drun,run}
 
-# toggle keyboard layouts
+# keyboard layout
 super + ctrl + space
-	sh -c 'setxkbmap -query | grep -o "us,es" && setxkbmap -layout es,us || setxkbmap -layout us,es'
+	sh -c 'setxkbmap -query | grep -o "us" && setxkbmap -layout es -option || setxkbmap -layout us -option'
 
 # change wallpaper
 super + c
