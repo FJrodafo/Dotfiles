@@ -14,15 +14,15 @@ super + Escape
 # special keys
 #
 
-# audio
+# audio output
 super + {F1,F2,F3}
 	amixer set Master {toggle,5%-,5%+}
 
-# mic
+# audio input
 super + shift + {F2,F3}
 	amixer set Capture {5%-,5%+}
 
-# mic
+# audio input
 super + F4
 	amixer set Capture toggle
 
@@ -74,7 +74,7 @@ super + ctrl + p
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# focus/send the node to the given direction
+# move focus/focused window the node to the given direction
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
