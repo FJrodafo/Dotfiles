@@ -50,6 +50,10 @@ super + Tab
 super + {_,shift + }@space
 	rofi -show {drun,run}
 
+# toggle keyboard layouts
+super + ctrl + space
+	sh -c 'setxkbmap -query | grep -o "us,es" && setxkbmap -layout es,us || setxkbmap -layout us,es'
+
 # change wallpaper
 super + c
 	feh --bg-fill --randomize ~/Pictures/Wallpapers/Enabled/
