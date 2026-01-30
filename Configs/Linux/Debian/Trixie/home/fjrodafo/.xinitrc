@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Change cursor
+# Set the default cursor
 xsetroot -cursor_name left_ptr
 
-# Keyboard layout
+# Set the keyboard layout
 setxkbmap -layout us -option
 
-# Start the desktop
+# Start the desktop environment
 exec bspwm

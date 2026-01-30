@@ -9,42 +9,132 @@
 
 ## Index
 
-1. [Install](#install)
+1. [Installation Process](#installation-process)
+2. [sudo + Packages](#sudo--packages)
+3. [bspwm + sxhkd](#bspwm--sxhkd)
+4. [vscode + NVIDIA Drivers](#vscode--nvidia-drivers)
+5. [User Directories Configuration](#user-directories-configuration)
+6. [Mobile Device Detection](#mobile-device-detection)
+7. [Fonts and Cursor Themes](#fonts-and-cursor-themes)
+8. [Audio Setup](#audio-setup)
+9. [AppImage Launcher](#appimage-launcher)
+10. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
 
-## Install
+## Installation Process
 
-2026/01/26
-USB Flash from Windows
-balenaEtcher-2.1.4.Setup.exe
-debian-13.3.0-amd64-netinst.iso
-16GB USB v285w
+- **Date:** 26/01/2026
+- **Operating System (host):** Windows 11
+- **Tool:** Balena Etcher
+  - File: `balenaEtcher-2.1.4.Setup.exe`
+- **Image:** Debian
+  - File: `debian-13.3.0-amd64-netinst.iso`
+- **USB Flash Drive:**
+  - Model: HP v285w
+  - Capacity: 16 GB
 
-## sudo + packages
+Once the ISO file is flashed on the USB drive, boot it on a PC without an NVIDIA graphics card.
 
-USB booted into Laptop (any PC without an Nvidia graphics card)
-Boot into Debian
-Log in with your username and password
+- **Select a language:** English - English
+- **Select your location**
+    - **Country, territory or area:** other
+    - **Continent or region:** Europe
+    - **Country, territory or area:** Spain
+- **Configure locales:** United States - en_US.UTF-8
+- **Configure the keyboard:** American English
+- **Configure the network**
+    - **Hostname:** linux
+    - **Domain name:** home
+- **Set up users and passwords**
+    - **Root password:** ****
+    - **Full name for the new user:** Francisco Jose Rodriguez Afonso
+    - **Username for your account:** fjrodafo
+    - **Choose a password for the new user:** ****
+- **Configure the clock:** Canary Islands
+- **Partition disks**
+    - **Partitioning method:** Guided - use entire disk
+    - **Select disk to partition:** SCI1 (0,0,0) (sda) - 960.2 GB ATA KINGSTON SA400S3
+    - **Partitioning scheme:** All files in one partition (recommended for new users)
+    ```
+            1.0 MB       FREE SPACE
+    #1      1.0 GB    f  ESP
+    #2    933.5 GB    f  ext4          /
+    #3     25.7 GB    f  swap          swap
+          335.4 KB       FREE SPACE
+    ```
+- **Configure the package manager**
+    - **Debian archive mirror country:** Spain
+    - **Debian archive mirror:** deb.debian.org
+    - **HTTP proxy information (blank for none):** 
+- **Software selection**
+    - **Choose software to install:**
+        ```
+        [ ] Debian desktop environment
+        [ ] ... GNOME
+        [ ] ... Xfce
+        [ ] ... GNOME Flaskback
+        [ ] ... KDE Plasma
+        [ ] ... Cinnamon
+        [ ] ... MATE
+        [ ] ... LXDE
+        [ ] ... LXQT
+        [ ] web server
+        [ ] ssh server
+        [*] standard system utilities
+        [ ] Choose a Debian Blend for installation
+        ```
+- **Finish the installation**
+
+## sudo + Packages
+
+After completing the Debian installation, boot into the system and log in using your new user account.
+
+Switch to the root user and update the package lists:
 
 ```shell
 su
 apt update
+```
 
-# Packages
+Install the packages from the official apt repository:
+
+```shell
+# Core System and Privilege Management
 apt install sudo network-manager
+# X11 Display Server and Initialization
 apt install xinit xserver-xorg xorg
+# Window Manager and Hotkeys
 apt install bspwm sxhkd
-apt install openvpn openssh-client git nano curl tar zip unzip
-apt install feh maim alsa-utils picom
+# Networking and Remote Access
+apt install openvpn openssh-client
+# Development and Command-Line Utilities
+apt install git nano curl tar zip unzip
+# Multimedia, Audio, and Screenshots
+apt install mpv alsa-utils feh maim
+# Compositor
+apt install picom
+# Appearance and Theming
 apt install lxappearance arc-theme papirus-icon-theme fonts-noto-color-emoji
-apt install qimgv mpv kitty rofi firefox-esr thunar zathura libreoffice
+# Desktop Applications
+apt install kitty rofi firefox-esr thunar zathura qimgv libreoffice
+```
 
+Ensure `/usr/sbin` is included in the `PATH` and add the user to the `sudo` group:
+
+```shell
 export PATH="$PATH:/usr/sbin"
 usermod -aG sudo fjrodafo
+```
+
+Exit the root session and log out to apply group changes:
+
+```shell
 exit
 logout
 ```
 
 ## bspwm + sxhkd
+
+Create the required configuration directories and copy the default example files:
 
 ```shell
 mkdir -p ~/.config/bspwm ~/.config/sxhkd
@@ -53,47 +143,69 @@ cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/
 chmod +x ~/.config/bspwm/bspwmrc
 ```
 
+Create the `~/.xinitrc` file to start `bspwm` when launching X:
+
 ```shell
 cat <<EOF > ~/.xinitrc
 #!/bin/sh
 
-# Prevent blank screen
-xset s off
-xset -dpms
+# Set the default cursor
+xsetroot -cursor_name left_ptr
 
-# Start the desktop
+# Set the keyboard layout
+setxkbmap -layout us -option
+
+# Start the desktop environment
 exec bspwm
 EOF
 chmod +x ~/.xinitrc
 ```
 
-`nano` para modificar `~/.config/sxhkd/sxhkdrc` con el siguiente contenido:
+Edit the sxhkd configuration file:
+
+```shell
+nano ~/.config/sxhkd/sxhkdrc
+```
+
+Minimal keybindings configuration:
 
 ```shell
 # terminal emulator
 super + Return
 	kitty
 
-# program launcher
-super + @space
-	rofi -show drun
+# application/program launcher
+super + {_,shift + }@space
+	rofi -show {drun,run}
 ```
 
-iniciamos el entorno grafico con el siguiente comando:
+Start the graphical environment:
 
 ```shell
 startx
 ```
 
-## vscode + nvidia drivers
+## vscode + NVIDIA Drivers
 
-open firefox-esr to download vscode and nvidia drivers
+Open `firefox-esr` and download the following files:
+
+- Visual Studio Code (`.deb` package)
+- NVIDIA proprietary driver (`.run` installer)
+
+Navigate to the downloads directory and install VS Code:
 
 ```shell
-cd Downloads
+cd ~/Downloads
 sudo dpkg -i code_1.108.2-1769004815_amd64.deb
+```
+
+Make the NVIDIA installer executable:
+
+```shell
 chmod +x NVIDIA-Linux-x86_64-580.126.09.run
 ```
+
+Create a blacklist file to disable the open-source `nouveau` driver:
 
 ```shell
 sudo cat <<EOF > /etc/modprobe.d/blacklist-nouveau.conf
@@ -102,11 +214,21 @@ options nouveau modeset=0
 EOF
 ```
 
+Verify that the `nouveau` module is not loaded:
+
+```shell
+lsmod | grep nouveau
+```
+
+Power off the system:
+
 ```shell
 systemctl poweroff
 ```
 
-change from Laptop (any PC without an Nvidia graphics card) to your PC with an Nvidia graphics card and log in
+Move the disk or system from a non-NVIDIA PC to the target PC with an NVIDIA GPU, then boot and log in.
+
+Update the system and prepare the environment for driver compilation:
 
 ```shell
 sudo apt update
@@ -115,100 +237,214 @@ sudo apt install linux-headers-$(uname -r)
 ls /usr/src
 sudo apt install build-essential
 sudo apt install pkg-config libglvnd-dev
-lsmod | grep nouveau
-cd Downloads
+```
+
+Run the NVIDIA installer:
+
+```shell
+cd ~/Downloads
 sudo ./NVIDIA-Linux-x86_64-580.126.09.run
+```
+
+After installation, verify the driver:
+
+```shell
 nvidia-smi
+```
+
+Reboot the system to finalize the setup:
+
+```shell
 systemctl reboot
 ```
 
-### Avoid Screen Tearing
+## User Directories Configuration
 
-> /etc/X11/xorg.conf.d/20-nvidia.conf
-
-```conf
-Section "Screen"
-    Identifier "Screen0"
-    Device "Device0"
-    Monitor "Monitor0"
-    Option "ForceFullCompositionPipeline" "on"
-    Option "AllowIndirectGLXProtocol" "off"
-    Option "TripleBuffer" "on"
-EndSection
-```
-
-## Audio
+Update the standard user directories with:
 
 ```shell
-sudo apt update
-sudo apt install pipewire pipewire-jack pipewire-audio
-
-systemctl --user enable --now pipewire pipewire-pulse wireplumber
-
-systemctl --user status pipewire
-systemctl --user status pipewire-pulse
-systemctl --user status wireplumber
-
-sudo apt install firmware-sof-signed alsa-ucm-conf
+xdg-user-dirs-update
 ```
 
-## Mobile Detection
+This will create or refresh the directories like Desktop, Downloads, Documents, etc., based on your locale.
+
+The following code is an example of the contents of `~/.config/user-dirs.dirs`
+
+```ini
+# This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you're
+# interested in. All local changes will be retained on the next run.
+# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+# 
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
+```
+
+The following code is an example of the contents of `user-dirs.locale`
+
+```
+en_US
+```
+
+This ensures the directories are named according to US English conventions.
+
+## Mobile Device Detection
+
+Install the necessary packages to detect and mount mobile devices (smartphones, tablets, etc.):
 
 ```shell
 sudo apt update
 sudo apt install mtp-tools gvfs gvfs-backends gvfs-fuse
 ```
 
-## Fonts + Cursors
+Package details:
 
-Install a font manually by downloading the appropriate .ttf or otf files and placing them into `/usr/local/share/fonts` (system-wide), `~/.local/share/fonts` (user-specific) or `~/.fonts` (user-specific). These files should have the permission 644 (-rw-r--r--), otherwise they may not be usable.
+- `mtp-tools` - Tools for working with MTP (Media Transfer Protocol) devices.
+- `gvfs`, `gvfs-backends`, `gvfs-fuse` - Virtual filesystem services to enable automatic mounting and integration of devices in the file manager.
 
-Run `fc-cache` to update the font cache (add `-v` for verbose output). The above mentioned paths can be customized in the fontconfig configuration file at `/etc/fonts/fonts.conf` – you can also include subdirectories or links, which is useful if you have a directory of fonts on a separate hard drive (or partition or other location).
+Once installed, your mobile devices should be automatically detected and accessible via your file manager (e.g., Thunar).
 
-To install cursors just unzip your cursors into `~/.icons`
+## Fonts and Cursor Themes
 
-## How to fix choppy YouTube video playback? Enable WebRender
+Download and unzip your cursor theme into the `~/.icons` directory.
 
-When streaming videos on YouTube using `firefox-esr` and `firefox`, the video playback is choppy with an uneven frame-rate.
+You can install fonts either **system-wide** or **user-specific**:
 
+- **System-wide:** `/usr/local/share/fonts`
+- **User-specific:** `~/.local/share/fonts` or `~/.fonts`
+
+1. Download the font files (`.ttf` or `.otf`).
+2. Copy them to one of the font directories above.
+3. Ensure the files have correct permissions (`644` → `-rw-r--r--`), otherwise they may not be usable:
+    ```shell
+    chmod 644 /path/to/font.ttf
+    ```
+4. Update the font cache:
+    ```shell
+    fc-cache -v
+    ```
+
+> [!NOTE]
+> 
+> The font paths can be customized in `/etc/fonts/fonts.conf`.
+>
+> You can also include subdirectories or symbolic links, which is useful if you keep fonts on a separate drive or partition.
+
+## Audio Setup
+
+Install and configure PipeWire as the audio server, along with Audio Firmware and ALSA support.
+
+```shell
+sudo apt update
+sudo apt install pipewire pipewire-audio pipewire-jack
 ```
-about:config
-gfx.webrender.all true
+
+PipeWire provides low-latency audio and MIDI support, replacing PulseAudio.
+
+Enable and start PipeWire services for the current user:
+
+```shell
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
 ```
 
-## AppImage launcher
+- **pipewire** - The core PipeWire daemon.
+- **pipewire-pulse** - Provides PulseAudio compatibility.
+- **wireplumber** - Session manager for PipeWire.
+
+Check the status of the services:
+
+```shell
+systemctl --user status pipewire
+systemctl --user status pipewire-pulse
+systemctl --user status wireplumber
+```
+
+Install Audio Firmware and ALSA Configuration:
+
+```shell
+sudo apt install firmware-sof-signed alsa-ucm-conf
+```
+
+- **firmware-sof-signed** - Intel Sound Open Firmware for supported devices.
+- **alsa-ucm-conf** - ALSA Use Case Manager configuration files for audio hardware.
+
+This setup ensures low-latency, high-quality audio on Debian 13 with modern hardware.
+
+## AppImage Launcher
 
 ```shell
 sudo apt update
 sudo apt install libfuse2t64
 ```
 
-> ~/.local/share/applications/app.desktop
+Create a `.desktop` file in `~/.local/share/applications/` to integrate the AppImage into your application menu:
 
-```desktop
+```shell
+nano ~/.local/share/applications/app.desktop
+```
+
+Example content:
+
+```ini
 [Desktop Entry]
 Name=App
-Comment=App.
-Exec=/home/fjrodafo/Downloads/App.AppImage
-Icon=/home/fjrodafo/Downloads/App.png
+Comment=A short description.
+Exec=/home/fjrodafo/Downloads/Applications/App/App.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/App/App.png
 Terminal=false
 Type=Application
 Categories=Utility;
 ```
 
-## Hide rofi from rofi ?
+After saving, the AppImage will appear in your desktop environment’s application launcher.
 
-Add `NoDisplay=true` to the following files:
+## Hiding Applications from Rofi
+
+Sometimes you may want to hide certain applications from appearing in Rofi’s application launcher. This can be done by adding `NoDisplay=true` to their `.desktop` files.
+
+Copy the application .desktop files to your local applications folder:
 
 ```shell
 cp /usr/share/applications/rofi*.desktop ~/.local/share/applications/
+```
+
+Edit the files to hide them:
+
+```shell
 nano ~/.local/share/applications/rofi.desktop
 nano ~/.local/share/applications/rofi-theme-selector.desktop
 ```
 
+Add the following line under `[Desktop Entry]`
+
+```ini
+NoDisplay=true
+```
+
+Similarly, you can hide specific terminal emulators from Rofi:
+
 ```shell
 cp /usr/share/applications/debian-uxterm.desktop ~/.local/share/applications/
 cp /usr/share/applications/debian-xterm.desktop ~/.local/share/applications/
+```
+
+Edit the files to hide them:
+
+```shell
 nano ~/.local/share/applications/debian-uxterm.desktop
 nano ~/.local/share/applications/debian-xterm.desktop
+```
+
+Add the following line under `[Desktop Entry]`
+
+```ini
+NoDisplay=true
 ```
