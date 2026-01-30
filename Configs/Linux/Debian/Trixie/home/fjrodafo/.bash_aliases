@@ -5,6 +5,7 @@ alias backup='$HOME/Scripts/backup.sh'
 alias install-node-npm='$HOME/Scripts/install-node-npm.sh'
 alias loading='$HOME/Scripts/loading.sh'
 alias lorem-ipsum='$HOME/Scripts/lorem-ipsum.sh'
+alias show-path='$HOME/Scripts/show-path.sh'
 alias sort-text-file='$HOME/Scripts/sort-text-file.sh'
 alias update-linux-kernel='$HOME/Scripts/update-linux-kernel.sh'
 #  ╔╦╗┬┌─┐┌─┐┌─┐┬─┐┌┬┐

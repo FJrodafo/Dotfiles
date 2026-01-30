@@ -25,3 +25,8 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# set PATH so it includes nodejs bin if it exists
+if [ -d "$HOME/.nodejs/bin" ] ; then
+    PATH="$HOME/.nodejs/bin:$PATH"
+fi

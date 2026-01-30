@@ -209,7 +209,3 @@ function toggle_unknown_mode() {
 
 alias stealthmode=toggle_stealth_mode
 alias unknownmode=toggle_unknown_mode
-
-# PATH
-export PATH="$PATH:$HOME/.nodejs/bin"
-export PATH="$HOME/.local/bin:$PATH"
