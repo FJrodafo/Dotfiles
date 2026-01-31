@@ -97,12 +97,13 @@ if [ "$stealth" = "true" ]; then
     PS1="\W > "
 else
     if [ "$unknown" = "true" ]; then userhost="unknown"; else userhost="\u@\h"; fi
+    if [ "$TERM_PROGRAM" == "vscode" ]; then corner="┴─╴"; else corner="└─╴"; fi
     if [ "$color_prompt" = yes ]; then
         #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-        PS1="┌╴${userhost}[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n└─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
+        PS1="┌╴${userhost}[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n${corner}${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
     else
         #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-        PS1="┌╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n└─╴\A╶╴\$ "
+        PS1="┌╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n${corner}\A╶╴\$ "
     fi
 fi
 unset color_prompt force_color_prompt
