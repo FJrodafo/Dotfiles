@@ -20,6 +20,23 @@
 9. [AppImage Launcher](#appimage-launcher)
 10. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
 
+## PC Specifications
+
+- **MOTHERBOARD:** Gigabyte B450M S2H
+- **HEAT SINK:** Deepcool AK500 Zero Dark
+- **CPU:** AMD Ryzen 7 5700X3D 3/4.1GHz
+- **GPU:** ASUS Dual GeForce RTX 4060 Ti EVO OC Edition 16GB GDDR6
+- **RAM:** Corsair Vengeance LPX DDR4 8GB 3000MHz - White
+- **RAM:** Kingston FURY RGB DDR4 16GB
+- **DISK:** Kingston A400 SSD 960GB
+- **POWER:** Tacens Radix ECO III 650W
+- **TOWER:** NOX Hummer Quantum ARGB
+- **MONITOR:** ASUS VA24D Eye Care 24 inch LED IPS Frameless Full HD 1920x1080@75Hz Adaptative-Sync/FreeSync Low Blue Light Flicker Free VESA Wall Mountable
+- **HEADSET:** Corsair HS35 Stereo Gaming Headset
+- **MOUSE:** Corsair M55 Lightweight Gaming Mouse
+- **KEYBOARD:** AJAZZ AK820 Side Engraved Black
+- **GAMEPAD:** MSI Force GC20 V2 Controller Black
+
 ## Installation Process
 
 - **Date:** 26/01/2026
