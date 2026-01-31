@@ -9,16 +9,17 @@
 
 ## Index
 
-1. [Installation Process](#installation-process)
-2. [sudo + Packages](#sudo--packages)
-3. [bspwm + sxhkd](#bspwm--sxhkd)
-4. [vscode + NVIDIA Drivers](#vscode--nvidia-drivers)
-5. [User Directories Configuration](#user-directories-configuration)
-6. [Mobile Device Detection](#mobile-device-detection)
-7. [Fonts and Cursor Themes](#fonts-and-cursor-themes)
-8. [Audio Setup](#audio-setup)
-9. [AppImage Launcher](#appimage-launcher)
-10. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
+1. [PC Specifications](#pc-specifications)
+2. [Installation Process](#installation-process)
+3. [sudo + Packages](#sudo--packages)
+4. [bspwm + sxhkd](#bspwm--sxhkd)
+5. [vscode + NVIDIA Drivers](#vscode--nvidia-drivers)
+6. [User Directories Configuration](#user-directories-configuration)
+7. [Mobile Device Detection](#mobile-device-detection)
+8. [Fonts and Cursor Themes](#fonts-and-cursor-themes)
+9. [Audio Setup](#audio-setup)
+10. [AppImage Launcher](#appimage-launcher)
+11. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
 
 ## PC Specifications
 
