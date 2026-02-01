@@ -168,11 +168,12 @@ fi
 
 # Displays a random neofetch line
 if [ "$TERM" == "xterm-kitty" ]; then
-    case $((RANDOM % 4)) in
+    case $((RANDOM % 5)) in
         0) neofetch-bunny ;;
-        1) neofetch-debian ;;
-        2) neofetch-minimal ;;
-        3) neofetch-nerd ;;
+        1) neofetch-debian-braille ;;
+        2) neofetch-debian-default ;;
+        3) neofetch-debian-thin ;;
+        4) neofetch-nerd ;;
     esac
 fi
 

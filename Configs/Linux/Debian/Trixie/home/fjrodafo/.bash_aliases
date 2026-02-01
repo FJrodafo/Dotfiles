@@ -28,7 +28,9 @@ alias music='mpv --shuffle --no-audio-display ~/Music'
 #  ║║║├┤ │ │├┤ ├┤  │ │  ├─┤
 #  ╝╚╝└─┘└─┘└  └─┘ ┴ └─┘┴ ┴
 alias neofetch-bunny='neofetch --config $HOME/.config/neofetch/bunny/config.conf --ascii $(find $HOME/.config/neofetch/bunny/ascii/ -type f -name "*.txt" | shuf -n 1)'
-alias neofetch-debian='neofetch --config $HOME/.config/neofetch/debian/config.conf --ascii $HOME/.config/neofetch/debian/ascii.txt'
+alias neofetch-debian-braille='neofetch --config $HOME/.config/neofetch/debian/config/braille.conf --ascii $HOME/.config/neofetch/debian/ascii/braille.txt'
+alias neofetch-debian-default='neofetch --config $HOME/.config/neofetch/debian/config/default.conf --ascii $HOME/.config/neofetch/debian/ascii/default.txt'
+alias neofetch-debian-thin='neofetch --config $HOME/.config/neofetch/debian/config/thin.conf --ascii $HOME/.config/neofetch/debian/ascii/thin.txt'
 alias neofetch-default='neofetch --config $HOME/.config/neofetch/config.conf'
 alias neofetch-minimal='neofetch --config $HOME/.config/neofetch/minimal/config.conf --ascii $(find $HOME/.config/neofetch/minimal/ascii/ -type f -name "*.txt" | shuf -n 1)'
 alias neofetch-nerd='neofetch --config $HOME/.config/neofetch/nerd/config.conf --ascii $(find $HOME/.config/neofetch/nerd/ascii/ -type f -name "*.txt" | shuf -n 1)'
