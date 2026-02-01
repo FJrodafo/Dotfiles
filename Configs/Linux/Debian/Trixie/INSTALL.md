@@ -350,12 +350,6 @@ You can install fonts either **system-wide** or **user-specific**:
     fc-cache -v
     ```
 
-> [!NOTE]
-> 
-> The font paths can be customized in `/etc/fonts/fonts.conf`.
->
-> You can also include subdirectories or symbolic links, which is useful if you keep fonts on a separate drive or partition.
-
 ## Audio Setup
 
 Install and configure PipeWire as the audio server, along with Audio Firmware and ALSA support.
