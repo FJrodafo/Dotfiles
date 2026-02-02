@@ -35,15 +35,15 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Load stealth and unknown modes from a single file
+# Load PS1 modes from a single file
 MODES_FILE="$HOME/.bash_modes"
 
-# Create file with default values if it doesn't exist
+# Create PS1 modes file with default values if it doesn't exist
 if [ ! -f "$MODES_FILE" ]; then
-    echo -e "stealth=false\nunknown=false" > "$MODES_FILE"
+    echo -e "fancy=false\nunknown=false" > "$MODES_FILE"
 fi
 
-# Source the modes
+# Source PS1 modes
 source "$MODES_FILE"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
@@ -68,24 +68,11 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # Colors
-RESET="\[\e[0m\]"
-BLACK="\[\e[30m\]"
-RED="\[\e[31m\]"
-GREEN="\[\e[32m\]"
-YELLOW="\[\e[33m\]"
-BLUE="\[\e[34m\]"
-MAGENTA="\[\e[35m\]"
-CYAN="\[\e[36m\]"
-WHITE="\[\e[37m\]"
-BOLD="\[\e[1m\]"
-BRIGHTBLACK="\[\e[90m\]"
-BRIGHTRED="\[\e[91m\]"
-BRIGHTGREEN="\[\e[92m\]"
-BRIGHTYELLOW="\[\e[93m\]"
-BRIGHTBLUE="\[\e[94m\]"
-BRIGHTMAGENTA="\[\e[95m\]"
-BRIGHTCYAN="\[\e[96m\]"
-BRIGHTWHITE="\[\e[97m\]"
+RESET="\[\e[0m\]"; BOLD="\[\e[1m\]"
+BLACK="\[\e[30m\]"; RED="\[\e[31m\]"; GREEN="\[\e[32m\]"; YELLOW="\[\e[33m\]"; BLUE="\[\e[34m\]"; MAGENTA="\[\e[35m\]"; CYAN="\[\e[36m\]"; WHITE="\[\e[37m\]"
+BG_BLACK="\[\e[40m\]"; BG_RED="\[\e[41m\]"; BG_GREEN="\[\e[42m\]"; BG_YELLOW="\[\e[43m\]"; BG_BLUE="\[\e[44m\]"; BG_MAGENTA="\[\e[45m\]"; BG_CYAN="\[\e[46m\]"; BG_WHITE="\[\e[47m\]"
+BRIGHT_BLACK="\[\e[90m\]"; BRIGHT_RED="\[\e[91m\]"; BRIGHT_GREEN="\[\e[92m\]"; BRIGHT_YELLOW="\[\e[93m\]"; BRIGHT_BLUE="\[\e[94m\]"; BRIGHT_MAGENTA="\[\e[95m\]"; BRIGHT_CYAN="\[\e[96m\]"; BRIGHT_WHITE="\[\e[97m\]"
+BG_BRIGHT_BLACK="\[\e[100m\]"; BG_BRIGHT_RED="\[\e[101m\]"; BG_BRIGHT_GREEN="\[\e[102m\]"; BG_BRIGHT_YELLOW="\[\e[103m\]"; BG_BRIGHT_BLUE="\[\e[104m\]"; BG_BRIGHT_MAGENTA="\[\e[105m\]"; BG_BRIGHT_CYAN="\[\e[106m\]"; BG_BRIGHT_WHITE="\[\e[107m\]"
 
 # Git branch
 parse_git_branch() {
@@ -93,19 +80,26 @@ parse_git_branch() {
 }
 
 # Prompt
-if [ "$stealth" = "true" ]; then
-    PS1="\W > "
-else
+prompt_fancy() {
+    local R BH BR BY BB BM
+    R="${RESET}"; BH="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"
+    PS1="${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(parse_git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
+}
+prompt_classic() {
+    local userhost
+    local R BH BR BY BB BM
+    R="${RESET}"; BH="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
     if [ "$unknown" = "true" ]; then userhost="unknown"; else userhost="\u@\h"; fi
-    if [ "$TERM_PROGRAM" == "vscode" ]; then corner="┴─╴"; else corner="└─╴"; fi
     if [ "$color_prompt" = yes ]; then
+        PS1="┌╴${userhost}[${BB}\W${R}]{${BM}\$(parse_git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BH}\A${R}╶╴${BY}\$${R} "
         #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-        PS1="┌╴${userhost}[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n${corner}${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
     else
+        PS1="┌╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n└─╴\A╶╴\$ "
         #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-        PS1="┌╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n${corner}\A╶╴\$ "
     fi
-fi
+}
+if [ "$fancy" = "true" ]; then prompt_fancy; else prompt_classic; fi
+if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})}${BRIGHT_YELLOW}\$${RESET} "; fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -177,37 +171,14 @@ if [ "$TERM" == "xterm-kitty" ]; then
     esac
 fi
 
-# Toggle stealth mode
-function toggle_stealth_mode() {
+# Toggle PS1 mode
+toggle_mode() {
+    local mode="$1"
     source "$MODES_FILE"
-    
-    if [ "$stealth" = "true" ]; then
-        stealth=false
-    else
-        stealth=true
-    fi
-
-    # Save updated modes back to the file
-    echo -e "stealth=$stealth\nunknown=$unknown" > "$MODES_FILE"
-
+    #if [ "${!mode}" = "true" ]; then declare "$mode=false"; else declare "$mode=true"; fi
+    if [ "${!mode}" = "true" ]; then eval "$mode=false"; else eval "$mode=true"; fi
+    echo -e "fancy=$fancy\nunknown=$unknown" > "$MODES_FILE"
     source ~/.bashrc
 }
-
-# Toggle unknown mode
-function toggle_unknown_mode() {
-    source "$MODES_FILE"
-
-    if [ "$unknown" = "true" ]; then
-        unknown=false
-    else
-        unknown=true
-    fi
-
-    # Save updated modes back to the file
-    echo -e "stealth=$stealth\nunknown=$unknown" > "$MODES_FILE"
-
-    source ~/.bashrc
-}
-
-alias stealthmode=toggle_stealth_mode
-alias unknownmode=toggle_unknown_mode
+alias fancy-mode='toggle_mode fancy'
+alias unknown-mode='toggle_mode unknown'

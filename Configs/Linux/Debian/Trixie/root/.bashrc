@@ -1,24 +1,17 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+# Load PS1 modes from a single file
+MODES_FILE="/home/fjrodafo/.bash_modes"
+
+# Source PS1 modes
+source "$MODES_FILE"
+
 # Colors
-RESET="\[\e[0m\]"
-BLACK="\[\e[30m\]"
-RED="\[\e[31m\]"
-GREEN="\[\e[32m\]"
-YELLOW="\[\e[33m\]"
-BLUE="\[\e[34m\]"
-MAGENTA="\[\e[35m\]"
-CYAN="\[\e[36m\]"
-WHITE="\[\e[37m\]"
-BOLD="\[\e[1m\]"
-BRIGHTBLACK="\[\e[90m\]"
-BRIGHTRED="\[\e[91m\]"
-BRIGHTGREEN="\[\e[92m\]"
-BRIGHTYELLOW="\[\e[93m\]"
-BRIGHTBLUE="\[\e[94m\]"
-BRIGHTMAGENTA="\[\e[95m\]"
-BRIGHTCYAN="\[\e[96m\]"
-BRIGHTWHITE="\[\e[97m\]"
+RESET="\[\e[0m\]"; BOLD="\[\e[1m\]"
+BLACK="\[\e[30m\]"; RED="\[\e[31m\]"; GREEN="\[\e[32m\]"; YELLOW="\[\e[33m\]"; BLUE="\[\e[34m\]"; MAGENTA="\[\e[35m\]"; CYAN="\[\e[36m\]"; WHITE="\[\e[37m\]"
+BG_BLACK="\[\e[40m\]"; BG_RED="\[\e[41m\]"; BG_GREEN="\[\e[42m\]"; BG_YELLOW="\[\e[43m\]"; BG_BLUE="\[\e[44m\]"; BG_MAGENTA="\[\e[45m\]"; BG_CYAN="\[\e[46m\]"; BG_WHITE="\[\e[47m\]"
+BRIGHT_BLACK="\[\e[90m\]"; BRIGHT_RED="\[\e[91m\]"; BRIGHT_GREEN="\[\e[92m\]"; BRIGHT_YELLOW="\[\e[93m\]"; BRIGHT_BLUE="\[\e[94m\]"; BRIGHT_MAGENTA="\[\e[95m\]"; BRIGHT_CYAN="\[\e[96m\]"; BRIGHT_WHITE="\[\e[97m\]"
+BG_BRIGHT_BLACK="\[\e[100m\]"; BG_BRIGHT_RED="\[\e[101m\]"; BG_BRIGHT_GREEN="\[\e[102m\]"; BG_BRIGHT_YELLOW="\[\e[103m\]"; BG_BRIGHT_BLUE="\[\e[104m\]"; BG_BRIGHT_MAGENTA="\[\e[105m\]"; BG_BRIGHT_CYAN="\[\e[106m\]"; BG_BRIGHT_WHITE="\[\e[107m\]"
 
 # Git branch
 parse_git_branch() {
@@ -27,8 +20,19 @@ parse_git_branch() {
 
 # Note: PS1 is set in /etc/profile, and the default umask is defined in /etc/login.defs.
 # You should not need this unless you want different defaults for root.
-#PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
-PS1="┌╴${BOLD}\u${RESET}@$(hostname -f)[${BRIGHTBLUE}\W${RESET}]{${BRIGHTMAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHTRED}${debian_chroot}${RESET})}\n└─╴${BRIGHTBLACK}\A${RESET}╶╴${BRIGHTYELLOW}\$${RESET} "
+prompt_fancy() {
+    local R BH BR BY BB BM
+    R="${RESET}"; BH="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"
+    PS1="${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(parse_git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
+}
+prompt_classic() {
+    local R B BH BR BY BB BM
+    R="${RESET}"; B="${BOLD}"; BH="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
+    PS1="┌╴${B}\u${R}@$(hostname -f)[${BB}\W${R}]{${BM}\$(parse_git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BH}\A${R}╶╴${BY}#${R} "
+    #PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+}
+if [ "$fancy" = "true" ]; then prompt_fancy; else prompt_classic; fi
+if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})}${BRIGHT_YELLOW}#${RESET} "; fi
 #umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:
