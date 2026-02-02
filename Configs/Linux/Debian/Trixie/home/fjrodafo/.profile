@@ -30,3 +30,5 @@ fi
 if [ -d "$HOME/.nodejs/bin" ] ; then
     PATH="$HOME/.nodejs/bin:$PATH"
 fi
+
+export PS1='\W \$ '

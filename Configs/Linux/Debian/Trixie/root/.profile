@@ -5,3 +5,5 @@ if [ "$BASH" ]; then
         . ~/.bashrc
     fi
 fi
+
+export PS1='\W # '
