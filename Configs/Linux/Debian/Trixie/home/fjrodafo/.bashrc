@@ -99,7 +99,7 @@ prompt_classic() {
     fi
 }
 if [ "$fancy" = "true" ]; then prompt_fancy; else prompt_classic; fi
-if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})}${BRIGHT_YELLOW}\$${RESET} "; fi
+if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})} ${BRIGHT_YELLOW}\$${RESET} "; fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
