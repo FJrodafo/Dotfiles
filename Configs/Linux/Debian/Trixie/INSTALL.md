@@ -20,6 +20,7 @@
 9. [Audio Setup](#audio-setup)
 10. [AppImage Launcher](#appimage-launcher)
 11. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
+12. [chroot](#chroot)
 
 ## PC Specifications
 
@@ -459,4 +460,71 @@ Add the following line under `[Desktop Entry]`
 
 ```ini
 NoDisplay=true
+```
+
+## chroot
+
+This section describes how to create, configure, use, and remove a Debian Trixie chroot environment using `debootstrap` and `schroot`.
+
+First, install the required tools. `debootstrap` is used to bootstrap a minimal Debian system, and `schroot` provides an easy way to manage and enter chroot environments.
+
+```shell
+sudo apt update
+sudo apt install debootstrap schroot
+```
+
+Next, create the directory that will host the chroot filesystem and download a minimal Debian Trixie system into it using `debootstrap`. The `--arch=amd64` flag specifies the target architecture, and the Debian mirror is provided explicitly.
+
+```shell
+sudo debootstrap --arch=amd64 trixie /srv/chroots/trixie http://deb.debian.org/debian/
+```
+
+After the base system is installed, the chroot is tagged by creating the `/etc/debian_chroot` file inside the chroot. This tag is useful to clearly identify the environment when working inside the shell.
+
+```shell
+echo "trixie" | sudo tee /srv/chroots/trixie/etc/debian_chroot
+```
+
+Then, configure `schroot` by creating a configuration file under `/etc/schroot/chroot.d/`. This file defines the chroot name, description, filesystem location, allowed users, and chroot type.
+
+```shell
+sudo tee /etc/schroot/chroot.d/trixie.conf > /dev/null <<EOL
+[trixie]
+description=Debian 13 (Trixie)
+directory=/srv/chroots/trixie
+users=root
+root-users=root
+type=directory
+setup.fstab=
+EOL
+```
+
+To keep a consistent shell experience, the root user’s `.bashrc` file from the host system is copied into the chroot’s root home directory.
+
+```shell
+sudo cp /root/.bashrc /srv/chroots/trixie/root/.bashrc
+```
+
+Once everything is set up, you can enter the Debian Trixie chroot as the root user using schroot.
+
+```shell
+sudo schroot -c trixie --directory=/root
+```
+
+When you finish your work, simply exit the shell to return to the host system.
+
+```shell
+exit
+```
+
+If the chroot is no longer required, it can be safely removed by deleting its directory.
+
+```shell
+sudo rm -rf /srv/chroots/trixie
+```
+
+You can also list all available chroot environments at any time executing the following command:
+
+```shell
+schroot -l
 ```
