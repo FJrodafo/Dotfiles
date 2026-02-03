@@ -35,16 +35,10 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Load PS1 modes from a single file
-MODES_FILE="$HOME/.bash_modes"
-
-# Create PS1 modes file with default values if it doesn't exist
-if [ ! -f "$MODES_FILE" ]; then
-    echo -e "fancy=false\nunknown=false" > "$MODES_FILE"
-fi
-
-# Source PS1 modes
-source "$MODES_FILE"
+# Prompt style from a single file
+PROMPT_STYLE_FILE="$HOME/.bash_prompt_style"
+[ -f "$PROMPT_STYLE_FILE" ] || echo "PROMPT_STYLE=classic" > "$PROMPT_STYLE_FILE"
+source "$PROMPT_STYLE_FILE"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -75,32 +69,45 @@ BRIGHT_BLACK="\[\e[90m\]"; BRIGHT_RED="\[\e[91m\]"; BRIGHT_GREEN="\[\e[92m\]"; B
 BG_BRIGHT_BLACK="\[\e[100m\]"; BG_BRIGHT_RED="\[\e[101m\]"; BG_BRIGHT_GREEN="\[\e[102m\]"; BG_BRIGHT_YELLOW="\[\e[103m\]"; BG_BRIGHT_BLUE="\[\e[104m\]"; BG_BRIGHT_MAGENTA="\[\e[105m\]"; BG_BRIGHT_CYAN="\[\e[106m\]"; BG_BRIGHT_WHITE="\[\e[107m\]"
 
 # Git branch
-parse_git_branch() {
-    git symbolic-ref --short HEAD 2>/dev/null || echo '~'
-}
+git_branch() { git symbolic-ref --short HEAD 2>/dev/null || echo '~'; }
 
 # Prompt
-prompt_fancy() {
+prompt_style_fancy() {
     local R BH BR BY BB BM
     R="${RESET}"; BH="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"
-    PS1="${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(parse_git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
+    PS1="${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
 }
-prompt_classic() {
-    local userhost
+prompt_style_classic() {
     local R BH BR BY BB BM
     R="${RESET}"; BH="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
-    if [ "$unknown" = "true" ]; then userhost="unknown"; else userhost="\u@\h"; fi
     if [ "$color_prompt" = yes ]; then
-        PS1="┌╴${userhost}[${BB}\W${R}]{${BM}\$(parse_git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BH}\A${R}╶╴${BY}\$${R} "
+        PS1="┌╴\u@\h[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BH}\A${R}╶╴${BY}\$${R} "
         #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     else
-        PS1="┌╴${userhost}[\W]{\$(parse_git_branch)}${debian_chroot:+(${debian_chroot})}\n└─╴\A╶╴\$ "
+        PS1="┌╴\u@\h[\W]{\$(git_branch)}${debian_chroot:+(${debian_chroot})}\n└─╴\A╶╴\$ "
         #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     fi
+    #unset color_prompt force_color_prompt
 }
-if [ "$fancy" = "true" ]; then prompt_fancy; else prompt_classic; fi
-if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(parse_git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})} ${BRIGHT_YELLOW}\$${RESET} "; fi
-unset color_prompt force_color_prompt
+case "$PROMPT_STYLE" in
+    fancy) prompt_style_fancy ;;
+    classic) prompt_style_classic ;;
+    *) prompt_style_classic ;;
+esac
+set_prompt_style() {
+    PROMPT_STYLE="$1"
+    echo "PROMPT_STYLE=$1" > "$PROMPT_STYLE_FILE"
+    case "$PROMPT_STYLE" in
+        fancy) prompt_style_fancy ;;
+        classic) prompt_style_classic ;;
+        *) prompt_style_classic ;;
+    esac
+}
+alias fancy-prompt='set_prompt_style fancy'
+alias classic-prompt='set_prompt_style classic'
+
+# Visual Studio Code Prompt
+if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="┌╴\u@\h[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})}\n└─╴${BRIGHT_BLACK}\A${RESET}╶╴${BRIGHT_YELLOW}\$${RESET} "; fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -170,15 +177,3 @@ if [ "$TERM" == "xterm-kitty" ]; then
         4) neofetch-nerd ;;
     esac
 fi
-
-# Toggle PS1 mode
-toggle_mode() {
-    local mode="$1"
-    source "$MODES_FILE"
-    #if [ "${!mode}" = "true" ]; then declare "$mode=false"; else declare "$mode=true"; fi
-    if [ "${!mode}" = "true" ]; then eval "$mode=false"; else eval "$mode=true"; fi
-    echo -e "fancy=$fancy\nunknown=$unknown" > "$MODES_FILE"
-    source ~/.bashrc
-}
-alias fancy-mode='toggle_mode fancy'
-alias unknown-mode='toggle_mode unknown'
