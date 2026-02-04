@@ -69,7 +69,11 @@ BRIGHT_BLACK="\[\e[90m\]"; BRIGHT_RED="\[\e[91m\]"; BRIGHT_GREEN="\[\e[92m\]"; B
 BG_BRIGHT_BLACK="\[\e[100m\]"; BG_BRIGHT_RED="\[\e[101m\]"; BG_BRIGHT_GREEN="\[\e[102m\]"; BG_BRIGHT_YELLOW="\[\e[103m\]"; BG_BRIGHT_BLUE="\[\e[104m\]"; BG_BRIGHT_MAGENTA="\[\e[105m\]"; BG_BRIGHT_CYAN="\[\e[106m\]"; BG_BRIGHT_WHITE="\[\e[107m\]"
 
 # Git branch
-git_branch() { git symbolic-ref --short HEAD 2>/dev/null || echo '~'; }
+git_branch() {
+    git symbolic-ref --short HEAD 2>/dev/null \
+    || git describe --tags --always 2>/dev/null \
+    || echo '~'
+}
 
 # Prompt
 prompt_style_fancy() {
