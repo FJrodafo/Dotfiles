@@ -27,6 +27,8 @@ git_branch() {
 
 # Note: PS1 is set in /etc/profile, and the default umask is defined in /etc/login.defs.
 # You should not need this unless you want different defaults for root.
+__save_exit_status() { LAST_EXIT_CODE=$?; }
+PROMPT_COMMAND="__save_exit_status"
 prompt_style_fancy() {
     local R BH BR BY BB BM
     R="${RESET}"; BH="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"
@@ -35,7 +37,7 @@ prompt_style_fancy() {
 prompt_style_classic() {
     local R B BH BR BY BB BM
     R="${RESET}"; B="${BOLD}"; BH="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
-    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BH}\A${R}╶╴${BY}#${R} "
+    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BH}\A${R}╶╴${BY}#${R} "
     #PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 }
 case "$PROMPT_STYLE" in
