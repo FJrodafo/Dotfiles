@@ -71,8 +71,8 @@ BG_BRIGHT_BLACK="\[\e[100m\]"; BG_BRIGHT_RED="\[\e[101m\]"; BG_BRIGHT_GREEN="\[\
 # Git branch
 git_branch() {
     local branch ahead behind marks=""
-    branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --always 2>/dev/null || echo '~')"
-    [ -d .git ] || { echo -n "$branch"; return; }
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || { echo -n "~"; return; }
+    branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --always 2>/dev/null)"
     if git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
         ahead="$(git rev-list --count @{u}..HEAD 2>/dev/null)"
         behind="$(git rev-list --count HEAD..@{u} 2>/dev/null)"
