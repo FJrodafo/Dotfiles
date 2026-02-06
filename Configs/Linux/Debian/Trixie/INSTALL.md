@@ -21,6 +21,7 @@
 10. [AppImage Launcher](#appimage-launcher)
 11. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
 12. [chroot](#chroot)
+13. [Change a user's password](#change-a-users-password)
 
 ## PC Specifications
 
@@ -527,4 +528,24 @@ You can also list all available chroot environments at any time executing the fo
 
 ```shell
 schroot -l
+```
+
+# Change a user's password
+
+Generate an SHA-512 hash of a password:
+
+```shell
+openssl passwd -6
+```
+
+Use a personalized salt:
+
+```shell
+openssl passwd -6 -salt ABC123
+```
+
+Then:
+
+```shell
+sudo usermod --password 'HASH' fjrodafo
 ```
