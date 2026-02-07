@@ -20,6 +20,7 @@ alias discord-crps-canary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordC
 #  ╔╦╗┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬
 #   ║ ├┤ ├┬┘│││││││├─┤│
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
+alias apt-mark_showmanual='apt-mark showmanual > ~/.apt-mark_showmanual.txt'
 alias clean='clear && source ~/.bashrc'
 alias chroot-trixie='sudo schroot -c trixie --directory=/root'
 alias damn='sudo $(history -p !!)'
