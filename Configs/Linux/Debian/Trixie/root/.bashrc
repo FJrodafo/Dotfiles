@@ -32,7 +32,11 @@ PROMPT_COMMAND="__save_exit_status"
 prompt_style_fancy() {
     local R BK BR BY BB BM BW
     R="${RESET}"; BK="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
-    PS1="${WHITE}${RED}${BW}᠎${BB}${WHITE}${R}${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
+    PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
+${BB}  \W ${BM}${BLUE}${R}\
+${BM} 󰊢 \$(git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}\
+${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}\
+${BY}  ${R}${YELLOW}${R} "
 }
 prompt_style_classic() {
     local R B BK BR BY BB BM
