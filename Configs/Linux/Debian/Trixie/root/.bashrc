@@ -49,7 +49,7 @@ case "$PROMPT_STYLE" in
     classic) prompt_style_classic ;;
     *) prompt_style_classic ;;
 esac
-if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="┌╴\u@\h[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})}\n└─╴${BRIGHT_BLACK}\A${RESET}╶╴${BRIGHT_YELLOW}#${RESET} "; fi
+#if [ "$TERM_PROGRAM" == "vscode" ]; then PS1='\W # '; fi
 #umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:

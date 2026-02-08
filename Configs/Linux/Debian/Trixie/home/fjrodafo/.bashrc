@@ -124,7 +124,7 @@ alias fancy-prompt='set_prompt_style fancy'
 alias classic-prompt='set_prompt_style classic'
 
 # Visual Studio Code Prompt
-if [ "$TERM_PROGRAM" == "vscode" ]; then PS1="┌╴\u@\h[${BRIGHT_BLUE}\W${RESET}]{${BRIGHT_MAGENTA}\$(git_branch)${RESET}}${debian_chroot:+(${BRIGHT_RED}${debian_chroot}${RESET})}\n└─╴${BRIGHT_BLACK}\A${RESET}╶╴${BRIGHT_YELLOW}\$${RESET} "; fi
+#if [ "$TERM_PROGRAM" == "vscode" ]; then PS1='\W \$ '; fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
