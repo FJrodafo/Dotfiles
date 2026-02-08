@@ -31,14 +31,14 @@ git_branch() {
 __save_exit_status() { LAST_EXIT_CODE=$?; }
 PROMPT_COMMAND="__save_exit_status"
 prompt_style_fancy() {
-    local R BH BR BY BB BM
-    R="${RESET}"; BH="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"
-    PS1="${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
+    local R BK BR BY BB BM BW
+    R="${RESET}"; BK="${BG_BLACK}"; BR="${BG_RED}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
+    PS1="${WHITE}${RED}${BW}᠎${BB}${WHITE}${R}${BB}  \W ${BM}${BLUE}${R}${BM} 󰊢 \$(git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}${BY}  ${R}${YELLOW}${R} "
 }
 prompt_style_classic() {
-    local R B BH BR BY BB BM
-    R="${RESET}"; B="${BOLD}"; BH="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
-    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BH}\A${R}╶╴${BY}#${R} "
+    local R B BK BR BY BB BM
+    R="${RESET}"; B="${BOLD}"; BK="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
+    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BK}\A${R}╶╴${BY}#${R} "
     #PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 }
 case "$PROMPT_STYLE" in
