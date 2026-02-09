@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=AntiMicroX
+Comment=Ultimate Gamepad Controller Mapping Software.
+Exec=/home/fjrodafo/Downloads/Applications/AntiMicroX/AntiMicroX.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/AntiMicroX/AntiMicroX.svg
+Terminal=false
+Type=Application
+Categories=Game;
