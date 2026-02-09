@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Vita3K
+Comment=A PS Vita emulator.
+Exec=/home/fjrodafo/Downloads/Applications/Vita3K/Vita3K.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/Vita3K/Vita3K.svg
+Terminal=false
+Type=Application
+Categories=Game;
