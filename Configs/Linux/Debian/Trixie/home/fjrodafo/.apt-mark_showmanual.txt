@@ -161,6 +161,7 @@ libxtables12
 libxxhash0
 libzstd1
 linux-headers-6.12.63+deb13-amd64
+linux-headers-6.12.69+deb13-amd64
 linux-image-amd64
 linux-sysctl-defaults
 locales
