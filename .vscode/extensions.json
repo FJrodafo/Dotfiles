@@ -1,6 +1,7 @@
 {
   "recommendations": [
-    "redhat.vscode-yaml",
-    "eww-yuck.yuck"
+    "eww-yuck.yuck",
+    "midudev.better-svg",
+    "redhat.vscode-yaml"
   ]
 }
