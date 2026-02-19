@@ -36,7 +36,7 @@ prompt_style_fancy() {
     PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
 ${BB}  \W ${BM}${BLUE}${R}\
 ${BM} 󰊢 \$(git_branch) ${debian_chroot:+${BR}${MAGENTA}${R}\
-${BR} 󰌽 ${debian_chroot} }${BY}${RED}${R}\
+${BR} ᠎ ${debian_chroot} }${BY}${RED}${R}\
 ${BY}  ${R}${YELLOW}${R} "
 }
 prompt_style_classic() {
