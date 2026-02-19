@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=FileZilla
+Comment=The free FTP solution.
+Exec=/home/fjrodafo/Downloads/Applications/FileZilla/FileZilla3/bin/filezilla
+Icon=/home/fjrodafo/Downloads/Applications/FileZilla/FileZilla.svg
+Terminal=false
+Type=Application
+Categories=Utility;
