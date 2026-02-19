@@ -5,4 +5,4 @@ Exec=/home/fjrodafo/Downloads/Applications/MuseScore4/MuseScore4.AppImage
 Icon=/home/fjrodafo/Downloads/Applications/MuseScore4/MuseScore4.svg
 Terminal=false
 Type=Application
-Categories=AudioVideo;
+Categories=Audio;
