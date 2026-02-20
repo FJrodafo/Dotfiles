@@ -115,7 +115,7 @@ su
 apt update
 ```
 
-Install the packages from the official apt repository:
+Install the following packages from the official apt repository:
 
 ```shell
 # Core System and Privilege Management
