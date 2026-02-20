@@ -101,6 +101,8 @@ Install the following packages from the official apt repository:
 ```shell
 # Core System and Privilege Management
 apt install sudo network-manager
+# Remote Access
+apt install openssh-server
 # Development and Command-Line Utilities
 apt install git nano curl tar zip unzip
 ```
