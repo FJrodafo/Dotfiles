@@ -146,24 +146,28 @@
 
 <table>
     <tr>
-        <td><kbd>1/2</kbd></td>
+        <td><kbd>1</kbd> / <kbd>2</kbd></td>
         <td>Contrast (-/+)</td>
     </tr>
     <tr>
-        <td><kbd>3/4</kbd></td>
+        <td><kbd>3</kbd> / <kbd>4</kbd></td>
         <td>Brightness (-/+)</td>
     </tr>
     <tr>
-        <td><kbd>5/6</kbd></td>
+        <td><kbd>5</kbd> / <kbd>6</kbd></td>
         <td>Gamma (-/+)</td>
     </tr>
     <tr>
-        <td><kbd>7/8</kbd></td>
+        <td><kbd>7</kbd> / <kbd>8</kbd></td>
         <td>Saturation (-/+)</td>
     </tr>
     <tr>
-        <td><kbd>9/0</kbd></td>
+        <td><kbd>9</kbd> / <kbd>0</kbd></td>
         <td>Volume (-/+)</td>
+    </tr>
+    <tr>
+        <td><kbd>[{</kbd> / <kbd>]}</kbd></td>
+        <td>Speed (-/+)</td>
     </tr>
 </table>
 
