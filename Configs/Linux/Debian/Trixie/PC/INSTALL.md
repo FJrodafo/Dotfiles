@@ -18,10 +18,11 @@
 7. [Mobile Device Detection](#mobile-device-detection)
 8. [Fonts and Cursor Themes](#fonts-and-cursor-themes)
 9. [Audio Setup](#audio-setup)
-10. [AppImage Launcher](#appimage-launcher)
-11. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
-12. [chroot](#chroot)
-13. [Change a user's password](#change-a-users-password)
+10. [neofetch](#neofetch)
+11. [AppImage Launcher](#appimage-launcher)
+12. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
+13. [chroot](#chroot)
+14. [Change a user's password](#change-a-users-password)
 
 ## PC Specifications
 
@@ -391,6 +392,17 @@ sudo apt install firmware-sof-signed alsa-ucm-conf
 - **alsa-ucm-conf** - ALSA Use Case Manager configuration files for audio hardware.
 
 This setup ensures low-latency, high-quality audio on Debian 13 with modern hardware.
+
+## neofetch
+
+```shell
+sudo apt update
+sudo apt install git build-essential
+git https://github.com/dylanaraps/neofetch.git
+cd neofetch
+sudo make install
+neofetch
+```
 
 ## AppImage Launcher
 
