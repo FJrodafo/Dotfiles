@@ -23,6 +23,7 @@
 12. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
 13. [chroot](#chroot)
 14. [Change a user's password](#change-a-users-password)
+15. [Docker](#docker)
 
 ## PC Specifications
 
@@ -561,3 +562,74 @@ Then:
 ```shell
 sudo usermod --password 'HASH' fjrodafo
 ```
+
+## Docker
+
+Run the following command to uninstall all conflicting packages:
+
+```shell
+sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
+```
+
+`apt` might report that you have none of these packages installed.
+
+1. Set up Docker's `apt` repository:
+    ```shell
+    # Add Docker's official GPG key:
+    sudo apt update
+    sudo apt install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/   keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+    Types: deb
+    URIs: https://download.docker.com/linux/debian
+    Suites: $(. /etc/os-release && echo "trixie")
+    Components: stable
+    Signed-By: /etc/apt/keyrings/docker.asc
+    EOF
+
+    sudo apt update
+    ```
+2. Install the Docker packages:
+    ```shell
+    sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    ```
+    > [!NOTE]
+    > 
+    > The Docker service starts automatically after installation. To verify that Docker is running, use:
+    > 
+    > ```shell
+    > sudo systemctl status docker
+    > ```
+    > 
+    > Some systems may have this behavior disabled and will require a manual start:
+    > 
+    > ```shell
+    > sudo systemctl start docker
+    > ```
+3. Verify that the installation is successful by running the `hello-world` image:
+    ```shell
+    sudo docker run hello-world
+    ```
+
+To create the `docker` group and add your user:
+
+1. Create the docker group.
+    ```shell
+    sudo groupadd docker
+    ```
+2. Add your user to the `docker` group.
+    ```shell
+    sudo usermod -aG docker fjrodafo
+    ```
+3. Log out and log back in so that your group membership is re-evaluated.
+    ```txt
+    If you're running Linux in a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.
+    ```
+4. Verify that you can run `docker` commands without `sudo`.
+    ```shell
+    docker run hello-world
+    ```
