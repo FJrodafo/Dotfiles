@@ -10,7 +10,7 @@
 
 1. [Laptop Specifications](#laptop-specifications)
 2. [Installation Process](#installation-process)
-3. [sudo](#sudo)
+3. [sudo + Packages](#sudo--packages)
 
 ## Laptop Specifications
 
@@ -52,14 +52,14 @@ Once the ISO file is flashed on the USB drive, boot it on your laptop (server).
 - **Configure the clock:** Canary Islands
 - **Partition disks**
     - **Partitioning method:** Guided - use entire disk
-    - **Select disk to partition:** SCI1 (0,0,0) (sda) - 960.2 GB ATA KINGSTON SA400S3
+    - **Select disk to partition:** MMC/SD card #1 (mmcblk0) - 31.3 GB MMC HBG4e
     - **Partitioning scheme:** All files in one partition (recommended for new users)
     ```
-            1.0 MB       FREE SPACE
-    #1      1.0 GB    f  ESP
-    #2    933.5 GB    f  ext4          /
-    #3     25.7 GB    f  swap          swap
-          335.4 KB       FREE SPACE
+           1.0 MB       FREE SPACE
+    #1     1.0 GB    F  ESP
+    #2    28.6 GB    F  ext4          /
+    #3     1.6 GB    F  swap          swap
+           1.0 MB       FREE SPACE
     ```
 - **Configure the package manager**
     - **Debian archive mirror country:** Spain
@@ -84,7 +84,7 @@ Once the ISO file is flashed on the USB drive, boot it on your laptop (server).
         ```
 - **Finish the installation**
 
-## sudo
+## sudo + Packages
 
 After completing the Debian installation, boot into the system and log in using your new user account.
 
@@ -95,10 +95,13 @@ su
 apt update
 ```
 
-Install the sudo package from the official apt repository:
+Install the following packages from the official apt repository:
 
 ```shell
-apt install sudo
+# Core System and Privilege Management
+apt install sudo network-manager
+# Development and Command-Line Utilities
+apt install git nano curl tar zip unzip
 ```
 
 Ensure `/usr/sbin` is included in the `PATH` and add the user to the `sudo` group:
