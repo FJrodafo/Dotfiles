@@ -14,7 +14,6 @@ busybox
 bzip2
 ca-certificates
 console-setup
-containerd.io
 coreutils
 cpio
 cron
@@ -31,10 +30,6 @@ dhcpcd-base
 diffutils
 dmidecode
 doc-debian
-docker-buildx-plugin
-docker-ce
-docker-ce-cli
-docker-compose-plugin
 dpkg
 e2fsprogs
 fdisk
@@ -166,9 +161,10 @@ ncurses-bin
 ncurses-term
 netbase
 netcat-traditional
+network-manager
 nftables
-nginx
 openssh-client
+openssh-server
 openssl-provider-legacy
 os-prober
 passwd
@@ -178,7 +174,6 @@ perl-base
 procps
 readline-common
 reportbug
-ruby-full
 sed
 sensible-utils
 shim-signed
@@ -191,12 +186,12 @@ sysvinit-utils
 tar
 task-english
 task-laptop
-task-ssh-server
 tasksel
 traceroute
 tzdata
 ucf
 udev
+unzip
 usbutils
 util-linux
 util-linux-extra
