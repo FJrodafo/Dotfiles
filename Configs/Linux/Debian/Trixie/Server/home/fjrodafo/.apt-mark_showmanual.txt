@@ -14,6 +14,7 @@ busybox
 bzip2
 ca-certificates
 console-setup
+containerd.io
 coreutils
 cpio
 cron
@@ -30,6 +31,10 @@ dhcpcd-base
 diffutils
 dmidecode
 doc-debian
+docker-buildx-plugin
+docker-ce
+docker-ce-cli
+docker-compose-plugin
 dpkg
 e2fsprogs
 fdisk
