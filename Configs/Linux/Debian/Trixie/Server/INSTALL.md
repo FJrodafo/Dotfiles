@@ -11,6 +11,7 @@
 1. [Laptop Specifications](#laptop-specifications)
 2. [Installation Process](#installation-process)
 3. [sudo + Packages](#sudo--packages)
+4. [neofetch](#neofetch)
 
 ## Laptop Specifications
 
@@ -116,4 +117,15 @@ Exit the root session and log out to apply group changes:
 ```shell
 exit
 logout
+```
+
+## neofetch
+
+```shell
+sudo apt update
+sudo apt install git build-essential
+git https://github.com/dylanaraps/neofetch.git
+cd neofetch
+sudo make install
+neofetch
 ```
