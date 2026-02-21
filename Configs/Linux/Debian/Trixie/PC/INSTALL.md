@@ -631,9 +631,9 @@ To create the `docker` group and add your user:
     ```shell
     sudo usermod -aG docker fjrodafo
     ```
-3. Log out and log back in so that your group membership is re-evaluated.
-    ```txt
-    If you're running Linux in a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.
+3. Log out and log back in so that your group membership is re-evaluated (If you're running Linux in a virtual machine, it may be necessary to restart the virtual machine for changes to take effect).
+    ```shell
+    logout
     ```
 4. Verify that you can run `docker` commands without `sudo`.
     ```shell
