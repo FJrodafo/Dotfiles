@@ -4,3 +4,9 @@
 <br />
 &ensp;<a href="https://github.com/FJrodafo/Dotfiles/blob/main/Configs/Linux/Debian/README.md"><kbd>Debian</kbd></a>&ensp;
 </div>
+
+<br />
+
+> [!TIP]
+> 
+> View this file as a wiki on [GitHub](https://github.com/FJrodafo/Dotfiles/wiki)
