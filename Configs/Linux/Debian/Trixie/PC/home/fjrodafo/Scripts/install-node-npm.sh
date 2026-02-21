@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODEJS_VERSION="v24.13.0"
+NODEJS_VERSION="v24.13.1"
 NODEJS_BASE="node-${NODEJS_VERSION}-linux-x64"
 NODEJS_FILE="${NODEJS_BASE}.tar.xz"
 NODEJS_DIR="$HOME/.nodejs"
