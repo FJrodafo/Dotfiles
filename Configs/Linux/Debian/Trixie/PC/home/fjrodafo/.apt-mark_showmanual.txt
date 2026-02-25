@@ -19,6 +19,7 @@ bzip2
 ca-certificates
 code
 console-setup
+containerd.io
 coreutils
 cpio
 cron
@@ -37,6 +38,10 @@ diffutils
 discord
 dmidecode
 doc-debian
+docker-buildx-plugin
+docker-ce
+docker-ce-cli
+docker-compose-plugin
 dpkg
 e2fsprogs
 fdisk
@@ -162,6 +167,7 @@ libxxhash0
 libzstd1
 linux-headers-6.12.63+deb13-amd64
 linux-headers-6.12.69+deb13-amd64
+linux-headers-6.12.73+deb13-amd64
 linux-image-amd64
 linux-sysctl-defaults
 locales
@@ -206,6 +212,7 @@ qimgv
 readline-common
 reportbug
 rofi
+ruby-full
 schroot
 sed
 sensible-utils
