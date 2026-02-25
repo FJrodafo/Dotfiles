@@ -34,6 +34,6 @@ if [ -d "$HOME/.nodejs/bin" ] ; then
 fi
 
 # set PATH so it includes rubygems bin if it exists
-if [ -d "$HOME/.local/share/gem/ruby/3.3.0/bin" ] ; then
-    PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
+if [ -d "$HOME/.gem/ruby/3.3.0/bin" ] ; then
+    PATH="$HOME/.gem/ruby/3.3.0/bin:$PATH"
 fi

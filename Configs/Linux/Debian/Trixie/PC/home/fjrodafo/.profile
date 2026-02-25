@@ -31,4 +31,9 @@ if [ -d "$HOME/.nodejs/bin" ] ; then
     PATH="$HOME/.nodejs/bin:$PATH"
 fi
 
+# set PATH so it includes rubygems bin if it exists
+if [ -d "$HOME/.gem/ruby/3.3.0/bin" ] ; then
+    PATH="$HOME/.gem/ruby/3.3.0/bin:$PATH"
+fi
+
 export PS1='\W \$ '
