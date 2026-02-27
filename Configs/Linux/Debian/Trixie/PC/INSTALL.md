@@ -24,6 +24,7 @@
 13. [chroot](#chroot)
 14. [Change a user's password](#change-a-users-password)
 15. [Docker](#docker)
+16. [Open Broadcaster Software | OBS](#open-broadcaster-software--obs)
 
 ## PC Specifications
 
@@ -638,4 +639,25 @@ To create the `docker` group and add your user:
 4. Verify that you can run `docker` commands without `sudo`.
     ```shell
     docker run hello-world
+    ```
+
+## Open Broadcaster Software | OBS
+
+Debian 9.0 "Stretch" or newer is required.
+
+~~Also note that as of 2021-06-13, this package is the outdated 0.0.1 version. It should still work, but won't have all new improvements. Build from source to get the newest version.~~
+
+As of 2023-05-19 Debian 11 "Bullseye" provides 26.1.2.
+
+- First, make sure you have everything up-to-date.
+    ```shell
+    sudo apt update
+    ```
+- FFmpeg is required. If you do not have the FFmpeg installed (if you're not sure, then you probably don't have it), you can get it with the following command (or compile it yourself):
+    ```shell
+    sudo apt install ffmpeg
+    ```
+- Finally, install OBS Studio.
+    ```shell
+    sudo apt install obs-studio
     ```
