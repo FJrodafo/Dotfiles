@@ -16,12 +16,14 @@
     4. [Tiled Windows](#tiled-windows)
 2. [MPV Player](#mpv-player)
     1. [Controller](#controller)
-3. [Zathura](#zathura)
+3. [Open Broadcaster Software | OBS](#open-broadcaster-software--obs)
+    1. [Record a Video](#record-a-video)
+4. [Zathura](#zathura)
     1. [Navigation](#navigation)
     2. [Bookmarks](#bookmarks)
     3. [Manipulation](#manipulation)
     4. [Miscellaneous](#miscellaneous)
-4. [AJAZZ AK820](#ajazz-ak820)
+5. [AJAZZ AK820](#ajazz-ak820)
     1. [Indicator](#indicator)
     2. [Lighting Key](#lighting-key)
     3. [Combinations](#combinations)
@@ -168,6 +170,21 @@
     <tr>
         <td><kbd>[{</kbd> / <kbd>]}</kbd></td>
         <td>Speed (-/+)</td>
+    </tr>
+</table>
+
+## Open Broadcaster Software | OBS
+
+#### Record a Video
+
+<table>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Home</kbd></td>
+        <td>Start recording</td>
+    </tr>
+    <tr>
+        <td><kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>End</kbd></td>
+        <td>Stop recording</td>
     </tr>
 </table>
 
