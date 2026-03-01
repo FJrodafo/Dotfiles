@@ -13,6 +13,7 @@
 3. [sudo + Packages](#sudo--packages)
 4. [neofetch](#neofetch)
 5. [Docker](#docker)
+6. [PHP + Composer + Laravel installer](#php--composer--laravel-installer)
 
 ## Laptop Specifications
 
@@ -209,3 +210,19 @@ To create the `docker` group and add your user:
     ```shell
     docker run hello-world
     ```
+
+## PHP + Composer + Laravel installer
+
+To install PHP, Composer, and the Laravel installer, run the following command:
+
+```shell
+/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
+```
+
+After the installation is complete, verify that everything is configured correctly:
+
+```shell
+php --version
+composer --version
+laravel --version
+```
