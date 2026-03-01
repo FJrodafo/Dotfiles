@@ -177,6 +177,7 @@ passwd
 pciutils
 perl
 perl-base
+postgresql
 procps
 readline-common
 reportbug
