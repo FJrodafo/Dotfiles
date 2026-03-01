@@ -179,6 +179,7 @@ perl-base
 procps
 readline-common
 reportbug
+ruby-full
 sed
 sensible-utils
 shim-signed
