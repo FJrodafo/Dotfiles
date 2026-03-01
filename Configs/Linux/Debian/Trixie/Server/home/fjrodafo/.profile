@@ -37,3 +37,9 @@ fi
 if [ -d "$HOME/.gem/ruby/3.3.0/bin" ] ; then
     PATH="$HOME/.gem/ruby/3.3.0/bin:$PATH"
 fi
+
+# set PATH so it includes laravel bin if it exists
+if [ -d "$HOME/.config/herd-lite/bin" ] ; then
+    PATH="$HOME/.config/herd-lite/bin:$PATH"
+    PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+fi
