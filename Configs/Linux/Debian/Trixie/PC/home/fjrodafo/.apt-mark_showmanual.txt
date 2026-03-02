@@ -46,6 +46,7 @@ dpkg
 e2fsprogs
 fdisk
 feh
+ffmpeg
 file
 findutils
 firefox-esr
@@ -193,6 +194,7 @@ netbase
 netcat-traditional
 network-manager
 nftables
+obs-studio
 openssh-client
 openssl-provider-legacy
 openvpn
