@@ -186,6 +186,7 @@ sed
 sensible-utils
 shim-signed
 sqv
+ssl-cert
 sudo
 systemd
 systemd-sysv
