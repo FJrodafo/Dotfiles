@@ -194,6 +194,7 @@ netbase
 netcat-traditional
 network-manager
 nftables
+nginx
 obs-studio
 openssh-client
 openssl-provider-legacy
