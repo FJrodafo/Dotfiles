@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Helium
+Comment=Internet without interruptions.
+Exec=/home/fjrodafo/Downloads/Applications/Helium/Helium.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/Helium/Helium.svg
+Terminal=false
+Type=Application
+Categories=Network;
