@@ -1,0 +1,9 @@
+name: Linux
+on: [push, pull_request]
+jobs:
+  echo:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Echo the message
+        run: |
+          echo "🐧"

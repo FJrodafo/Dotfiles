@@ -1,2 +1,6 @@
-Configs/Linux/Debian/Bookworm/home/fjrodafo/Scripts/nginx/.backup/*
-Configs/Linux/Debian/Bookworm/home/fjrodafo/Scripts/nginx/.log/*
+# nginx
+/Debian/Bookworm/home/fjrodafo/Scripts/nginx/.backup/*
+/Debian/Bookworm/home/fjrodafo/Scripts/nginx/.log/*
+
+# releases
+/releases/v*
