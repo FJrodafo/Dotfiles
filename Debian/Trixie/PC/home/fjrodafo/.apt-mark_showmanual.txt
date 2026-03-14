@@ -212,6 +212,8 @@ pipewire-audio
 pipewire-jack
 pkg-config
 procps
+python3-pip
+python3.13-venv
 qimgv
 readline-common
 reportbug
