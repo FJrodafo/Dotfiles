@@ -3,4 +3,5 @@
 /Debian/Bookworm/home/fjrodafo/Scripts/nginx/.log/*
 
 # Releases
-/releases/v*
+/releases/*
+!releases/VERSION.md
