@@ -42,7 +42,8 @@ ${BY}  ${R}${YELLOW}${R} "
 prompt_style_classic() {
     local R B BK BR BY BB BM
     R="${RESET}"; B="${BOLD}"; BK="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
-    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BK}\A${R}╶╴${BY}#${R} "
+    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BK}\A${R}╶╴${BY}#${R} "
+    #PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BK}\A${R}╶╴${BY}#${R} "
     #PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 }
 case "$PROMPT_STYLE" in

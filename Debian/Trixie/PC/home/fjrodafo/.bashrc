@@ -98,10 +98,12 @@ prompt_style_classic() {
     local R BK BR BY BB BM
     R="${RESET}"; BK="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
     if [ "$color_prompt" = yes ]; then
-        PS1="┌╴\u@\h[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BK}\A${R}╶╴${BY}\$${R} "
+        PS1="┌╴\u@\h[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└─╴${BK}\A${R}╶╴${BY}\$${R} "
+        #PS1="┌╴\u@\h[${BB}\W${R}]{${BM}\$(git_branch)${R}}${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo "${R}─" || echo "${BR}✘${R}" )╴${BK}\A${R}╶╴${BY}\$${R} "
         #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     else
-        PS1="┌╴\u@\h[\W]{\$(git_branch)}${debian_chroot:+(${debian_chroot})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo \"─\" || echo \"✘\" )╴\A╶╴\$ "
+        PS1="┌╴\u@\h[\W]{\$(git_branch)}${debian_chroot:+(${debian_chroot})}\n└─╴\A╶╴\$ "
+        #PS1="┌╴\u@\h[\W]{\$(git_branch)}${debian_chroot:+(${debian_chroot})}\n└\$( [ \$LAST_EXIT_CODE -eq 0 ] && echo \"─\" || echo \"✘\" )╴\A╶╴\$ "
         #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     fi
     #unset color_prompt force_color_prompt
