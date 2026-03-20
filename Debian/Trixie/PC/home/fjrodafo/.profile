@@ -36,4 +36,9 @@ if [ -d "$HOME/.gem/ruby/3.3.0/bin" ] ; then
     PATH="$HOME/.gem/ruby/3.3.0/bin:$PATH"
 fi
 
+# set PATH so it includes dotnet dir if it exists
+if [ -d "$HOME/.dotnet" ] ; then
+    PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
+fi
+
 export PS1='\W \$ '
