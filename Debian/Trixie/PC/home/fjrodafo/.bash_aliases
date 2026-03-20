@@ -2,6 +2,7 @@
 #  ╚═╗│  ├┬┘│├─┘ │ └─┐
 #  ╚═╝└─┘┴└─┴┴   ┴ └─┘
 alias backup='$HOME/Scripts/backup.sh'
+alias install-dotnet='$HOME/Scripts/install-dotnet.sh'
 alias install-node-npm='$HOME/Scripts/install-node-npm.sh'
 alias loading='$HOME/Scripts/loading.sh'
 alias lorem-ipsum='$HOME/Scripts/lorem-ipsum.sh'
