@@ -38,6 +38,10 @@ mv npmrc.zip "$HARD_DRIVE"
 zip -P "$ZIP_PASSWORD" -r gem.zip .gem/credentials
 echo -e "${YELLOW}Saving gem.zip${RESET}"
 mv gem.zip "$HARD_DRIVE"
+# m2
+zip -P "$ZIP_PASSWORD" -r m2.zip .m2/settings.xml
+echo -e "${YELLOW}Saving m2.zip${RESET}"
+mv m2.zip "$HARD_DRIVE"
 # ssh
 zip -P "$ZIP_PASSWORD" -r ssh.zip .ssh
 echo -e "${YELLOW}Saving ssh.zip${RESET}"
