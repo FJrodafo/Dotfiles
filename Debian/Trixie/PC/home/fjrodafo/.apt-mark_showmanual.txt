@@ -132,6 +132,7 @@ libnewt0.52
 libnftables1
 libnftnl11
 libnss-systemd
+libnss3-tools
 libpam-modules
 libpam-modules-bin
 libpam-runtime
