@@ -5,6 +5,7 @@ apt
 apt-listchanges
 apt-utils
 arc-theme
+autofirma
 base-files
 base-passwd
 bash
@@ -182,6 +183,7 @@ lxappearance
 maim
 man-db
 manpages
+maven
 mawk
 media-types
 mount
