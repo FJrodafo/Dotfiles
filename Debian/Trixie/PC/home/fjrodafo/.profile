@@ -42,3 +42,4 @@ if [ -d "$HOME/.dotnet" ] ; then
 fi
 
 export PS1='\W \$ '
+export GPG_TTY=$(tty)
