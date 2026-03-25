@@ -1,6 +1,7 @@
 [user]
 	name = Francisco José Rodríguez Afonso
 	email = FJrodafo@gmail.com
+	signingkey = 8DF6352C26EE0C9D
 [core]
 	editor = code --wait
 	autocrlf = input
@@ -15,7 +16,11 @@
 	ui = auto
 [push]
 	default = simple
-# [commit]
-# 	gpgsign = true
 [credential]
 	helper = cache
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg]
+	program = gpg
