@@ -4,7 +4,17 @@ set -euo pipefail
 # Configuration
 HOME_DIR="/home/fjrodafo"
 HARD_DRIVE="/media/fjrodafo/TOSHIBA"
-ZIP_PASSWORD="****"
+
+# Ask for password securely
+read -s -p "Enter backup password: " ZIP_PASSWORD
+echo
+read -s -p "Confirm backup password: " ZIP_PASSWORD_CONFIRM
+echo
+
+if [[ "$ZIP_PASSWORD" != "$ZIP_PASSWORD_CONFIRM" ]]; then
+    echo "Error: Passwords do not match."
+    exit 1
+fi
 
 # Colors
 RESET="\e[0m"
@@ -38,6 +48,10 @@ mv npmrc.zip "$HARD_DRIVE"
 zip -P "$ZIP_PASSWORD" -r gem.zip .gem/credentials
 echo -e "${YELLOW}Saving gem.zip${RESET}"
 mv gem.zip "$HARD_DRIVE"
+# gnupg
+zip -P "$ZIP_PASSWORD" -r gnupg.zip .gnupgbackup
+echo -e "${YELLOW}Saving gnupg.zip${RESET}"
+mv gnupg.zip "$HARD_DRIVE"
 # m2
 zip -P "$ZIP_PASSWORD" -r m2.zip .m2/settings.xml
 echo -e "${YELLOW}Saving m2.zip${RESET}"
