@@ -196,3 +196,5 @@ if [ "$TERM" == "xterm-kitty" ]; then
         4) neofetch-nerd ;;
     esac
 fi
+
+export GPG_TTY=$(tty)
