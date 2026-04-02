@@ -40,5 +40,3 @@ fi
 if [ -d "$HOME/.dotnet" ] ; then
     PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
 fi
-
-export PS1='\W \$ '
