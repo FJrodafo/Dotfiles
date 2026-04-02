@@ -73,6 +73,13 @@ prompt_style_default() {
     # PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 }
 __update_prompt
+set_prompt_style() {
+    PROMPT_STYLE="$1"
+    echo "PROMPT_STYLE=$1" > "$PROMPT_STYLE_FILE"
+}
+alias fancy-prompt='set_prompt_style fancy'
+alias classic-prompt='set_prompt_style classic'
+alias default-prompt='set_prompt_style default'
 #umask 022
 
 # You may uncomment the following lines if you want `ls' to be colorized:
