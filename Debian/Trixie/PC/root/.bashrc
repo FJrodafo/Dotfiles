@@ -42,6 +42,7 @@ __update_prompt() {
     # Apply prompt style
     case "$PROMPT_STYLE" in
         icy) prompt_style_icy ;;
+        thunder) prompt_style_thunder ;;
         fancy) prompt_style_fancy ;;
         kali) prompt_style_kali ;;
         classic) prompt_style_classic ;;
@@ -57,6 +58,13 @@ prompt_style_icy() {
 ${BB}${WHITE} \u ${BC}${BLUE}${R}\
 ${BC}${WHITE} \h ${BW}${CYAN}${R}\
 ${BW}${BLACK} \W ${R}${WHITE}${R} "
+}
+prompt_style_thunder() {
+    local R BC BW BBW
+    R="${RESET}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${BLACK}  \W ${R}${BW}${R}\
+${BW}${BBW}${BLACK} 󰊢 \$(__git_branch) ${R}${BW}${R}\
+${CYAN}${BC}${WHITE}  ${R}${CYAN}${R} "
 }
 prompt_style_fancy() {
     local R BK BR BG BY BB BM BW
