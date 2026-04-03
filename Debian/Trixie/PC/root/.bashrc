@@ -41,6 +41,7 @@ __update_prompt() {
     if [ "$TERM_PROGRAM" = "vscode" ]; then PS1=''; return; fi
     # Apply prompt style
     case "$PROMPT_STYLE" in
+        icy) prompt_style_icy ;;
         fancy) prompt_style_fancy ;;
         classic) prompt_style_classic ;;
         default) prompt_style_default ;;
@@ -48,9 +49,17 @@ __update_prompt() {
     esac
 }
 PROMPT_COMMAND="__save_exit_status; __update_prompt"
+prompt_style_icy() {
+    local R BB BC BW
+    R="${RESET}"; BB="${BG_BLUE}"; BC="${BG_CYAN}"; BW="${BG_WHITE}"
+    PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
+${BB}${WHITE} \u ${BC}${BLUE}${R}\
+${BC}${WHITE} \h ${BW}${CYAN}${R}\
+${BW}${BLACK} \W ${R}${WHITE}${R} "
+}
 prompt_style_fancy() {
-    local R BK BR BG BY BB BM BW
-    R="${RESET}"; BK="${BG_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
+    local R BR BG BY BB BM BW
+    R="${RESET}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
     PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
 ${BB}${WHITE}  \W ${BM}${BLUE}${R}\
 ${BM}${WHITE} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
