@@ -52,30 +52,30 @@ __update_prompt() {
 }
 PROMPT_COMMAND="__save_exit_status; __update_prompt"
 prompt_style_icy() {
-    local R BB BC BW
-    R="${RESET}"; BB="${BG_BLUE}"; BC="${BG_CYAN}"; BW="${BG_WHITE}"
-    PS1="${WHITE}${BW}${BLACK}᠎${BB}${WHITE}${R}\
-${BB}${WHITE} \u ${BC}${BLUE}${R}\
-${BC}${WHITE} \h ${BW}${CYAN}${R}\
-${BW}${BLACK} \W ${R}${WHITE}${R} "
+    local R BB BC BW BBW
+    R="${RESET}"; BB="${BG_BLUE}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${BLACK}᠎${BB}${BW}${R}\
+${BB}${BW} \u ${BC}${BLUE}${R}\
+${BC}${BW} \H ${BBW}${CYAN}${R}\
+${BBW}${BLACK} \W ${R}${BW}${R} "
 }
 prompt_style_thunder() {
     local R BC BW BBW
     R="${RESET}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
     PS1="${BW}${BBW}${BLACK}  \W ${R}${BW}${R}\
 ${BW}${BBW}${BLACK} 󰊢 \$(__git_branch) ${R}${BW}${R}\
-${CYAN}${BC}${WHITE}  ${R}${CYAN}${R} "
+${CYAN}${BC}${BW}  ${R}${CYAN}${R} "
 }
 prompt_style_fancy() {
-    local R BK BR BG BY BB BM BW
-    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
-    PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
-${BB}${WHITE}  \W ${BM}${BLUE}${R}\
-${BM}${WHITE} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
-${BG}${WHITE}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
-${BR}${WHITE} ᠎ ${debian_chroot} }${BK}${RED}${R}\
-${BK}${WHITE} ᠎ \A ${BY}${BRIGHT_BLACK}${R}\
-${BY}${WHITE}  ${R}${YELLOW}${R} "
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BB}${BW}${R}\
+${BB}${BW}  \W ${BM}${BLUE}${R}\
+${BM}${BW} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
+${BG}${BW}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
+${BR}${BW} ᠎ ${debian_chroot} }${BK}${RED}${R}\
+${BK}${BW} ᠎ \A ${BY}${BRIGHT_BLACK}${R}\
+${BY}${BW}  ${R}${YELLOW}${R} "
 }
 prompt_style_kali() {
     PS1='\[\033[01;32m\]┌──(\[\033[01;94m\]\u㉿\h\[\033[01;32m\])─[\[\033[00m\]\w\[\033[01;32m\]]\[\033[00m\]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]└─\[\033[01;94m\]\$\[\033[00m\] '
