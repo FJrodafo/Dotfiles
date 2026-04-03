@@ -58,7 +58,7 @@ PROMPT_COMMAND="__save_exit_status; __update_prompt"
 prompt_style_icy() {
     local R BB BC BW
     R="${RESET}"; BB="${BG_BLUE}"; BC="${BG_CYAN}"; BW="${BG_WHITE}"
-    PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
+    PS1="${WHITE}${BW}${BLACK}᠎${BB}${WHITE}${R}\
 ${BB}${WHITE} \u ${BC}${BLUE}${R}\
 ${BC}${WHITE} \h ${BW}${CYAN}${R}\
 ${BW}${BLACK} \W ${R}${WHITE}${R} "
