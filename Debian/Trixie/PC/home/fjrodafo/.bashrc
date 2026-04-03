@@ -115,13 +115,14 @@ ${BC}${WHITE} \h ${BW}${CYAN}${R}\
 ${BW}${BLACK} \W ${R}${WHITE}${R} "
 }
 prompt_style_fancy() {
-    local R BR BG BY BB BM BW
-    R="${RESET}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
+    local R BK BR BG BY BB BM BW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BG_WHITE}"
     PS1="${WHITE}${BW}${RED}᠎${BB}${WHITE}${R}\
 ${BB}${WHITE}  \W ${BM}${BLUE}${R}\
 ${BM}${WHITE} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
 ${BG}${WHITE}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
-${BR}${WHITE} ᠎ ${debian_chroot} }${BY}${RED}${R}\
+${BR}${WHITE} ᠎ ${debian_chroot} }${BK}${RED}${R}\
+${BK}${WHITE} ᠎ \A ${BY}${BRIGHT_BLACK}${R}\
 ${BY}${WHITE}  ${R}${YELLOW}${R} "
 }
 prompt_style_kali() {
