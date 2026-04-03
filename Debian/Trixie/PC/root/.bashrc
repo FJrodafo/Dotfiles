@@ -43,6 +43,7 @@ __update_prompt() {
     case "$PROMPT_STYLE" in
         icy) prompt_style_icy ;;
         fancy) prompt_style_fancy ;;
+        kali) prompt_style_kali ;;
         classic) prompt_style_classic ;;
         default) prompt_style_default ;;
         *) prompt_style_default ;;
@@ -66,6 +67,10 @@ ${BM}${WHITE} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
 ${BG}${WHITE}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
 ${BR}${WHITE} ᠎ ${debian_chroot} }${BY}${RED}${R}\
 ${BY}${WHITE}  ${R}${YELLOW}${R} "
+}
+prompt_style_kali() {
+    PS1='\[\033[01;32m\]┌──(\[\033[01;94m\]\u㉿\h\[\033[01;32m\])─[\[\033[00m\]\w\[\033[01;32m\]]\[\033[00m\]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]└─\[\033[01;94m\]\$\[\033[00m\] '
+    # PS1='┌──(\u㉿\h)─[\w]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n└─\$ '
 }
 prompt_style_classic() {
     local R B BK BR BG BY BB BM

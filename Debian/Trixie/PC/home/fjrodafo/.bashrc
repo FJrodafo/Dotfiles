@@ -99,6 +99,7 @@ __update_prompt() {
     case "$PROMPT_STYLE" in
         icy) prompt_style_icy ;;
         fancy) prompt_style_fancy ;;
+        kali) prompt_style_kali ;;
         classic) prompt_style_classic ;;
         default) prompt_style_default ;;
         *) prompt_style_default ;;
@@ -123,6 +124,13 @@ ${BG}${WHITE}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
 ${BR}${WHITE} ᠎ ${debian_chroot} }${BY}${RED}${R}\
 ${BY}${WHITE}  ${R}${YELLOW}${R} "
 }
+prompt_style_kali() {
+    if [ "$color_prompt" = yes ]; then
+        PS1='\[\033[01;32m\]┌──(\[\033[01;94m\]\u㉿\h\[\033[01;32m\])─[\[\033[00m\]\w\[\033[01;32m\]]\[\033[00m\]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]└─\[\033[01;94m\]\$\[\033[00m\] '
+    else
+        PS1='┌──(\u㉿\h)─[\w]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n└─\$ '
+    fi
+}
 prompt_style_classic() {
     local R BK BR BG BY BB BM
     R="${RESET}"; BK="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BG="${BRIGHT_GREEN}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
@@ -143,6 +151,7 @@ set_prompt_style() {
 }
 alias icy-prompt='set_prompt_style icy'
 alias fancy-prompt='set_prompt_style fancy'
+alias kali-prompt='set_prompt_style kali'
 alias classic-prompt='set_prompt_style classic'
 alias default-prompt='set_prompt_style default'
 
