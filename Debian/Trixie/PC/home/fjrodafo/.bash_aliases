@@ -50,6 +50,6 @@ alias audio-input-default='amixer set Capture 40%'
 #  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩  └─┘└┴┘└─┘┴└─
 alias poff='systemctl poweroff'
 alias sys-reboot='systemctl reboot'
-#alias sys-suspend='systemctl suspend'
+alias sys-suspend='systemctl suspend'
 #alias sys-hibernate='systemctl hibernate'
 #alias sys-hybridsleep='systemctl hybrid-sleep'
