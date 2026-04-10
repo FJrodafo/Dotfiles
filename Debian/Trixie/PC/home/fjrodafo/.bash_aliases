@@ -15,11 +15,11 @@ alias update-linux-kernel='$HOME/Scripts/update-linux-kernel.sh'
 #  ╔╦╗┬┌─┐┌─┐┌─┐┬─┐┌┬┐
 #   ║║│└─┐│  │ │├┬┘ ││
 #  ═╩╝┴└─┘└─┘└─┘┴└──┴┘
-alias discord-app='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm start'
-alias discord-app-canary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP/App && npm i && npm run canary'
-alias discord-app-shrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/ShrikeBot/App && npm i && npm run start'
-alias discord-crps='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App && npm i && npm start'
-alias discord-crps-canary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS/App && npm i && npm run canary'
+alias discord-app='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP && npm i && npm start'
+alias discord-app-canary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordAPP && npm i && npm run canary'
+alias discord-app-shrikebot='cd $HOME/Documents/Dev/FJrodafo/Repositories/ShrikeBot && npm i && npm run start'
+alias discord-crps='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS && npm i && npm start'
+alias discord-crps-canary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordCRPS && npm i && npm run canary'
 #  ╔╦╗┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬
 #   ║ ├┤ ├┬┘│││││││├─┤│
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
