@@ -41,8 +41,8 @@ __update_prompt() {
     if [ "$TERM_PROGRAM" = "vscode" ]; then PS1=''; return; fi
     # Apply prompt style
     case "$PROMPT_STYLE" in
-        icy) prompt_style_icy ;;
         thunder) prompt_style_thunder ;;
+        icy) prompt_style_icy ;;
         fancy) prompt_style_fancy ;;
         kali) prompt_style_kali ;;
         classic) prompt_style_classic ;;
@@ -51,6 +51,13 @@ __update_prompt() {
     esac
 }
 PROMPT_COMMAND="__save_exit_status; __update_prompt"
+prompt_style_thunder() {
+    local R BC BW BBW
+    R="${RESET}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${BLACK}  \W ${R}${BW}${R}\
+${BW}${BBW}${BLACK} 󰊢 \$(__git_branch) ${R}${BW}${R}\
+${CYAN}${BC}${BW}  ${R}${CYAN}${R} "
+}
 prompt_style_icy() {
     local R BB BC BW BBW
     R="${RESET}"; BB="${BG_BLUE}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
@@ -59,22 +66,15 @@ ${BB}${BW} \u ${BC}${BLUE}${R}\
 ${BC}${BW} \H ${BBW}${CYAN}${R}\
 ${BBW}${BLACK} \W ${R}${BW}${R} "
 }
-prompt_style_thunder() {
-    local R BC BW BBW
-    R="${RESET}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
-    PS1="${BW}${BBW}${BLACK}  \W ${R}${BW}${R}\
-${BW}${BBW}${BLACK} 󰊢 \$(__git_branch) ${R}${BW}${R}\
-${CYAN}${BC}${BW}  ${R}${CYAN}${R} "
-}
 prompt_style_fancy() {
     local R BK BR BG BY BB BM BW BBW
     R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
-    PS1="${BW}${BBW}${RED}᠎${BB}${BW}${R}\
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BW} ᠎ \A ${BB}${BRIGHT_BLACK}${R}\
 ${BB}${BW}  \W ${BM}${BLUE}${R}\
 ${BM}${BW} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
 ${BG}${BW}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
-${BR}${BW} ᠎ ${debian_chroot} }${BK}${RED}${R}\
-${BK}${BW} ᠎ \A ${BY}${BRIGHT_BLACK}${R}\
+${BR}${BW} ᠎ ${debian_chroot} }${BY}${RED}${R}\
 ${BY}${BW}  ${R}${YELLOW}${R} "
 }
 prompt_style_kali() {
@@ -82,13 +82,12 @@ prompt_style_kali() {
     # PS1='┌──(\u㉿\h)─[\w]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n└─\$ '
 }
 prompt_style_classic() {
-    local R B BK BR BG BY BB BM
-    R="${RESET}"; B="${BOLD}"; BK="${BRIGHT_BLACK}"; BR="${BRIGHT_RED}"; BG="${BRIGHT_GREEN}"; BY="${BRIGHT_YELLOW}"; BB="${BRIGHT_BLUE}"; BM="${BRIGHT_MAGENTA}"
-    PS1="┌╴${B}\u${R}@\H[${BB}\W${R}]{${BM}\$(__git_branch)${R}}(${BG}\$(__venv_segment)${R})${debian_chroot:+(${BR}${debian_chroot}${R})}\n└\$([[ $LAST_EXIT_CODE -eq 0 ]] && echo "─" || echo "✘")╴${BK}\A${R}╶╴${BY}\$${R} "
+    PS1='┌╴\[\033[01m\]\u\[\033[00m\]@\h[\[\033[94m\]\W\[\033[00m\]]{\[\033[95m\]$(__git_branch)\[\033[00m\]}(\[\033[92m\]$(__venv_segment)\[\033[00m\])${debian_chroot:+(\[\033[91m\]$debian_chroot\[\033[00m\])}\n└$([[ $LAST_EXIT_CODE -eq 0 ]] && echo "─" || echo "✘")╴\[\033[90m\]\A\[\033[00m\]╶╴\[\033[93m\]\$\[\033[00m\] '
+    # PS1='┌╴\u@\h[\W]{$(__git_branch)}($(__venv_segment))${debian_chroot:+($debian_chroot)}\n└$([[ $LAST_EXIT_CODE -eq 0 ]] && echo "─" || echo "✘")╴\A╶╴\$ '
 }
 prompt_style_default() {
     PS1='($(__venv_segment))${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    # PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+    # PS1='($(__venv_segment))${debian_chroot:+($debian_chroot)}\h:\w\$ '
 }
 __update_prompt
 #umask 022
