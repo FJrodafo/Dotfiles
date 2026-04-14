@@ -24,7 +24,8 @@ alias discord-crps-canary='cd $HOME/Documents/Dev/FJrodafo/Repositories/DiscordC
 #   ║ ├┤ ├┬┘│││││││├─┤│
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
 alias apt-mark_showmanual='apt-mark showmanual > ~/.apt-mark_showmanual.txt'
-alias astroterm='astroterm --latitude 28.272340 --longitude -16.642510 -cC -ub -m'
+alias astroterm='~/.local/bin/astroterm --latitude 28.272340 --longitude -16.642510 -cC -ub -m'
+alias astroterm-antipodes='~/.local/bin/astroterm --latitude -28.272340 --longitude 163.357480 -cC -ub -m'
 alias clean='clear && source ~/.bashrc'
 alias chroot-trixie='sudo schroot -c trixie --directory=/root'
 alias damn='sudo $(history -p !!)'
