@@ -11,9 +11,10 @@
 1. [Laptop Specifications](#laptop-specifications)
 2. [Installation Process](#installation-process)
 3. [sudo + Packages](#sudo--packages)
-4. [neofetch](#neofetch)
-5. [Docker](#docker)
-6. [PHP + Composer + Laravel installer](#php--composer--laravel-installer)
+4. [tty](#tty)
+5. [neofetch](#neofetch)
+6. [Docker](#docker)
+7. [PHP + Composer + Laravel installer](#php--composer--laravel-installer)
 
 ## Laptop Specifications
 
@@ -122,6 +123,20 @@ Exit the root session and log out to apply group changes:
 exit
 logout
 ```
+
+## tty
+
+```shell
+sudo apt update
+sudo apt install console-setup
+sudo dpkg-reconfigure console-setup
+```
+
+- **Configuring console-setup**
+    - **Encoding to use on the console:** UTF-8
+    - **Character set to support:** # Latin1 and Latin5 - western Europe and Turkic languages
+    - **Font for the console:** Fixed
+    - **Font size:** 8x16
 
 ## neofetch
 
