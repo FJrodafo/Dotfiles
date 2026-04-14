@@ -12,6 +12,7 @@
 	br = branch
 	lg = log --oneline --graph --all --decorate
 	pt = log --pretty=format:'%h %an %ae'
+	ph = push -u origin HEAD
 [color]
 	ui = auto
 [push]
