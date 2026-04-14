@@ -2,6 +2,7 @@
 #   ║ ├┤ ├┬┘│││││││├─┤│
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
 alias apt-mark_showmanual='apt-mark showmanual > ~/.apt-mark_showmanual.txt'
+alias astroterm='~/Documents/astroterm -cC -m -i "Santa Cruz de Tenerife"'
 alias clean='clear && source ~/.bashrc'
 #  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┌─┐┬ ┬┌─┐┬─┐
 #  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╝│ ││││├┤ ├┬┘
