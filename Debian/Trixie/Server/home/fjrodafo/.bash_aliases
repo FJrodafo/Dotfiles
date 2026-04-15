@@ -2,8 +2,8 @@
 #   ║ ├┤ ├┬┘│││││││├─┤│
 #   ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘
 alias apt-mark_showmanual='apt-mark showmanual > ~/.apt-mark_showmanual.txt'
-alias astroterm='~/Documents/astroterm --latitude 28.272340 --longitude -16.642510 -cC -m'
-alias astroterm-antipodes='~/Documents/astroterm --latitude -28.272340 --longitude 163.357480 -cC -m'
+alias astroterm='~/Documents/astroterm --latitude 28.272340 --longitude -16.642510 -cC -m -r 3.5'
+alias astroterm-antipodes='~/Documents/astroterm --latitude -28.272340 --longitude 163.357480 -cC -m -r 3.5'
 alias b0='brightnessctl s 0'
 alias b1='brightnessctl s 100%'
 alias clean='clear && source ~/.bashrc'
