@@ -71,8 +71,8 @@ __git_branch() {
     git rev-parse --is-inside-work-tree >/dev/null 2>&1 || { echo -n "~"; return; }
     branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --always 2>/dev/null)"
     if git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
-        ahead="$(git rev-list --count @{u}..HEAD 2>/dev/null)"
         behind="$(git rev-list --count HEAD..@{u} 2>/dev/null)"
+        ahead="$(git rev-list --count @{u}..HEAD 2>/dev/null)"
         [ "$behind" -gt 0 ] && marks+=" ⇣$behind"
         [ "$ahead" -gt 0 ] && marks+=" ⇡$ahead"
     fi
