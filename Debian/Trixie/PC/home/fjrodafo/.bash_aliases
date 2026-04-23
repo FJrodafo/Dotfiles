@@ -29,7 +29,7 @@ alias astroterm-antipodes='~/.local/bin/astroterm --latitude -28.272340 --longit
 alias clean='clear && source ~/.bashrc'
 alias chroot-trixie='sudo schroot -c trixie --directory=/root'
 alias damn='sudo $(history -p !!)'
-alias music='mpv --shuffle --no-audio-display ~/Music'
+alias music='mpv --shuffle --no-audio-display --loop-playlist=inf --volume=80 --term-status-msg="────" ~/Music/'
 #  ╔╗╔┌─┐┌─┐┌─┐┌─┐┌┬┐┌─┐┬ ┬
 #  ║║║├┤ │ │├┤ ├┤  │ │  ├─┤
 #  ╝╚╝└─┘└─┘└  └─┘ ┴ └─┘┴ ┴
