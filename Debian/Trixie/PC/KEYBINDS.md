@@ -171,6 +171,10 @@
         <td><kbd>[{</kbd> / <kbd>]}</kbd></td>
         <td>Speed (-/+)</td>
     </tr>
+    <tr>
+        <td><kbd>Shift</kbd> + { <kbd>,<</kbd> / <kbd>.></kbd> }</td>
+        <td>Navigate (previous/next)</td>
+    </tr>
 </table>
 
 ## Open Broadcaster Software | OBS
