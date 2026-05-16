@@ -68,6 +68,7 @@ gvfs-fuse
 gzip
 hostname
 ifupdown
+imagemagick
 inetutils-telnet
 init
 init-system-helpers
@@ -172,6 +173,8 @@ linux-headers-6.12.63+deb13-amd64
 linux-headers-6.12.69+deb13-amd64
 linux-headers-6.12.73+deb13-amd64
 linux-headers-6.12.74+deb13+1-amd64
+linux-headers-6.12.85+deb13-amd64
+linux-headers-6.12.86+deb13-amd64
 linux-image-amd64
 linux-sysctl-defaults
 locales
@@ -203,6 +206,7 @@ obs-studio
 openssh-client
 openssl-provider-legacy
 openvpn
+optipng
 os-prober
 papirus-icon-theme
 passwd
