@@ -1,0 +1,86 @@
+services:
+  # ToDo
+  to-do:
+    image: fjrodafo/to-do:latest
+    container_name: to-do
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "80:3000"
+    networks:
+      - to-do_network
+    volumes:
+      - to-do:/etc/todo
+    restart: unless-stopped
+  # Discord APP (npm start)
+  discord-app:
+    image: fjrodafo/discord-app:latest
+    container_name: discord-app
+    environment:
+      - NODE_ENV=production
+    command: sh -c "node ./src/deploy-commands.js && node ./src/index.js"
+    ports:
+      - "3001:3000"
+    networks:
+      - discord-app_network
+    volumes:
+      - ./DiscordAPP/src/config.json:/app/src/config.json:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+  # Discord APP Canary (npm run canary)
+  discord-app-canary:
+    image: fjrodafo/discord-app:canary
+    container_name: discord-app-canary
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3002:3000"
+    networks:
+      - discord-app_network
+    volumes:
+      - ./DiscordAPP/canary/config.json:/app/canary/config.json:ro
+      - discord-app-canary_database:/app/canary/database
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+  # Shrike Bot
+  shrike-bot:
+    image: fjrodafo/shrike-bot:latest
+    container_name: shrike-bot
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3003:3000"
+    networks:
+      - shrike-bot_network
+    volumes:
+      - ./ShrikeBot/src/config.json:/app/src/config.json:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+# Networks
+networks:
+  to-do_network:
+    name: to-do_network
+  discord-app_network:
+    name: discord-app_network
+  shrike-bot_network:
+    name: shrike-bot_network
+# Volumes
+volumes:
+  to-do:
+    external: true
+  discord-app-canary_database:
