@@ -10,8 +10,9 @@ alias clean='clear && source ~/.bashrc'
 #  ╔╦╗┌─┐┌─┐┬┌─┌─┐┬─┐
 #   ║║│ ││  ├┴┐├┤ ├┬┘
 #  ═╩╝└─┘└─┘┴ ┴└─┘┴└─
-alias ddcd='docker exec discord-app-canary cat /app/canary/database/data.json'
-alias ddcl='docker exec discord-app-canary cat /app/canary/database/log.txt'
+alias canary-data='docker exec discord-app-canary cat /app/canary/database/data.json'
+alias canary-logs='docker exec discord-app-canary cat /app/canary/database/logs.txt'
+alias canary-term='docker logs discord-app-canary'
 #  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┌─┐┬ ┬┌─┐┬─┐
 #  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╝│ ││││├┤ ├┬┘
 #  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩  └─┘└┴┘└─┘┴└─
