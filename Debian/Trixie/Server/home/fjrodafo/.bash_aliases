@@ -7,6 +7,11 @@ alias astroterm-antipodes='~/Documents/astroterm --latitude -28.272340 --longitu
 alias b0='brightnessctl s 0'
 alias b1='brightnessctl s 100%'
 alias clean='clear && source ~/.bashrc'
+#  ╔╦╗┌─┐┌─┐┬┌─┌─┐┬─┐
+#   ║║│ ││  ├┴┐├┤ ├┬┘
+#  ═╩╝└─┘└─┘┴ ┴└─┘┴└─
+alias ddcd='docker exec discord-app-canary cat /app/canary/database/data.json'
+alias ddcl='docker exec discord-app-canary cat /app/canary/database/log.txt'
 #  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┌─┐┬ ┬┌─┐┬─┐
 #  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╝│ ││││├┤ ├┬┘
 #  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩  └─┘└┴┘└─┘┴└─
