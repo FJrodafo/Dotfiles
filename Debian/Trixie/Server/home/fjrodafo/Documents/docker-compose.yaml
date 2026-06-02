@@ -45,6 +45,7 @@ services:
     volumes:
       - ./DiscordAPP/canary/config.json:/app/canary/config.json:ro
       - discord-app-canary_database:/app/canary/database
+      - discord-app-canary_assets:/app/canary/assets/command-output
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000"]
       interval: 30s
@@ -84,3 +85,4 @@ volumes:
   to-do:
     external: true
   discord-app-canary_database:
+  discord-app-canary_assets:
