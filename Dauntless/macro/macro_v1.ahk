@@ -6,8 +6,8 @@ SendMode Input
 
 toggle := false
 dauntlessExe := "ahk_exe Dauntless-Win64-Shipping.exe"
-soundFilePath1 := "C:\Users\User\Documents\Dauntless\Macro\ding.wav"
-soundFilePath2 := "C:\Users\User\Documents\Dauntless\Macro\bamboo.mp3"
+soundFilePath1 := "C:\Users\Username\Documents\Dauntless\Macro\ding.wav"
+soundFilePath2 := "C:\Users\Username\Documents\Dauntless\Macro\bamboo.mp3"
 keyToSend := "v"  ; Make sure this is the correct key
 inventorykey := "i"
 emotekey := "t"
@@ -52,5 +52,5 @@ F3::
     ControlSend,, {%jumpkey%}, Dauntless
 return
 
-!r::Reload  ; Alt + R to reload the script
+!r::Reload    ; Alt + R to reload the script
 ~F4::ExitApp  ; F4 to exit the script
