@@ -56,7 +56,7 @@ super + ctrl + space
 
 # change wallpaper
 super + c
-	feh --bg-fill --randomize ~/Pictures/Wallpapers/Enabled/
+	feh --bg-fill --randomize ~/Pictures/Wallpapers/Desktop/
 
 #
 # tiled windows
