@@ -51,7 +51,7 @@ __update_prompt() {
         *) prompt_style_default ;;
     esac
 }
-PROMPT_COMMAND="__save_exit_status; __update_prompt"
+PROMPT_COMMAND="__save_exit_status; __update_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 prompt_style_locked() {
     local R BK BBK BW BY BBY
     R="${RESET}"; BK="${BRIGHT_BLACK}"; BBK="${BG_BRIGHT_BLACK}"; BW="${BRIGHT_WHITE}"; BY="${BRIGHT_YELLOW}"; BBY="${BG_BRIGHT_YELLOW}"
