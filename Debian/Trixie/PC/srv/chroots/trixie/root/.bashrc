@@ -55,6 +55,12 @@ __update_prompt() {
         thunder) prompt_style_thunder ;;
         icy) prompt_style_icy ;;
         fancy) prompt_style_fancy ;;
+        tfancy) prompt_style_tfancy ;;
+        dfancy) prompt_style_dfancy ;;
+        gfancy) prompt_style_gfancy ;;
+        pfancy) prompt_style_pfancy ;;
+        rfancy) prompt_style_rfancy ;;
+        ufancy) prompt_style_ufancy ;;
         kali) prompt_style_kali ;;
         classic) prompt_style_classic ;;
         default) prompt_style_default ;;
@@ -95,6 +101,72 @@ ${BG}${BW}  \$(__venv_segment) ${debian_chroot:+${BR}${GREEN}${R}\
 ${BR}${BW} ᠎ ${debian_chroot} }${BY}${RED}${R}\
 ${BY}${BW}  ${R}${YELLOW}${R} "
 }
+prompt_style_tfancy() {
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BW} ᠎ \A ${BB}${BRIGHT_BLACK}${R}\
+${BB}${BM}${BLUE}${R}\
+${BM}${BG}${MAGENTA}${R}\
+${BG}${BR}${GREEN}${R}\
+${BR}${BY}${RED}${R}\
+${BY}${R}${YELLOW}${R} "
+}
+prompt_style_dfancy() {
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BB}${BRIGHT_BLACK}${R}\
+${BB}${BW}  \W ${BM}${BLUE}${R}\
+${BM}${BG}${MAGENTA}${R}\
+${BG}${BR}${GREEN}${R}\
+${BR}${BY}${RED}${R}\
+${BY}${R}${YELLOW}${R} "
+}
+prompt_style_gfancy() {
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BB}${BRIGHT_BLACK}${R}\
+${BB}${BM}${BLUE}${R}\
+${BM}${BW} 󰊢 \$(__git_branch) ${BG}${MAGENTA}${R}\
+${BG}${BR}${GREEN}${R}\
+${BR}${BY}${RED}${R}\
+${BY}${R}${YELLOW}${R} "
+}
+prompt_style_pfancy() {
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BB}${BRIGHT_BLACK}${R}\
+${BB}${BM}${BLUE}${R}\
+${BM}${BG}${MAGENTA}${R}\
+${BG}${BW}  \$(__venv_segment) ${BR}${GREEN}${R}\
+${BR}${BY}${RED}${R}\
+${BY}${R}${YELLOW}${R} "
+}
+prompt_style_rfancy() {
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BB}${BRIGHT_BLACK}${R}\
+${BB}${BM}${BLUE}${R}\
+${BM}${BG}${MAGENTA}${R}\
+${BG}${debian_chroot:+${BR}${GREEN}${R}\
+${BR}${BW} ᠎ ${debian_chroot} }${BY}${RED}${R}\
+${BY}${R}${YELLOW}${R} "
+}
+prompt_style_ufancy() {
+    local R BK BR BG BY BB BM BW BBW
+    R="${RESET}"; BK="${BG_BRIGHT_BLACK}"; BR="${BG_RED}"; BG="${BG_GREEN}"; BY="${BG_YELLOW}"; BB="${BG_BLUE}"; BM="${BG_MAGENTA}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
+    PS1="${BW}${BBW}${RED}᠎${BK}${BW}${R}\
+${BK}${BB}${BRIGHT_BLACK}${R}\
+${BB}${BM}${BLUE}${R}\
+${BM}${BG}${MAGENTA}${R}\
+${BG}${BR}${GREEN}${R}\
+${BR}${BY}${RED}${R}\
+${BY}${BW}  ${R}${YELLOW}${R} "
+}
 prompt_style_kali() {
     PS1='\[\033[01;32m\]┌──(\[\033[01;94m\]\u㉿\h\[\033[01;32m\])─[\[\033[00m\]\w\[\033[01;32m\]]\[\033[00m\]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n\[\033[01;32m\]└─\[\033[01;94m\]\$\[\033[00m\] '
     # PS1='┌──(\u㉿\h)─[\w]($(__venv_segment))${debian_chroot:+($debian_chroot)}\n└─\$ '
@@ -116,6 +188,12 @@ alias locked-prompt='set_prompt_style locked'
 alias thunder-prompt='set_prompt_style thunder'
 alias icy-prompt='set_prompt_style icy'
 alias fancy-prompt='set_prompt_style fancy'
+alias tfancy-prompt='set_prompt_style tfancy'
+alias dfancy-prompt='set_prompt_style dfancy'
+alias gfancy-prompt='set_prompt_style gfancy'
+alias pfancy-prompt='set_prompt_style pfancy'
+alias rfancy-prompt='set_prompt_style rfancy'
+alias ufancy-prompt='set_prompt_style ufancy'
 alias kali-prompt='set_prompt_style kali'
 alias classic-prompt='set_prompt_style classic'
 alias default-prompt='set_prompt_style default'
