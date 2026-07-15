@@ -41,6 +41,7 @@ __update_prompt() {
     if [ "$TERM_PROGRAM" = "vscode" ]; then PS1=''; return; fi
     # Apply prompt style
     case "$PROMPT_STYLE" in
+        locked) prompt_style_locked ;;
         thunder) prompt_style_thunder ;;
         icy) prompt_style_icy ;;
         fancy) prompt_style_fancy ;;
@@ -51,6 +52,13 @@ __update_prompt() {
     esac
 }
 PROMPT_COMMAND="__save_exit_status; __update_prompt"
+prompt_style_locked() {
+    local R BK BBK BW BY BBY
+    R="${RESET}"; BK="${BRIGHT_BLACK}"; BBK="${BG_BRIGHT_BLACK}"; BW="${BRIGHT_WHITE}"; BY="${BRIGHT_YELLOW}"; BBY="${BG_BRIGHT_YELLOW}"
+    PS1="${BK}${BBK}${BW}  \W ${R}${BK}${R}\
+${BK}${BBK}${BW} 󰊢 \$(__git_branch) ${R}${BK}${R}\
+${BY}${BBY}${BLACK}  ${R}${BY}${R} "
+}
 prompt_style_thunder() {
     local R BC BW BBW
     R="${RESET}"; BC="${BG_CYAN}"; BW="${BRIGHT_WHITE}"; BBW="${BG_BRIGHT_WHITE}"
