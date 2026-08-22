@@ -58,8 +58,8 @@ listbox {
 /********** List View **********/
 listview {
     enabled:                     true;
-    columns:                     5;
-    lines:                       7;
+    columns:                     4;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
     reverse:                     false;
