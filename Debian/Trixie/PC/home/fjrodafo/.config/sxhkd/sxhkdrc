@@ -39,7 +39,7 @@ super + Return
 	kitty
 
 # close/kill
-super + {_,shift + }w
+super + {_,shift + }Delete
 	bspc node -{c,k}
 
 # open windows
