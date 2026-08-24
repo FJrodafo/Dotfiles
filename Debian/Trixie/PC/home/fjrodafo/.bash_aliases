@@ -47,8 +47,8 @@ alias retroverze='cd $HOME/Documents/Games/Servers/RetroVerze && sudo openvpn --
 #  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┬ ┬┌┬┐┬┌─┐
 #  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╣│ │ ││││ │
 #  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩ ╩└─┘─┴┘┴└─┘
-alias audio-output-default='amixer set Master 40%'
-alias audio-input-default='amixer set Capture 40%'
+alias audio-output-default='amixer set Master 50%'
+alias audio-input-default='amixer set Capture 50%'
 alias audio-default='audio-output-default && audio-input-default'
 #  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┌─┐┬ ┬┌─┐┬─┐
 #  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╝│ ││││├┤ ├┬┘
