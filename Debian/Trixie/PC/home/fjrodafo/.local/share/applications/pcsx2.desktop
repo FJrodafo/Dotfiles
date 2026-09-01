@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=PCSX2
+Comment=PCSX2 is a free and open-source PlayStation 2 (PS2) emulator.
+Exec=/home/fjrodafo/Downloads/Applications/PCSX2/PCSX2.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/PCSX2/PCSX2.svg
+Terminal=false
+Type=Application
+Categories=Game;
