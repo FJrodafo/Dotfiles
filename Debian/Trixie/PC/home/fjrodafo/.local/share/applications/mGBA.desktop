@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=mGBA
+Comment=A free and open source emulator that allows you to play Game Boy Advance games on your computer.
+Exec=/home/fjrodafo/Downloads/Applications/mGBA/mGBA.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/mGBA/mGBA.svg
+Terminal=false
+Type=Application
+Categories=Game;

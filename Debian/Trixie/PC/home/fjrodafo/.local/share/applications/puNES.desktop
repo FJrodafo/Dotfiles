@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=puNES
+Comment=Qt-based Nintendo Entertaiment System emulator and NSF/NSF2/NSFe Music Player.
+Exec=/home/fjrodafo/Downloads/Applications/puNES/puNES.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/puNES/puNES.svg
+Terminal=false
+Type=Application
+Categories=Game;

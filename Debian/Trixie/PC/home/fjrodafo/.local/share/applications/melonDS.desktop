@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=melonDS
+Comment=A Nintendo DS emulator.
+Exec=/home/fjrodafo/Downloads/Applications/melonDS/melonDS.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/melonDS/melonDS.svg
+Terminal=false
+Type=Application
+Categories=Game;
