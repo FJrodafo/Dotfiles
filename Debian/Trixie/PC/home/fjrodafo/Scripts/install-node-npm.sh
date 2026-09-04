@@ -11,7 +11,7 @@ if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then
     exit 0
 fi
 
-cd "$DOWNLOADS_DIR"
+cd "$DOWNLOADS_DIR" || exit 1
 
 if [[ ! -f "$NODEJS_FILE" ]]; then
     echo "Download de .tar.xz file at https://nodejs.org/en"

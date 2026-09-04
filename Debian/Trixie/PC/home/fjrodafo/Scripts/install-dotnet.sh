@@ -11,7 +11,7 @@ if command -v dotnet >/dev/null 2>&1; then
     exit 0
 fi
 
-cd "$DOWNLOADS_DIR"
+cd "$DOWNLOADS_DIR" || exit 1
 
 if [[ ! -f "$DOTNET_FILE" ]]; then
     echo "Download de .tar.gz file at https://dotnet.microsoft.com/en-us/download/dotnet"

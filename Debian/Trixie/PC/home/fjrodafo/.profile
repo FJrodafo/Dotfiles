@@ -40,3 +40,8 @@ fi
 if [ -d "$HOME/.dotnet" ] ; then
     PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
 fi
+
+# set PATH so it includes rar if it exists
+if [ -d "$HOME/.rar" ] ; then
+    PATH="$HOME/.rar:$PATH"
+fi
