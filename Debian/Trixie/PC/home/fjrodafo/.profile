@@ -45,3 +45,8 @@ fi
 if [ -d "$HOME/.rar" ] ; then
     PATH="$HOME/.rar:$PATH"
 fi
+
+# set PATH so it includes 7zip if it exists
+if [ -d "$HOME/.7zip" ] ; then
+    PATH="$HOME/.7zip:$PATH"
+fi

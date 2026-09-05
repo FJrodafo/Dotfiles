@@ -3,6 +3,7 @@
 #  ╚═╝└─┘┴└─┴┴   ┴ └─┘
 alias activate-python-venv='source $HOME/Scripts/activate_python_venv.sh'
 alias backup='$HOME/Scripts/backup.sh'
+alias install-7zip='$HOME/Scripts/install-7zip.sh'
 alias install-dotnet='$HOME/Scripts/install-dotnet.sh'
 alias install-node-npm='$HOME/Scripts/install-node-npm.sh'
 alias install-rar='$HOME/Scripts/install-rar.sh'
