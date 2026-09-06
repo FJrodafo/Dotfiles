@@ -64,6 +64,10 @@ mv scripts.zip "$HARD_DRIVE"
 zip -P "$ZIP_PASSWORD" -r ssh.zip .ssh
 echo -e "${YELLOW}Saving ssh.zip${RESET}"
 mv ssh.zip "$HARD_DRIVE"
+# Desktop
+zip -P "$ZIP_PASSWORD" -r Desktop.zip Desktop
+echo -e "${YELLOW}Saving Desktop.zip${RESET}"
+mv Desktop.zip "$HARD_DRIVE"
 # Documents
 zip -P "$ZIP_PASSWORD" -r Documents.zip Documents
 echo -e "${YELLOW}Saving Documents.zip${RESET}"
