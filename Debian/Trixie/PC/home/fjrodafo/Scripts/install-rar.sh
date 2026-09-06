@@ -4,7 +4,7 @@ RAR_VERSION="723"
 RAR_BASE="rarlinux-x64-${RAR_VERSION}"
 RAR_FILE="${RAR_BASE}.tar.gz"
 RAR_DIR="$HOME/.rar"
-DOWNLOADS_DIR="$HOME/Downloads/Dev"
+DOWNLOADS_DIR="$HOME/Downloads/Applications/RAR"
 
 if command -v rar >/dev/null 2>&1 && command -v unrar >/dev/null 2>&1; then
     echo "You currently have RAR installed!"

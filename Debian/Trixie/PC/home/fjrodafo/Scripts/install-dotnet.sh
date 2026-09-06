@@ -4,7 +4,7 @@ DOTNET_VERSION="10.0.201"
 DOTNET_BASE="dotnet-sdk-${DOTNET_VERSION}-linux-x64"
 DOTNET_FILE="${DOTNET_BASE}.tar.gz"
 DOTNET_DIR="$HOME/.dotnet"
-DOWNLOADS_DIR="$HOME/Downloads/Dev"
+DOWNLOADS_DIR="$HOME/Downloads/Applications/dotNET"
 
 if command -v dotnet >/dev/null 2>&1; then
     echo "You currently have .NET installed!"
