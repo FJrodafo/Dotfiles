@@ -1,19 +1,19 @@
 #  ╔═╗┌─┐┬─┐┬┌─┐┌┬┐┌─┐
 #  ╚═╗│  ├┬┘│├─┘ │ └─┐
 #  ╚═╝└─┘┴└─┴┴   ┴ └─┘
-alias activate-python-venv='source $HOME/Scripts/activate_python_venv.sh'
-alias backup='$HOME/Scripts/backup.sh'
-alias install-7zip='$HOME/Scripts/install-7zip.sh'
-alias install-dotnet='$HOME/Scripts/install-dotnet.sh'
-alias install-node-npm='$HOME/Scripts/install-node-npm.sh'
-alias install-rar='$HOME/Scripts/install-rar.sh'
-alias loading='$HOME/Scripts/loading.sh'
-alias lorem-ipsum='$HOME/Scripts/lorem-ipsum.sh'
-alias os-time='$HOME/Scripts/os-time.sh'
-alias show-local-bins='$HOME/Scripts/show-local-bins.sh'
-alias show-path='$HOME/Scripts/show-path.sh'
-alias sort-text-file='$HOME/Scripts/sort-text-file.sh'
-alias update-linux-kernel='$HOME/Scripts/update-linux-kernel.sh'
+alias activate-python-venv='source $HOME/.scripts/activate_python_venv.sh'
+alias backup='$HOME/.scripts/backup.sh'
+alias install-7zip='$HOME/.scripts/install-7zip.sh'
+alias install-dotnet='$HOME/.scripts/install-dotnet.sh'
+alias install-node-npm='$HOME/.scripts/install-node-npm.sh'
+alias install-rar='$HOME/.scripts/install-rar.sh'
+alias loading='$HOME/.scripts/loading.sh'
+alias lorem-ipsum='$HOME/.scripts/lorem-ipsum.sh'
+alias os-time='$HOME/.scripts/os-time.sh'
+alias show-local-bins='$HOME/.scripts/show-local-bins.sh'
+alias show-path='$HOME/.scripts/show-path.sh'
+alias sort-text-file='$HOME/.scripts/sort-text-file.sh'
+alias update-linux-kernel='$HOME/.scripts/update-linux-kernel.sh'
 #  ╔╦╗┬┌─┐┌─┐┌─┐┬─┐┌┬┐
 #   ║║│└─┐│  │ │├┬┘ ││
 #  ═╩╝┴└─┘└─┘└─┘┴└──┴┘
