@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dolphin
+Comment=A GameCube and Wii emulator.
+Exec=/home/fjrodafo/Downloads/Applications/Dolphin/Dolphin.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/Dolphin/Dolphin.svg
+Terminal=false
+Type=Application
+Categories=Game;
