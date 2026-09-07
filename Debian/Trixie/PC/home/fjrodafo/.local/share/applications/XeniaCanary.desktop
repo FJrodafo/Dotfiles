@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=XeniaCanary
-Comment=Xbox 360 Emulator Research Project.
-Exec=/home/fjrodafo/Downloads/Applications/XeniaCanary/XeniaCanary.AppImage
-Icon=/home/fjrodafo/Downloads/Applications/XeniaCanary/XeniaCanary.svg
-Terminal=false
-Type=Application
-Categories=Game;

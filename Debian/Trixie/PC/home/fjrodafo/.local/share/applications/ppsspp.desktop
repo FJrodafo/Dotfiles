@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=PPSSPP
-Comment=A PSP emulator.
+Comment=The PlayStation Portable emulator.
 Exec=/home/fjrodafo/Downloads/Applications/PPSSPP/PPSSPP.AppImage
 Icon=/home/fjrodafo/Downloads/Applications/PPSSPP/PPSSPP.svg
 Terminal=false
