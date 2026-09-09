@@ -36,18 +36,14 @@ if [[ ! -e "$HARD_DRIVE" ]]; then
 fi
 
 cd "$HOME_DIR"
-# .gitconfig
-zip -P "$ZIP_PASSWORD" -r gitconfig.zip .gitconfig
-echo -e "${YELLOW}Saving gitconfig.zip${RESET}"
-mv gitconfig.zip "$HARD_DRIVE"
-# .npmrc
-zip -P "$ZIP_PASSWORD" -r npmrc.zip .npmrc
-echo -e "${YELLOW}Saving npmrc.zip${RESET}"
-mv npmrc.zip "$HARD_DRIVE"
 # .gem
 zip -P "$ZIP_PASSWORD" -r gem.zip .gem/credentials
 echo -e "${YELLOW}Saving gem.zip${RESET}"
 mv gem.zip "$HARD_DRIVE"
+# .gitconfig
+zip -P "$ZIP_PASSWORD" -r gitconfig.zip .gitconfig
+echo -e "${YELLOW}Saving gitconfig.zip${RESET}"
+mv gitconfig.zip "$HARD_DRIVE"
 # .gnupg
 zip -P "$ZIP_PASSWORD" -r gnupg.zip .gnupgbackup
 echo -e "${YELLOW}Saving gnupg.zip${RESET}"
@@ -56,6 +52,10 @@ mv gnupg.zip "$HARD_DRIVE"
 zip -P "$ZIP_PASSWORD" -r m2.zip .m2/settings.xml
 echo -e "${YELLOW}Saving m2.zip${RESET}"
 mv m2.zip "$HARD_DRIVE"
+# .npmrc
+zip -P "$ZIP_PASSWORD" -r npmrc.zip .npmrc
+echo -e "${YELLOW}Saving npmrc.zip${RESET}"
+mv npmrc.zip "$HARD_DRIVE"
 # .scripts
 zip -P "$ZIP_PASSWORD" -r scripts.zip .scripts
 echo -e "${YELLOW}Saving scripts.zip${RESET}"
