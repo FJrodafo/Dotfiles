@@ -19,4 +19,4 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 
 # Auto-Start Programs:
-feh --bg-fill --randomize ~/Pictures/Wallpapers/Desktop/* # Wallpaper
+feh --bg-fill --randomize ~/Pictures/Wallpapers/wallpaper.svg
