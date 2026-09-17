@@ -9,7 +9,7 @@
 
 ## Index
 
-1. [PC Specs](#pc-specifications)
+1. [PC Specs](#pc-specs)
 2. [Installation Process](#installation-process)
 3. [sudo + Packages](#sudo--packages)
 4. [bspwm + sxhkd](#bspwm--sxhkd)
