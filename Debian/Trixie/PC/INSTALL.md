@@ -32,8 +32,7 @@
 - **HEAT SINK:** Deepcool AK500 Zero Dark
 - **CPU:** AMD Ryzen 7 5700X3D 3/4.1GHz
 - **GPU:** ASUS Dual GeForce RTX 4060 Ti EVO OC Edition 16GB GDDR6
-- **RAM:** Corsair Vengeance LPX DDR4 8GB 3000MHz - White
-- **RAM:** Kingston FURY RGB DDR4 16GB
+- **RAM:** Corsair VENGEANCE LPX 32GB (2 x 16GB) DRAM DDR4 3200MHz PC4-25600 CL16 - Black
 - **DISK:** Kingston A400 SSD 960GB
 - **POWER:** Tacens Radix ECO III 650W
 - **TOWER:** NOX Hummer Quantum ARGB
