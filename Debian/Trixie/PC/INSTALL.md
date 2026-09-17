@@ -9,7 +9,7 @@
 
 ## Index
 
-1. [PC Specifications](#pc-specifications)
+1. [PC Specs](#pc-specifications)
 2. [Installation Process](#installation-process)
 3. [sudo + Packages](#sudo--packages)
 4. [bspwm + sxhkd](#bspwm--sxhkd)
@@ -26,7 +26,7 @@
 15. [Docker](#docker)
 16. [Open Broadcaster Software | OBS](#open-broadcaster-software--obs)
 
-## PC Specifications
+## PC Specs
 
 - **MOTHERBOARD:** Gigabyte B450M S2H
 - **HEAT SINK:** Deepcool AK500 Zero Dark
