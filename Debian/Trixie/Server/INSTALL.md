@@ -8,7 +8,7 @@
 
 ## Index
 
-1. [Laptop Specifications](#laptop-specifications)
+1. [Laptop Specs](#laptop-specs)
 2. [Installation Process](#installation-process)
 3. [sudo + Packages](#sudo--packages)
 4. [tty](#tty)
@@ -16,7 +16,7 @@
 6. [Docker](#docker)
 7. [PHP + Composer + Laravel installer](#php--composer--laravel-installer)
 
-## Laptop Specifications
+## Laptop Specs
 
 - **HOST:** Acer Caltech
 - **CPU:** Intel Celeron N3050 (2) @ 2.160GHz
