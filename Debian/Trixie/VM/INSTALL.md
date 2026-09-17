@@ -7,3 +7,11 @@
 </div>
 
 ## Index
+
+1. [Requirements](#requirements)
+
+## Requirements
+
+[virtualbox-7.2_7.2.18-175117~Debian~trixie_amd64.deb](https://www.virtualbox.org/)
+
+[debian-13.7.0-amd64-netinst.iso](https://www.debian.org/)
