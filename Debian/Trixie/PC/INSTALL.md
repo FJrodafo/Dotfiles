@@ -16,15 +16,16 @@
 5. [vscode + NVIDIA Drivers](#vscode--nvidia-drivers)
 6. [User Directories Configuration](#user-directories-configuration)
 7. [Mobile Device Detection](#mobile-device-detection)
-8. [Fonts and Cursor Themes](#fonts-and-cursor-themes)
-9. [Audio Setup](#audio-setup)
-10. [neofetch](#neofetch)
-11. [AppImage Launcher](#appimage-launcher)
-12. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
-13. [chroot](#chroot)
-14. [Change a user's password](#change-a-users-password)
-15. [Docker](#docker)
-16. [Open Broadcaster Software | OBS](#open-broadcaster-software--obs)
+8. [Laptop Touchpad](#laptop-touchpad)
+9. [Fonts and Cursor Themes](#fonts-and-cursor-themes)
+10. [Audio Setup](#audio-setup)
+11. [neofetch](#neofetch)
+12. [AppImage Launcher](#appimage-launcher)
+13. [Hiding Applications from Rofi](#hiding-applications-from-rofi)
+14. [chroot](#chroot)
+15. [Change a user's password](#change-a-users-password)
+16. [Docker](#docker)
+17. [Open Broadcaster Software | OBS](#open-broadcaster-software--obs)
 
 ## PC Specs
 
@@ -274,6 +275,21 @@ After installation, verify the driver:
 nvidia-smi
 ```
 
+Verify/Create 20-nvidia.conf
+
+```shell
+cat /etc/X11/xorg.conf.d/20-nvidia.conf
+sudo cat <<EOF > /etc/X11/xorg.conf.d/20-nvidia.conf
+Section "Device"
+	Identifier "Nvidia Card"
+	Driver "nvidia"
+	Option "TripleBuffer" "true"
+	Option "AllowIndirectGLXProtocol" "false"
+	Option "ForceFullCompositionPipeline" "true"
+EndSection
+EOF
+```
+
 Reboot the system to finalize the setup:
 
 ```shell
@@ -333,6 +349,26 @@ Package details:
 - `gvfs`, `gvfs-backends`, `gvfs-fuse` - Virtual filesystem services to enable automatic mounting and integration of devices in the file manager.
 
 Once installed, your mobile devices should be automatically detected and accessible via your file manager (e.g., Thunar).
+
+## Laptop Touchpad
+
+Create 40-libinput.conf
+
+```shell
+sudo apt update
+sudo apt install xserver-xorg-input-libinput
+sudo cat <<EOF > /etc/X11/xorg.conf.d/40-libinput.conf
+Section "InputClass"
+    Identifier "libinput touchpad catchall"
+    MatchIsTouchpad "on"
+    Driver "libinput"
+    Option "Tapping" "on"
+    Option "NaturalScrolling" "false"
+    Option "ClickMethod" "clickfinger"
+    Option "HorizontalScrolling" "true"
+EndSection
+EOF
+```
 
 ## Fonts and Cursor Themes
 
