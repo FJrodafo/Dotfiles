@@ -26,6 +26,10 @@ super + shift + {F2,F3}
 super + F4
 	amixer set Capture toggle
 
+# brightness
+super + {F5,F6}
+	brightnessctl s {5%-,5%+}
+
 # screenshots
 super + F12
 	maim --hidecursor ~/Pictures/Screenshots/IMG_$(date +%Y%m%d_%H%M%S).png
