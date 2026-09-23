@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo rm -rf /etc/X11/xorg.conf
+sudo rm /etc/X11/xorg.conf
 startx
