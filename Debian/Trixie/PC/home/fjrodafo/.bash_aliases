@@ -13,8 +13,8 @@ alias os-time='$HOME/.scripts/os-time.sh'
 alias show-local-bins='$HOME/.scripts/show-local-bins.sh'
 alias show-path='$HOME/.scripts/show-path.sh'
 alias sort-text-file='$HOME/.scripts/sort-text-file.sh'
-alias startx-drivers-nvidia='$HOME/.scripts/drivers/nvidia.sh'
-alias startx-drivers-universal='$HOME/.scripts/drivers/universal.sh'
+alias startx-nvidia-drivers='$HOME/.scripts/drivers/nvidia.sh'
+alias startx-universal-drivers='$HOME/.scripts/drivers/universal.sh'
 alias update-linux-kernel='$HOME/.scripts/update-linux-kernel.sh'
 #  ╔╦╗┬┌─┐┌─┐┌─┐┬─┐┌┬┐
 #   ║║│└─┐│  │ │├┬┘ ││
