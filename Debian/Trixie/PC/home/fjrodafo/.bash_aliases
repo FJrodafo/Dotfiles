@@ -39,6 +39,7 @@ alias prompt='alias | grep prompt'
 #  ║║║├┤ │ │├┤ ├┤  │ │  ├─┤
 #  ╝╚╝└─┘└─┘└  └─┘ ┴ └─┘┴ ┴
 alias neofetch-bunny='neofetch --config $HOME/.config/neofetch/bunny/config.conf --ascii $(find $HOME/.config/neofetch/bunny/ascii/ -type f -name "*.txt" | shuf -n 1)'
+alias neofetch-cat='neofetch --config $HOME/.config/neofetch/cat/config.conf --ascii $HOME/.config/neofetch/cat/ascii.txt'
 alias neofetch-debian-braille='neofetch --config $HOME/.config/neofetch/debian/config/braille.conf --ascii $HOME/.config/neofetch/debian/ascii/braille.txt'
 alias neofetch-debian-default='neofetch --config $HOME/.config/neofetch/debian/config/default.conf --ascii $HOME/.config/neofetch/debian/ascii/default.txt'
 alias neofetch-debian-thin='neofetch --config $HOME/.config/neofetch/debian/config/thin.conf --ascii $HOME/.config/neofetch/debian/ascii/thin.txt'
