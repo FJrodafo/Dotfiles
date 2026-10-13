@@ -273,7 +273,7 @@
         <td>Book mode</td>
     </tr>
     <tr>
-        <td><kbd>Shift</kbd> + <kbd>/</kbd></td>
+        <td><kbd>/</kbd></td>
         <td>Perform a search</td>
     </tr>
     <tr>
