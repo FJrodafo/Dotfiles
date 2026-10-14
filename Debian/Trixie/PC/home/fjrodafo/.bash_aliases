@@ -49,6 +49,12 @@ alias neofetch-nerd='neofetch --config $HOME/.config/neofetch/nerd/config.conf -
 #   ╚╝ ╩  ╝╚╝
 alias hunsterverse='cd $HOME/Documents/Games/Servers/HunsterVerse && sudo openvpn --config furanyu-1710367744__HVMAIN.ovpn'
 alias retroverze='cd $HOME/Documents/Games/Servers/RetroVerze && sudo openvpn --config RetroVerze.ovpn'
+#  ╦  ┌─┐┌─┐┌┬┐┌─┐┌─┐
+#  ║  ├─┤├─┘ │ │ │├─┘
+#  ╩═╝┴ ┴┴   ┴ └─┘┴
+alias bat='cat /sys/class/power_supply/BAT0/capacity'
+alias wifi-list='nmcli device wifi list'
+alias wifi-show='nmcli connection show'
 #  ╔═╗┬ ┬┌─┐┌┬┐┌─┐┌┬┐  ╔═╗┬ ┬┌┬┐┬┌─┐
 #  ╚═╗└┬┘└─┐ │ ├┤ │││  ╠═╣│ │ ││││ │
 #  ╚═╝ ┴ └─┘ ┴ └─┘┴ ┴  ╩ ╩└─┘─┴┘┴└─┘
