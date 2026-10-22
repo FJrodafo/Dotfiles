@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OpenRCT2
+Comment=An open source re-implementation of RollerCoaster Tycoon 2.
+Exec=/home/fjrodafo/Downloads/Applications/OpenRCT2/OpenRCT2.AppImage
+Icon=/home/fjrodafo/Downloads/Applications/OpenRCT2/OpenRCT2.svg
+Terminal=false
+Type=Application
+Categories=Game;
