@@ -312,15 +312,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Displays a random neofetch line
+# Displays a random neofetch & prompt line
 if [ "$TERM" = "xterm-kitty" ]; then
-    case $((RANDOM % 6)) in
-        0) neofetch-bunny ;;
-        1) neofetch-cat ;;
-        2) neofetch-debian-braille ;;
-        3) neofetch-debian-default ;;
-        4) neofetch-debian-thin ;;
-        5) neofetch-nerd ;;
+    case $((RANDOM % 7)) in
+        0) neofetch-bunny && classic-prompt ;;
+        1) neofetch-cat && thunder-prompt ;;
+        2) neofetch-debian-braille && classic-prompt ;;
+        3) neofetch-debian-default && default-prompt ;;
+        4) neofetch-debian-thin && classic-prompt ;;
+        5) neofetch-kali && kali-prompt ;;
+        6) neofetch-nerd && locked-prompt ;;
     esac
 fi
 
